@@ -1,1033 +1,862 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Style Gallery Pro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Style Gallery</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#f4f4f8;
+  --surface:#ffffff;
+  --border:#e2e2e8;
+  --border-strong:#c8c8d0;
+  --text:#0d0d12;
+  --text-sub:#888898;
+  --text-muted:#b0b0bc;
+  --accent:#5b5fef;
+  --accent-hover:#4a4edd;
+  --accent-bg:rgba(91,95,239,.08);
+  --accent-bg2:rgba(91,95,239,.15);
+  --radius:16px;
+  --radius-sm:10px;
+  --sidebar:240px;
+  --hh:58px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow:0 4px 16px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.14),0 4px 12px rgba(0,0,0,.06);
+}
+@font-face{font-family:'F1';src:url('https://files.catbox.moe/kmyipl.TTF') format('truetype');font-display:swap}
+@font-face{font-family:'F2';src:url('https://image.uglycat.cc/6wapca.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'F3';src:url('https://files.catbox.moe/3bm8wp.ttf') format('truetype');font-display:swap}
 
-        :root {
-            --bg-color: #f2f2f7;
-            --surface-color: #ffffff;
-            --text-main: #000000;
-            --text-sub: #8e8e93;
-            --border-color: #e5e5ea;
-            --accent-color: #007aff;
-            --accent-hover: #0063ce;
-            --card-radius: 16px;
-            --safe-inset: env(safe-area-inset-top, 0px);
-        }
+html{height:100%}
+body{
+  font-family:-apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;
+  background:var(--bg);color:var(--text);
+  height:100dvh;display:flex;flex-direction:column;overflow:hidden;line-height:1.5;
+}
 
-        @font-face {
-            font-family: 'CustomFont1';
-            src: url('https://files.catbox.moe/kmyipl.TTF') format('truetype');
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'CustomFont2';
-            src: url('https://image.uglycat.cc/6wapca.ttf') format('truetype');
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'CustomFont3';
-            src: url('https://files.catbox.moe/3bm8wp.ttf') format('truetype');
-            font-display: swap;
-        }
+.header{
+  height:var(--hh);background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;z-index:100;
+  transform:translateY(-100%);animation:slideDown .4s cubic-bezier(.22,1,.36,1) .05s forwards;
+}
+.brand{font-weight:800;font-size:16px;letter-spacing:-.5px;display:flex;align-items:center;gap:7px;flex-shrink:0;color:var(--text)}
+.brand-icon{width:28px;height:28px;background:linear-gradient(135deg,#5b5fef,#a855f7);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-icon svg{width:15px;height:15px;color:#fff}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            line-height: 1.5;
-        }
+.search-wrap{flex:1;max-width:320px;position:relative}
+.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--text-muted);pointer-events:none}
+.search-input{
+  width:100%;padding:8px 12px 8px 32px;border:1.5px solid var(--border);border-radius:10px;
+  font-size:13.5px;background:#f6f6fa;font-family:inherit;transition:all .18s;color:var(--text);
+}
+.search-input::placeholder{color:var(--text-muted)}
+.search-input:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-bg);outline:none}
 
-        /* --- Header --- */
-        header {
-            background: rgba(255, 255, 255, 0.85);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding: 0 20px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 100;
-        }
+.header-nav{display:flex;gap:2px;background:#eeeef4;padding:3px;border-radius:10px;margin-left:auto;flex-shrink:0}
+.nav-btn{
+  cursor:pointer;font-size:12.5px;font-weight:600;color:var(--text-sub);
+  padding:5px 14px;border-radius:7px;transition:all .15s;user-select:none;white-space:nowrap;
+}
+.nav-btn.active{background:#fff;color:var(--text);box-shadow:var(--shadow-sm)}
+.nav-btn:hover:not(.active){color:var(--text)}
 
-        .brand {
-            font-weight: 700;
-            font-size: 20px;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .brand svg { width: 24px; height: 24px; }
+.workspace{flex:1;display:flex;overflow:hidden;opacity:0;animation:fadeIn .35s ease .25s forwards}
 
-        .nav-tabs {
-            display: flex;
-            gap: 8px;
-            background: #e9e9eb;
-            padding: 4px;
-            border-radius: 10px;
-        }
+.sidebar{
+  width:var(--sidebar);flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;transition:width .3s cubic-bezier(.22,1,.36,1);
+}
+.sidebar.hidden{width:0}
+.sidebar-inner{flex:1;overflow-y:auto;overflow-x:hidden;padding:16px 12px;display:flex;flex-direction:column;gap:22px}
+.sidebar-inner::-webkit-scrollbar{width:3px}
+.sidebar-inner::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
 
-        .nav-item {
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-main);
-            padding: 6px 16px;
-            border-radius: 7px;
-            transition: all 0.2s;
-        }
+.s-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--text-muted);margin-bottom:9px;padding:0 4px}
+.type-list,.author-list{display:flex;flex-direction:column;gap:2px}
+.type-pill{
+  padding:8px 10px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;
+  transition:all .15s;color:var(--text-sub);display:flex;align-items:center;gap:9px;user-select:none;
+}
+.type-pill:hover{background:#f4f4f8;color:var(--text)}
+.type-pill.active{background:var(--accent-bg);color:var(--accent);font-weight:700}
+.type-pill svg{width:14px;height:14px;flex-shrink:0;opacity:.7}
+.type-pill.active svg{opacity:1}
+.pill-count{margin-left:auto;font-size:10px;font-weight:700;background:rgba(0,0,0,.06);padding:1px 7px;border-radius:20px;color:var(--text-muted)}
+.type-pill.active .pill-count{background:var(--accent-bg2);color:var(--accent)}
 
-        .nav-item.active {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+.author-chip{
+  padding:6px 10px;border-radius:8px;font-size:12.5px;cursor:pointer;transition:.15s;
+  color:var(--text-sub);user-select:none;display:flex;align-items:center;justify-content:space-between;
+}
+.author-chip:hover{background:#f4f4f8;color:var(--text)}
+.author-chip.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
+.author-chip-n{font-size:10.5px;opacity:.55}
 
-        /* --- Layout --- */
-        .view {
-            flex: 1;
-            display: flex;
-            overflow: hidden;
-            position: relative;
-        }
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
 
-        .gallery-view {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-        }
+.toolbar{
+  padding:10px 16px;border-bottom:1px solid var(--border);background:var(--surface);
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.toolbar-info{font-size:12px;color:var(--text-sub);font-weight:500}
+.mobile-filter-btn{
+  display:none;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--accent);
+  padding:5px 10px;border-radius:8px;background:var(--accent-bg);cursor:pointer;user-select:none;flex-shrink:0;
+}
+.mobile-filter-btn svg{width:13px;height:13px}
 
-        /* --- Sidebar / Gallery List --- */
-        .gallery-panel {
-            width: 380px;
-            min-width: 300px;
-            background: var(--surface-color);
-            border-right: 1px solid var(--border-color);
-            overflow-y: auto;
-            padding: 24px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 36px;
-        }
+.card-area{flex:1;overflow-y:auto;padding:16px}
+.card-area::-webkit-scrollbar{width:4px}
+.card-area::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
+.item-card{
+  background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:14px 15px;cursor:pointer;transition:all .18s cubic-bezier(.25,.46,.45,.94);
+  display:flex;flex-direction:column;gap:10px;
+  opacity:0;transform:translateY(10px);animation:cardIn .3s cubic-bezier(.22,1,.36,1) forwards;
+  position:relative;overflow:hidden;
+}
+.item-card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--radius);
+  background:linear-gradient(135deg,transparent 60%,rgba(91,95,239,.03));pointer-events:none;
+}
+.item-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow);transform:translateY(-2px)}
+.item-card.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-bg2),var(--shadow)}
 
-        .section-title {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-sub);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.card-name{font-size:14px;font-weight:700;line-height:1.3;color:var(--text)}
+.card-badge{
+  font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:5px;flex-shrink:0;
+  margin-top:2px;text-transform:uppercase;letter-spacing:.3px;
+}
+.badge-bubble{background:#e8f0ff;color:#3478f6}
+.badge-font{background:#f0eaff;color:#8b5cf6}
 
-        .card-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+.card-author{font-size:11.5px;color:var(--text-sub);background:#f4f4f8;padding:3px 8px;border-radius:6px;width:fit-content}
 
-        .option-card {
-            border: 1px solid var(--border-color);
-            border-radius: var(--card-radius);
-            padding: 16px;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: #fff;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.card-actions{display:flex;gap:6px;justify-content:flex-end;align-items:center;margin-top:2px}
+.btn-preview{
+  height:30px;padding:0 11px;border:1.5px solid var(--border);background:#fff;border-radius:8px;
+  display:flex;align-items:center;gap:5px;cursor:pointer;transition:.15s;color:var(--text-sub);font-size:11.5px;font-weight:600;
+  font-family:inherit;
+}
+.btn-preview:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.btn-preview svg{width:12px;height:12px}
+.btn-copy{
+  width:30px;height:30px;border:1.5px solid var(--border);background:#fff;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s;color:var(--text-sub);
+}
+.btn-copy:hover{border-color:var(--border-strong);color:var(--text);background:#f4f4f8}
+.btn-copy:active{transform:scale(.92)}
+.btn-copy svg{width:12.5px;height:12.5px;stroke-width:2.5}
 
-        .option-card:hover {
-            border-color: #bbb;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:14px}
+.empty-state svg{width:40px;height:40px;margin:0 auto 14px;display:block;opacity:.25}
 
-        .option-card.selected {
-            border-color: var(--accent-color);
-            background-color: #f0f7ff;
-            box-shadow: 0 0 0 1px var(--accent-color);
-        }
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
 
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+.modal{
+  background:var(--surface);border-radius:24px 24px 0 0;width:100%;max-width:600px;
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:translateY(100%);transition:transform .32s cubic-bezier(.22,1,.36,1);
+  max-height:88dvh;
+  box-shadow:0 -8px 40px rgba(0,0,0,.18);
+}
+.modal-backdrop.open .modal{transform:translateY(0)}
 
-        .card-name {
-            font-size: 16px;
-            font-weight: 600;
-        }
+@media(min-width:640px){
+  .modal-backdrop{align-items:center;padding:20px}
+  .modal{border-radius:24px;max-height:85dvh;transform:scale(.92) translateY(20px);max-width:560px}
+  .modal-backdrop.open .modal{transform:scale(1) translateY(0)}
+}
 
-        .card-author {
-            font-size: 12px;
-            color: var(--text-sub);
-            display: inline-block;
-            background: rgba(0,0,0,0.04);
-            padding: 2px 8px;
-            border-radius: 6px;
-            width: fit-content;
-        }
+.modal-handle{width:36px;height:4px;background:var(--border-strong);border-radius:2px;margin:12px auto 0;flex-shrink:0}
+.modal-header{padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--border)}
+.modal-title-area{display:flex;align-items:center;gap:10px}
+.modal-name{font-size:16px;font-weight:700;color:var(--text)}
+.modal-close{
+  width:30px;height:30px;border:none;background:#f0f0f5;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;cursor:pointer;color:var(--text-sub);transition:.15s;flex-shrink:0;
+}
+.modal-close:hover{background:#e4e4ea;color:var(--text)}
+.modal-close svg{width:14px;height:14px;stroke-width:2.5}
 
-        .card-actions {
-            display: flex;
-            gap: 8px;
-        }
+.modal-body{flex:1;overflow-y:auto;padding:18px 20px;background:#f9f9fc;display:flex;flex-direction:column;gap:10px}
+.modal-body::-webkit-scrollbar{width:3px}
+.modal-body::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
 
-        .btn-copy-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            z-index: 2;
-        }
-        .btn-copy-card:hover {
-            background: #f2f2f7;
-            transform: scale(1.05);
-        }
-        .btn-copy-card:active {
-            transform: scale(0.95);
-            background: #e5e5ea;
-        }
-        .btn-copy-card svg {
-            width: 16px;
-            height: 16px;
-            stroke-width: 2.5;
-        }
+.msg-row{display:flex;width:100%}
+.msg-row.sent{justify-content:flex-end}
+.msg-row.received{justify-content:flex-start}
+.message{max-width:76%;font-size:15px;padding:9px 14px;background:#e5e5ea;border-radius:18px;word-break:break-word;line-height:1.45}
+.message-sent{background:var(--accent);color:#fff}
 
-        /* --- Preview Area --- */
-        .preview-panel {
-            flex: 1;
-            background: #f2f2f7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background-image: radial-gradient(#d1d1d6 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
+.font-preview-box{background:#fff;border-radius:var(--radius);padding:24px;text-align:center;border:1px solid var(--border)}
+.font-big{font-size:32px;color:var(--text);margin-bottom:10px;line-height:1.3}
+.font-small{font-size:14px;color:var(--text-sub);line-height:2}
+.font-chars{font-size:18px;color:var(--text-muted);margin-top:10px;letter-spacing:.5px}
 
-        .chat-window {
-            width: min(390px, 90vw);
-            height: min(844px, 90vh);
-            background: #fff;
-            border-radius: 40px;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15), 0 0 0 10px #ffffff;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
+.modal-footer{
+  padding:12px 20px 20px;border-top:1px solid var(--border);background:var(--surface);
+  display:flex;flex-direction:column;gap:8px;flex-shrink:0;
+}
+.modal-footer-row{display:flex;gap:6px;flex-wrap:wrap}
+.font-switch-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.font-btn{
+  font-size:12px;padding:5px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;
+  background:#f6f6fa;transition:.15s;color:var(--text-sub);font-weight:600;font-family:inherit;
+}
+.font-btn:hover{border-color:var(--border-strong);color:var(--text)}
+.font-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.copy-css-btn{
+  width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:11px;
+  font-size:14px;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.copy-css-btn:hover{background:var(--accent-hover)}
+.copy-css-btn:active{transform:scale(.98)}
+.copy-css-btn svg{width:15px;height:15px}
 
-        .chat-header {
-            padding: 18px 16px;
-            border-bottom: 1px solid #f0f0f0;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(10px);
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            z-index: 10;
-        }
+.filter-drawer{
+  position:fixed;inset:0;z-index:400;pointer-events:none;
+}
+.filter-drawer-bg{
+  position:absolute;inset:0;background:rgba(0,0,0,.4);
+  opacity:0;transition:opacity .25s;pointer-events:none;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+}
+.filter-drawer.open .filter-drawer-bg{opacity:1;pointer-events:all}
+.filter-drawer-panel{
+  position:absolute;left:0;top:0;bottom:0;width:min(280px,80vw);background:var(--surface);
+  transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1);
+  overflow-y:auto;padding:24px 16px;display:flex;flex-direction:column;gap:22px;
+  box-shadow:var(--shadow-lg);
+}
+.filter-drawer.open .filter-drawer-panel{transform:translateX(0)}
 
-        .chat-body {
-            flex: 1;
-            padding: 20px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            overflow-y: auto;
-            background: #fff;
-            font-family: inherit;
-        }
+.submit-view{
+  display:none;flex:1;overflow-y:auto;background:var(--bg);
+  padding:32px 16px 48px;align-items:flex-start;justify-content:center;
+}
+.submit-view.active{display:flex}
+.submit-card{width:100%;max-width:540px;background:var(--surface);border-radius:24px;padding:32px 28px;box-shadow:var(--shadow)}
+.s-header{text-align:center;margin-bottom:28px}
+.s-header h2{font-size:22px;font-weight:800;margin-bottom:6px;letter-spacing:-.4px}
+.s-header p{color:var(--text-sub);font-size:13px}
+.s-type-row{display:flex;gap:8px;margin-bottom:28px}
+.s-type-btn{
+  flex:1;padding:10px;border:2px solid var(--border);background:transparent;border-radius:12px;
+  font-weight:700;font-size:13.5px;color:var(--text-sub);cursor:pointer;transition:.18s;font-family:inherit;
+}
+.s-type-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.form-panel{display:none;animation:fadeIn .22s ease}
+.form-panel.active{display:block}
+.fg{margin-bottom:18px}
+.fl{display:block;margin-bottom:5px;font-weight:700;font-size:13px;color:#333}
+.fl-sub{display:block;margin-bottom:7px;font-size:11px;color:#aaa;margin-top:-2px}
+.fi,.fta{
+  width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:11px;
+  font-size:14px;background:#f8f8fc;transition:all .18s;font-family:inherit;color:var(--text);
+}
+.fta{height:140px;font-family:'Menlo','Monaco',monospace;font-size:12px;line-height:1.5;resize:vertical}
+.fi:focus,.fta:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-bg);outline:none}
+.preview-inputs{display:flex;flex-direction:column;gap:7px;background:#f4f4f8;padding:12px;border-radius:12px}
+.pi-row{display:flex;align-items:center;gap:8px}
+.pi-tag{font-size:10px;font-weight:700;color:var(--text-muted);width:28px;text-align:right;flex-shrink:0}
+.pi-row .fi{background:#fff}
+.submit-btn{
+  background:var(--accent);color:#fff;border:none;padding:13px;border-radius:12px;
+  font-weight:700;font-size:15px;cursor:pointer;width:100%;transition:background .15s;
+  display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;
+}
+.submit-btn:hover{background:var(--accent-hover)}
+.submit-btn:active{transform:scale(.98)}
 
-        /* --- Bubble Base Styles --- */
-        .message-wrapper {
-            display: flex;
-            width: 100%;
-        }
-        .message-wrapper.sent { justify-content: flex-end; }
-        .message-wrapper.received { justify-content: flex-start; }
+#toast{
+  position:fixed;z-index:9999;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
+  background:rgba(15,15,20,.9);color:#fff;text-align:center;border-radius:50px;
+  padding:10px 22px;font-size:13px;font-weight:500;
+  box-shadow:0 6px 24px rgba(0,0,0,.25);backdrop-filter:blur(12px);
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-        .message {
-            max-width: 80%;
-            font-size: 16px;
-            padding: 10px 16px;
-            background: #e5e5ea;
-            border-radius: 18px;
-            word-break: break-word;
-        }
+@keyframes slideDown{to{transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 
-        /* --- Submission View --- */
-        .submit-view {
-            display: none;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            background-color: var(--bg-color);
-            padding: 32px 16px;
-            align-items: flex-start;
-            justify-content: center;
-        }
-        .submit-view.active { display: flex; }
-
-        .submit-container {
-            width: 100%;
-            max-width: 600px;
-            background: var(--surface-color);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            margin-bottom: 40px; /* Space for scroll */
-        }
-
-        .submit-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .submit-header h2 { font-size: 24px; margin-bottom: 8px; }
-        .submit-header p { color: var(--text-sub); font-size: 14px; }
-
-        .submit-type-selector {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            justify-content: center;
-        }
-
-        .type-btn {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid var(--border-color);
-            background: transparent;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 15px;
-            color: var(--text-sub);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .type-btn.active {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background: rgba(0, 122, 255, 0.05);
-        }
-
-        .form-panel { display: none; animation: fadeIn 0.3s ease; }
-        .form-panel.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        .form-group { margin-bottom: 24px; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #333; }
-        .form-sub-label { display: block; margin-bottom: 8px; font-size: 12px; color: #888; margin-top: -4px; }
-        
-        .form-input, .form-textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            font-size: 15px;
-            background: #f9f9f9;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-        .form-textarea { height: 160px; font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; line-height: 1.4; resize: vertical; }
-        .form-input:focus, .form-textarea:focus {
-            border-color: var(--accent-color);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-        }
-
-        /* New Style for Preview Inputs Column */
-        .preview-inputs-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: #f2f2f7;
-            padding: 16px;
-            border-radius: 16px;
-        }
-        .preview-input-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .preview-tag {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-sub);
-            width: 30px;
-            text-align: right;
-        }
-        .preview-input-row input {
-            background: #fff;
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-submit {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .btn-submit:hover { background: var(--accent-hover); }
-
-        /* --- Toast Notification --- */
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 50px;
-            padding: 12px 24px;
-            position: fixed;
-            z-index: 1000;
-            left: 50%;
-            bottom: 30px;
-            transform: translateX(-50%);
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 0.3s, bottom 0.3s;
-        }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-            bottom: 40px;
-        }
-
-        /* --- Media Queries --- */
-        @media (max-width: 820px) {
-            .gallery-view { flex-direction: column; }
-            .gallery-panel {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                height: 40vh;
-                min-height: 300px;
-                padding: 16px;
-            }
-            .preview-panel { min-height: 60vh; padding: 10px; }
-            .chat-window { width: 100%; height: 100%; border-radius: 28px; }
-            .submit-container { padding: 24px; border-radius: 20px; }
-        }
-
-        #dynamic-bubble-style { display: none; }
-    </style>
-    <style id="dynamic-bubble-style"></style>
+@media(max-width:768px){
+  .sidebar{display:none}
+  .mobile-filter-btn{display:flex}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+  .submit-card{padding:24px 18px}
+}
+@media(max-width:380px){
+  .card-grid{grid-template-columns:1fr 1fr}
+  :root{--hh:52px}
+  .search-wrap{max-width:160px}
+}
+@media(min-width:1200px){
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+}
+</style>
+<style id="dbs"></style>
 </head>
 <body>
 
-<header>
-    <div class="brand">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span>Style Gallery</span>
+<header class="header">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
     </div>
-    <div class="nav-tabs">
-        <div class="nav-item active" data-tab="gallery">画廊</div>
-        <div class="nav-item" data-tab="submit">投稿</div>
-    </div>
+    Style Gallery
+  </div>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" class="search-input" placeholder="搜索名称、作者…" id="search-input" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="header-nav">
+    <div class="nav-btn active" data-tab="gallery">画廊</div>
+    <div class="nav-btn" data-tab="submit">投稿</div>
+  </div>
 </header>
 
-<!-- Gallery View -->
-<div id="gallery-view" class="view gallery-view">
-    <aside class="gallery-panel">
-        
-        <!-- Bubble Section -->
-        <div>
-            <div class="section-header">
-                <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 
-                    聊天气泡
-                </div>
-            </div>
-            <div class="card-grid" id="bubble-list">
-                <!-- JS will inject cards here -->
-            </div>
-        </div>
+<div class="workspace" id="gallery-view">
 
-        <!-- Font Section -->
-        <div>
-            <div class="section-header">
-                <div class="section-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> 
-                    字体样式
-                </div>
-            </div>
-            <div class="card-grid" id="font-list">
-                <!-- JS will inject cards here -->
-            </div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div>
+        <div class="s-label">类型</div>
+        <div class="type-list" id="type-list">
+          <div class="type-pill active" data-type="all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            全部 <span class="pill-count" id="c-all">0</span>
+          </div>
+          <div class="type-pill" data-type="bubble">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            气泡 <span class="pill-count" id="c-bubble">0</span>
+          </div>
+          <div class="type-pill" data-type="font">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+            字体 <span class="pill-count" id="c-font">0</span>
+          </div>
         </div>
-
-    </aside>
-
-    <section class="preview-panel">
-        <div class="chat-window">
-            <div class="chat-header">预览 · 独立消息</div>
-            <div class="chat-body" id="preview-body"></div>
-        </div>
-    </section>
-</div>
-
-<!-- Submit View -->
-<div id="submit-view" class="view submit-view">
-    <div class="submit-container">
-        <div class="submit-header">
-            <h2>提交你的创意</h2>
-            <p>选择类型，填写信息，唤起邮件客户端发送</p>
-        </div>
-
-        <div class="submit-type-selector">
-            <button class="type-btn active" onclick="switchForm('bubble')">气泡投稿</button>
-            <button class="type-btn" onclick="switchForm('font')">字体投稿</button>
-        </div>
-
-        <!-- Bubble Form -->
-        <div class="form-panel active" id="form-bubble">
-            <div class="form-group">
-                <label class="form-label">气泡名称</label>
-                <input type="text" class="form-input" placeholder="给你的气泡起个名字" id="bubble-name">
-            </div>
-            <div class="form-group">
-                <label class="form-label">作者署名</label>
-                <input type="text" class="form-input" placeholder="展示用的昵称" id="bubble-author">
-            </div>
-            <div class="form-group">
-                <label class="form-label">CSS 代码</label>
-                <span class="form-sub-label">需包含 .message-sent 和 .message-received 类</span>
-                <textarea class="form-textarea" placeholder=".message-sent { ... }" id="bubble-css"></textarea>
-            </div>
-            <div class="form-group">
-                <label class="form-label">预览对话 (2~4条)</label>
-                <span class="form-sub-label">建议填写一问一答，留空则不提交该行</span>
-                <div class="preview-inputs-container">
-                    <div class="preview-input-row">
-                        <span class="preview-tag">发送</span>
-                        <input type="text" class="form-input" id="bubble-demo-1" placeholder="第一条消息">
-                    </div>
-                    <div class="preview-input-row">
-                        <span class="preview-tag">接收</span>
-                        <input type="text" class="form-input" id="bubble-demo-2" placeholder="第二条消息">
-                    </div>
-                    <div class="preview-input-row">
-                        <span class="preview-tag">发送</span>
-                        <input type="text" class="form-input" id="bubble-demo-3" placeholder="第三条消息 (可选)">
-                    </div>
-                    <div class="preview-input-row">
-                        <span class="preview-tag">接收</span>
-                        <input type="text" class="form-input" id="bubble-demo-4" placeholder="第四条消息 (可选)">
-                    </div>
-                </div>
-            </div>
-            <button class="btn-submit" onclick="submitToEmail('bubble')">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                唤起邮件客户端发送
-            </button>
-        </div>
-
-        <!-- Font Form -->
-        <div class="form-panel" id="form-font">
-            <div class="form-group">
-                <label class="form-label">字体名称</label>
-                <input type="text" class="form-input" placeholder="字体名" id="font-name">
-            </div>
-            <div class="form-group">
-                <label class="form-label">作者署名</label>
-                <input type="text" class="form-input" placeholder="昵称" id="font-author">
-            </div>
-            <div class="form-group">
-                <label class="form-label">@font-face 代码</label>
-                <span class="form-sub-label">请提供完整的 font-face 定义及 URL</span>
-                <textarea class="form-textarea" placeholder="@font-face { font-family: '...'; src: url('...'); }" id="font-css"></textarea>
-            </div>
-            <button class="btn-submit" onclick="submitToEmail('font')">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                唤起邮件客户端发送
-            </button>
-        </div>
+      </div>
+      <div>
+        <div class="s-label">作者</div>
+        <div class="author-list" id="author-list"></div>
+      </div>
     </div>
+  </div>
+
+  <div class="main">
+    <div class="toolbar">
+      <div class="mobile-filter-btn" id="mobile-filter-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        筛选
+      </div>
+      <span class="toolbar-info" id="toolbar-info">0 个结果</span>
+    </div>
+    <div class="card-area">
+      <div class="card-grid" id="card-grid"></div>
+    </div>
+  </div>
+
 </div>
 
-<!-- Toast Notification -->
-<div id="toast">已复制到剪贴板</div>
+<div class="submit-view" id="submit-view">
+  <div class="submit-card">
+    <div class="s-header">
+      <h2>提交你的创意</h2>
+      <p>选择类型，填写信息，通过邮件发送给我</p>
+    </div>
+    <div class="s-type-row">
+      <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡投稿</button>
+      <button class="s-type-btn" onclick="switchForm('font')">✦ 字体投稿</button>
+    </div>
+    <div class="form-panel active" id="form-bubble">
+      <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
+      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
+      <div class="fg">
+        <label class="fl">CSS 代码</label>
+        <span class="fl-sub">需包含 .message-sent 和 .message-received 类</span>
+        <textarea class="fta" id="bubble-css" placeholder=" "></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">预览对话（2～4 条）</label>
+        <span class="fl-sub">留空则跳过该行</span>
+        <div class="preview-inputs">
+          <div class="pi-row"><span class="pi-tag">发送</span><input type="text" class="fi" id="p1" placeholder="第一条消息"></div>
+          <div class="pi-row"><span class="pi-tag">接收</span><input type="text" class="fi" id="p2" placeholder="第二条消息"></div>
+          <div class="pi-row"><span class="pi-tag">发送</span><input type="text" class="fi" id="p3" placeholder="第三条（可选）"></div>
+          <div class="pi-row"><span class="pi-tag">接收</span><input type="text" class="fi" id="p4" placeholder="第四条（可选）"></div>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="doSubmit('bubble')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        唤起邮件客户端发送
+      </button>
+    </div>
+    <div class="form-panel" id="form-font">
+      <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体名称" id="font-name"></div>
+      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="昵称" id="font-author"></div>
+      <div class="fg">
+        <label class="fl">字体链接</label>
+        <span class="fl-sub">直链 URL，支持 .ttf / .otf / .woff2 等格式</span>
+        <input type="text" class="fi" placeholder="https://example.com/font.ttf" id="font-url">
+      </div>
+      <button class="submit-btn" onclick="doSubmit('font')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        唤起邮件客户端发送
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-title-area">
+        <div id="modal-badge"></div>
+        <span class="modal-name" id="modal-name">预览</span>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<div class="filter-drawer" id="filter-drawer">
+  <div class="filter-drawer-bg" id="filter-drawer-bg"></div>
+  <div class="filter-drawer-panel">
+    <div>
+      <div class="s-label">类型</div>
+      <div class="type-list" id="m-type-list">
+        <div class="type-pill active" data-type="all">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          全部 <span class="pill-count" id="mc-all">0</span>
+        </div>
+        <div class="type-pill" data-type="bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          聊天气泡 <span class="pill-count" id="mc-bubble">0</span>
+        </div>
+        <div class="type-pill" data-type="font">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          字体 <span class="pill-count" id="mc-font">0</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="s-label">作者</div>
+      <div class="author-list" id="m-author-list"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
 
 <script>
-    (function() {
-        // --- Data ---
-        // 注意：font对象中增加了 url 字段，用于复制
-        const fonts = [
-            { 
-                name: "京华体", id: "font1", family: "CustomFont1", author: "milk",
-                url: "https://files.catbox.moe/kmyipl.TTF",
-                css: "@font-face {\n  font-family: 'CustomFont1';\n  src: url('https://files.catbox.moe/kmyipl.TTF') format('truetype');\n  font-display: swap;\n}"
-            },
-            { 
-                name: "旧款冬", id: "font2", family: "CustomFont2", author: "讨厌香菜",
-                url: "https://image.uglycat.cc/6wapca.ttf",
-                css: "@font-face {\n  font-family: 'CustomFont2';\n  src: url('https://image.uglycat.cc/6wapca.ttf') format('truetype');\n  font-display: swap;\n}"
-            },
-            { 
-                name: "我有一点想你", id: "font3", family: "CustomFont3", author: "老猫",
-                url: "https://files.catbox.moe/3bm8wp.ttf",
-                css: "@font-face {\n  font-family: 'CustomFont3';\n  src: url('https://files.catbox.moe/3bm8wp.ttf') format('truetype');\n  font-display: swap;\n}"
-            }
-        ];
+(function(){
+'use strict';
 
-        const bubbles = [
-            {
-                name: "宝贝我无语了", author: "眠眠",
-                previews: [
-                    { type: 'sent', text: '我对自己的成功很满意' },
-                    { type: 'received', text: '你没有你想象的那么遭' }
-                ],
-                css: `.message {
-    box-shadow: none !important;
-    border-width: 0 !important;
-    font-weight: 500 !important;
-    position: relative;
-    overflow: visible !important;
+const FONTS = [
+  {id:'f1',type:'font',name:'京华体',author:'milk',family:'F1',url:'https://files.catbox.moe/kmyipl.TTF'},
+  {id:'f2',type:'font',name:'旧款冬',author:'讨厌香菜',family:'F2',url:'https://image.uglycat.cc/6wapca.ttf'},
+  {id:'f3',type:'font',name:'我有一点想你',author:'老猫',family:'F3',url:'https://files.catbox.moe/3bm8wp.ttf'}
+];
+
+const BUBBLES = [
+  {
+    id:'b1',type:'bubble',name:'宝贝我无语了',author:'眠眠',
+    previews:[{t:'sent',v:'我对自己的成功很满意'},{t:'received',v:'你没有你想象的那么遭'}],
+    css:`.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative;overflow:visible !important}
+.message::after{content:'' !important;position:absolute !important;width:0 !important;height:0 !important;border-style:solid !important}
+.message.message-sent::after{bottom:10px !important;right:-5px !important;border-width:4px 0 0 5px !important;border-color:transparent transparent transparent #F8F8F8 !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
+.message.message-received::after{bottom:10px !important;left:-5px !important;border-width:0 0 4px 5px !important;border-color:transparent transparent #fff transparent !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
+.message-sent::before{content:"•••" !important;position:absolute !important;top:-18px !important;left:-15px !important;font-size:6px !important;letter-spacing:.8px !important;color:#444 !important;background:#F8F8F8 !important;padding:3px 7px !important;border-radius:12px 8px 8px 12px !important;line-height:1 !important;font-weight:800 !important;text-align:center !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 6px rgba(160,160,160,.3),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.03) !important;z-index:3 !important}
+.message-received::before{content:"♥︎+520" !important;position:absolute !important;top:-12px !important;right:-35px !important;font-size:7px !important;letter-spacing:.4px !important;color:#F1BFCB !important;background:#fff !important;padding:3px 6px !important;border-radius:6px 10px 10px 6px !important;line-height:1 !important;font-weight:500 !important;text-align:center !important;white-space:nowrap !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 5px rgba(180,180,180,.2),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.02) !important;z-index:3 !important}
+.message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:-3px -3px 6px rgba(255,255,255,.8),4px 4px 8px rgba(180,180,180,.25),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.05) !important;position:relative}
+.message-sent{background:#F8F8F8 !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:-4px -4px 8px rgba(255,255,255,.9),5px 5px 10px rgba(150,150,150,.2),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.03) !important;position:relative;background-image:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#F8F8F8 70%) !important}`
+  },
+  {
+    id:'b2',type:'bubble',name:'小尾巴',author:'milk',
+    previews:[{t:'sent',v:'可是我不觉得我爱你'},{t:'received',v:'那你此刻愿意向我敞开心扉吗？'},{t:'sent',v:'愿意。'},{t:'received',v:'我的荣幸。'}],
+    css:`.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative !important;overflow:visible !important;padding:7px 13px !important;line-height:1.3 !important;word-break:break-word !important;border-radius:18px !important;box-shadow:0 2px 3px rgba(0,0,0,.1) !important}
+.message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(0,0,0,.15) !important}
+.message-sent{background:#ffe8ec !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(180,120,140,.3) !important}
+.message::after{content:'' !important;position:absolute !important;width:30px !important;height:15px !important;background-size:contain !important;background-repeat:no-repeat !important;z-index:0 !important}
+.message.message-sent::after{bottom:-4.1px !important;right:-19px !important;background-image:url('https://files.catbox.moe/pe52nt.png') !important;filter:drop-shadow(5.2px 4.1px 5px rgba(180,120,140,.4)) !important}
+.message.message-received::after{bottom:-3.9px !important;left:-6.6px !important;background-image:url('https://files.catbox.moe/9exvg6.png') !important;filter:drop-shadow(-3px 5px 4px rgba(0,0,0,.2)) !important}`
+  },
+  {
+    id:'b3',type:'bubble',name:'小气泡',author:'家夫是小猫^^',
+    previews:[{t:'sent',v:'我许愿一个有你的冬天'},{t:'received',v:'我四季都在'}],
+    css:`.message-sent{border-radius:16px 16px 0 16px !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px 0 3px auto !important;font-size:14px !important;color:#888 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}
+.message-received{border-radius:16px 16px 16px 0 !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px auto 3px 0 !important;font-size:14px !important;color:#555 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}`
+  }
+];
+
+const ALL = [...BUBBLES, ...FONTS];
+
+let state = {type:'all', author:'all', query:'', fontFamily:''};
+
+function toast(msg, dur=2800){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(()=>el.classList.remove('show'), dur);
 }
-.message::after {
-    content: '' !important;
-    position: absolute !important;
-    width: 0 !important;
-    height: 0 !important;
-    border-style: solid !important;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.08));
+
+function copyText(text, label){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>toast('✅ 已复制 ' + label));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText='position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); toast('✅ 已复制 ' + label); }
+    catch(e){ toast('❌ 复制失败'); }
+    document.body.removeChild(ta);
+  }
 }
-.message.message-sent::after {
-    bottom: 10px !important;
-    right: -5px !important;
-    border-width: 4px 0 0 5px !important;
-    border-color: transparent transparent transparent #F8F8F8 !important;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+
+function getFiltered(){
+  const q = state.query.toLowerCase();
+  return ALL.filter(item=>{
+    if(state.type !== 'all' && item.type !== state.type) return false;
+    if(state.author !== 'all' && item.author !== state.author) return false;
+    if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
+    return true;
+  });
 }
-.message.message-received::after {
-    bottom: 10px !important;
-    left: -5px !important;
-    border-width: 0 0 4px 5px !important;
-    border-color: transparent transparent #FFFFFF transparent !important;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+
+function countFor(type){
+  return ALL.filter(item=>{
+    if(type !== 'all' && item.type !== type) return false;
+    if(state.author !== 'all' && item.author !== state.author) return false;
+    const q = state.query.toLowerCase();
+    if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
+    return true;
+  }).length;
 }
-.message-sent::before {
-    content: "•••" !important;
-    position: absolute !important;
-    top: -18px !important;
-    left: -15px !important;
-    font-size: 6px !important;
-    letter-spacing: 0.8px !important;
-    color: #444444 !important;
-    background: #F8F8F8 !important;
-    padding: 3px 7px !important;
-    border-radius: 12px 8px 8px 12px !important;
-    line-height: 1 !important;
-    font-weight: 800 !important;
-    text-align: center !important;
-    box-shadow: 
-        -2px -2px 4px rgba(255, 255, 255, 0.9),
-        3px 3px 6px rgba(160, 160, 160, 0.3),
-        inset 1px 1px 2px rgba(255, 255, 255, 0.8),
-        inset -1px -1px 2px rgba(0, 0, 0, 0.03) !important;
-    z-index: 3 !important;
-    transition: all 0.2s ease;
+
+function renderCounts(){
+  ['all','bubble','font'].forEach(t=>{
+    const n = countFor(t);
+    ['c-'+t, 'mc-'+t].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.textContent = n;
+    });
+  });
 }
-.message-received::before {
-    content: "♥︎+520" !important;
-    position: absolute !important;
-    top: -12px !important;
-    right: -35px !important;
-    font-size: 7px !important;
-    letter-spacing: 0.4px !important;
-    color: #F1BFCB !important;  
-    background: #FFFFFF !important;
-    padding: 3px 6px !important;
-    border-radius: 6px 10px 10px 6px !important;
-    line-height: 1 !important;
-    font-weight: 500 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    box-shadow: 
-        -2px -2px 4px rgba(255, 255, 255, 0.9),
-        3px 3px 5px rgba(180, 180, 180, 0.2),
-        inset 1px 1px 2px rgba(255, 255, 255, 0.8),
-        inset -1px -1px 2px rgba(0, 0, 0, 0.02) !important;
-    z-index: 3 !important;
-    transition: all 0.2s ease;
+
+function renderAuthors(){
+  const authorMap = {};
+  ALL.forEach(i=>{ authorMap[i.author] = (authorMap[i.author]||0)+1; });
+
+  ['author-list','m-author-list'].forEach(listId=>{
+    const el = document.getElementById(listId);
+    if(!el) return;
+    el.innerHTML = '';
+
+    const allChip = document.createElement('div');
+    allChip.className = 'author-chip' + (state.author==='all'?' active':'');
+    allChip.dataset.author = 'all';
+    allChip.innerHTML = '全部 <span class="author-chip-n">'+ALL.length+'</span>';
+    allChip.onclick = ()=>setAuthor('all');
+    el.appendChild(allChip);
+
+    Object.entries(authorMap).forEach(([name,n])=>{
+      const d = document.createElement('div');
+      d.className = 'author-chip' + (state.author===name?' active':'');
+      d.dataset.author = name;
+      d.innerHTML = name + ' <span class="author-chip-n">'+n+'</span>';
+      d.onclick = ()=>setAuthor(name);
+      el.appendChild(d);
+    });
+  });
 }
-.message-received {
-    background: #FFFFFF !important;
-    border-color: transparent !important;
-    color: #000000 !important;
-    border-radius: 24px 24px 24px 4px !important;
-    padding: 8px 16px !important;
-    box-shadow: 
-        -3px -3px 6px rgba(255, 255, 255, 0.8),
-        4px 4px 8px rgba(180, 180, 180, 0.25),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.9),
-        inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
-    position: relative;
-    transition: all 0.2s ease;
+
+function renderCards(){
+  const grid = document.getElementById('card-grid');
+  grid.innerHTML = '';
+  const filtered = getFiltered();
+
+  document.getElementById('toolbar-info').textContent = filtered.length + ' 个结果';
+  renderCounts();
+
+  if(!filtered.length){
+    grid.innerHTML = `<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      没有找到匹配的内容
+    </div>`;
+    return;
+  }
+
+  filtered.forEach((item, i)=>{
+    const card = document.createElement('div');
+    card.className = 'item-card';
+    card.style.animationDelay = Math.min(i * 0.04, 0.3) + 's';
+
+    const badge = item.type==='bubble'
+      ? '<span class="card-badge badge-bubble">气泡</span>'
+      : '<span class="card-badge badge-font">字体</span>';
+    const nameStyle = item.type==='font' ? `style="font-family:${item.family}"` : '';
+    const copyIcon = item.type==='bubble'
+      ? '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'
+      : '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>';
+
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="card-name" ${nameStyle}>${item.name}</span>
+        ${badge}
+      </div>
+      <span class="card-author">${item.author}</span>
+      <div class="card-actions">
+        <button class="btn-preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          预览
+        </button>
+        <button class="btn-copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${copyIcon}</svg>
+        </button>
+      </div>
+    `;
+
+    card.querySelector('.btn-preview').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      openModal(item);
+    });
+    card.querySelector('.btn-copy').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      copyText(item.type==='bubble' ? item.css : item.url, item.type==='bubble' ? 'CSS' : '字体链接');
+    });
+    card.addEventListener('click', ()=>openModal(item));
+    grid.appendChild(card);
+  });
 }
-.message-received:active {
-    box-shadow: 
-        -2px -2px 4px rgba(255, 255, 255, 0.8),
-        2px 2px 4px rgba(180, 180, 180, 0.25),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.05),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.9) !important;
+
+function openModal(item){
+  const backdrop = document.getElementById('modal-backdrop');
+  const body     = document.getElementById('modal-body');
+  const footer   = document.getElementById('modal-footer');
+  const name     = document.getElementById('modal-name');
+  const badgeEl  = document.getElementById('modal-badge');
+
+  name.textContent = item.name;
+  badgeEl.innerHTML = item.type==='bubble'
+    ? '<span class="card-badge badge-bubble">气泡</span>'
+    : '<span class="card-badge badge-font">字体</span>';
+
+  body.innerHTML = '';
+  footer.innerHTML = '';
+
+  if(item.type === 'bubble'){
+    document.getElementById('dbs').textContent = item.css;
+
+    (item.previews || [{t:'sent',v:'你好'},{t:'received',v:'你好呀'}]).forEach(msg=>{
+      const row = document.createElement('div');
+      row.className = 'msg-row ' + msg.t;
+      const bub = document.createElement('div');
+      bub.className = 'message message-' + msg.t;
+      bub.textContent = msg.v;
+      row.appendChild(bub);
+      body.appendChild(row);
+    });
+
+    if(state.fontFamily) body.style.fontFamily = state.fontFamily;
+
+    // Font switcher
+    const switchLabel = document.createElement('div');
+    switchLabel.className = 'font-switch-label';
+    switchLabel.textContent = '切换字体';
+    footer.appendChild(switchLabel);
+
+    const fontRow = document.createElement('div');
+    fontRow.className = 'modal-footer-row';
+
+    const defBtn = document.createElement('button');
+    defBtn.className = 'font-btn' + (state.fontFamily==='' ? ' active' : '');
+    defBtn.textContent = '默认';
+    defBtn.onclick = ()=>{ state.fontFamily=''; body.style.fontFamily=''; renderFontBtns(fontRow, body); };
+    fontRow.appendChild(defBtn);
+
+    FONTS.forEach(f=>{
+      const btn = document.createElement('button');
+      btn.className = 'font-btn' + (state.fontFamily===f.family ? ' active' : '');
+      btn.style.fontFamily = f.family;
+      btn.textContent = f.name;
+      btn.onclick = ()=>{ state.fontFamily=f.family; body.style.fontFamily=f.family; renderFontBtns(fontRow, body); };
+      fontRow.appendChild(btn);
+    });
+    footer.appendChild(fontRow);
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-css-btn';
+    copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制 CSS 代码`;
+    copyBtn.onclick = ()=>copyText(item.css, 'CSS');
+    footer.appendChild(copyBtn);
+
+  } else {
+    document.getElementById('dbs').textContent = '';
+
+    const box = document.createElement('div');
+    box.className = 'font-preview-box';
+    box.innerHTML = `
+      <div class="font-big" style="font-family:${item.family}">字体预览<br>我许愿一个有你的冬天</div>
+      <div class="font-small" style="font-family:${item.family}">我四季都在<br>Aa Bb Cc 123</div>
+      <div class="font-chars" style="font-family:${item.family}">永远 爱你 思念</div>
+    `;
+    body.appendChild(box);
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-css-btn';
+    copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>复制字体链接`;
+    copyBtn.onclick = ()=>copyText(item.url, '字体链接');
+    footer.appendChild(copyBtn);
+  }
+
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-.message-sent {
-    background: #F8F8F8 !important;
-    border-color: transparent !important;
-    color: #000000 !important;
-    border-radius: 24px 24px 4px 24px !important;
-    padding: 8px 16px !important;
-    box-shadow: 
-        -4px -4px 8px rgba(255, 255, 255, 0.9),
-        5px 5px 10px rgba(150, 150, 150, 0.2),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.9),
-        inset -2px -2px 4px rgba(0, 0, 0, 0.03) !important;
-    position: relative;
-    transition: all 0.2s ease;
-    background-image: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.5) 0%, #F8F8F8 70%) !important;
+
+function renderFontBtns(row, body){
+  row.querySelectorAll('.font-btn').forEach(btn=>{
+    const isDefault = btn.textContent==='默认';
+    const isActive = isDefault ? state.fontFamily==='' : FONTS.some(f=>f.family===btn.style.fontFamily && f.family===state.fontFamily);
+    btn.classList.toggle('active', isActive);
+  });
 }
-.message-sent:active {
-    box-shadow: 
-        -2px -2px 4px rgba(255, 255, 255, 0.9),
-        3px 3px 6px rgba(150, 150, 150, 0.2),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.03),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.9) !important;
-}`
-            },
-            {
-                name: "小尾巴", author: "milk",
-                previews: [
-                    { type: 'sent', text: '可是我不觉得我爱你' },
-                    { type: 'received', text: '那你此刻愿意向我敞开心扉吗？' },
-                    { type: 'sent', text: '愿意。' },
-                    { type: 'received', text: '我的荣幸。' }
-                ],
-                css: `.message {
-  box-shadow: none !important;
-  border-width: 0 !important;
-  font-weight: 500 !important;
-  position: relative !important;
-  overflow: visible !important;
+
+function closeModal(){
+  document.getElementById('modal-backdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(()=>{ document.getElementById('dbs').textContent=''; }, 350);
 }
-.message {
-  padding: 7px 13px !important;
-  line-height: 1.3 !important;
-  word-break: break-word !important;
-  border-radius: 18px !important;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) !important;
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-backdrop').addEventListener('click', function(e){
+  if(e.target===this) closeModal();
+});
+
+// Swipe to close on mobile
+let touchStartY = 0;
+document.getElementById('modal').addEventListener('touchstart', e=>{
+  touchStartY = e.touches[0].clientY;
+}, {passive:true});
+document.getElementById('modal').addEventListener('touchend', e=>{
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if(dy > 80) closeModal();
+}, {passive:true});
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape') closeModal();
+});
+
+function setType(t){
+  state.type = t;
+  ['type-list','m-type-list'].forEach(id=>{
+    const list = document.getElementById(id);
+    if(!list) return;
+    list.querySelectorAll('.type-pill').forEach(p=>p.classList.toggle('active', p.dataset.type===t));
+  });
+  renderCards();
 }
-.message-received {
-  background: #ffffff !important;
-  border-color: transparent !important;
-  color: #000000 !important;
-  border-radius: 24px 24px 24px 4px !important;
-  padding: 8px 16px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+
+function setAuthor(a){
+  state.author = a;
+  renderAuthors();
+  renderCards();
 }
-.message-sent {
-  background: #ffe8ec !important;
-  border-color: transparent !important;
-  color: #000000 !important;
-  border-radius: 24px 24px 4px 24px !important;
-  padding: 8px 16px !important;
-  box-shadow: 0 4px 8px rgba(180, 120, 140, 0.3) !important;
-}
-.message::after {
-  content: '' !important;
-  position: absolute !important;
-  width: 30px !important;
-  height: 15px !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  z-index: 0 !important;
-}
-.message.message-sent::after {
-  bottom: -4.1px !important;
-  right: -19px !important;
-  background-image: url('https://files.catbox.moe/pe52nt.png') !important;
-  filter: drop-shadow(5.2px 4.1px 5px rgba(180, 120, 140, 0.4)) !important; 
-}
-.message.message-received::after {
-  bottom: -3.9px !important;
-  left: -6.6px !important;
-  background-image: url('https://files.catbox.moe/9exvg6.png') !important;
-  filter: drop-shadow(-3px 5px 4px rgba(0, 0, 0, 0.2)) !important;
-}`
-            }
-        ];
 
-        let currentBubble = 0;
-        let currentFont = 0;
+['type-list','m-type-list'].forEach(id=>{
+  const list = document.getElementById(id);
+  if(!list) return;
+  list.querySelectorAll('.type-pill').forEach(pill=>{
+    pill.addEventListener('click', ()=>setType(pill.dataset.type));
+  });
+});
 
-        // --- Core Functions ---
+document.getElementById('search-input').addEventListener('input', function(){
+  state.query = this.value.trim();
+  renderCards();
+});
 
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.className = 'show';
-            setTimeout(function(){ toast.className = toast.className.replace('show', ''); }, 3000);
-        }
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    const gv = document.getElementById('gallery-view');
+    const sv = document.getElementById('submit-view');
+    if(tab==='gallery'){
+      gv.style.display='flex'; sv.classList.remove('active');
+    } else {
+      gv.style.display='none'; sv.classList.add('active');
+    }
+  });
+});
 
-        function copyContent(text, label) {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(`✅ 已复制 ${label}`);
-                });
-            } else {
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                textArea.style.position = "fixed";
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showToast(`✅ 已复制 ${label}`);
-                } catch (err) {
-                    showToast('❌ 复制失败，请手动复制');
-                }
-                document.body.removeChild(textArea);
-            }
-        }
+document.getElementById('mobile-filter-btn').addEventListener('click', ()=>{
+  document.getElementById('filter-drawer').classList.add('open');
+});
+document.getElementById('filter-drawer-bg').addEventListener('click', ()=>{
+  document.getElementById('filter-drawer').classList.remove('open');
+});
 
-        function renderBubbleList() {
-            const container = document.getElementById('bubble-list');
-            container.innerHTML = '';
-            bubbles.forEach((b, i) => {
-                const card = document.createElement('div');
-                card.className = `option-card ${i === currentBubble ? 'selected' : ''}`;
-                
-                // Select Bubble
-                card.onclick = (e) => {
-                    if(e.target.closest('.btn-copy-card')) return;
-                    currentBubble = i;
-                    applyBubble();
-                    renderBubbleList();
-                    renderPreview();
-                };
+window.switchForm = function(type){
+  document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.s-type-btn').forEach((b,i)=>b.classList.toggle('active', (type==='bubble'&&i===0)||(type==='font'&&i===1)));
+  document.getElementById('form-'+type).classList.add('active');
+};
 
-                card.innerHTML = `
-                    <div class="card-info">
-                        <span class="card-name">${b.name}</span>
-                        <span class="card-author">${b.author}</span>
-                    </div>
-                    <div class="card-actions">
-                        <div class="btn-copy-card" title="复制CSS代码">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        </div>
-                    </div>
-                `;
+window.doSubmit = function(type){
+  const email='3152037224@qq.com', nl='\r\n';
+  let subject='', body='';
+  if(type==='bubble'){
+    const name   = document.getElementById('bubble-name').value.trim();
+    const author = document.getElementById('bubble-author').value.trim();
+    const css    = document.getElementById('bubble-css').value.trim();
+    const tags   = ['发送','接收','发送','接收'];
+    const demos  = [1,2,3,4].map(n=>document.getElementById('p'+n).value.trim());
+    if(!name || !css){ toast('⚠️ 请填写名称和 CSS 代码'); return; }
+    const dStr = demos.map((v,i)=>v?`${i+1}. (${tags[i]}) ${v}${nl}`:'').join('')||'（未填写）'+nl;
+    subject = `【气泡投稿】${name} - ${author||'匿名'}`;
+    body    = `投稿类型：聊天气泡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}CSS 代码：${nl}${css}${nl}${nl}预览对话：${nl}${dStr}`;
+  } else {
+    const name   = document.getElementById('font-name').value.trim();
+    const author = document.getElementById('font-author').value.trim();
+    const url    = document.getElementById('font-url').value.trim();
+    if(!name || !url){ toast('⚠️ 请填写名称和字体链接'); return; }
+    subject = `【字体投稿】${name} - ${author||'匿名'}`;
+    body    = `投稿类型：字体样式${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}字体链接：${nl}${url}`;
+  }
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  setTimeout(()=>toast('🚀 正在唤起邮件客户端…'), 200);
+};
 
-                // Copy Button Logic (Full CSS)
-                const copyBtn = card.querySelector('.btn-copy-card');
-                copyBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    copyContent(b.css, '气泡CSS');
-                };
+renderAuthors();
+renderCards();
 
-                container.appendChild(card);
-            });
-        }
-
-        function renderFontList() {
-            const container = document.getElementById('font-list');
-            container.innerHTML = '';
-            fonts.forEach((f, i) => {
-                const card = document.createElement('div');
-                card.className = `option-card ${i === currentFont ? 'selected' : ''}`;
-                
-                // Select Font
-                card.onclick = (e) => {
-                    if(e.target.closest('.btn-copy-card')) return;
-                    currentFont = i;
-                    applyFont();
-                    renderFontList();
-                };
-
-                card.innerHTML = `
-                    <div class="card-info">
-                        <span class="card-name" style="font-family:${f.family}">${f.name}</span>
-                        <span class="card-author">${f.author}</span>
-                    </div>
-                    <div class="card-actions">
-                        <div class="btn-copy-card" title="复制字体链接">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        </div>
-                    </div>
-                `;
-
-                // Copy Button Logic (URL Only)
-                const copyBtn = card.querySelector('.btn-copy-card');
-                copyBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    // 这里使用的是 f.url 而不是 f.css
-                    copyContent(f.url, '字体链接');
-                };
-
-                container.appendChild(card);
-            });
-        }
-
-        function applyBubble() {
-            const styleTag = document.getElementById('dynamic-bubble-style');
-            styleTag.innerHTML = bubbles[currentBubble].css;
-        }
-
-        function applyFont() {
-            const family = fonts[currentFont].family;
-            document.querySelector('.chat-window').style.fontFamily = family;
-            document.getElementById('preview-body').style.fontFamily = family;
-        }
-
-        function renderPreview() {
-            const body = document.getElementById('preview-body');
-            body.innerHTML = '';
-            const msgs = bubbles[currentBubble].previews || [
-                { type: 'sent', text: 'Hello!' }, { type: 'received', text: 'Hi there.' }
-            ];
-            msgs.forEach(msg => {
-                const wrapper = document.createElement('div');
-                wrapper.className = `message-wrapper ${msg.type}`;
-                const bubble = document.createElement('div');
-                bubble.className = `message message-${msg.type}`;
-                bubble.textContent = msg.text;
-                wrapper.appendChild(bubble);
-                body.appendChild(wrapper);
-            });
-        }
-
-        // --- Navigation ---
-        window.switchForm = function(type) {
-            document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(`form-${type}`).classList.add('active');
-            const btns = document.querySelectorAll('.type-btn');
-            if(type === 'bubble') btns[0].classList.add('active');
-            else btns[1].classList.add('active');
-        };
-
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navItems.forEach(n => n.classList.remove('active'));
-                item.classList.add('active');
-                
-                const tab = item.dataset.tab;
-                document.getElementById('gallery-view').style.display = tab === 'gallery' ? 'flex' : 'none';
-                
-                const submitView = document.getElementById('submit-view');
-                if (tab === 'submit') {
-                    submitView.classList.add('active');
-                } else {
-                    submitView.classList.remove('active');
-                }
-            });
-        });
-
-        // --- Submission Logic ---
-        window.submitToEmail = function(type) {
-            const myEmail = "3152037224@qq.com";
-            let subject = "";
-            let body = "";
-
-            if (type === 'bubble') {
-                const name = document.getElementById('bubble-name').value.trim();
-                const author = document.getElementById('bubble-author').value.trim();
-                const css = document.getElementById('bubble-css').value.trim();
-                
-                // 获取4条预览输入
-                const demo1 = document.getElementById('bubble-demo-1').value.trim();
-                const demo2 = document.getElementById('bubble-demo-2').value.trim();
-                const demo3 = document.getElementById('bubble-demo-3').value.trim();
-                const demo4 = document.getElementById('bubble-demo-4').value.trim();
-
-                // 组合非空的预览文案
-                let demoText = "";
-                if(demo1) demoText += `1. (发送) ${demo1}\n`;
-                if(demo2) demoText += `2. (接收) ${demo2}\n`;
-                if(demo3) demoText += `3. (发送) ${demo3}\n`;
-                if(demo4) demoText += `4. (接收) ${demo4}\n`;
-                if(!demoText) demoText = "（未填写预览文案）";
-
-                if(!name || !css) { showToast('⚠️ 请至少填写名称和CSS代码'); return; }
-
-                subject = `【气泡投稿】${name} - ${author || '匿名'}`;
-                body = `投稿类型：聊天气泡\n名称：${name}\n作者：${author}\n\nCSS 代码：\n${css}\n\n预览对话文案：\n${demoText}`;
-            } 
-            else if (type === 'font') {
-                const name = document.getElementById('font-name').value.trim();
-                const author = document.getElementById('font-author').value.trim();
-                const css = document.getElementById('font-css').value.trim();
-
-                if(!name || !css) { showToast('⚠️ 请至少填写名称和CSS代码'); return; }
-
-                subject = `【字体投稿】${name} - ${author || '匿名'}`;
-                body = `投稿类型：字体样式\n名称：${name}\n作者：${author}\n\nFont-face 代码：\n${css}`;
-            }
-
-            const mailtoLink = `mailto:${myEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-            setTimeout(() => { showToast('🚀 正在尝试唤起邮件客户端...'); }, 200);
-        };
-
-        // --- Init ---
-        applyBubble();
-        applyFont();
-        renderBubbleList();
-        renderFontList();
-        renderPreview();
-
-    })();
+})();
 </script>
 </body>
 </html>
