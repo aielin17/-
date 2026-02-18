@@ -18,6 +18,8 @@
   --accent-hover:#4a4edd;
   --accent-bg:rgba(91,95,239,.08);
   --accent-bg2:rgba(91,95,239,.15);
+  --fav:#ef4444;
+  --fav-bg:rgba(239,68,68,.08);
   --radius:16px;
   --radius-sm:10px;
   --sidebar:240px;
@@ -37,6 +39,7 @@ body{
   height:100dvh;display:flex;flex-direction:column;overflow:hidden;line-height:1.5;
 }
 
+/* ─── Header ─── */
 .header{
   height:var(--hh);background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
@@ -64,6 +67,7 @@ body{
 .nav-btn.active{background:#fff;color:var(--text);box-shadow:var(--shadow-sm)}
 .nav-btn:hover:not(.active){color:var(--text)}
 
+/* ─── Layout ─── */
 .workspace{flex:1;display:flex;overflow:hidden;opacity:0;animation:fadeIn .35s ease .25s forwards}
 
 .sidebar{
@@ -83,10 +87,12 @@ body{
 }
 .type-pill:hover{background:#f4f4f8;color:var(--text)}
 .type-pill.active{background:var(--accent-bg);color:var(--accent);font-weight:700}
+.type-pill.fav-pill.active{background:var(--fav-bg);color:var(--fav)}
 .type-pill svg{width:14px;height:14px;flex-shrink:0;opacity:.7}
 .type-pill.active svg{opacity:1}
 .pill-count{margin-left:auto;font-size:10px;font-weight:700;background:rgba(0,0,0,.06);padding:1px 7px;border-radius:20px;color:var(--text-muted)}
 .type-pill.active .pill-count{background:var(--accent-bg2);color:var(--accent)}
+.type-pill.fav-pill.active .pill-count{background:rgba(239,68,68,.15);color:var(--fav)}
 
 .author-chip{
   padding:6px 10px;border-radius:8px;font-size:12.5px;cursor:pointer;transition:.15s;
@@ -114,6 +120,7 @@ body{
 .card-area::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 
+/* ─── Cards ─── */
 .item-card{
   background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);
   padding:14px 15px;cursor:pointer;transition:all .18s cubic-bezier(.25,.46,.45,.94);
@@ -127,6 +134,7 @@ body{
 }
 .item-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow);transform:translateY(-2px)}
 .item-card.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-bg2),var(--shadow)}
+.item-card.favorited{border-color:rgba(239,68,68,.25)}
 
 .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .card-name{font-size:14px;font-weight:700;line-height:1.3;color:var(--text)}
@@ -147,17 +155,22 @@ body{
 }
 .btn-preview:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 .btn-preview svg{width:12px;height:12px}
-.btn-copy{
+.btn-icon{
   width:30px;height:30px;border:1.5px solid var(--border);background:#fff;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s;color:var(--text-sub);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s;color:var(--text-sub);flex-shrink:0;
 }
-.btn-copy:hover{border-color:var(--border-strong);color:var(--text);background:#f4f4f8}
-.btn-copy:active{transform:scale(.92)}
-.btn-copy svg{width:12.5px;height:12.5px;stroke-width:2.5}
+.btn-icon:hover{border-color:var(--border-strong);color:var(--text);background:#f4f4f8}
+.btn-icon:active{transform:scale(.92)}
+.btn-icon svg{width:12.5px;height:12.5px;stroke-width:2.5}
+.btn-fav{border:1.5px solid transparent;background:transparent;}
+.btn-fav:hover{border-color:var(--fav)!important;color:var(--fav)!important;background:var(--fav-bg)!important}
+.btn-fav.on{color:var(--fav)!important;border-color:rgba(239,68,68,.3)!important;background:var(--fav-bg)!important}
+.btn-fav svg{width:13px;height:13px;stroke-width:2}
 
 .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:14px}
 .empty-state svg{width:40px;height:40px;margin:0 auto 14px;display:block;opacity:.25}
 
+/* ─── Preview Modal ─── */
 .modal-backdrop{
   position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;
   display:flex;align-items:flex-end;justify-content:center;
@@ -185,6 +198,14 @@ body{
 .modal-header{padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid var(--border)}
 .modal-title-area{display:flex;align-items:center;gap:10px}
 .modal-name{font-size:16px;font-weight:700;color:var(--text)}
+.modal-header-actions{display:flex;align-items:center;gap:6px}
+.modal-fav-btn{
+  width:30px;height:30px;border:1.5px solid transparent;background:transparent;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);transition:.15s;
+}
+.modal-fav-btn:hover{color:var(--fav);background:var(--fav-bg)}
+.modal-fav-btn.on{color:var(--fav);background:var(--fav-bg)}
+.modal-fav-btn svg{width:15px;height:15px;stroke-width:2}
 .modal-close{
   width:30px;height:30px;border:none;background:#f0f0f5;border-radius:50%;display:flex;
   align-items:center;justify-content:center;cursor:pointer;color:var(--text-sub);transition:.15s;flex-shrink:0;
@@ -207,12 +228,16 @@ body{
 .font-small{font-size:14px;color:var(--text-sub);line-height:2}
 .font-chars{font-size:18px;color:var(--text-muted);margin-top:10px;letter-spacing:.5px}
 
+/* ─── Modal Footer / Font switcher ─── */
 .modal-footer{
   padding:12px 20px 20px;border-top:1px solid var(--border);background:var(--surface);
-  display:flex;flex-direction:column;gap:8px;flex-shrink:0;
+  display:flex;flex-direction:column;gap:10px;flex-shrink:0;
 }
+.font-cat-section{display:flex;flex-direction:column;gap:5px}
+.font-cat-header{display:flex;align-items:center;gap:7px}
+.font-switch-label{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.font-cat-name{font-size:10px;font-weight:700;color:var(--text-muted);background:#f0f0f5;padding:2px 7px;border-radius:4px;letter-spacing:.3px}
 .modal-footer-row{display:flex;gap:6px;flex-wrap:wrap}
-.font-switch-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
 .font-btn{
   font-size:12px;padding:5px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;
   background:#f6f6fa;transition:.15s;color:var(--text-sub);font-weight:600;font-family:inherit;
@@ -228,6 +253,7 @@ body{
 .copy-css-btn:active{transform:scale(.98)}
 .copy-css-btn svg{width:15px;height:15px}
 
+/* ─── Mobile Filter Drawer (FIX: pointer-events) ─── */
 .filter-drawer{
   position:fixed;inset:0;z-index:400;pointer-events:none;
 }
@@ -241,10 +267,12 @@ body{
   position:absolute;left:0;top:0;bottom:0;width:min(280px,80vw);background:var(--surface);
   transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1);
   overflow-y:auto;padding:24px 16px;display:flex;flex-direction:column;gap:22px;
-  box-shadow:var(--shadow-lg);
+  box-shadow:var(--shadow-lg);pointer-events:none; /* closed: no events */
 }
-.filter-drawer.open .filter-drawer-panel{transform:translateX(0)}
+/* FIX: open panel gets pointer events */
+.filter-drawer.open .filter-drawer-panel{transform:translateX(0);pointer-events:all}
 
+/* ─── Submit View ─── */
 .submit-view{
   display:none;flex:1;overflow-y:auto;background:var(--bg);
   padding:32px 16px 48px;align-items:flex-start;justify-content:center;
@@ -278,11 +306,40 @@ body{
 .submit-btn{
   background:var(--accent);color:#fff;border:none;padding:13px;border-radius:12px;
   font-weight:700;font-size:15px;cursor:pointer;width:100%;transition:background .15s;
-  display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;margin-bottom:10px;
 }
 .submit-btn:hover{background:var(--accent-hover)}
 .submit-btn:active{transform:scale(.98)}
 
+/* ─── Submit Fallback Panel ─── */
+.fallback-panel{
+  display:none;background:#f8f8fc;border:1.5px solid var(--border);border-radius:14px;
+  padding:18px;margin-top:4px;
+}
+.fallback-panel.show{display:block}
+.fallback-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.fallback-desc{font-size:12px;color:var(--text-sub);margin-bottom:12px;line-height:1.5}
+.fallback-to{
+  font-size:12px;background:#fff;border:1.5px solid var(--border);border-radius:9px;
+  padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.fallback-to strong{color:var(--accent);font-weight:700;word-break:break-all}
+.fallback-code{
+  width:100%;font-family:'Menlo','Monaco',monospace;font-size:11px;line-height:1.6;
+  background:#fff;border:1.5px solid var(--border);border-radius:9px;
+  padding:10px 12px;color:var(--text);resize:none;height:180px;
+}
+.fallback-code:focus{outline:none;border-color:var(--accent)}
+.fallback-btns{display:flex;gap:8px;margin-top:10px}
+.fb-btn{
+  flex:1;padding:10px;border:1.5px solid var(--border);background:#fff;border-radius:10px;
+  font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s;font-family:inherit;color:var(--text-sub);
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.fb-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.fb-btn svg{width:12px;height:12px}
+
+/* ─── Toast ─── */
 #toast{
   position:fixed;z-index:9999;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
   background:rgba(15,15,20,.9);color:#fff;text-align:center;border-radius:50px;
@@ -353,6 +410,10 @@ body{
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
             字体 <span class="pill-count" id="c-font">0</span>
           </div>
+          <div class="type-pill fav-pill" data-type="fav">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            收藏 <span class="pill-count" id="c-fav">0</span>
+          </div>
         </div>
       </div>
       <div>
@@ -377,6 +438,7 @@ body{
 
 </div>
 
+<!-- Submit View -->
 <div class="submit-view" id="submit-view">
   <div class="submit-card">
     <div class="s-header">
@@ -387,6 +449,8 @@ body{
       <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡投稿</button>
       <button class="s-type-btn" onclick="switchForm('font')">✦ 字体投稿</button>
     </div>
+
+    <!-- Bubble Form -->
     <div class="form-panel active" id="form-bubble">
       <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
@@ -409,7 +473,32 @@ body{
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         唤起邮件客户端发送
       </button>
+      <!-- Fallback -->
+      <div class="fallback-panel" id="fallback-bubble">
+        <div class="fallback-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          没有邮件客户端？手动发送
+        </div>
+        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
+        <div class="fallback-to">
+          <span>收件地址</span>
+          <strong id="fb-email-b">3152037224@qq.com</strong>
+        </div>
+        <textarea class="fallback-code" id="fb-content-bubble" readonly></textarea>
+        <div class="fallback-btns">
+          <button class="fb-btn" onclick="copyFallback('bubble')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            复制投稿内容
+          </button>
+          <button class="fb-btn" onclick="copyEmail('bubble')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            复制收件地址
+          </button>
+        </div>
+      </div>
     </div>
+
+    <!-- Font Form -->
     <div class="form-panel" id="form-font">
       <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体名称" id="font-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="昵称" id="font-author"></div>
@@ -418,14 +507,51 @@ body{
         <span class="fl-sub">直链 URL，支持 .ttf / .otf / .woff2 等格式</span>
         <input type="text" class="fi" placeholder="https://example.com/font.ttf" id="font-url">
       </div>
+      <div class="fg">
+        <label class="fl">字体分类</label>
+        <span class="fl-sub">方便整理归档</span>
+        <select class="fi" id="font-category">
+          <option value="手写">手写体</option>
+          <option value="衬线">衬线体</option>
+          <option value="无衬线">无衬线体</option>
+          <option value="艺术">艺术字</option>
+          <option value="等宽">等宽体</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
       <button class="submit-btn" onclick="doSubmit('font')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         唤起邮件客户端发送
       </button>
+      <!-- Fallback -->
+      <div class="fallback-panel" id="fallback-font">
+        <div class="fallback-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          没有邮件客户端？手动发送
+        </div>
+        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
+        <div class="fallback-to">
+          <span>收件地址</span>
+          <strong id="fb-email-f">3152037224@qq.com</strong>
+        </div>
+        <textarea class="fallback-code" id="fb-content-font" readonly></textarea>
+        <div class="fallback-btns">
+          <button class="fb-btn" onclick="copyFallback('font')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            复制投稿内容
+          </button>
+          <button class="fb-btn" onclick="copyEmail('font')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            复制收件地址
+          </button>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
 
+<!-- Preview Modal -->
 <div class="modal-backdrop" id="modal-backdrop">
   <div class="modal" id="modal" role="dialog" aria-modal="true">
     <div class="modal-handle"></div>
@@ -434,15 +560,21 @@ body{
         <div id="modal-badge"></div>
         <span class="modal-name" id="modal-name">预览</span>
       </div>
-      <button class="modal-close" id="modal-close" aria-label="关闭">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
+      <div class="modal-header-actions">
+        <button class="modal-fav-btn" id="modal-fav-btn" title="收藏">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="modal-close" id="modal-close" aria-label="关闭">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
     </div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer" id="modal-footer"></div>
   </div>
 </div>
 
+<!-- Mobile Filter Drawer -->
 <div class="filter-drawer" id="filter-drawer">
   <div class="filter-drawer-bg" id="filter-drawer-bg"></div>
   <div class="filter-drawer-panel">
@@ -461,6 +593,10 @@ body{
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
           字体 <span class="pill-count" id="mc-font">0</span>
         </div>
+        <div class="type-pill fav-pill" data-type="fav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          收藏 <span class="pill-count" id="mc-fav">0</span>
+        </div>
       </div>
     </div>
     <div>
@@ -476,10 +612,30 @@ body{
 (function(){
 'use strict';
 
+// ─── LocalStorage helpers ───────────────────────────────────
+const LS_FAV   = 'sg_favorites';
+const LS_FONT  = 'sg_last_font';
+
+function loadFavs(){
+  try{ return JSON.parse(localStorage.getItem(LS_FAV)||'[]'); }catch(e){ return []; }
+}
+function saveFavs(arr){
+  try{ localStorage.setItem(LS_FAV, JSON.stringify(arr)); }catch(e){}
+}
+function loadFont(){
+  try{ return localStorage.getItem(LS_FONT)||''; }catch(e){ return ''; }
+}
+function saveFont(f){
+  try{ localStorage.setItem(LS_FONT, f); }catch(e){}
+}
+
+let favorites = loadFavs(); // array of item IDs
+
+// ─── Data ───────────────────────────────────────────────────
 const FONTS = [
-  {id:'f1',type:'font',name:'京华体',author:'milk',family:'F1',url:'https://files.catbox.moe/kmyipl.TTF'},
-  {id:'f2',type:'font',name:'旧款冬',author:'讨厌香菜',family:'F2',url:'https://image.uglycat.cc/6wapca.ttf'},
-  {id:'f3',type:'font',name:'我有一点想你',author:'老猫',family:'F3',url:'https://files.catbox.moe/3bm8wp.ttf'}
+  {id:'f1',type:'font',name:'京华体',  author:'milk',       family:'F1',category:'手写',url:'https://files.catbox.moe/kmyipl.TTF'},
+  {id:'f2',type:'font',name:'旧款冬',  author:'讨厌香菜',   family:'F2',category:'手写',url:'https://image.uglycat.cc/6wapca.ttf'},
+  {id:'f3',type:'font',name:'我有一点想你',author:'老猫',   family:'F3',category:'手写',url:'https://files.catbox.moe/3bm8wp.ttf'}
 ];
 
 const BUBBLES = [
@@ -515,8 +671,10 @@ const BUBBLES = [
 
 const ALL = [...BUBBLES, ...FONTS];
 
-let state = {type:'all', author:'all', query:'', fontFamily:''};
+let state = { type:'all', author:'all', query:'', fontFamily: loadFont() };
+let currentModalItem = null;
 
+// ─── Utilities ──────────────────────────────────────────────
 function toast(msg, dur=2800){
   const el = document.getElementById('toast');
   el.textContent = msg;
@@ -538,11 +696,42 @@ function copyText(text, label){
   }
 }
 
+// ─── Favorites ──────────────────────────────────────────────
+function isFav(id){ return favorites.includes(id); }
+
+function toggleFav(id){
+  if(isFav(id)){
+    favorites = favorites.filter(f=>f!==id);
+  } else {
+    favorites.push(id);
+  }
+  saveFavs(favorites);
+  updateFavCounts();
+  // Update card visual if visible
+  const cards = document.querySelectorAll('#card-grid .item-card');
+  cards.forEach(c=>{ if(c.dataset.id===id){ c.classList.toggle('favorited', isFav(id)); } });
+  // Update fav button in modal
+  const mb = document.getElementById('modal-fav-btn');
+  if(currentModalItem && currentModalItem.id===id){
+    mb.classList.toggle('on', isFav(id));
+    mb.title = isFav(id) ? '取消收藏' : '收藏';
+  }
+  // Refresh if in fav view
+  if(state.type==='fav') renderCards();
+}
+
+function updateFavCounts(){
+  const n = favorites.filter(id=>ALL.some(i=>i.id===id)).length;
+  ['c-fav','mc-fav'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=n; });
+}
+
+// ─── Filter & Render ────────────────────────────────────────
 function getFiltered(){
   const q = state.query.toLowerCase();
   return ALL.filter(item=>{
-    if(state.type !== 'all' && item.type !== state.type) return false;
-    if(state.author !== 'all' && item.author !== state.author) return false;
+    if(state.type==='fav' && !isFav(item.id)) return false;
+    if(state.type!=='all' && state.type!=='fav' && item.type!==state.type) return false;
+    if(state.author!=='all' && item.author!==state.author) return false;
     if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
     return true;
   });
@@ -550,8 +739,9 @@ function getFiltered(){
 
 function countFor(type){
   return ALL.filter(item=>{
-    if(type !== 'all' && item.type !== type) return false;
-    if(state.author !== 'all' && item.author !== state.author) return false;
+    if(type==='fav' && !isFav(item.id)) return false;
+    if(type!=='all' && type!=='fav' && item.type!==type) return false;
+    if(state.author!=='all' && item.author!==state.author) return false;
     const q = state.query.toLowerCase();
     if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
     return true;
@@ -559,7 +749,7 @@ function countFor(type){
 }
 
 function renderCounts(){
-  ['all','bubble','font'].forEach(t=>{
+  ['all','bubble','font','fav'].forEach(t=>{
     const n = countFor(t);
     ['c-'+t, 'mc-'+t].forEach(id=>{
       const el = document.getElementById(id);
@@ -606,15 +796,16 @@ function renderCards(){
   if(!filtered.length){
     grid.innerHTML = `<div class="empty-state">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      没有找到匹配的内容
+      ${state.type==='fav' ? '还没有收藏，点击 ♡ 收藏喜欢的样式' : '没有找到匹配的内容'}
     </div>`;
     return;
   }
 
   filtered.forEach((item, i)=>{
     const card = document.createElement('div');
-    card.className = 'item-card';
+    card.className = 'item-card' + (isFav(item.id)?' favorited':'');
     card.style.animationDelay = Math.min(i * 0.04, 0.3) + 's';
+    card.dataset.id = item.id;
 
     const badge = item.type==='bubble'
       ? '<span class="card-badge badge-bubble">气泡</span>'
@@ -623,6 +814,7 @@ function renderCards(){
     const copyIcon = item.type==='bubble'
       ? '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'
       : '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>';
+    const favOn = isFav(item.id);
 
     card.innerHTML = `
       <div class="card-top">
@@ -635,36 +827,44 @@ function renderCards(){
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           预览
         </button>
-        <button class="btn-copy">
+        <button class="btn-icon btn-fav ${favOn?'on':''}" title="${favOn?'取消收藏':'收藏'}">
+          <svg viewBox="0 0 24 24" fill="${favOn?'currentColor':'none'}" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="btn-icon" title="复制">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">${copyIcon}</svg>
         </button>
       </div>
     `;
 
-    card.querySelector('.btn-preview').addEventListener('click', (e)=>{
-      e.stopPropagation();
-      openModal(item);
-    });
-    card.querySelector('.btn-copy').addEventListener('click', (e)=>{
-      e.stopPropagation();
-      copyText(item.type==='bubble' ? item.css : item.url, item.type==='bubble' ? 'CSS' : '字体链接');
-    });
+    card.querySelector('.btn-preview').addEventListener('click', e=>{ e.stopPropagation(); openModal(item); });
+    card.querySelector('.btn-fav').addEventListener('click', e=>{ e.stopPropagation(); toggleFav(item.id); const b=e.currentTarget; const on=isFav(item.id); b.classList.toggle('on',on); b.title=on?'取消收藏':'收藏'; b.querySelector('svg').setAttribute('fill',on?'currentColor':'none'); });
+    card.querySelector('.btn-icon:last-child').addEventListener('click', e=>{ e.stopPropagation(); copyText(item.type==='bubble'?item.css:item.url, item.type==='bubble'?'CSS':'字体链接'); });
     card.addEventListener('click', ()=>openModal(item));
     grid.appendChild(card);
   });
 }
 
+// ─── Modal ──────────────────────────────────────────────────
 function openModal(item){
+  currentModalItem = item;
   const backdrop = document.getElementById('modal-backdrop');
   const body     = document.getElementById('modal-body');
   const footer   = document.getElementById('modal-footer');
   const name     = document.getElementById('modal-name');
   const badgeEl  = document.getElementById('modal-badge');
+  const favBtn   = document.getElementById('modal-fav-btn');
 
   name.textContent = item.name;
   badgeEl.innerHTML = item.type==='bubble'
     ? '<span class="card-badge badge-bubble">气泡</span>'
     : '<span class="card-badge badge-font">字体</span>';
+
+  // Fav button in modal header
+  const favOn = isFav(item.id);
+  favBtn.classList.toggle('on', favOn);
+  favBtn.title = favOn ? '取消收藏' : '收藏';
+  favBtn.querySelector('svg').setAttribute('fill', favOn ? 'currentColor' : 'none');
+  favBtn.onclick = ()=>toggleFav(item.id);
 
   body.innerHTML = '';
   footer.innerHTML = '';
@@ -682,32 +882,63 @@ function openModal(item){
       body.appendChild(row);
     });
 
-    if(state.fontFamily) body.style.fontFamily = state.fontFamily;
+    // Font switcher area (for bubbles)
+    const modalState = { fontFamily: state.fontFamily };
+    body.style.fontFamily = modalState.fontFamily;
 
-    // Font switcher
+    // Group fonts by category
+    const catMap = {};
+    FONTS.forEach(f=>{
+      const cat = f.category || '其他';
+      if(!catMap[cat]) catMap[cat]=[];
+      catMap[cat].push(f);
+    });
+
     const switchLabel = document.createElement('div');
     switchLabel.className = 'font-switch-label';
     switchLabel.textContent = '切换字体';
     footer.appendChild(switchLabel);
 
-    const fontRow = document.createElement('div');
-    fontRow.className = 'modal-footer-row';
-
+    // Default button row
+    const defSection = document.createElement('div');
+    defSection.className = 'font-cat-section';
+    const defRow = document.createElement('div');
+    defRow.className = 'modal-footer-row';
     const defBtn = document.createElement('button');
-    defBtn.className = 'font-btn' + (state.fontFamily==='' ? ' active' : '');
-    defBtn.textContent = '默认';
-    defBtn.onclick = ()=>{ state.fontFamily=''; body.style.fontFamily=''; renderFontBtns(fontRow, body); };
-    fontRow.appendChild(defBtn);
+    defBtn.className = 'font-btn' + (modalState.fontFamily==='' ? ' active' : '');
+    defBtn.textContent = '默认字体';
+    defBtn.onclick = ()=>{ modalState.fontFamily=''; body.style.fontFamily=''; saveFont(''); updateFontBtns(footer, modalState); };
+    defRow.appendChild(defBtn);
+    defSection.appendChild(defRow);
+    footer.appendChild(defSection);
 
-    FONTS.forEach(f=>{
-      const btn = document.createElement('button');
-      btn.className = 'font-btn' + (state.fontFamily===f.family ? ' active' : '');
-      btn.style.fontFamily = f.family;
-      btn.textContent = f.name;
-      btn.onclick = ()=>{ state.fontFamily=f.family; body.style.fontFamily=f.family; renderFontBtns(fontRow, body); };
-      fontRow.appendChild(btn);
+    // Category sections
+    Object.entries(catMap).forEach(([catName, fonts])=>{
+      const section = document.createElement('div');
+      section.className = 'font-cat-section';
+
+      const catHeader = document.createElement('div');
+      catHeader.className = 'font-cat-header';
+      const catLabel = document.createElement('span');
+      catLabel.className = 'font-cat-name';
+      catLabel.textContent = catName;
+      catHeader.appendChild(catLabel);
+      section.appendChild(catHeader);
+
+      const row = document.createElement('div');
+      row.className = 'modal-footer-row';
+      fonts.forEach(f=>{
+        const btn = document.createElement('button');
+        btn.className = 'font-btn' + (modalState.fontFamily===f.family ? ' active' : '');
+        btn.style.fontFamily = f.family;
+        btn.dataset.family = f.family;
+        btn.textContent = f.name;
+        btn.onclick = ()=>{ modalState.fontFamily=f.family; body.style.fontFamily=f.family; saveFont(f.family); updateFontBtns(footer, modalState); };
+        row.appendChild(btn);
+      });
+      section.appendChild(row);
+      footer.appendChild(section);
     });
-    footer.appendChild(fontRow);
 
     const copyBtn = document.createElement('button');
     copyBtn.className = 'copy-css-btn';
@@ -738,39 +969,29 @@ function openModal(item){
   document.body.style.overflow = 'hidden';
 }
 
-function renderFontBtns(row, body){
-  row.querySelectorAll('.font-btn').forEach(btn=>{
-    const isDefault = btn.textContent==='默认';
-    const isActive = isDefault ? state.fontFamily==='' : FONTS.some(f=>f.family===btn.style.fontFamily && f.family===state.fontFamily);
-    btn.classList.toggle('active', isActive);
+function updateFontBtns(footer, modalState){
+  footer.querySelectorAll('.font-btn').forEach(btn=>{
+    const fam = btn.dataset.family || '';
+    btn.classList.toggle('active', fam === modalState.fontFamily);
   });
 }
 
 function closeModal(){
   document.getElementById('modal-backdrop').classList.remove('open');
   document.body.style.overflow = '';
+  currentModalItem = null;
   setTimeout(()=>{ document.getElementById('dbs').textContent=''; }, 350);
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);
-document.getElementById('modal-backdrop').addEventListener('click', function(e){
-  if(e.target===this) closeModal();
-});
+document.getElementById('modal-backdrop').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
 
-// Swipe to close on mobile
 let touchStartY = 0;
-document.getElementById('modal').addEventListener('touchstart', e=>{
-  touchStartY = e.touches[0].clientY;
-}, {passive:true});
-document.getElementById('modal').addEventListener('touchend', e=>{
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if(dy > 80) closeModal();
-}, {passive:true});
+document.getElementById('modal').addEventListener('touchstart', e=>{ touchStartY = e.touches[0].clientY; }, {passive:true});
+document.getElementById('modal').addEventListener('touchend', e=>{ if(e.changedTouches[0].clientY - touchStartY > 80) closeModal(); }, {passive:true});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-document.addEventListener('keydown', e=>{
-  if(e.key==='Escape') closeModal();
-});
-
+// ─── Type / Author setters ───────────────────────────────────
 function setType(t){
   state.type = t;
   ['type-list','m-type-list'].forEach(id=>{
@@ -787,6 +1008,7 @@ function setAuthor(a){
   renderCards();
 }
 
+// Attach type pill listeners
 ['type-list','m-type-list'].forEach(id=>{
   const list = document.getElementById(id);
   if(!list) return;
@@ -795,11 +1017,13 @@ function setAuthor(a){
   });
 });
 
+// Search
 document.getElementById('search-input').addEventListener('input', function(){
   state.query = this.value.trim();
   renderCards();
 });
 
+// Tab nav
 document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -807,52 +1031,90 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
     const tab = btn.dataset.tab;
     const gv = document.getElementById('gallery-view');
     const sv = document.getElementById('submit-view');
-    if(tab==='gallery'){
-      gv.style.display='flex'; sv.classList.remove('active');
-    } else {
-      gv.style.display='none'; sv.classList.add('active');
-    }
+    if(tab==='gallery'){ gv.style.display='flex'; sv.classList.remove('active'); }
+    else { gv.style.display='none'; sv.classList.add('active'); }
   });
 });
 
-document.getElementById('mobile-filter-btn').addEventListener('click', ()=>{
-  document.getElementById('filter-drawer').classList.add('open');
-});
-document.getElementById('filter-drawer-bg').addEventListener('click', ()=>{
-  document.getElementById('filter-drawer').classList.remove('open');
-});
+// Mobile filter drawer
+document.getElementById('mobile-filter-btn').addEventListener('click', ()=>{ document.getElementById('filter-drawer').classList.add('open'); });
+document.getElementById('filter-drawer-bg').addEventListener('click', ()=>{ document.getElementById('filter-drawer').classList.remove('open'); });
+
+// ─── Submit ─────────────────────────────────────────────────
+const SUBMIT_EMAIL = '3152037224@qq.com';
 
 window.switchForm = function(type){
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.s-type-btn').forEach((b,i)=>b.classList.toggle('active', (type==='bubble'&&i===0)||(type==='font'&&i===1)));
+  document.querySelectorAll('.s-type-btn').forEach((b,i)=>b.classList.toggle('active',(type==='bubble'&&i===0)||(type==='font'&&i===1)));
   document.getElementById('form-'+type).classList.add('active');
+  // hide fallback on switch
+  document.getElementById('fallback-bubble').classList.remove('show');
+  document.getElementById('fallback-font').classList.remove('show');
 };
 
+function buildBubbleCode(name, author, css, demos){
+  const tagMap = ['sent','received','sent','received'];
+  const prevStr = demos.filter(d=>d.v).map(d=>`    {t:'${d.t}',v:'${d.v.replace(/'/g,"\\'")}'}` ).join(',\n');
+  const nextId = 'b' + (BUBBLES.length + 1);
+  return `/* === 气泡投稿 === */\n{\n  id:'${nextId}',\n  type:'bubble',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  previews:[\n${prevStr}\n  ],\n  css:\`${css}\`\n}`;
+}
+
+function buildFontCode(name, author, url, category){
+  const nextId = 'f' + (FONTS.length + 1);
+  const nextFamily = 'F' + (FONTS.length + 1);
+  return `/* === 字体投稿 === */\n/* 1. 在 @font-face 添加: */\n@font-face { font-family:'${nextFamily}'; src:url('${url}') format('truetype'); font-display:swap }\n\n/* 2. 在 FONTS 数组添加: */\n{\n  id:'${nextId}',\n  type:'font',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  family:'${nextFamily}',\n  category:'${category||'其他'}',\n  url:'${url}'\n}`;
+}
+
 window.doSubmit = function(type){
-  const email='3152037224@qq.com', nl='\r\n';
-  let subject='', body='';
+  const nl = '\r\n';
+  let subject='', body='', code='';
+
   if(type==='bubble'){
     const name   = document.getElementById('bubble-name').value.trim();
     const author = document.getElementById('bubble-author').value.trim();
     const css    = document.getElementById('bubble-css').value.trim();
-    const tags   = ['发送','接收','发送','接收'];
-    const demos  = [1,2,3,4].map(n=>document.getElementById('p'+n).value.trim());
+    const demos  = [1,2,3,4].map((n,i)=>({ t:['sent','received','sent','received'][i], v:document.getElementById('p'+n).value.trim() }));
     if(!name || !css){ toast('⚠️ 请填写名称和 CSS 代码'); return; }
-    const dStr = demos.map((v,i)=>v?`${i+1}. (${tags[i]}) ${v}${nl}`:'').join('')||'（未填写）'+nl;
+
+    code = buildBubbleCode(name, author, css, demos);
     subject = `【气泡投稿】${name} - ${author||'匿名'}`;
-    body    = `投稿类型：聊天气泡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}CSS 代码：${nl}${css}${nl}${nl}预览对话：${nl}${dStr}`;
+    body = `投稿类型：聊天气泡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}--- 可直接粘贴到代码的数据条目 ---${nl}${code}`;
+
+    // Fill fallback
+    document.getElementById('fb-content-bubble').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
+    document.getElementById('fallback-bubble').classList.add('show');
+
   } else {
     const name   = document.getElementById('font-name').value.trim();
     const author = document.getElementById('font-author').value.trim();
     const url    = document.getElementById('font-url').value.trim();
+    const cat    = document.getElementById('font-category').value;
     if(!name || !url){ toast('⚠️ 请填写名称和字体链接'); return; }
+
+    code = buildFontCode(name, author, url, cat);
     subject = `【字体投稿】${name} - ${author||'匿名'}`;
-    body    = `投稿类型：字体样式${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}字体链接：${nl}${url}`;
+    body = `投稿类型：字体样式${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}分类：${cat}${nl}${nl}--- 可直接粘贴到代码的数据条目 ---${nl}${code}`;
+
+    document.getElementById('fb-content-font').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
+    document.getElementById('fallback-font').classList.add('show');
   }
-  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  setTimeout(()=>toast('🚀 正在唤起邮件客户端…'), 200);
+
+  // Try mailto
+  window.location.href = `mailto:${SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  setTimeout(()=> toast('🚀 正在唤起邮件客户端，如未弹出请使用下方手动发送'), 400);
 };
 
+window.copyFallback = function(type){
+  const el = document.getElementById('fb-content-'+type);
+  copyText(el.value, '投稿内容');
+};
+
+window.copyEmail = function(type){
+  copyText(SUBMIT_EMAIL, '收件地址');
+};
+
+// ─── Init ────────────────────────────────────────────────────
+updateFavCounts();
 renderAuthors();
 renderCards();
 
