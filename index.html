@@ -2553,6 +2553,244 @@ text-shadow:
 }
 }`
 },
+{
+  id: 'b33',
+  type: 'bubble',
+  name: '心脉',
+  author: '11',
+  previews: [
+    { t: 'sent', v: '多幸运遇见了你' },
+    { t: 'received', v: '多幸运爱上了你' }
+  ],
+  css: `
+.message { box-shadow: none !important; border: none !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
+
+@keyframes glass-shine{ 0% { background-position: -20% 0; } 100% { background-position: 120% 0; } }
+
+@keyframes floatAndBurst{ 0% { transform: translate(0, 0) scale(0.2); opacity: 0; } 40% { transform: translate(0, -22px) scale(0.8); opacity: 0.5; } 60% { transform: translate(0, -30px) scale(1); opacity: 0.6; } 100% { transform: translate(0, -35px) scale(0); opacity: 0; } }
+
+@keyframes ecg-pulse{ 
+  0% { filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)); } 
+  50% { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); } 
+  100% { filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)); } 
+}
+
+.message-received{ background: rgba(255, 255, 255, 0.08) !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border: 1px solid rgba(255, 255, 255, 0.7) !important; color: #fff !important; border-radius: 24px !important; padding: 8px 16px !important; position: relative !important; }
+
+.message-sent{ background: rgba(255, 255, 255, 0.1) !important; backdrop-filter: blur(25px) !important; -webkit-backdrop-filter: blur(25px) !important; border: 1px solid rgba(255, 255, 255, 0.8) !important; color: #000 !important; border-radius: 24px !important; padding: 8px 16px !important; position: relative !important; }
+
+.message-received::before{ content: '' !important; position: absolute !important; left: 0; top: 0; right: 0; bottom: 0; border-radius: inherit !important; pointer-events: none !important; z-index: 2 !important; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%) !important; background-size: 200% 100% !important; animation: glass-shine 9s infinite linear !important; }
+
+.message-received::after{ 
+  content: '' !important; 
+  position: absolute !important; 
+  left: -8px !important;
+  bottom: -6px !important;
+  width: 70px !important;
+  height: 20px !important;
+  z-index: 3 !important;
+  background: transparent !important;
+  animation: ecg-pulse 2s infinite ease-in-out !important;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" preserveAspectRatio="xMidYMid meet"><path d="M0,25 L15,25 L20,15 L25,35 L30,25 L45,25 L50,8 L55,42 L60,25 L75,25 L80,20 L85,30 L90,25 L105,25 L110,15 L115,35 L120,25" stroke="white" stroke-width="1" fill="none" stroke-dasharray="180" stroke-dashoffset="180"><animate attributeName="stroke-dashoffset" values="180;0;0" dur="3.5s" repeatCount="indefinite" /></path></svg>') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: left bottom !important;
+  opacity: 0.9 !important;
+  pointer-events: none !important;
+  transform: scaleX(1);
+}
+
+.message-sent::before{ content: '' !important; position: absolute !important; left: 0; top: 0; right: 0; bottom: 0; border-radius: inherit !important; pointer-events: none !important; z-index: 2 !important; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%) !important; background-size: 200% 100% !important; animation: glass-shine 9s infinite linear !important; }
+
+.message-sent::after{ content: '♡' !important; color: rgba(255, 255, 255, 0.8) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; right: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important; pointer-events: none !important; }`
+},
+{
+  id:'b34',
+  type:'bubble',
+  name:'赛博不朋克',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'自填就是'},
+    {t:'received',v:'说可以自填啊'}
+  ],
+  css:`
+.message {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 14px 20px !important;
+  border: 2px solid !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  font-family: "Courier New", monospace !important;
+  letter-spacing: 1px !important;
+  position: relative !important;
+  background-color: #0a0a0a !important;
+}
+
+.message.message-sent,
+.message.message-received {
+  display: inline-block !important;
+  position: relative !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: auto !important;
+  min-width: 200px !important;
+}
+
+.message.message-sent {
+  color: #00f0ff !important;
+  border-color: #00f0ff !important;
+  box-shadow:
+    4px 4px 0 #00f0ff,
+    inset 0 0 20px rgba(0, 240, 255, 0.1) !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  border: 2px solid #ff0055 !important;
+  z-index: -1 !important;
+}
+
+.message.message-received {
+  color: #ff0055 !important;
+  border-color: #ff0055 !important;
+  box-shadow:
+    4px 4px 0 #ff0055,
+    inset 0 0 20px rgba(255, 0, 85, 0.1) !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  border: 2px solid #00f0ff !important;
+  z-index: -1 !important;
+}
+
+.message::after {
+  display: none !important;
+}
+
+.timestamp {
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-family: "Courier New", monospace !important;
+  background-color: #0a0a0a !important;
+  border: 1px solid #ffffff !important;
+  padding: 2px 8px !important;
+  margin-top: 8px !important;
+  display: inline-block !important;
+}
+
+.message-wrapper.sent::before {
+  content: "自填" !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: -2px !important;
+  background-color: #0a0a0a !important;
+  color: #00f0ff !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 2px 12px !important;
+  border: 2px solid #00f0ff !important;
+  z-index: 10 !important;
+}
+
+.message-wrapper.received::before {
+  content: "自填" !important;
+  position: absolute !important;
+  top: -12px !important;
+  right: -2px !important;
+  background-color: #0a0a0a !important;
+  color: #ff0055 !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 2px 12px !important;
+  border: 2px solid #ff0055 !important;
+  z-index: 10 !important;
+}`
+},
+{
+  id:'b35',
+  type:'bubble',
+  name:'kpop仿bubble',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'哥哥/姐姐我想你惹'},
+    {t:'received',v:'我也想你们'}
+  ],
+  css:`
+.message {
+  border-radius: 18px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  overflow: visible !important;
+  padding: 12px 16px !important;
+  border: none !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.message.message-sent,
+.message.message-received {
+  display: inline-block !important;
+  position: relative !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: auto !important;
+  min-width: 70% !important;
+}
+
+.message.message-sent {
+  background-color: #9b7edc !important;
+  color: #ffffff !important;
+  border-radius: 18px 18px 4px 18px !important;
+}
+
+.message.message-received {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  border-radius: 4px 18px 18px 18px !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.message::after {
+  display: none !important;
+}
+.message-wrapper.received {
+  position: relative !important;
+  padding-top: 18px !important;
+}
+
+.message-wrapper.received::before {
+  content: "ARTIST" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 48px !important;
+  background: linear-gradient(90deg, #a78bfa 0%, #c084fc 100%) !important;
+  color: #ffffff !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1 !important;
+}
+
+.timestamp {
+  color: #999999 !important;
+  font-size: 12px !important;
+  margin-top: 4px !important;
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
