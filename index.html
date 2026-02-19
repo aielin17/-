@@ -33,6 +33,7 @@
 @font-face{font-family:'F3';src:url('https://files.catbox.moe/3bm8wp.ttf') format('truetype');font-display:swap}
 @font-face{font-family:'F4';src:url('https://files.catbox.moe/caatu4.TTF') format('truetype');font-display:swap}
 @font-face { font-family:'F5'; src:url('https://files.catbox.moe/sshsu7.ttf') format('truetype'); font-display:swap }
+@font-face { font-family:'F6'; src:url('https://image.uglycat.cc/1ma2ld.ttf') format('truetype'); font-display:swap }
 
 html{height:100%}
 body{
@@ -524,6 +525,16 @@ body{
       <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
       <div class="fg">
+        <label class="fl">所属系列（可选）</label>
+        <span class="fl-sub">如果这是某系列的其中一个变体，请填写系列名称，方便归组展示</span>
+        <input type="text" class="fi" placeholder="例如：心脉系列（留空则为独立气泡）" id="bubble-series">
+      </div>
+      <div class="fg">
+        <label class="fl">系列 ID（可选）</label>
+        <span class="fl-sub">同系列所有变体需填写相同 ID，仅限英文字母/数字，例如：xinmai</span>
+        <input type="text" class="fi" placeholder="例如：xinmai（新系列可留空，由管理员分配）" id="bubble-group-id">
+      </div>
+      <div class="fg">
         <label class="fl">CSS 代码</label>
         <span class="fl-sub">需包含 .message-sent 和 .message-received 类</span>
         <textarea class="fta" id="bubble-css" placeholder=" "></textarea>
@@ -713,6 +724,15 @@ const FONTS = [
   family:'F5',
   category:'其他',
   url:'https://files.catbox.moe/sshsu7.ttf'
+},
+{
+id:'f6',
+type:'font',
+name:'惠の呆熊',
+author:'来源网络',
+family:'F6',
+category:'其他',
+url:'https://image.uglycat.cc/1ma2ld.ttf'
 }
 ];
 
@@ -2558,6 +2578,8 @@ text-shadow:
   type: 'bubble',
   name: '心脉',
   author: '11',
+  group: 'g-xinmai',
+  groupLabel: '心脉系列',
   previews: [
     { t: 'sent', v: '多幸运遇见了你' },
     { t: 'received', v: '多幸运爱上了你' }
@@ -2791,6 +2813,36 @@ text-shadow:
   margin-top: 4px !important;
 }`
 },
+{
+  id:'b36',type:'bubble',name:'纯白信笺',author:'眠眠',
+  previews:[
+    {t:'sent',v:'气泡预览*不知道啥名字'},
+    {t:'received',v:'摸摸小手'},
+    {t:'received',v:'是代码'}
+  ],
+  css:`.message { box-shadow: none !important; border-width: 0 !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
+/* 对方气泡：圆形，10%透明度白色背景，带内圈灰色轮廓线，#1C261E字体，实心白色字体阴影 */
+.message-received { background: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.9) !important; color: #1C261E !important; text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important; border-radius: 24px !important; padding: 8px 16px !important; box-shadow: 0 4px 8px rgba(128, 128, 128, 0.5), 0 0 0 2px rgba(128, 128, 128, 0.3) inset !important; }
+/* 自己气泡：圆形，10%透明度白色背景，带内圈灰色轮廓线，#1C261E字体，实心白色字体阴影 */
+.message-sent { background: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.9) !important; color: #1C261E !important; text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important; border-radius: 24px !important; padding: 8px 16px !important; box-shadow: 0 4px 8px rgba(128, 128, 128, 0.5), 0 0 0 2px rgba(128, 128, 128, 0.3) inset !important; }`
+},
+{
+  id:'b37',type:'bubble',name:'心脉·爱心版',author:'11',
+  group:'g-xinmai',groupLabel:'心脉系列',
+  previews:[
+    {t:'sent',v:'多幸运遇见了你'},
+    {t:'received',v:'多幸运爱上了你'}
+  ],
+  css:`.message { box-shadow: none !important; border: none !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
+@keyframes floatAndBurst{ 0% { transform: translate(0, 0) scale(0.2); opacity: 0; } 40% { transform: translate(0, -22px) scale(0.8); opacity: 0.8; } 60% { transform: translate(0, -30px) scale(1); opacity: 1; } 100% { transform: translate(0, -35px) scale(0); opacity: 0; } }
+@keyframes ecg-pulse{ 0% { filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); } 50% { filter: drop-shadow(0 0 12px rgba(255,255,255,1)); } 100% { filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); } }
+.message-received{ background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: none !important; color: #fff !important; border-radius: 24px !important; padding: 8px 16px !important; position: relative !important; }
+.message-sent{ background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: none !important; color: #000 !important; border-radius: 24px !important; padding: 8px 16px !important; position: relative !important; }
+.message-received::after{ content: '' !important; position: absolute !important; left: -8px !important; bottom: -6px !important; width: 70px !important; height: 20px !important; z-index: 3 !important; background: transparent !important; animation: ecg-pulse 2s infinite ease-in-out !important; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50"><path d="M0,25 L15,25 L20,15 L25,35 L30,25 L45,25 L50,8 L55,42 L60,25 L75,25 L80,20 L85,30 L90,25 L105,25 L110,15 L115,35 L120,25" stroke="white" stroke-width="1.5" fill="none"/></svg>') !important; background-size: contain !important; background-repeat: no-repeat !important; background-position: left bottom !important; opacity: 1 !important; pointer-events: none !important; transform: scaleX(1); }
+.message-received::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; right: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }
+.message-sent::after{ content: '' !important; position: absolute !important; right: -16px !important; bottom: -6px !important; width: 70px !important; height: 20px !important; z-index: 3 !important; background: transparent !important; animation: ecg-pulse 2s infinite ease-in-out !important; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50"><path d="M0,25 L15,25 L20,15 L25,35 L30,25 L45,25 L50,8 L55,42 L60,25 L75,25 L80,20 L85,30 L90,25 L105,25 L110,15 L115,35 L120,25" stroke="white" stroke-width="1.5" fill="none"/></svg>') !important; background-size: contain !important; background-repeat: no-repeat !important; background-position: right bottom !important; opacity: 1 !important; pointer-events: none !important; transform: scaleX(-1); }
+.message-sent::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; left: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }`
+}
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
@@ -3305,11 +3357,12 @@ window.switchForm = function(type){
   document.getElementById('fallback-font').classList.remove('show');
 };
 
-function buildBubbleCode(name, author, css, demos){
+function buildBubbleCode(name, author, css, demos, series, groupId){
   const tagMap = ['sent','received','sent','received'];
   const prevStr = demos.filter(d=>d.v).map(d=>`    {t:'${d.t}',v:'${d.v.replace(/'/g,"\\'")}'}` ).join(',\n');
   const nextId = 'b' + (BUBBLES.length + 1);
-  return `/* === 气泡投稿 === */\n{\n  id:'${nextId}',\n  type:'bubble',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  previews:[\n${prevStr}\n  ],\n  css:\`${css}\`\n}`;
+  const groupLine = groupId ? `\n  group:'${groupId}',\n  groupLabel:'${series||groupId}',` : (series ? `\n  /* 系列：${series} */` : '');
+  return `/* === 气泡投稿 === */\n{\n  id:'${nextId}',\n  type:'bubble',\n  name:'${name}',\n  author:'${author||'匿名'}',${groupLine}\n  previews:[\n${prevStr}\n  ],\n  css:\`${css}\`\n}`;
 }
 
 function buildFontCode(name, author, url, category){
@@ -3326,12 +3379,14 @@ window.doSubmit = function(type){
     const name   = document.getElementById('bubble-name').value.trim();
     const author = document.getElementById('bubble-author').value.trim();
     const css    = document.getElementById('bubble-css').value.trim();
+    const series = document.getElementById('bubble-series').value.trim();
+    const groupId= document.getElementById('bubble-group-id').value.trim().replace(/\s+/g,'');
     const demos  = [1,2,3,4].map((n,i)=>({ t:['sent','received','sent','received'][i], v:document.getElementById('p'+n).value.trim() }));
     if(!name || !css){ toast('⚠️ 请填写名称和 CSS 代码'); return; }
 
-    code = buildBubbleCode(name, author, css, demos);
-    subject = `【气泡投稿】${name} - ${author||'匿名'}`;
-    body = `投稿类型：聊天气泡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}--- 可直接粘贴到代码的数据条目 ---${nl}${code}`;
+    code = buildBubbleCode(name, author, css, demos, series, groupId);
+    subject = `【气泡投稿】${name} - ${author||'匿名'}${series?' ['+series+']':''}`;
+    body = `投稿类型：聊天气泡${nl}名称：${name}${nl}作者：${author||'匿名'}${series?nl+'所属系列：'+series:''}${groupId?nl+'系列ID：'+groupId:''}${nl}${nl}--- 可直接粘贴到代码的数据条目 ---${nl}${code}`;
 
     document.getElementById('fb-content-bubble').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-bubble').classList.add('show');
