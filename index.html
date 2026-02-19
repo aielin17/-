@@ -1284,10 +1284,7 @@ const BUBBLES = [
     {t:'received',v:'摘一颗苹果'},
     {t:'sent',v:'等你从门前经过'}
   ],
-  css:`/* ============================================
-   苹果元素气泡 - Apple Chat Bubbles
-   ============================================ */
-
+  css:`
 .message {
   border-radius: 24px !important;
   box-shadow: none !important;
@@ -1308,7 +1305,6 @@ const BUBBLES = [
   min-width: 70% !important;
 }
 
-/* 发送方 - 苹果红 */
 .message.message-sent {
   background-color: #e74c3c !important;
   color: #fff8f0 !important;
@@ -1319,7 +1315,6 @@ const BUBBLES = [
     0 6px 10px rgba(0,0,0,0.15) !important;
 }
 
-/* 接收方 - 奶油黄 */
 .message.message-received {
   background-color: #fef9e7 !important;
   color: #5d4e37 !important;
@@ -1329,8 +1324,6 @@ const BUBBLES = [
     0 4px 0 #e5b895,
     0 6px 10px rgba(0,0,0,0.1) !important;
 }
-
-/* 苹果梗装饰 - 发送方顶部 */
 .message.message-sent::before {
   content: "" !important;
   position: absolute !important;
@@ -1343,7 +1336,6 @@ const BUBBLES = [
   border-radius: 4px !important;
   z-index: 10 !important;
 }
-/* 苹果叶子 - 发送方顶部右侧 */
 .message.message-sent::after {
   content: "" !important;
   position: absolute !important;
@@ -1357,9 +1349,6 @@ const BUBBLES = [
   z-index: 0 !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
 }
-
-
-/* 发送方内部高光 - 苹果光泽 */
 .message.message-sent {
   background-image:
     radial-gradient(
@@ -1368,8 +1357,6 @@ const BUBBLES = [
       transparent 50%
     ) !important;
 }
-
-/* 接收方星星装饰背景 */
 .message.message-received {
   background-image:
     radial-gradient(
@@ -1389,16 +1376,12 @@ const BUBBLES = [
     ) !important;
   background-size: 30px 30px, 25px 25px, 20px 20px !important;
 }
-
-/* 时间戳 */
 .timestamp {
   color: #d4a574 !important;
   font-size: 11px !important;
   margin-top: 8px !important;
   font-weight: 500 !important;
 }
-
-/* 发送方时间戳 - 深红色 */
 .message.message-sent ~ .timestamp {
   color: #c0392b !important;
   opacity: 0.8 !important;
@@ -1414,9 +1397,7 @@ const BUBBLES = [
     {t:'received',v:'虚拟'},
     {t:'sent',v:'过了很久我终于抬头看'}
   ],
-  css:`/* ============================================
-   薄巧风格气泡 - 柔和薄荷巧克力
-   ============================================ */
+  css:`
 
 .message {
   border-radius: 24px !important;
@@ -1437,8 +1418,6 @@ const BUBBLES = [
   width: auto !important;
   min-width: 70% !important;
 }
-
-/* 发送方 - 柔和巧克力色 + 铺满条纹 */
 .message.message-sent {
   background-color: #8b7355 !important;
   color: #faf8f5 !important;
@@ -1451,8 +1430,6 @@ const BUBBLES = [
     rgba(250, 248, 245, 0.08) 20px
   ) !important;
 }
-
-/* 接收方 - 柔和薄荷色 + 铺满波点 */
 .message.message-received {
   background-color: #e8f4f0 !important;
   color: #4a5d52 !important;
@@ -1473,8 +1450,6 @@ important;
     rgba(250, 248, 245, 0.08) 20px
   ) !important;
 }
-
-/* 接收方 - 柔和薄荷色 + 铺满波点 */
 .message.message-received {
   background-color: #e8f4f0 !important;
   color: #4a5d52 !important;
@@ -1486,8 +1461,6 @@ important;
   ) !important;
   background-size: 12px 12px !important;
 }
-
-/* 小圆点尾巴 */
 .message::after {
   content: "" !important;
   position: absolute !important;
@@ -1497,20 +1470,14 @@ important;
   background-color: inherit !important;
   bottom: 6px !important;
 }
-
-/* 发送方尾巴 - 右侧巧克力点 */
 .message.message-sent::after {
   right: -4px !important;
   background-color: #8b7355 !important;
 }
-
-/* 接收方尾巴 - 左侧薄荷点 */
 .message.message-received::after {
   left: -4px !important;
   background-color: #e8f4f0 !important;
 }
-
-/* 时间戳 */
 .timestamp {
   color: #a8b5ad !important;
   font-size: 11px !important;
