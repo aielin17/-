@@ -3328,6 +3328,76 @@ background-color: transparent;
 filter: blur(0.6px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 z-index: 10;
 }`
+},
+{
+  id:'b46',
+  type:'bubble',
+  name:'轻松熊不轻松',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'(･∞･ﾐэ咕噜噜'},
+    {t:'received',v:'唉 人类 人累 人泪 ( ‘-ωก )'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.1 !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+  word-break: normal !important;
+}
+.message.message-received {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #ffffff !important;
+  padding: 13.5px 15px 10px 15px !important;
+  z-index: 1 !important;
+}
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 15px 10px 10px 10px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771492474007_IMG_5351.png') !important;
+  border-image-slice: 544 1375 236 1274 fill !important;
+  border-image-width: 30px 76px 13px 71px !important;
+  pointer-events: none;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771492474996_IMG_5386.png') !important;
+  border-image-slice: 664 1083 147 1182 fill !important;
+  border-image-width: 37px 60px 8px 66px !important;
+  pointer-events: none;
+}`
 }
 ];
 
