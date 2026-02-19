@@ -361,6 +361,61 @@ body{
 }
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+.dark{
+  --bg:#0f0f14;
+  --surface:#18181f;
+  --border:#2a2a35;
+  --border-strong:#3a3a48;
+  --text:#eeeef5;
+  --text-sub:#8888a0;
+  --text-muted:#55556a;
+  --accent-bg:rgba(91,95,239,.14);
+  --accent-bg2:rgba(91,95,239,.22);
+  --fav-bg:rgba(239,68,68,.12);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.25),0 1px 2px rgba(0,0,0,.2);
+  --shadow:0 4px 16px rgba(0,0,0,.35),0 1px 4px rgba(0,0,0,.2);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.5),0 4px 12px rgba(0,0,0,.3);
+}
+.dark .header{background:rgba(24,24,31,.92)}
+.dark .search-input{background:#22222c;color:var(--text)}
+.dark .search-input:focus{background:#28282f}
+.dark .header-nav{background:#22222c}
+.dark .nav-btn.active{background:#2e2e3c}
+.dark .modal-body{background:#111118}
+.dark .font-preview-box{background:#22222c}
+.dark .modal-close{background:#22222c}
+.dark .modal-close:hover{background:#2e2e3c}
+.dark .btn-preview{background:#22222c}
+.dark .btn-icon{background:#22222c}
+.dark .btn-icon:hover{background:#2e2e3c}
+.dark .font-btn{background:#22222c}
+.dark .type-pill:hover,.dark .author-chip:hover{background:#22222c}
+.dark .card-author{background:#22222c}
+.dark .submit-card{background:var(--surface)}
+.dark .fi,.dark .fta{background:#22222c;color:var(--text)}
+.dark .fi:focus,.dark .fta:focus{background:#28282f}
+.dark .preview-inputs{background:#1e1e28}
+.dark .pi-row .fi{background:#2a2a38}
+.dark .fallback-panel{background:#1e1e28}
+.dark .fallback-to{background:#22222c}
+.dark .fallback-code{background:#22222c;color:var(--text)}
+.dark .fb-btn{background:#22222c;color:var(--text-sub)}
+.dark .s-type-btn{background:transparent}
+.dark #toast{background:rgba(200,200,220,.15);backdrop-filter:blur(16px)}
+.dark .filter-drawer-panel{background:var(--surface)}
+.dark .badge-bubble{background:#1a2550;color:#7aadff}
+.dark .badge-font{background:#2a1a50;color:#c4a0ff}
+.dark .card-var-btn,.dark .variant-btn{background:#22222c}
+
+.theme-toggle{
+  width:34px;height:34px;border:1.5px solid var(--border);background:var(--surface);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;color:var(--text-sub);flex-shrink:0;
+}
+.theme-toggle:hover{border-color:var(--border-strong);color:var(--text);background:var(--bg)}
+.theme-toggle svg{width:16px;height:16px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.theme-toggle:active svg{transform:rotate(30deg)}
+
 @keyframes slideDown{to{transform:translateY(0)}}
 @keyframes fadeIn{to{opacity:1}}
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
@@ -397,6 +452,10 @@ body{
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
     <input type="text" class="search-input" placeholder="搜索名称、作者…" id="search-input" autocomplete="off" spellcheck="false">
   </div>
+  <button class="theme-toggle" id="theme-toggle" title="切换日夜模式" aria-label="切换日夜模式">
+    <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
   <div class="header-nav">
     <div class="nav-btn active" data-tab="gallery">画廊</div>
     <div class="nav-btn" data-tab="submit">投稿</div>
@@ -2199,6 +2258,301 @@ important;
     overflow: visible !important;
 }`
   },
+  
+{
+id:'b32',
+type:'bubble',
+name:'青柠奶泡',
+author:'眠眠',
+previews:[
+{t:'sent',v:'你好，请问你有空跟我聊天吗，我虽然长的不好看游戏打的也不好但是我是小馋猫，我觉得你有点像我的饭。'},
+{t:'received',v:'宝宝你觉得呢'},
+{t:'sent',v:'好耶'},
+{t:'received',v:'不要去做傻事'}
+],
+css:`
+.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative !important;
+overflow: visible !important;
+padding: 7px 13px !important;
+line-height: 1.3 !important;
+word-break: break-word !important;
+border-radius: 18px !important;
+box-shadow: 0 2px 4px rgba(60, 80, 40, 0.08) !important;
+max-width: 95% !important;
+letter-spacing: 0.01em;
+}
+
+.message-received {
+background: #F1FCE1 !important; 
+border-color: transparent !important;
+color: #1e3a1e !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+box-shadow:
+0 8px 12px -4px rgba(70, 95, 50, 0.28),
+-2px 0 6px -2px rgba(210, 230, 160, 0.5),
+inset 0 -4px 6px -2px rgba(50, 80, 35, 0.25),
+inset 2px 3px 8px -2px rgba(245, 255, 220, 0.9),
+inset 0 0 0 1px rgba(90, 120, 60, 0.1) !important;
+transition: box-shadow 0.2s ease;
+position: relative !important;
+}
+
+.message-sent {
+background: #F1FCE1 !important; 
+border-color: transparent !important;
+color: #1e3a1e !important; 
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px !important;
+box-shadow:
+0 10px 14px -6px rgba(65, 90, 45, 0.3),
+3px 0 8px -5px rgba(150, 180, 100, 0.4),
+inset 0 -5px 8px -3px rgba(50, 75, 35, 0.3),
+inset 3px 3px 10px -2px rgba(250, 255, 225, 0.95),
+inset 0 0 0 1px rgba(100, 130, 65, 0.15),
+0 0 12px 2px rgba(210, 224, 176, 0.7) !important;
+transition: box-shadow 0.2s ease;
+position: relative !important;
+}
+
+.message-sent::before {
+content: "☘︎" !important;
+position: absolute !important;
+left: -10px !important; 
+bottom: -4px !important; 
+font-size: 18px !important; 
+color: #F1FCE1 !important; 
+text-shadow:
+0 0 1px #A4CD90,
+0 0 2px #A4CD90,
+1px 1px 0 #A4CD90,
+-1px -1px 0 #A4CD90,
+1px -1px 0 #A4CD90,
+-1px 1px 0 #A4CD90,
+2px 2px 3px rgba(50, 70, 30, 0.3),
+3px 3px 5px rgba(40, 60, 25, 0.25),
+-1px -1px 2px rgba(250, 255, 230, 0.9),
+1px 1px 2px rgba(230, 245, 200, 0.8),
+0 0 8px rgba(210, 224, 176, 0.8),
+0 0 12px rgba(210, 224, 176, 0.5) !important;
+z-index: 2 !important;
+pointer-events: none !important;
+font-weight: 500 !important;
+line-height: 1 !important;
+transform: scale(1) !important;
+transition: all 0.2s ease !important;
+}
+
+.message-sent::after {
+content: "☘︎" !important;
+position: absolute !important;
+left: -17px !important; 
+bottom: 7px !important; 
+font-size: 12px !important; 
+color: #F1FCE1 !important; 
+text-shadow:
+0 0 1px #A4CD90,
+0 0 2px #A4CD90,
+1px 1px 0 #A4CD90,
+-1px -1px 0 #A4CD90,
+1px -1px 0 #A4CD90,
+-1px 1px 0 #A4CD90,
+2px 2px 3px rgba(50, 70, 30, 0.3),
+3px 3px 5px rgba(40, 60, 25, 0.25),
+-1px -1px 2px rgba(250, 255, 230, 0.9),
+1px 1px 2px rgba(230, 245, 200, 0.8),
+0 0 8px rgba(210, 224, 176, 0.8),
+0 0 12px rgba(210, 224, 176, 0.5) !important;
+z-index: 2 !important;
+pointer-events: none !important;
+font-weight: 500 !important;
+line-height: 1 !important;
+transform: scale(1) rotate(-10deg) !important;
+transform-origin: center center !important;
+transition: all 0.2s ease !important;
+}
+
+.message-sent:hover::before {
+text-shadow:
+0 0 2px #A4CD90,
+0 0 3px #A4CD90,
+1.5px 1.5px 0 #A4CD90,
+-1.5px -1.5px 0 #A4CD90,
+1.5px -1.5px 0 #A4CD90,
+-1.5px 1.5px 0 #A4CD90,
+3px 3px 5px rgba(50, 70, 30, 0.4),
+4px 4px 7px rgba(40, 60, 25, 0.35),
+-1.5px -1.5px 3px rgba(250, 255, 230, 1),
+1.5px 1.5px 3px rgba(230, 245, 200, 0.9),
+0 0 12px rgba(210, 224, 176, 1),
+0 0 18px rgba(210, 224, 176, 0.7) !important;
+transform: scale(1.02) !important;
+}
+
+.message-sent:hover::after {
+text-shadow:
+0 0 2px #A4CD90,
+0 0 3px #A4CD90,
+1.5px 1.5px 0 #A4CD90,
+-1.5px -1.5px 0 #A4CD90,
+1.5px -1.5px 0 #A4CD90,
+-1.5px 1.5px 0 #A4CD90,
+3px 3px 5px rgba(50, 70, 30, 0.4),
+4px 4px 7px rgba(40, 60, 25, 0.35),
+-1.5px -1.5px 3px rgba(250, 255, 230, 1),
+1.5px 1.5px 3px rgba(230, 245, 200, 0.9),
+0 0 12px rgba(210, 224, 176, 1),
+0 0 18px rgba(210, 224, 176, 0.7) !important;
+transform: scale(1.02) rotate(-10deg) !important;
+}
+
+.message-received::after {
+content: "✦" !important;
+position: absolute !important;
+top: -10px !important; 
+right: -6px !important; 
+font-size: 20px !important; 
+color: #FFF8E7 !important; 
+background: transparent !important;
+text-shadow:
+0 0 1px #FFE399,
+0 0 2px #FFE399,
+1px 1px 0 #FFE399,
+-1px -1px 0 #FFE399,
+1px -1px 0 #FFE399,
+-1px 1px 0 #FFE399,
+2px 2px 3px rgba(180, 130, 50, 0.35),
+3px 3px 5px rgba(150, 100, 30, 0.3),
+-1px -1px 2px rgba(255, 255, 240, 0.95),
+1px 1px 2px rgba(255, 235, 180, 0.8),
+0 0 8px rgba(255, 220, 120, 0.7),
+0 0 12px rgba(255, 200, 80, 0.5),
+0 0 15px rgba(255, 215, 0, 0.3) !important;
+z-index: 3 !important;
+pointer-events: none !important;
+line-height: 1 !important;
+transform: rotate(5deg) scale(1) !important;
+font-weight: 400 !important;
+opacity: 0.98 !important;
+transition: all 0.2s ease !important;
+}
+
+.message-received:hover::after {
+text-shadow:
+0 0 2px #FFE399,
+0 0 3px #FFE399,
+1.5px 1.5px 0 #FFE399,
+-1.5px -1.5px 0 #FFE399,
+1.5px -1.5px 0 #FFE399,
+-1.5px 1.5px 0 #FFE399,
+3px 3px 5px rgba(180, 130, 50, 0.45),
+4px 4px 7px rgba(150, 100, 30, 0.4),
+-1.5px -1.5px 3px rgba(255, 255, 245, 1),
+1.5px 1.5px 3px rgba(255, 235, 180, 0.9),
+0 0 12px rgba(255, 220, 120, 0.9),
+0 0 18px rgba(255, 200, 80, 0.7),
+0 0 25px rgba(255, 215, 0, 0.4) !important;
+transform: rotate(5deg) scale(1.05) !important;
+}
+
+.received .message {
+margin-left: 14px !important;
+}
+.sent .message {
+margin-right: 14px !important;
+}
+
+.message p {
+margin: 0;
+position: relative;
+z-index: 1;
+text-shadow: 0 1px 1px rgba(250, 255, 230, 0.6);
+}
+
+.message .meta {
+font-size: 0.75rem;
+opacity: 0.75;
+margin-top: 5px;
+text-align: right;
+color: #2d4a2d;
+font-weight: 400;
+letter-spacing: 0.02em;
+text-shadow: 0 1px 0 rgba(240, 250, 210, 0.5);
+}
+
+.message:hover {
+filter: brightness(1.01);
+transition: all 0.25s ease;
+}
+
+.message-received:hover {
+box-shadow:
+0 6px 10px -4px rgba(70, 95, 50, 0.3),
+-1px 0 5px -2px rgba(210, 230, 160, 0.5),
+inset 0 -3px 5px -2px rgba(50, 80, 35, 0.3),
+inset 1px 2px 8px -2px rgba(250, 255, 230, 0.95),
+inset 0 0 0 1px rgba(90, 120, 60, 0.15) !important;
+}
+
+.message-sent:hover {
+box-shadow:
+0 8px 12px -6px rgba(65, 90, 45, 0.35),
+2px 0 7px -5px rgba(150, 180, 100, 0.5),
+inset 0 -4px 7px -3px rgba(50, 75, 35, 0.35),
+inset 2px 2px 10px -2px rgba(255, 255, 235, 1),
+inset 0 0 0 1px rgba(100, 130, 65, 0.2),
+0 0 14px 3px rgba(210, 224, 176, 0.8) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+.message-received, .message-sent {
+background: #d0e0b8 !important; 
+box-shadow:
+0 10px 16px -6px rgba(0,0,0,0.5),
+inset 0 -4px 6px -2px rgba(30, 50, 20, 0.5),
+inset 2px 3px 8px -2px rgba(230, 245, 200, 0.3),
+inset 0 0 0 1px rgba(150, 180, 100, 0.2),
+0 0 12px 2px rgba(210, 224, 176, 0.5) !important;
+}
+
+.message-sent::before,
+.message-sent::after {
+color: #d0e0b8 !important; 
+text-shadow:
+0 0 2px #A4CD90,
+0 0 3px #A4CD90,
+1px 1px 0 #A4CD90,
+-1px -1px 0 #A4CD90,
+1px -1px 0 #A4CD90,
+-1px 1px 0 #A4CD90,
+2px 2px 4px rgba(0,0,0,0.5),
+3px 3px 6px rgba(0,0,0,0.4),
+-1px -1px 2px rgba(220, 240, 180, 0.7),
+0 0 10px rgba(210, 224, 176, 1),
+0 0 15px rgba(210, 224, 176, 0.8) !important;
+}
+
+.message-received::after {
+color: #FFF8E7 !important;
+text-shadow:
+0 0 2px #FFE399,
+0 0 3px #FFE399,
+1px 1px 0 #FFE399,
+-1px -1px 0 #FFE399,
+1px -1px 0 #FFE399,
+-1px 1px 0 #FFE399,
+2px 2px 4px rgba(0,0,0,0.5),
+3px 3px 6px rgba(0,0,0,0.4),
+-1px -1px 2px rgba(255, 245, 200, 0.7),
+0 0 10px rgba(255, 220, 120, 0.9),
+0 0 15px rgba(255, 200, 80, 0.7) !important;
+}
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
@@ -2774,6 +3128,34 @@ window.copyEmail = function(type){
 updateFavCounts();
 renderAuthors();
 renderCards();
+
+/* ===== THEME TOGGLE ===== */
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const sunIcon = document.getElementById('theme-icon-sun');
+  const moonIcon = document.getElementById('theme-icon-moon');
+  let dark = localStorage.getItem('theme') === 'dark' ||
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  function applyTheme(){
+    if(dark){
+      root.classList.add('dark');
+      sunIcon.style.display = '';
+      moonIcon.style.display = 'none';
+    } else {
+      root.classList.remove('dark');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = '';
+    }
+  }
+  applyTheme();
+  btn.addEventListener('click', ()=>{
+    dark = !dark;
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    applyTheme();
+  });
+})();
 
 })();
 </script>
