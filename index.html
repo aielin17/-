@@ -1273,7 +1273,250 @@ const BUBBLES = [
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8) !important;
     letter-spacing: 0.5px !important;
 }`
-  }
+  },
+{
+  id:'b26',
+  type:'bubble',
+  name:'苹果🍎',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'有点甜'},
+    {t:'received',v:'摘一颗苹果'},
+    {t:'sent',v:'等你从门前经过'}
+  ],
+  css:`/* ============================================
+   苹果元素气泡 - Apple Chat Bubbles
+   ============================================ */
+
+.message {
+  border-radius: 24px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 14px 20px !important;
+  border: none !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.message.message-sent,
+.message.message-received {
+  display: inline-block !important;
+  position: relative !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: auto !important;
+  min-width: 70% !important;
+}
+
+/* 发送方 - 苹果红 */
+.message.message-sent {
+  background-color: #e74c3c !important;
+  color: #fff8f0 !important;
+  border-radius: 24px 24px 24px 24px !important;
+  border: 3px solid #c0392b !important;
+  box-shadow:
+    0 4px 0 #a93226,
+    0 6px 10px rgba(0,0,0,0.15) !important;
+}
+
+/* 接收方 - 奶油黄 */
+.message.message-received {
+  background-color: #fef9e7 !important;
+  color: #5d4e37 !important;
+  border-radius: 24px 24px 24px 24px !important;
+  border: 3px solid #f5cba7 !important;
+  box-shadow:
+    0 4px 0 #e5b895,
+    0 6px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* 苹果梗装饰 - 发送方顶部 */
+.message.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 8px !important;
+  height: 14px !important;
+  background: #5d4037 !important;
+  border-radius: 4px !important;
+  z-index: 10 !important;
+}
+/* 苹果叶子 - 发送方顶部右侧 */
+.message.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: calc: calc(50% + 5px) !important;
+  width: 18px !important;
+  height: 12px !important;
+  background: linear-gradient(135deg, #aed581 0%, #7cb342 100%) !important;
+  border-radius: 0 12px 0 12px !important;
+  transform: rotate(-25deg) !important;
+  z-index: 0 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+
+
+/* 发送方内部高光 - 苹果光泽 */
+.message.message-sent {
+  background-image:
+    radial-gradient(
+      ellipse at 30% 20%,
+      rgba(255,255,255,0.25) 0%,
+      transparent 50%
+    ) !important;
+}
+
+/* 接收方星星装饰背景 */
+.message.message-received {
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255,215,0,0.15) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255,215,0,0.12) 1.5px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 60% 20%,
+      rgba(255,215,0,0.1) 1px,
+      transparent 1px
+    ) !important;
+  background-size: 30px 30px, 25px 25px, 20px 20px !important;
+}
+
+/* 时间戳 */
+.timestamp {
+  color: #d4a574 !important;
+  font-size: 11px !important;
+  margin-top: 8px !important;
+  font-weight: 500 !important;
+}
+
+/* 发送方时间戳 - 深红色 */
+.message.message-sent ~ .timestamp {
+  color: #c0392b !important;
+  opacity: 0.8 !important;
+}`
+},
+{
+  id:'b27',
+  type:'bubble',
+  name:'薄巧薄巧',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'你是我未曾拥有无法捕捉的亲昵'},
+    {t:'received',v:'虚拟'},
+    {t:'sent',v:'过了很久我终于抬头看'}
+  ],
+  css:`/* ============================================
+   薄巧风格气泡 - 柔和薄荷巧克力
+   ============================================ */
+
+.message {
+  border-radius: 24px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 12px 18px !important;
+  border: none !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.message.message-sent,
+.message.message-received {
+  display: inline-block !important;
+  position: relative !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: auto !important;
+  min-width: 70% !important;
+}
+
+/* 发送方 - 柔和巧克力色 + 铺满条纹 */
+.message.message-sent {
+  background-color: #8b7355 !important;
+  color: #faf8f5 !important;
+  border-radius: 24px !important;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(250, 248, 245, 0.08) 10px,
+    rgba(250, 248, 245, 0.08) 20px
+  ) !important;
+}
+
+/* 接收方 - 柔和薄荷色 + 铺满波点 */
+.message.message-received {
+  background-color: #e8f4f0 !important;
+  color: #4a5d52 !important;
+  border-radius: 24px !important;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(74, 93, 82, 0.12) 1.5px,
+    transparent 1.5px
+  ) !important;
+important;
+  color: #faf8f5 !important;
+  border-radius: 24px !important;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(250, 248, 245, 0.08) 10px,
+    rgba(250, 248, 245, 0.08) 20px
+  ) !important;
+}
+
+/* 接收方 - 柔和薄荷色 + 铺满波点 */
+.message.message-received {
+  background-color: #e8f4f0 !important;
+  color: #4a5d52 !important;
+  border-radius: 24px !important;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(74, 93, 82, 0.12) 1.5px,
+    transparent 1.5px
+  ) !important;
+  background-size: 12px 12px !important;
+}
+
+/* 小圆点尾巴 */
+.message::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: inherit !important;
+  bottom: 6px !important;
+}
+
+/* 发送方尾巴 - 右侧巧克力点 */
+.message.message-sent::after {
+  right: -4px !important;
+  background-color: #8b7355 !important;
+}
+
+/* 接收方尾巴 - 左侧薄荷点 */
+.message.message-received::after {
+  left: -4px !important;
+  background-color: #e8f4f0 !important;
+}
+
+/* 时间戳 */
+.timestamp {
+  color: #a8b5ad !important;
+  font-size: 11px !important;
+  margin-top: 4px !important;
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
