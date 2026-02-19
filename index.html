@@ -1313,7 +1313,7 @@ const BUBBLES = [
     font-weight: 500 !important;
 }`
   },
-  {
+{
     id:'b24',type:'bubble',name:'白骨红痕',author:'T',
     previews:[{t:'sent',v:'你是我朝夕相伴触手可及的虚拟。'},{t:'received',v:'你是我未曾拥有无法捕捉的亲昵。'}],
     css:`.message-sent,
@@ -1327,7 +1327,7 @@ const BUBBLES = [
     transform: rotate(-1deg) !important; 
 }`
   },
-  {
+{
     id:'b25',type:'bubble',name:'深渊心脏',author:'T',
     previews:[{t:'sent',v:'你是我朝夕相伴触手可及的虚拟。'},{t:'received',v:'你是我未曾拥有无法捕捉的亲昵。'}],
     css:`.message-sent,
@@ -1782,7 +1782,6 @@ important;
   font-family: "Courier New", monospace !important;
 }`
 },
-
 {
   id:'b29',
   type:'bubble',
@@ -2145,8 +2144,7 @@ important;
   animation: dreamFloat2 5.5s ease-in-out infinite !important;
 }`
 },
-
-  {
+{
     id:'b31',type:'bubble',name:'蝴蝶结',author:'歪',
     previews:[{t:'received',v:'你是我朝夕相伴触手可及的虚拟'},{t:'sent',v:'你是我未曾拥有无法捕捉的亲昵'}],
     css:`
@@ -2278,7 +2276,6 @@ important;
     overflow: visible !important;
 }`
   },
-  
 {
 id:'b32',
 type:'bubble',
@@ -2842,7 +2839,391 @@ text-shadow:
 .message-received::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; right: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }
 .message-sent::after{ content: '' !important; position: absolute !important; right: -16px !important; bottom: -6px !important; width: 70px !important; height: 20px !important; z-index: 3 !important; background: transparent !important; animation: ecg-pulse 2s infinite ease-in-out !important; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50"><path d="M0,25 L15,25 L20,15 L25,35 L30,25 L45,25 L50,8 L55,42 L60,25 L75,25 L80,20 L85,30 L90,25 L105,25 L110,15 L115,35 L120,25" stroke="white" stroke-width="1.5" fill="none"/></svg>') !important; background-size: contain !important; background-repeat: no-repeat !important; background-position: right bottom !important; opacity: 1 !important; pointer-events: none !important; transform: scaleX(-1); }
 .message-sent::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; left: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }`
+},
+{
+  id:'b38',
+  type:'bubble',
+  name:'豆沙绿微透',
+  author:'老猫',
+  previews:[
+    {t:'sent',v:'123456789'},
+    {t:'received',v:'一二三四五六七八九'},
+    {t:'sent',v:'三点一四一五九二六'}
+  ],
+  css:`
+.message {
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 8px 12px !important;
+  border: none !important;
+
+  background: rgba(166, 196, 170, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #2d4238 !important;
 }
+
+.message img {
+  max-width: 100% !important;
+  border-radius: 12px !important;
+  margin: 4px 0 !important;
+  display: block !important;
+}
+
+.message.message-received {
+  background: rgba(235, 240, 236, 0.4) !important;
+  color: #2d4238 !important;
+}
+
+.message.message-sent {
+  background: rgba(166, 196, 170, 0.45) !important;
+  color: #fff !important;
+}`
+},
+{
+  id:'b39',type:'bubble',name:'粉色',author:'翊甜',
+  group:'g-xinqing',groupLabel:'心情系列',
+  previews:[
+    {t:'sent',v:'你好，很高兴认识你～'},
+    {t:'received',v:'我也是，今天天气不错呀！'}
+  ],
+  css:`
+.message-box {
+  max-width: 75%;
+  margin: 16px 0;
+  position: relative;
+}
+
+.message-sent,
+.message-received {
+  background: rgba(238, 147, 167, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #923850 !important;
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  display: inline-block !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.message-sent {
+  margin-left: auto !important;
+  border-radius: 18px 6px 18px 18px !important;
+}
+
+.message-received {
+  margin-right: auto !important;
+  border-radius: 6px 18px 18px 18px !important;
+}
+`
+},
+{
+  id:'b40',type:'bubble',name:'棕色',author:'翊甜',
+  group:'g-xinqing',groupLabel:'心情系列',
+  previews:[
+    {t:'sent',v:'你好，很高兴认识你～'},
+    {t:'received',v:'我也是，今天天气不错呀！'}
+  ],
+  css:`.message-sent,
+.message-received {
+  background: rgba(140, 120, 130, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #4a2c4a !important; 
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  display: inline-block !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.message-sent {
+  margin-left: auto !important;
+  border-radius: 18px 6px 18px 18px !important;
+}
+
+.message-received {
+  margin-right: auto !important;
+  border-radius: 6px 18px 18px 18px !important;
+}`
+},
+{
+  id:'b41',type:'bubble',name:'雾蓝',author:'翊甜',
+  group:'g-xinqing',groupLabel:'心情系列',
+  previews:[
+    {t:'sent',v:'你好，很高兴认识你～'},
+    {t:'received',v:'我也是，今天天气不错呀！'}
+  ],
+  css:`.message-box {
+  max-width: 75%;
+  margin: 16px 0;
+  position: relative;
+}
+
+.message-sent,
+.message-received {
+  background: rgba(110, 130, 150, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #1a365d !important;
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  display: inline-block !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.message-sent {
+  margin-left: auto !important;
+  border-radius: 18px 6px 18px 18px !important;
+}
+
+.message-received {
+  margin-right: auto !important;
+  border-radius: 6px 18px 18px 18px !important;
+}
+`
+},
+{
+  id:'b42',type:'bubble',name:'磨砂',author:'翊甜',
+  group:'g-xiaomao',groupLabel:'玻璃小猫系列',
+  previews:[
+    {t:'sent',v:'测试'},
+    {t:'received',v:'你不是孤单一个人在对抗世界'}
+  ],
+  css:`
+.message-sent, .message-received {
+  background: linear-gradient(145deg, rgba(137, 207, 240, 0.6), rgba(255, 182, 193, 0.6)) !important;
+    color: #333 !important;
+    border: 2px solid rgba(249, 199, 185, 0.8) !important;
+    clip-path: polygon(
+    0% 0%, 12% 0%, 17% 8%, 22% 0%,
+    78% 0%, 83% 8%, 88% 0%, 100% 0%,
+    100% 100%, 0% 100%
+  ) !important;
+    padding: 15px 20px !important;
+    backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 4px rgba(255, 255, 255, 0.4) !important;
+}`
+},
+{
+  id:'b43',type:'bubble',name:'毛茸茸',author:'翊甜',
+  group:'g-xiaomao',groupLabel:'玻璃小猫系列',
+  previews:[
+    {t:'sent',v:'测试'},
+    {t:'received',v:'你不是孤单一个人在对抗世界'}
+  ],
+  css:`
+.message-sent, .message-received {
+  position: relative !important;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(255, 240, 245, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(255, 220, 225, 0.3) 3px, transparent 3px),
+    linear-gradient(145deg, #89cff0, #ffb6c1) !important;
+  background-blend-mode: overlay !important; 
+  color: #333 !important;
+  clip-path: polygon(
+    0% 0%, 12% 0%, 17% 8%, 22% 0%,
+    78% 0%, 83% 8%, 88% 0%, 100% 0%,
+    100% 100%, 0% 100%
+  ) !important;
+  padding: 15px 20px !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+  z-index: 1 !important;
+}
+.message-sent::before,
+.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(249, 199, 185, 0.7) !important;
+  clip-path: polygon(
+    0% 0%, 12% 0%, 17% 8%, 22% 0%,
+    78% 0%, 83% 8%, 88% 0%, 100% 0%,
+    100% 100%, 0% 100%
+  ) !important;
+  transform: scale(1.08) !important;
+  transform-origin: center !important;
+  filter: blur(6px) !important;
+  z-index: -1 !important;
+  opacity: 0.9 !important;
+}
+.message-sent::after,
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  clip-path: polygon(
+    0% 0%, 12% 0%, 17% 8%, 22% 0%,
+    78% 0%, 83% 8%, 88% 0%, 100% 0%,
+    100% 100%, 0% 100%
+  ) !important;
+  background: rgba(255, 200, 200, 0.2) !important;
+  transform: scale(1.04) !important;
+  filter: blur(10px) !important;
+  z-index: -2 !important;
+  opacity: 0.6 !important;
+}`
+},
+{
+id:'b44',
+type:'bubble',
+name:'弥冬',
+author:'11',
+previews:[
+{t:'sent',v:'多幸运遇见了你'},
+{t:'received',v:'多幸运爱上了你'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received::before,
+.message-sent::before {
+content: '' !important;
+position: absolute !important;
+left: 0 !important;
+top: 0 !important;
+right: 0 !important;
+bottom: 0 !important;
+border-radius: inherit !important;
+pointer-events: none !important;
+z-index: 1 !important;
+
+background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.5) 1px, transparent 1px),
+radial-gradient(circle at 30% 10%, rgba(255,255,255,0.15) 1px, transparent 1px),
+radial-gradient(circle at 60% 70%, rgba(255,255,255,0.4) 1px, transparent 1px),
+radial-gradient(circle at 85% 45%, rgba(255,255,255,0.2) 1px, transparent 1px);
+background-size: 90px 90px, 80px 80px, 70px 70px, 60px 60px !important;
+
+animation: snow-natural 40s linear infinite !important;
+will-change: background-position !important;
+transform: translateZ(0) !important;
+mix-blend-mode: screen !important;
+opacity: 0.5 !important;
+}
+
+@keyframes snow-natural {
+0% {
+background-position: 0 0;
+}
+100% {
+background-position: 700px 900px;
+}
+}
+
+.message-received {
+background: linear-gradient(145deg, rgba(30, 30, 40, 0.45), rgba(10, 10, 20, 0.35)) !important;
+backdrop-filter: blur(12px) !important;
+-webkit-backdrop-filter: blur(12px) !important;
+border: 1px solid rgba(255, 255, 255, 0.15) !important;
+box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1) !important;
+color: #fff !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+position: relative !important;
+isolation: isolate !important;
+overflow: visible !important;
+}
+
+.message-sent {
+background: linear-gradient(145deg, rgba(40, 40, 55, 0.5), rgba(20, 20, 35, 0.4)) !important;
+backdrop-filter: blur(12px) !important;
+-webkit-backdrop-filter: blur(12px) !important;
+border: 1px solid rgba(255, 255, 255, 0.18) !important;
+box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.12) !important;
+color: #fff !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px !important;
+position: relative !important;
+isolation: isolate !important;
+overflow: visible !important;
+}
+
+.message-received::after {
+content: '' !important;
+position: absolute !important;
+width: 12px !important;
+height: 12px !important;
+left: -6px !important;
+bottom: 1px !important;
+z-index: 10 !important;
+border-radius: 50% !important;
+box-shadow: inset 3px 0 0 rgba(255, 255, 255, 0.95) !important;
+transform: rotate(-40deg) !important;
+filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) !important;
+animation: moonGlow 3s ease-in-out infinite !important;
+}
+
+.message-sent::after {
+content: '☃️' !important;
+position: absolute !important;
+right: -4px !important;
+bottom: 3px !important;
+width: auto !important;
+height: auto !important;
+z-index: 10 !important;
+background: transparent !important;
+clip-path: none !important;
+font-size: 14px !important;
+line-height: 1 !important;
+filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) !important;
+animation: starTwinkle 2.4s ease-in-out infinite !important;
+color: white !important;
+text-shadow: 0 0 2px rgba(255,255,255,0.5) !important;
+}
+
+@keyframes moonGlow {
+0%,
+100% {
+box-shadow: inset 3px 0 0 rgba(255, 255, 255, 0.95) !important;
+filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5)) !important;
+}
+50% {
+box-shadow: inset 3px 0 0 rgba(255, 255, 255, 1) !important;
+filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)) !important;
+}
+}
+
+@keyframes starTwinkle {
+0%,
+100% {
+opacity: 1 !important;
+transform: scale(1) !important;
+filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) !important;
+}
+50% {
+opacity: 1 !important;
+transform: scale(1.15) !important;
+filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1)) !important;
+}
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
