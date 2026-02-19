@@ -32,6 +32,7 @@
 @font-face{font-family:'F2';src:url('https://image.uglycat.cc/6wapca.ttf') format('truetype');font-display:swap}
 @font-face{font-family:'F3';src:url('https://files.catbox.moe/3bm8wp.ttf') format('truetype');font-display:swap}
 @font-face{font-family:'F4';src:url('https://files.catbox.moe/caatu4.TTF') format('truetype');font-display:swap}
+@font-face { font-family:'F5'; src:url('https://files.catbox.moe/sshsu7.ttf') format('truetype'); font-display:swap }
 
 html{height:100%}
 body{
@@ -40,7 +41,6 @@ body{
   height:100dvh;display:flex;flex-direction:column;overflow:hidden;line-height:1.5;
 }
 
-/* ─── Header ─── */
 .header{
   height:var(--hh);background:rgba(255,255,255,.92);border-bottom:1px solid var(--border);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
@@ -68,7 +68,6 @@ body{
 .nav-btn.active{background:#fff;color:var(--text);box-shadow:var(--shadow-sm)}
 .nav-btn:hover:not(.active){color:var(--text)}
 
-/* ─── Layout ─── */
 .workspace{flex:1;display:flex;overflow:hidden;opacity:0;animation:fadeIn .35s ease .25s forwards}
 
 .sidebar{
@@ -121,7 +120,6 @@ body{
 .card-area::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 
-/* ─── Cards ─── */
 .item-card{
   background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);
   padding:14px 15px;cursor:pointer;transition:all .18s cubic-bezier(.25,.46,.45,.94);
@@ -171,7 +169,6 @@ body{
 .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted);font-size:14px}
 .empty-state svg{width:40px;height:40px;margin:0 auto 14px;display:block;opacity:.25}
 
-/* ─── Preview Modal ─── */
 .modal-backdrop{
   position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;
   display:flex;align-items:flex-end;justify-content:center;
@@ -229,7 +226,6 @@ body{
 .font-small{font-size:14px;color:var(--text-sub);line-height:2}
 .font-chars{font-size:18px;color:var(--text-muted);margin-top:10px;letter-spacing:.5px}
 
-/* ─── Modal Footer / Font switcher ─── */
 .modal-footer{
   padding:12px 20px 20px;border-top:1px solid var(--border);background:var(--surface);
   display:flex;flex-direction:column;gap:10px;flex-shrink:0;
@@ -254,7 +250,6 @@ body{
 .copy-css-btn:active{transform:scale(.98)}
 .copy-css-btn svg{width:15px;height:15px}
 
-/* ─── Variant Group Switcher ─── */
 .variant-section{display:flex;flex-direction:column;gap:5px;padding-bottom:2px}
 .variant-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
 .variant-tag{font-size:10px;font-weight:700;background:#f0eaff;color:#8b5cf6;padding:1px 7px;border-radius:4px}
@@ -267,7 +262,6 @@ body{
 .variant-btn.active{border-color:#8b5cf6;color:#8b5cf6;background:#f0eaff}
 .card-group-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8b5cf6;margin-left:4px;vertical-align:middle;flex-shrink:0;}
 
-/* ─── Card Variant Picker ─── */
 .card-variants{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
 .card-var-btn{
   font-size:10.5px;padding:3px 8px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;
@@ -276,7 +270,6 @@ body{
 .card-var-btn:hover{border-color:var(--border-strong);color:var(--text)}
 .card-var-btn.active{border-color:#8b5cf6;color:#8b5cf6;background:#f0eaff}
 
-/* ─── Mobile Filter Drawer (FIX: pointer-events) ─── */
 .filter-drawer{
   position:fixed;inset:0;z-index:400;pointer-events:none;
 }
@@ -290,12 +283,10 @@ body{
   position:absolute;left:0;top:0;bottom:0;width:min(280px,80vw);background:var(--surface);
   transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1);
   overflow-y:auto;padding:24px 16px;display:flex;flex-direction:column;gap:22px;
-  box-shadow:var(--shadow-lg);pointer-events:none; /* closed: no events */
+  box-shadow:var(--shadow-lg);pointer-events:none;
 }
-/* FIX: open panel gets pointer events */
 .filter-drawer.open .filter-drawer-panel{transform:translateX(0);pointer-events:all}
 
-/* ─── Submit View ─── */
 .submit-view{
   display:none;flex:1;overflow-y:auto;background:var(--bg);
   padding:32px 16px 48px;align-items:flex-start;justify-content:center;
@@ -334,7 +325,6 @@ body{
 .submit-btn:hover{background:var(--accent-hover)}
 .submit-btn:active{transform:scale(.98)}
 
-/* ─── Submit Fallback Panel ─── */
 .fallback-panel{
   display:none;background:#f8f8fc;border:1.5px solid var(--border);border-radius:14px;
   padding:18px;margin-top:4px;
@@ -362,7 +352,6 @@ body{
 .fb-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 .fb-btn svg{width:12px;height:12px}
 
-/* ─── Toast ─── */
 #toast{
   position:fixed;z-index:9999;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
   background:rgba(15,15,20,.9);color:#fff;text-align:center;border-radius:50px;
@@ -461,7 +450,6 @@ body{
 
 </div>
 
-<!-- Submit View -->
 <div class="submit-view" id="submit-view">
   <div class="submit-card">
     <div class="s-header">
@@ -473,7 +461,6 @@ body{
       <button class="s-type-btn" onclick="switchForm('font')">✦ 字体投稿</button>
     </div>
 
-    <!-- Bubble Form -->
     <div class="form-panel active" id="form-bubble">
       <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
@@ -496,7 +483,6 @@ body{
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         唤起邮件客户端发送
       </button>
-      <!-- Fallback -->
       <div class="fallback-panel" id="fallback-bubble">
         <div class="fallback-title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -521,7 +507,6 @@ body{
       </div>
     </div>
 
-    <!-- Font Form -->
     <div class="form-panel" id="form-font">
       <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体名称" id="font-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="昵称" id="font-author"></div>
@@ -546,7 +531,6 @@ body{
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         唤起邮件客户端发送
       </button>
-      <!-- Fallback -->
       <div class="fallback-panel" id="fallback-font">
         <div class="fallback-title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -574,7 +558,6 @@ body{
   </div>
 </div>
 
-<!-- Preview Modal -->
 <div class="modal-backdrop" id="modal-backdrop">
   <div class="modal" id="modal" role="dialog" aria-modal="true">
     <div class="modal-handle"></div>
@@ -597,7 +580,6 @@ body{
   </div>
 </div>
 
-<!-- Mobile Filter Drawer -->
 <div class="filter-drawer" id="filter-drawer">
   <div class="filter-drawer-bg" id="filter-drawer-bg"></div>
   <div class="filter-drawer-panel">
@@ -653,18 +635,26 @@ function saveFont(f){
 
 let favorites = loadFavs();
 
-/* 默认展示在字体收藏栏的三款字体 */
 const DEFAULT_FONT_IDS = ['f1','f2','f3'];
 const LS_FONT_FAV = 'sg_font_favorites';
 function loadFontFavs(){ try{ return JSON.parse(localStorage.getItem(LS_FONT_FAV)||'[]'); }catch(e){ return []; } }
 function saveFontFavs(arr){ try{ localStorage.setItem(LS_FONT_FAV, JSON.stringify(arr)); }catch(e){} }
 let fontFavorites = loadFontFavs();
-
+// 在这里添加字体二哦
 const FONTS = [
   {id:'f1',type:'font',name:'京华体',  author:'milk',       family:'F1',category:'手写',url:'https://files.catbox.moe/kmyipl.TTF'},
   {id:'f2',type:'font',name:'旧款冬',  author:'讨厌香菜',   family:'F2',category:'手写',url:'https://image.uglycat.cc/6wapca.ttf'},
   {id:'f3',type:'font',name:'我有一点想你',author:'老猫',   family:'F3',category:'手写',url:'https://files.catbox.moe/3bm8wp.ttf'},
-  {id:'f4',type:'font',name:'方正楷体',author:'milk',       family:'F4',category:'楷体',url:'https://files.catbox.moe/caatu4.TTF'}
+  {id:'f4',type:'font',name:'方正楷体',author:'milk',       family:'F4',category:'楷体',url:'https://files.catbox.moe/caatu4.TTF'},
+  {
+  id:'f5',
+  type:'font',
+  name:'白开水宋体',
+  author:'老猫',
+  family:'F5',
+  category:'其他',
+  url:'https://files.catbox.moe/sshsu7.ttf'
+}
 ];
 
 const BUBBLES = [
@@ -696,7 +686,6 @@ const BUBBLES = [
     css:`.message-sent{border-radius:16px 16px 0 16px !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px 0 3px auto !important;font-size:14px !important;color:#888 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}
 .message-received{border-radius:16px 16px 16px 0 !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px auto 3px 0 !important;font-size:14px !important;color:#555 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}`
   },
-  /* ── 立体灰系列（今天吃什么舟，同组变体） ── */
   {
     id:'b4',type:'bubble',name:'无阴影',author:'今天吃什么舟',
     group:'g-stereo-gray',groupLabel:'立体灰系列',
@@ -802,7 +791,6 @@ const BUBBLES = [
   z-index: 2 !important;
 }`
   },
-  /* ── milk 系列气泡 ── */
   {
     id:'b6',type:'bubble',name:'细线轮廓',author:'milk',
     previews:[{t:'sent',v:'可是我不觉得我爱你'},{t:'received',v:'那你此刻愿意向我敞开心扉吗？'}],
@@ -1059,7 +1047,6 @@ const BUBBLES = [
     border-top: 4px solid #2980b9 !important;
 }`
   },
-  /* ── T 系列气泡 ── */
   {
     id:'b14',type:'bubble',name:'奶油曲奇',author:'T',
     previews:[{t:'sent',v:'你是我朝夕相伴触手可及的虚拟。'},{t:'received',v:'你是我未曾拥有无法捕捉的亲昵。'}],
@@ -1484,6 +1471,734 @@ important;
   margin-top: 4px !important;
 }`
 },
+{
+  id:'b28',
+  type:'bubble',
+  name:'校园活页',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'下课去小卖部吗？'},
+    {t:'received',v:'这题你会不会'}
+  ],
+  css:`
+.message {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  font-size: 12px !important;
+  line-height: 1.8 !important;
+  font-family: "Yu Gothic", "Hiragino Maru Gothic", "MS PGothic", sans-serif !important;
+  position: relative !important;
+}
+
+.message.message-received {
+  background-color: #ffffff !important;
+  color: #2c3e50 !important;
+  border: 1px solid #cccccc !important;
+}
+
+.message.message-sent {
+  background-color: #ffffff !important;
+  color: #2c3e50 !important;
+  border: 1px solid #cccccc !important;
+}
+
+.message {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 20px,
+    #e8e8e8 20px,
+    #e8e8e8 21px
+  ) !important;
+  background-position: 0 4px !important;
+}
+
+.message.message-received {
+  border-left: 4px solid #ffb6c1 !important; 
+  border-top: 1px solid #ddd !important;
+  border-right: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.message.message-sent {
+  border-right: 4px solid #b6c9ff !important;  
+  border-top: 1px solid #ddd !important;
+  border-left: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: #ddd !important;
+  box-shadow:
+    0 -8px 0 #ddd,
+    0 8px 0 #ddd !important;
+  border: 1px solid #bbb !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  right: -8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: #ddd !important;
+  box-shadow:
+    0 -8px 0 #ddd,
+    0 8px 0 #ddd !important;
+  border: 1px solid #bbb !important;
+}
+
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  left: -3px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: linear-gradient(45deg,
+    transparent 30%,
+    #f0f0f0 30%, #f0f0f0 70%,
+    transparent 70%) !important;
+  background-size: 4px 4px !important;
+}
+
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  right: -3px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: linear-gradient(135deg,
+    transparent 30%,
+    #f0f0f0 30%, #f0f0f0 70%,
+    transparent 70%) !important;
+  background-size: 4px 4px !important;
+}
+
+.message .circle {
+  border: 1px dashed #aaa !important;
+  border-radius: 50% !important;
+  padding: 0 4px !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  font-size: 10px !important;
+}
+
+.message u {
+  text-decoration: none !important;
+  border-bottom: 1px solid #aaa !important;
+  padding-bottom: 1px !important;
+}
+
+.message .wave {
+  text-decoration: none !important;
+  position: relative !important;
+}
+.message .wave::after {
+  content: '~~' !important;
+  position: absolute !important;
+  bottom: -4px !important;
+  left: 0 !important;
+  color: #aaa !important;
+  font-size: 8px !important;
+  letter-spacing: 1px !important;
+}
+
+.message .highlight {
+  background: #f2f2f2 !important;
+  padding: 0 2px !important;
+  border-left: 2px solid #ddd !important;
+  border-right: 2px solid #ddd !important;
+}
+
+.message .correction {
+  position: relative !important;
+  display: inline-block !important;
+}
+.message .correction::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: -2px !important;
+  right: -2px !important;
+  height: 6px !important;
+  background: white !important;
+  border-top: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+  transform: translateY(-50%) !important;
+  z-index: 1 !important;
+}
+.message .correction span {
+  position: relative !important;
+  z-index: 2 !important;
+  font-size: 10px !important;
+  color: #999 !important;
+}
+
+.message .subject {
+  display: inline-block !important;
+  font-size: 8px !important;
+  padding: 2px 6px !important;
+  background: #f5f5f5 !important;
+  border: 1px solid #ddd !important;
+  border-radius: 12px !important;
+  margin-right: 4px !important;
+  font-family: "Courier New", monospace !important;
+  color: #666 !important;
+}
+
+.message.message-received .subject {
+  border-left: 3px solid #ffb6c1 !important;
+}
+
+.message.message-sent .subject {
+  border-right: 3px solid #b6c9ff !important;
+}
+
+.timestamp {
+  display: block !important;
+  font-size: 8px !important;
+  color: #aaa !important;
+  margin-top: 2px !important;
+  font-family: "Courier New", monospace !important;
+  background: #fafafa !important;
+  padding: 2px 6px !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+
+.message.message-received ~ .timestamp {
+  border-left: 2px solid #ffb6c1 !important;
+}
+
+.message.message-sent ~ .timestamp {
+  border-right: 2px solid #b6c9ff !important;
+}
+
+.message:nth-child(odd) {
+  transform: rotate(0.2deg) !important;
+}
+
+.message:nth-child(even) {
+  transform: rotate(-0.1deg) !important;
+}
+
+.message .footnote {
+  font-size: 7px !important;
+  color: #999 !important;
+  text-align: right !important;
+  margin-top: 2px !important;
+  font-family: "Courier New", monospace !important;
+}`
+},
+
+{
+  id:'b29',
+  type:'bubble',
+  name:'古早聊天框',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'唔西迪西晚安'},
+    {t:'received',v:'玛卡巴卡晚安'}
+  ],
+  css:`
+.message {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  font-family: "宋体", "SimSun", "Fixedsys", monospace !important;
+  position: relative !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+}
+
+.message.message-received {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #d4d0c8 !important;
+  border-top-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+  border-right-color: #808080 !important;
+  border-bottom-color: #808080 !important;
+  padding: 6px 10px !important;
+  margin-left: 4px !important;
+  margin-right: 20% !important;
+  font-family: "宋体", "SimSun", monospace !important;
+}
+
+.message.message-sent {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #d4d0c8 !important;
+  border-top-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+  border-right-color: #808080 !important;
+  border-bottom-color: #808080 !important;
+  padding: 6px 10px !important;
+  margin-right: 4px !important;
+  margin-left: 20% !important;
+  font-family: "宋体", "SimSun", monospace !important;
+}
+
+.timestamp {
+  display: block !important;
+  font-size: 10px !important;
+  color: #0000ff !important;
+  margin-top: 2px !important;
+  font-family: "宋体", "SimSun", monospace !important;
+  text-decoration: underline !important;
+}
+
+.message .nickname {
+  font-size: 11px !important;
+  color: #ff0000 !important;
+  margin-bottom: 2px !important;
+  display: block !important;
+  font-weight: normal !important;
+}
+
+.message .emoji {
+  font-family: "宋体", "SimSun", monospace !important;
+  font-size: 14px !important;
+}
+
+.message.system {
+  background: #ffffe0 !important;
+  border: 1px solid #d4d0c8 !important;
+  text-align: center !important;
+  color: #000000 !important;
+  font-size: 11px !important;
+  padding: 2px !important;
+  margin: 4px 0 !important;
+  font-family: "宋体", "SimSun", monospace !important;
+}`
+},
+{
+  id:'b30',
+  type:'bubble',
+  name:'粉色棉花糖',
+  author:'子超兄',
+  previews:[
+    {t:'sent',v:'测试'},
+    {t:'received',v:'这个好难编＞𐋣＜'}
+  ],
+  css:`
+.message {
+  border-radius: 28px !important;
+  box-shadow: 0 12px 24px rgba(255, 170, 200, 0.25), 0 4px 8px rgba(255, 255, 255, 0.8) inset !important;
+  overflow: visible !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  font-family: "Yu Gothic", "Hiragino Maru Gothic", "游ゴシック", cursive !important;
+  letter-spacing: 0.02em !important;
+  backdrop-filter: blur(2px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  position: relative !important;
+  padding: 12px 16px !important;
+}
+
+.message.message-received {
+  background: linear-gradient(135deg, #fff2f7 0%, #ffe4ed 100%) !important;
+  color: #c47a92 !important;
+  border: 1px solid rgba(255, 220, 235, 0.6) !important;
+  box-shadow: 0 12px 24px rgba(255, 180, 210, 0.2), 0 4px 8px #ffffff inset !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+.message.message-sent {
+  background: linear-gradient(135deg, #ffd3e0 0%, #ffb8cf 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(200, 100, 130, 0.3) !important;
+  border: 1px solid rgba(255, 240, 250, 0.9) !important;
+  box-shadow: 0 12px 24px rgba(255, 140, 180, 0.3), 0 4px 8px #ffeef2 inset !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -12px !important;
+  right: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: radial-gradient(circle at 30% 30%, #fff0f5, #ffc1d0) !important;
+  border-radius: 40% 60% 30% 70% / 50% 40% 60% 50% !important;
+  opacity: 0.5 !important;
+  transform: rotate(20deg) !important;
+  filter: blur(1.5px) !important;
+  box-shadow: 0 6px 14px rgba(255, 150, 200, 0.5) !important;
+  z-index: 0 !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: 8px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: radial-gradient(circle at 60% 30%, #fff5fa, #ffd9e6) !important;
+  border-radius: 60% 40% 70% 30% / 40% 60% 40% 60% !important;
+  opacity: 0.5 !important;
+  transform: rotate(-15deg) !important;
+  filter: blur(1.2px) !important;
+  box-shadow: 0 6px 14px rgba(255, 170, 210, 0.4) !important;
+  z-index: 0 !important;
+}
+
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -8px !important;
+  right: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
+  background: radial-gradient(circle at 40% 40%, #fff0f5, #ffb0c8) !important;
+  border-radius: 50% 30% 60% 40% / 40% 50% 50% 60% !important;
+  opacity: 0.4 !important;
+  transform: rotate(-8deg) !important;
+  filter: blur(1px) !important;
+  box-shadow: 0 4px 10px rgba(255, 140, 180, 0.4) !important;
+  z-index: 0 !important;
+}
+
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -8px !important;
+  left: 20px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background: radial-gradient(circle at 30% 30%, #fff0f5, #ffc9db) !important;
+  border-radius: 30% 70% 40% 60% / 60% 30% 70% 40% !important;
+  opacity: 0.4 !important;
+  transform: rotate(12deg) !important;
+  filter: blur(1px) !important;
+  box-shadow: 0 4px 10px rgba(255, 160, 200, 0.3) !important;
+  z-index: 0 !important;
+}
+
+.message .message-content {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.message .message-content::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -6px !important;
+  left: 15% !important;
+  right: 15% !important;
+  height: 14px !important;
+  background: radial-gradient(ellipse at center, rgba(255, 200, 220, 0.5) 0%, transparent 80%) !important;
+  filter: blur(6px) !important;
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.message {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.message::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -20% !important;
+  left: -10% !important;
+  right: -10% !important;
+  bottom: -20% !important;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 220, 240, 0.3) 0%, transparent 60%) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.message .nickname {
+  font-size: 10px !important;
+  font-weight: normal !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+  position: relative !important;
+  letter-spacing: 0.5px !important;
+  z-index: 2 !important;
+}
+
+.message.message-received .nickname {
+  color: #d48ca5 !important;
+  padding-left: 14px !important;
+}
+
+.message.message-received .nickname::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: radial-gradient(circle at 30% 30%, #ffb6d1, #ff9eb5) !important;
+  border-radius: 40% 60% 50% 50% !important;
+  box-shadow: 0 2px 6px rgba(255, 150, 180, 0.4) !important;
+  filter: blur(0.3px) !important;
+}
+
+.message.message-sent .nickname {
+  color: #fff0f5 !important;
+  text-align: right !important;
+  padding-right: 14px !important;
+  text-shadow: 0 1px 3px rgba(255, 200, 220, 0.5) !important;
+}
+
+.message.message-sent .nickname::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: radial-gradient(circle at 70% 30%, #ffffff, #ffd3e0) !important;
+  border-radius: 60% 40% 50% 50% !important;
+  box-shadow: 0 2px 6px rgba(255, 220, 240, 0.5) !important;
+  filter: blur(0.3px) !important;
+}
+
+.timestamp {
+  display: block !important;
+  font-size: 8px !important;
+  color: #d49eb3 !important;
+  margin-top: 8px !important;
+  font-family: "Courier New", cursive !important;
+  letter-spacing: 0.5px !important;
+  opacity: 0.8 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.message.message-sent .timestamp {
+  text-align: right !important;
+  color: #ffdee8 !important;
+}
+
+.message.system {
+  background: rgba(255, 230, 240, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 50px !important;
+  text-align: center !important;
+  color: #d48ca5 !important;
+  font-size: 10px !important;
+  padding: 8px 20px !important;
+  margin: 20px auto !important;
+  width: fit-content !important;
+  border: 1px solid rgba(255, 200, 220, 0.5) !important;
+  box-shadow: 0 8px 20px rgba(255, 150, 180, 0.15) !important;
+  position: relative !important;
+}
+
+.message.system::before,
+.message.system::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 4px !important;
+  height: 4px !important;
+  background: #ffb6c1 !important;
+  border-radius: 50% !important;
+  margin: 0 10px !important;
+  vertical-align: middle !important;
+  opacity: 0.4 !important;
+  filter: blur(0.5px) !important;
+}
+
+.message .quote {
+  border-left: 3px solid rgba(255, 180, 200, 0.5) !important;
+  padding: 4px 0 4px 12px !important;
+  margin: 8px 0 !important;
+  font-size: 11px !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 0 16px 16px 0 !important;
+  font-style: italic !important;
+  backdrop-filter: blur(2px) !important;
+}
+
+.message.message-sent .quote {
+  border-left-color: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+@keyframes dreamFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-4px) rotate(3deg) scale(1.05); opacity: 0.7; }
+}
+
+.message.message-sent::before {
+  animation: dreamFloat 5s ease-in-out infinite !important;
+}
+
+.message.message-received::before {
+  animation: dreamFloat 6s ease-in-out infinite !important;
+}
+
+@keyframes dreamFloat2 {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.4; }
+  50% { transform: translateY(4px) rotate(-3deg) scale(1.03); opacity: 0.6; }
+}
+
+.message.message-sent::after {
+  animation: dreamFloat2 4.5s ease-in-out infinite !important;
+}
+
+.message.message-received::after {
+  animation: dreamFloat2 5.5s ease-in-out infinite !important;
+}`
+},
+
+  {
+    id:'b31',type:'bubble',name:'蝴蝶结',author:'歪',
+    previews:[{t:'received',v:'你是我朝夕相伴触手可及的虚拟'},{t:'sent',v:'你是我未曾拥有无法捕捉的亲昵'}],
+    css:`
+.message-sent {
+    background: linear-gradient(to bottom, #F9E8EE, #FAF5EC);
+    border-radius: 13px 13px 13px 13px;
+    margin-left: auto;
+    box-shadow: 1px 1px 1px rgba(249, 232, 238, 0.6);
+    position: relative;
+    color: #686A67;
+    padding: 6px 12px;
+    max-width: fit-content;
+    word-wrap: break-word;
+}
+
+.message-sent::after {
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: -3px;
+    width: 20px;
+    height: 20px;
+    background: #F9E8EE;
+    clip-path: path('M0,4 C2,9 5,4 14,8 C6,10 4,16 5,19 Z');
+    transform: rotate(-20deg) scaleX(0.9);
+    z-index: -1;
+}
+
+.message-sent::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -9px;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://i.postimg.cc/xTnZxhy4/IMG-2068.png');
+    transform: rotate(-30deg) scaleX(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.message-received {
+    background: linear-gradient(to bottom, #D8E7F2, #FAF5EC);
+    border-radius: 13px 13px 13px 13px;
+    margin-right: auto;
+    box-shadow: 1px 1px 1px rgba(216, 231, 242, 0.6);
+    position: relative;
+    color: #686A67;
+    padding: 6px 12px;
+    max-width: fit-content;
+    word-wrap: break-word;
+}
+
+.message-received::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: -1px;
+    width: 20px;
+    height: 16px;
+    background: #D8E7F2;
+    clip-path: path('M20,2 C6,10 6,5 0,9 C6,8 6,16 12,16 Z');
+    transform: rotate(19deg) scaleX(0.9);
+    z-index: -1;
+}
+
+.message-received::before {
+    content: "";
+    position: absolute;
+    right: -27px;
+    bottom: -17px;
+    width: 35px;
+    height: 35px;
+    background-image: url('https://i.postimg.cc/x1chSHJr/IMG-2060.png');
+    transform: rotate(0deg) scaleX(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.message-sent:has(> img:only-child),
+.message-received:has(> img:only-child) {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    display: inline-block !important;
+    max-width: 120px;
+}
+
+.message-sent:has(> img:only-child)::before,
+.message-sent:has(> img:only-child)::after,
+.message-received:has(> img:only-child)::before,
+.message-received:has(> img:only-child)::after {
+    display: none !important;
+}
+
+.message-sent:has(> img:only-child) img,
+.message-received:has(> img:only-child) img {
+    max-width: 100%;
+    max-height: 90px;
+    height: auto !important;
+    display: block !important;
+    border-radius: 4px;
+}
+
+.message-sent:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"]),
+.message-received:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"]) {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.message-sent:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"])::before,
+.message-sent:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"])::after,
+.message-received:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"])::before,
+.message-received:has(.red-packet, .waimai-card, [class*="redpacket"], [class*="transfer"], img[src*="redpacket"])::after {
+    display: none !important;
+}
+
+.message-sent,
+.message-received {
+    box-shadow: none !important;
+    border-width: 0 !important;
+    font-weight: 500 !important;
+    position: relative;
+    overflow: visible !important;
+}`
+  },
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
@@ -1521,7 +2236,6 @@ function toggleFav(id){
     favorites.push(id);
   }
   saveFavs(favorites);
-  // 同步字体收藏列表
   const fontItem = FONTS.find(f=>f.id===id);
   if(fontItem){
     if(isFav(id)){
@@ -1622,7 +2336,6 @@ function renderCards(){
   }
 
   const renderedGroups = new Set();
-  // 计算实际显示卡片数
   let visibleCount = 0;
   filtered.forEach(item=>{
     if(item.group){ if(!renderedGroups.has(item.group)){ visibleCount++; renderedGroups.add(item.group); } }
@@ -1631,19 +2344,16 @@ function renderCards(){
   document.getElementById('toolbar-info').textContent = visibleCount + ' 个结果';
   renderedGroups.clear();
 
-  // 追踪每张卡片当前选中的变体
   const groupSelected = {};
 
   filtered.forEach((item, i)=>{
-    // 如果是同系列变体，只显示一张卡片
     if(item.group){
       if(renderedGroups.has(item.group)) return;
       renderedGroups.add(item.group);
     }
 
-    // 该卡片代表的实际 item（对于系列卡片，从第一个变体开始）
     const siblings = item.group ? BUBBLES.filter(b=>b.group===item.group) : null;
-    const activeItem = item; // 初始选中当前 item
+    const activeItem = item; 
 
     if(item.group) groupSelected[item.group] = item.id;
 
@@ -1661,7 +2371,6 @@ function renderCards(){
       : '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>';
     const favOn = isFav(item.id);
 
-    // 系列气泡：显示变体选择器
     const variantHTML = siblings && siblings.length > 1 ? `
       <div class="card-variants">
         ${siblings.map(s=>`<button class="card-var-btn${s.id===item.id?' active':''}" data-var-id="${s.id}" data-var-name="${s.name}">${s.name}</button>`).join('')}
@@ -1688,7 +2397,6 @@ function renderCards(){
       </div>
     `;
 
-    // 变体选择器逻辑
     if(siblings && siblings.length > 1){
       card.querySelectorAll('.card-var-btn').forEach(vBtn=>{
         vBtn.addEventListener('click', e=>{
@@ -1696,7 +2404,6 @@ function renderCards(){
           const varId = vBtn.dataset.varId;
           groupSelected[item.group] = varId;
           card.querySelectorAll('.card-var-btn').forEach(b=>b.classList.toggle('active', b.dataset.varId===varId));
-          // 更新预览按钮打开对应变体
           const selSib = siblings.find(s=>s.id===varId);
           if(selSib){
             card.dataset.id = varId;
@@ -1706,7 +2413,6 @@ function renderCards(){
       });
     }
 
-    // 预览按钮：打开当前选中变体
     card.querySelector('.btn-preview').addEventListener('click', e=>{
       e.stopPropagation();
       if(item.group){
@@ -1718,7 +2424,6 @@ function renderCards(){
       }
     });
 
-    // 收藏按钮
     card.querySelector('.btn-fav').addEventListener('click', e=>{
       e.stopPropagation();
       toggleFav(item.id);
@@ -1729,7 +2434,6 @@ function renderCards(){
       b.querySelector('svg').setAttribute('fill',on?'currentColor':'none');
     });
 
-    // 复制按钮：复制当前选中变体
     card.querySelector('.btn-copy').addEventListener('click', e=>{
       e.stopPropagation();
       if(item.group){
@@ -1742,7 +2446,6 @@ function renderCards(){
       }
     });
 
-    // 点击卡片打开预览（同变体选中）
     card.addEventListener('click', ()=>{
       if(item.group){
         const selId = groupSelected[item.group] || item.id;
@@ -1838,13 +2541,11 @@ function openModal(item){
       }
     }
 
-    // ─── 收藏字体切换 ───
     const switchLabel = document.createElement('div');
     switchLabel.className = 'font-switch-label';
     switchLabel.textContent = '收藏字体';
     footer.appendChild(switchLabel);
 
-    // 默认三款
     const defSection = document.createElement('div');
     defSection.className = 'font-cat-section';
     const defHeader = document.createElement('div');
@@ -1863,7 +2564,6 @@ function openModal(item){
     defBtn.onclick = ()=>{ modalState.fontFamily=''; body.style.fontFamily=''; saveFont(''); updateFontBtns(footer, modalState); };
     defRow.appendChild(defBtn);
 
-    // 三款默认字体
     const defaultFonts = FONTS.filter(f=>DEFAULT_FONT_IDS.includes(f.id));
     defaultFonts.forEach(f=>{
       const btn = document.createElement('button');
@@ -1877,7 +2577,6 @@ function openModal(item){
     defSection.appendChild(defRow);
     footer.appendChild(defSection);
 
-    // 已收藏字体（收藏了但不在默认列表里的字体）
     const favFonts = FONTS.filter(f=>fontFavorites.includes(f.id) && !DEFAULT_FONT_IDS.includes(f.id));
     const favFontSection = document.createElement('div');
     favFontSection.className = 'font-cat-section';
