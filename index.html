@@ -3224,6 +3224,111 @@ filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1)) !important;
 }
 }`
 },
+{
+id:'b45',
+type:'bubble',
+name:'胶囊小兔',
+author:'眠眠',
+previews:[
+{t:'sent',v:'爱没有方向，你就是导航'},
+{t:'received',v:'由你'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: linear-gradient(145deg, #FFFFFF 0%, #e1edff 100%) !important;
+border: none !important;
+color: #808080 !important; /* 改为标准灰色 */
+text-shadow:
+0 0 4px rgba(255, 255, 255, 1),
+0 0 8px rgba(255, 255, 255, 1),
+0 0 12px rgba(255, 255, 255, 1),
+0 2px 4px rgba(0, 0, 0, 0.2) !important;
+border-radius: 24px !important;
+padding: 8px 28px 8px 16px !important;
+box-shadow:
+0 10px 20px rgba(0, 0, 0, 0.1),
+0 6px 6px rgba(0, 0, 0, 0.1),
+0 -2px 4px rgba(255, 255, 255, 0.8),
+-2px 0 4px rgba(255, 255, 255, 0.8),
+0 4px 8px rgba(225, 237, 255, 0.6),
+inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+position: relative;
+}
+
+.message-sent {
+background: linear-gradient(145deg, #FFFFFF 0%, #FFDDE1 100%) !important;
+border: none !important;
+color: #AA8C92 !important;
+text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important;
+border-radius: 24px !important;
+padding: 8px 28px 8px 28px !important;
+box-shadow:
+0 10px 20px rgba(0, 0, 0, 0.1),
+0 6px 6px rgba(0, 0, 0, 0.1),
+0 -2px 4px rgba(255, 255, 255, 0.8),
+-2px 0 4px rgba(255, 255, 255, 0.8),
+0 4px 8px rgba(255, 221, 225, 0.4),
+inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+position: relative;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+top: -5px;
+left: 1px;
+width: 14px;
+height: 14px;
+background-image: url('https://img.sobot.com/c3d7f65e19e748b28fc7e9f989624633/console/wsRes/ticket/20260219/1768af743e16171c0f95c5258f18faeb/IyOmS_1771499166374.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}
+
+.message-sent::after {
+content: "";
+position: absolute;
+top: 2px;
+right: 7px;
+width: 6px;
+height: 6px;
+background-image: url('https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/B18F0AACFB98437E8397ADA69B4434E8/qdqqd.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: blur(0.6px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}
+
+.message-received::after {
+content: "";
+position: absolute;
+top: 2px;
+right: 9px;
+width: 6px;
+height: 6px;
+background-image: url('https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/B18F0AACFB98437E8397ADA69B4434E8/qdqqd.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: blur(0.6px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}`
+}
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
