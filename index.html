@@ -3398,7 +3398,478 @@ z-index: 10;
   border-image-width: 37px 60px 8px 66px !important;
   pointer-events: none;
 }`
+},
+{
+  id:'b47',
+  type:'bubble',
+  name:'您有新的消息来自QQ',
+  author:'os',
+  previews:[
+    {t:'sent',v:'你可以和我多说说话吗QwQ'},
+    {t:'received',v:'当然愿意。'}
+  ],
+  css:`
+.message-bubble-container {
+  max-width: 70%;
+  margin: 12px 0;
+  word-wrap: break-word;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
+
+.message-sent {
+  align-self: flex-end;
+  background-color: #4DA8FF; 
+  border-radius: 18px 4px 18px 18px;
+  padding: 12px 16px;
+  color: white;
+  position: relative;
+  max-width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.message-sent::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent #4DA8FF; 
+}
+
+.message-received {
+  align-self: flex-start;
+  background-color: white;
+  border-radius: 4px 18px 18px 18px;
+  padding: 12px 16px;
+  color: #333;
+  position: relative;
+  max-width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E5E5;
+}
+
+.message-received::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 0;
+  border-color: transparent #E5E5E5 transparent transparent;
+}
+
+.message-received::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7px 7px 0;
+  border-color: transparent white transparent transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .message-received {
+    background-color: #2B2B2B;
+    color: #E0E0E0;
+    border-color: #404040;
+  }
+  
+  .message-received::after {
+    border-color: transparent #2B2B2B transparent transparent;
+  }
+}`
+},
+{
+  id: 'b48',
+  type: 'bubble',
+  name: '人，猫喜欢你',
+  author: '家夫是小猫^^',
+  previews: [
+    {
+      t: 'sent',
+      v: '人，猫喜欢你。'
+    },
+    {
+      t: 'received',
+      v: '嗯，人也喜欢猫。'
+    }
+  ],
+  css: `.message-sent {
+  position: relative !important;
+  background: rgba(245, 245, 245, 0.9) !important;
+  border: 2px solid rgba(210, 210, 210, 0.6) !important;
+  border-radius: 12px 12px 0 12px !important;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.06) !important;
+  padding: 5px 12px !important;
+  margin: 3px 0 3px auto !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #999 !important;
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -13px !important;
+  left: -7px !important;
+  width: 26px !important;
+  height: 26px !important;
+  background: url('https://files.catbox.moe/bq2cxt.png') center / contain no-repeat !important;
+  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+.message-sent * {
+  color: #888 !important;
+}
+.message-received {
+  position: relative !important;
+  background: rgba(215, 215, 215, 0.7) !important;
+  border: 2px solid rgba(190, 190, 190, 0.5) !important;
+  border-radius: 12px 12px 12px 0 !important;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.06) !important;
+  padding: 5px 12px !important;
+  margin: 3px auto 3px 0 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #555 !important;
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -13px !important;
+  right: -7px !important;
+  width: 26px !important;
+  height: 26px !important;
+  background: url('https://files.catbox.moe/v9hr2m.png') center / contain no-repeat !important;
+  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}`
+},
+{
+  id:'b49',
+  type:'bubble',
+  name:'彩色猫猫',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'生活枯燥无味'},
+    {t:'received',v:'小猫cos人类'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received,
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 7px 8px 7px 9px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771485027595_IMG_5304.png') !important;
+  border-image-slice: 325 691 120 683 fill !important;
+  border-image-width: 18px 38px 7px 38px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b50',
+  type:'bubble',
+  name:'腮红小熊',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'看起来很萌'},
+    {t:'received',v:'实际上也很萌ᗜ 𖥦 ᗜ'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received,
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 10px 8px 5px 8px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771498628014_IMG_5280.png') !important;
+  border-image-slice: 206 350 165 346 fill !important;
+  border-image-width: 11px 19px 9px 19px !important;
+  transform: scaleX(-1) !important;
+  pointer-events: none;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771498628014_IMG_5280.png') !important;
+  border-image-slice: 206 350 165 346 fill !important;
+  border-image-width: 11px 19px 9px 19px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b51',
+  type:'bubble',
+  name:'小兔耳朵',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'来许个愿吧'},
+    {t:'received',v:'希望在你身边'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received,
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 18px 8px 7px 9px !important;
+  text-align: center !important;
+  z-index: 1 !important;
+}
+.message.message-received::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://i.postimg.cc/dQp9fRtg/IMG-5275.png') !important;
+  border-image-slice: 454 497 246 511 fill !important;
+  border-image-width: 23px 25px 12px 26px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b52',
+  type:'bubble',
+  name:'小天使',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'∗ ˙ . 時空を着て恋をする. ♡ ˙ ∗'},
+    {t:'received',v:'穿越時空愛戀…'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received,
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 6px 22px 4px 22px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771471845838_IMG_5281.png') !important;
+  border-image-slice: 92 802 312 785 fill !important;
+  border-image-width: 6px 45px 17px 44px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b53',
+  type:'bubble',
+  name:'仿微信气泡',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'想许愿一个有你的冬天'},
+    {t:'received',v:'我四季都在'}
+  ],
+  css:`.message {
+ position: relative !important;
+ line-height: 1.3 !important;
+ word-break: break-word !important;
+ overflow: visible !important;
+ width: fit-content !important;
+ max-width: 280px !important;
+ border-radius: 4px;
+ box-shadow: none;
+ padding: 8px 11px;
+ border: none;
+}
+.message.message-sent,
+.message.message-received {
+   display: inline-block;
+   position: relative;
+   backdrop-filter: none;
+   -webkit-backdrop-filter: none;
+   width: auto;
+   min-width: 70%;
+   color: #000;
+}
+.message.message-sent {
+   background-color: #95ec69;
+}
+.message.message-received {
+   background-color: #ffffff;
+}
+.message::after {
+   content: "";
+   position: absolute;
+   width: 0;
+   height: 0;
+   border: 6px solid transparent;
+}
+.message.message-sent::after {
+   right: -6px;
+   top: 50%;
+   margin-top: -6px;
+   border-left-color: #95ec69;
+   border-right: 0;
+}
+.message.message-received::after {
+   left: -6px;
+   top: 50%;
+   margin-top: -6px;
+   border-right-color: #ffffff;
+   border-left: 0;
+}`
+},
+{
+  id:'b54',
+  type:'bubble',
+  name:'透明玻璃',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'永不停歇的雨季'},
+    {t:'received',v:'是我潮湿的眼底'}
+  ],
+  css:`.message-sent,
+.message-received {
+display: inline-block !important;
+padding: 7px 10px !important;
+border-radius: 8px !important;
+color: rgba(0,0,0,0.7) !important;
+position: relative !important;
+background: rgba(255,255,255,0.18) !important;
+backdrop-filter: none !important;
+-webkit-backdrop-filter: none !important;
+line-height: 1.4 !important;
+border: 1px solid rgba(255,255,255,0.4) !important;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(255,255,255,0.2) !important;
+}
+.message-sent::after,
+.message-received::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 1px;
+background: rgba(255,255,255,0.8);
+border-radius: 8px 8px 0 0;
+z-index: 1;
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
