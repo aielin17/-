@@ -3998,6 +3998,120 @@ border: none !important;
 background-color: transparent !important;
 }`
 },
+{
+id:'b56',
+type:'bubble',
+name:'emo天使',
+author:'眠眠',
+previews:[
+{t:'sent',v:'气泡预览*emo天使'},
+{t:'received',v:'宝宝'},
+{t:'received',v:'等你'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: radial-gradient(ellipse at center, #FFFFFF 0%, #FFFFFF 40%, #F2E2E2 100%) !important;
+border: 1px solid #BFA9AD !important;
+color: #AA8C92 !important;
+text-shadow: none !important;
+border-radius: 24px !important;
+padding: 8px 28px 8px 16px !important;
+box-shadow:
+0 10px 20px rgba(0, 0, 0, 0.1),
+0 6px 6px rgba(0, 0, 0, 0.1),
+inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+position: relative;
+}
+
+.message-received::before {
+content: "";
+position: absolute;
+top: -5px;
+left: -5px;
+width: 18px;
+height: 18px;
+background-image: url('https://file.zhuyitai.com/feedback/202602/20/c54d4c4f80ba761e59f183290fa101d0.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}
+
+.message-received::after {
+content: "";
+position: absolute;
+top: 50%;
+right: 8px;
+transform: translateY(-50%);
+width: 16px;
+height: 16px;
+background-image: url('https://saas.chatbot.cn/download/minio/standard/2026-02-20/34a56adce77b4e7d80a738159e372946.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: brightness(0) saturate(100%) invert(78%) sepia(8%) saturate(260%) hue-rotate(315deg) brightness(94%) contrast(89%) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}
+
+.message-sent {
+background: radial-gradient(ellipse at center, #FFFFFF 0%, #FBE5EA 100%) !important;
+border: 2px solid #FBE5EA !important;
+color: #8A8A8C !important;
+text-shadow: none !important;
+border-radius: 24px !important;
+padding: 6px 32px 6px 28px !important;
+box-shadow:
+0 10px 20px rgba(0, 0, 0, 0.1),
+0 6px 6px rgba(0, 0, 0, 0.1),
+inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+position: relative;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+top: 50%;
+left: 8px;
+transform: translateY(-50%);
+width: 16px;
+height: 16px;
+background-image: url('https://saas.chatbot.cn/download/minio/standard/2026-02-20/34a56adce77b4e7d80a738159e372946.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(110%) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}
+
+.message-sent::after {
+content: "";
+position: absolute;
+top: -5px;
+right: -5px;
+width: 18px;
+height: 18px;
+background-image: url('https://cn.oilgasmall.com/uploads/20260220/6bd37bbba396820adc6b9ff72a17511b.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: transparent;
+filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+z-index: 10;
+}`
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS];
