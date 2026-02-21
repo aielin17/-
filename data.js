@@ -3398,5 +3398,66 @@ filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 z-index: 10;
 }`
 },
+{
+  id:'b57',
+  type:'bubble',
+  name:'霜雪半透明',
+  author:'七九',
+  previews:[
+    {t:'sent',v:'生命给了我多少积雪'},
+    {t:'received',v:'我就能遇到多少春天'}
+  ],
+  css:`
+.message {
+  border-radius: 20px !important;
+  border: none !important; 
+ 
+  backdrop-filter: blur(12px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+ 
+  padding: 14px 18px !important;
+  overflow: hidden !important;
+}
+
+.message.message-received {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='rgba(100, 180, 255, 0.4)' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M12 2v20m10-10H2m15.536-7.071L5.464 19.464m13.072 0L5.464 4.536'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(200,230,255,0.1) 100%) !important;
+ 
+  background-position: top 6px left 6px, center !important;
+  background-size: 18px 18px, cover !important;
+  background-repeat: no-repeat, no-repeat !important;
+
+  color: #005a9e !important;
+ 
+  box-shadow:
+    0 0 16px rgba(150, 210, 255, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.7),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.6) !important;
+}
+
+.message.message-sent {
+  background-color: rgba(60, 160, 255, 0.3) !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='rgba(255, 255, 255, 0.5)' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M12 2v20m10-10H2m15.536-7.071L5.464 19.464m13.072 0L5.464 4.536'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(100,190,255,0.5) 0%, rgba(0,120,255,0.1) 100%) !important;
+ 
+  background-position: top 6px right 6px, center !important;
+  background-size: 18px 18px, cover !important;
+  background-repeat: no-repeat, no-repeat !important;
+
+  color: #ffffff !important;
+ 
+  box-shadow:
+    0 0 18px rgba(80, 180, 255, 0.7),
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.4) !important;
+}
+
+.message::after {
+   display: none !important;
+}`
+},
 ];
-const ALL = [...BUBBLES, ...FONTS];
+window.ALL = [...BUBBLES, ...FONTS];
