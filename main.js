@@ -620,3 +620,5 @@ renderCards();
     dark = !dark;
     localStorage.setItem('theme', dark ? 'dark' : 'light');
     applyTheme();
+  }); 
+})(); 
