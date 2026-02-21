@@ -592,9 +592,6 @@ window.copyFallback = function(type){
 window.copyEmail = function(type){
   copyText(SUBMIT_EMAIL, '收件地址');
 };
-updateFavCounts();
-renderAuthors();
-renderCards();
 
 (function(){
   const root = document.documentElement;
@@ -621,5 +618,9 @@ renderCards();
     dark = !dark;
     localStorage.setItem('theme', dark ? 'dark' : 'light');
     applyTheme();
-  }); // 👈 补回这里
-})(); // 👈 补回这里
+  });
+})();
+
+updateFavCounts();
+renderAuthors();
+renderCards();
