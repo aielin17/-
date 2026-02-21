@@ -616,9 +616,10 @@ renderCards();
     }
   }
   applyTheme();
+  
   btn.addEventListener('click', ()=>{
     dark = !dark;
     localStorage.setItem('theme', dark ? 'dark' : 'light');
     applyTheme();
-  }); 
-})(); 
+  }); // 👈 补回这里
+})(); // 👈 补回这里
