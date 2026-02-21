@@ -3460,4 +3460,4 @@ z-index: 10;
 }`
 },
 ];
-window.ALL = [...BUBBLES, ...FONTS];
+const ALL = [...BUBBLES, ...FONTS];
