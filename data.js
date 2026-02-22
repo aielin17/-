@@ -4,15 +4,6 @@ const FONTS = [
   {id:'f3',type:'font',name:'我有一点想你',author:'老猫',   family:'F3',category:'手写',url:'https://files.catbox.moe/3bm8wp.ttf'},
   {id:'f4',type:'font',name:'方正楷体',author:'milk',       family:'F4',category:'楷体',url:'https://files.catbox.moe/caatu4.TTF'},
   {
-id:'f7',
-type:'font',
-name:'真爱降临',
-author:'小鼠比尼',
-family:'F7',
-category:'手写',
-url:'https://files.catbox.moe/sfl1v7.ttf'
-}
-  {
   id:'f5',
   type:'font',
   name:'白开水宋体',
@@ -29,6 +20,15 @@ author:'来源网络',
 family:'F6',
 category:'其他',
 url:'https://image.uglycat.cc/1ma2ld.ttf'
+}
+{
+id:'f7',
+type:'font',
+name:'真爱降临',
+author:'小鼠比尼',
+family:'F7',
+category:'手写',
+url:'https://files.catbox.moe/sfl1v7.ttf'
 }
 ];
 const BUBBLES = [
@@ -4281,7 +4281,7 @@ z-index: 2;
 }`
 },
 {
-id:'b66',
+id:'b67',
 type:'bubble',
 name:'涂鸦叽',
 author:'眠眠',
