@@ -20,7 +20,7 @@ author:'来源网络',
 family:'F6',
 category:'其他',
 url:'https://image.uglycat.cc/1ma2ld.ttf'
-}
+},
 {
 id:'f7',
 type:'font',
@@ -701,7 +701,7 @@ const BUBBLES = [
   content: "" !important;
   position: absolute !important;
   top: -8px !important;
-  left: calc: calc(50% + 5px) !important;
+  left: calc(50% + 5px) !important;
   width: 18px !important;
   height: 12px !important;
   background: linear-gradient(135deg, #aed581 0%, #7cb342 100%) !important;
