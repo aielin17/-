@@ -800,7 +800,6 @@ const BUBBLES = [
     rgba(74, 93, 82, 0.12) 1.5px,
     transparent 1.5px
   ) !important;
-important;
   color: #faf8f5 !important;
   border-radius: 24px !important;
   background-image: repeating-linear-gradient(
