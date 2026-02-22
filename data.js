@@ -4,6 +4,15 @@ const FONTS = [
   {id:'f3',type:'font',name:'我有一点想你',author:'老猫',   family:'F3',category:'手写',url:'https://files.catbox.moe/3bm8wp.ttf'},
   {id:'f4',type:'font',name:'方正楷体',author:'milk',       family:'F4',category:'楷体',url:'https://files.catbox.moe/caatu4.TTF'},
   {
+id:'f7',
+type:'font',
+name:'真爱降临',
+author:'小鼠比尼',
+family:'F7',
+category:'手写',
+url:'https://files.catbox.moe/sfl1v7.ttf'
+}
+  {
   id:'f5',
   type:'font',
   name:'白开水宋体',
@@ -3064,60 +3073,60 @@ z-index: 10;
 {
   id:'b53',
   type:'bubble',
-  name:'仿微信气泡',
+  name:'日',
   author:'蛋挞',
+  group:'g-weixin',
+  groupLabel:'仿微信系列',
   previews:[
-    {t:'sent',v:'想许愿一个有你的冬天'},
-    {t:'received',v:'我四季都在'}
+    {t:'sent',v:'我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'},
+    {t:'received',v:'我这个小女孩的设定就是一定要你陪つω• )'}
   ],
   css:`.message {
- position: relative !important;
- line-height: 1.3 !important;
- word-break: break-word !important;
- overflow: visible !important;
- width: fit-content !important;
- max-width: 280px !important;
- border-radius: 4px;
- box-shadow: none;
- padding: 8px 11px;
- border: none;
+    position: relative !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    width: fit-content !important;
+    max-width: 280px !important;
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 8px 11px;
+    border: none;
 }
 .message.message-sent,
 .message.message-received {
-   display: inline-block;
-   position: relative;
-   backdrop-filter: none;
-   -webkit-backdrop-filter: none;
-   width: auto;
-   min-width: 70%;
-   color: #000;
+    display: inline-block;
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    width: auto;
+    min-width: 70%;
+    color: #000;
 }
 .message.message-sent {
-   background-color: #95ec69;
+    background-color: #95ec69;
 }
 .message.message-received {
-   background-color: #ffffff;
+    background-color: #ffffff;
 }
 .message::after {
-   content: "";
-   position: absolute;
-   width: 0;
-   height: 0;
-   border: 6px solid transparent;
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 1.5px;
 }
 .message.message-sent::after {
-   right: -6px;
-   top: 50%;
-   margin-top: -6px;
-   border-left-color: #95ec69;
-   border-right: 0;
+    right: -3.8px;
+    top: 18px;
+    background-color: #95ec69;
+    transform: translateY(-50%) rotate(45deg);
 }
 .message.message-received::after {
-   left: -6px;
-   top: 50%;
-   margin-top: -6px;
-   border-right-color: #ffffff;
-   border-left: 0;
+    left: -3.8px;
+    top: 18px;
+    background-color: #ffffff;
+    transform: translateY(-50%) rotate(45deg);
 }`
 },
 {
@@ -3157,131 +3166,63 @@ z-index: 1;
 }`
 },
 {
-id:'b55',
-type:'bubble',
-name:'午夜猫蝠',
-author:'11',
-previews:[
-{t:'sent',v:'多幸运遇见了你'},
-{t:'received',v:'多幸运爱上了你'}
-],
-css:`.message {
-box-shadow: none !important;
-border: none !important;
-font-weight: 500 !important;
-position: relative;
+  id:'b55',
+  type:'bubble',
+  name:'夜',
+  author:'蛋挞',
+  group:'g-weixin',
+  groupLabel:'仿微信系列系列',
+  previews:[
+    {t:'sent',v:'我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'},
+    {t:'received',v:'我这个小女孩的设定就是一定要你陪つω• )'}
+  ],
+  css:`.message {
+position: relative !important;
+line-height: 1.3 !important;
+word-break: break-word !important;
 overflow: visible !important;
+width: fit-content !important;
+max-width: 280px !important;
+border-radius: 4px;
+box-shadow: none;
+padding: 8px 11px;
+border: none;
 }
-
-.message-received {
-background-color: transparent !important;
-background-image:
-radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 1) 0%, rgba(255, 204, 0, 1) 100%, transparent 50px),
-url('https://z.wiki/u/zezCdCwM6'),
-radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.41), rgba(26, 26, 26, 0.41)) !important;
-background-position: 50% 50%, 0 0, 0 0 !important;
-background-size: 69px auto, 100% 100%, 100% 100% !important;
-background-repeat: no-repeat, no-repeat, no-repeat !important;
-background-blend-mode: screen !important;
-
-backdrop-filter: blur(25px) !important;
--webkit-backdrop-filter: blur(25px) !important;
-border: 1px solid rgba(255, 255, 255, 0.7) !important;
-color: #000 !important;
-border-radius: 24px !important;
-padding: 8px 16px !important;
-position: relative !important;
+.message.message-sent,
+.message.message-received {
+display: inline-block;
+position: relative;
+backdrop-filter: none;
+-webkit-backdrop-filter: none;
+width: auto;
+min-width: 70%;
+color: #000;
 }
-
-.message-sent {
-background-color: transparent !important;
-background-image:
-radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 1) 0%, rgba(255, 204, 0, 1) 100%, transparent 50px),
-url('https://z.wiki/u/zezCdCwM6'),
-radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.41), rgba(26, 26, 26, 0.41)) !important;
-background-position: 50% 50%, 0 0, 0 0 !important;
-background-size: 69px auto, 100% 100%, 100% 100% !important;
-background-repeat: no-repeat, no-repeat, no-repeat !important;
-background-blend-mode: screen !important;
-
-backdrop-filter: blur(25px) !important;
--webkit-backdrop-filter: blur(25px) !important;
-border: 1px solid rgba(255, 255, 255, 0.8) !important;
-color: #000 !important;
-border-radius: 24px !important;
-padding: 8px 16px !important;
-position: relative !important;
+.message.message-sent {
+background-color: #59B269;
 }
-
-
+.message.message-received {
+background-color: #2c2c2c !important;
+color: #fff !important;
+}
 .message::after {
-content: '' !important;
-position: absolute !important;
-width: 45px !important;
-height: 45px !important;
-background-image: url('https://z.wiki/u/VYmPReZgk') !important;
-background-size: contain !important;
-background-repeat: no-repeat !important;
-opacity: 0.75 !important;
-right: 0;
-bottom: 0;
-transform: translate(17.5px, 36.5px) rotate(-20deg) !important;
-z-index: 20 !important;
-pointer-events: none !important;
+content: "";
+position: absolute;
+width: 9px;
+height: 9px;
+border-radius: 1.5px;
 }
-
-.message::before {
-content: '' !important;
-position: absolute !important;
-width: 46px !important;
-height: 46px !important;
-background-image: url('https://z.wiki/u/chpc266LI') !important;
-background-size: contain !important;
-background-repeat: no-repeat !important;
-opacity: 1 !important;
-left: 0;
-bottom: 0;
-transform: translate(-21.5px, -8.5px) rotate(-45deg) !important;
-z-index: 20 !important;
-pointer-events: none !important;
-border: none !important;
-background-color: transparent !important;
+.message.message-sent::after {
+right: -3.8px;
+top: 18px;
+background-color: #59B269;
+transform: translateY(-50%) rotate(45deg);
 }
-
-.message--other::after {
-content: '' !important;
-position: absolute !important;
-width: 45px !important;
-height: 45px !important;
-background-image: url('https://z.wiki/u/VYmPReZgk') !important;
-background-size: contain !important;
-background-repeat: no-repeat !important;
-opacity: 0.75 !important;
-left: 0 !important;
-right: auto !important;
-bottom: 0 !important;
-transform: translate(-17.5px, 36.5px) rotate(20deg) !important;
-z-index: 20 !important;
-pointer-events: none !important;
-}
-
-.message--other::before {
-content: '' !important;
-position: absolute !important;
-width: 46px !important;
-height: 46px !important;
-background-image: url('https://z.wiki/u/chpc266LI') !important;
-background-size: contain !important;
-background-repeat: no-repeat !important;
-opacity: 1 !important;
-right: 0 !important;
-left: auto !important;
-bottom: 0 !important;
-transform: translate(21.5px, -8.5px) rotate(45deg) !important;
-z-index: 20 !important;
-pointer-events: none !important;
-border: none !important;
-background-color: transparent !important;
+.message.message-received::after {
+left: -3.8px;
+top: 18px;
+background-color: #2c2c2c !important;
+transform: translateY(-50%) rotate(45deg);
 }`
 },
 {
@@ -3459,5 +3400,1014 @@ z-index: 10;
    display: none !important;
 }`
 },
+{
+  id:'b58',
+  type:'bubble',
+  name:'动画',
+  author:'Spring',
+  group:'g-fenyun',
+  groupLabel:'粉云天使系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 12px !important;
+  box-shadow: 0 0 15px 2px rgba(255, 220, 230, 0.6) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  overflow: visible !important;
+  padding: 8px 14px !important;
+  border: none !important;
+  position: relative !important;
+}
+
+@keyframes wingFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.message.message-received {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  color: #555555 !important;
+  box-shadow: 0 0 18px 3px rgba(255, 220, 230, 0.5) !important;
+  border: none !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREtppmfkXc8c5vZE2fo5p8IIkslpKFQACqyIAAtjY0VSYDkaKCFuyTjoE.png') no-repeat center !important;
+  background-size: 100% 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  animation: wingFloat 2.8s ease-in-out infinite !important;
+}
+
+.message.message-sent {
+  background: linear-gradient(135deg, rgba(255, 248, 250, 0.9), rgba(255, 240, 245, 0.8)) !important;
+  color: #666666 !important;
+  box-shadow: 0 0 18px 3px rgba(255, 220, 230, 0.5) !important;
+  border: none !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREtppmfkXc8c5vZE2fo5p8IIkslpKFQACqyIAAtjY0VSYDkaKCFuyTjoE.png') no-repeat center !important;
+  background-size: 100% 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  animation: wingFloat 2.8s ease-in-out infinite !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(255, 220, 230, 0.4) !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  bottom: -4px !important;
+  right: -4px !important;
+  border-radius: 0 0 0 4px !important;
+}
+
+.message.message-received::after {
+  bottom: -4px !important;
+  left: -4px !important;
+  border-radius: 0 0 4px 0 !important;
+}`
+},
+{
+  id:'b59',
+  type:'bubble',
+  name:'静态',
+  author:'Spring',
+  group:'g-fenyun',
+  groupLabel:'粉云天使系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 12px !important;
+  box-shadow: 0 0 15px 2px rgba(255, 220, 230, 0.6) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  overflow: visible !important;
+  padding: 8px 14px !important;
+  border: none !important;
+  position: relative !important;
+}
+
+.message.message-received {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  color: #555555 !important;
+  box-shadow: 0 0 18px 3px rgba(255, 220, 230, 0.5) !important;
+  border: none !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREtppmfkXc8c5vZE2fo5p8IIkslpKFQACqyIAAtjY0VSYDkaKCFuyTjoE.png') no-repeat center !important;
+  background-size: 100% 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.message.message-sent {
+  background: linear-gradient(135deg, rgba(255, 248, 250, 0.9), rgba(255, 240, 245, 0.8)) !important;
+  color: #666666 !important;
+  box-shadow: 0 0 18px 3px rgba(255, 220, 230, 0.5) !important;
+  border: none !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREtppmfkXc8c5vZE2fo5p8IIkslpKFQACqyIAAtjY0VSYDkaKCFuyTjoE.png') no-repeat center !important;
+  background-size: 100% 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(255, 220, 230, 0.4) !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  bottom: -4px !important;
+  right: -4px !important;
+  border-radius: 0 0 0 4px !important;
+}
+
+.message.message-received::after {
+  bottom: -4px !important;
+  left: -4px !important;
+  border-radius: 0 0 4px 0 !important;
+}`
+},
+{
+  id:'b60',
+  type:'bubble',
+  name:'紫雾坠星',
+  author:'Spring',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 18px !important;
+  background:
+    radial-gradient(ellipse at center, #f3e8ff 0%, transparent 70%),
+    #ffffff !important;
+  border: 0.6px solid #d4bfff !important;
+  box-shadow: 0 0 9px rgba(170, 140, 255, 0.3) !important;
+  padding: 7px 14px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.message.message-received {
+  color: #2a2a2a !important;
+}
+
+.message.message-sent {
+  color: #2a2a2a !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -12px !important;
+  bottom: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREvRpmhU6GDwFpKxQckFzXKlnT-8d6gAC4iIAAtjY0VT1xbMMQLfcfjoE.png') no-repeat center !important;
+  background-size: contain !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  right: -12px !important;
+  bottom: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREvRpmhU6GDwFpKxQckFzXKlnT-8d6gAC4iIAAtjY0VT1xbMMQLfcfjoE.png') no-repeat center !important;
+  background-size: contain !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -12px !important;
+  bottom: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREvRpmhU6GDwFpKxQckFzXKlnT-8d6gAC4iIAAtjY0VT1xbMMQLfcfjoE.png') no-repeat center !important;
+  background-size: contain !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  right: -12px !important;
+  bottom: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEREvRpmhU6GDwFpKxQckFzXKlnT-8d6gAC4iIAAtjY0VT1xbMMQLfcfjoE.png') no-repeat center !important;
+  background-size: contain !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}`
+},
+{
+  id:'b61',
+  type:'bubble',
+  name:'果冻',
+  author:'七九',
+  group:'g-bodian',
+  groupLabel:'粉色波点系列',
+  previews:[
+    {t:'sent',v:'生命给了我多少积雪'},
+    {t:'received',v:'我就能遇到多少春天'}
+  ],
+  css:`
+  .message {
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.70) !important;
+
+    box-shadow:
+      0 4px 10px rgba(255, 122, 173, 0.18),
+      0 1px 3px rgba(255, 122, 173, 0.14) !important;
+
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .message.message-sent {
+    color: #3b1430 !important;
+    background-color: #f7b8d2 !important;
+
+    background-image:
+      radial-gradient(circle at 82% 18%, rgba(255,255,255,0.50) 0 20px, rgba(255,255,255,0.00) 62px),
+      radial-gradient(circle at 50% 55%, rgba(255,255,255,0.18) 0 62%, rgba(255,255,255,0.00) 78%),
+      radial-gradient(circle at 7px 7px, rgba(255,255,255,0.22) 0 1.5px, transparent 1.6px),
+      radial-gradient(circle at 13px 12px, rgba(255,255,255,0.16) 0 0.9px, transparent 1px),
+      radial-gradient(circle at 10px 10px, rgba(255,255,255,0.18) 0 2.2px, transparent 2.3px),
+      radial-gradient(circle at 8px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
+      radial-gradient(circle at 12px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
+      radial-gradient(circle at 10px 11px, rgba(255,255,255,0.16) 0 1.2px, transparent 1.3px) !important;
+
+    background-size:
+      100% 100%,
+      100% 100%,
+      18px 18px,
+      22px 22px,
+      40px 40px,
+      34px 34px,
+      34px 34px,
+      34px 34px !important;
+
+    background-repeat:
+      no-repeat,
+      no-repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat !important;
+
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0 !important;
+
+    box-shadow:
+      0 4px 10px rgba(255, 122, 173, 0.18),
+      0 1px 3px rgba(255, 122, 173, 0.14),
+      inset 0 0 0 1px rgba(255,255,255,0.26),
+      inset 0 0 0 6px rgba(255, 160, 200, 0.08),
+      inset 0 12px 22px rgba(255,255,255,0.18) !important;
+  }
+
+  .message.message-received {
+    color: #4a2536 !important;
+    background-color: #fff2f8 !important;
+
+    background-image:
+      radial-gradient(circle at 82% 18%, rgba(255,255,255,0.60) 0 22px, rgba(255,255,255,0.00) 66px),
+      radial-gradient(circle at 50% 55%, rgba(247,184,210,0.16) 0 62%, rgba(255,255,255,0.00) 78%),
+      radial-gradient(circle at 7px 7px, rgba(247,184,210,0.28) 0 1.4px, transparent 1.5px),
+      radial-gradient(circle at 14px 12px, rgba(247,184,210,0.20) 0 0.9px, transparent 1px),
+      radial-gradient(circle at 10px 10px, rgba(247,184,210,0.18) 0 2px, transparent 2.1px),
+      radial-gradient(circle at 8px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
+      radial-gradient(circle at 12px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
+      radial-gradient(circle at 10px 11px, rgba(247,184,210,0.18) 0 1.1px, transparent 1.2px) !important;
+
+    background-size:
+      100% 100%,
+      100% 100%,
+      20px 20px,
+      24px 24px,
+      44px 44px,
+      36px 36px,
+      36px 36px,
+      36px 36px !important;
+
+    background-repeat:
+      no-repeat,
+      no-repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat,
+      repeat !important;
+
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0 !important;
+
+    border: 1px solid rgba(247, 184, 210, 0.60) !important;
+
+    box-shadow:
+      0 4px 10px rgba(255, 122, 173, 0.14),
+      0 1px 3px rgba(255, 122, 173, 0.10),
+      inset 0 0 0 1px rgba(255,255,255,0.30),
+      inset 0 0 0 6px rgba(255, 160, 200, 0.06),
+      inset 0 12px 22px rgba(255,255,255,0.18) !important;
+  }
+
+  .meta{
+    color: rgba(255,255,255,0.70);
+    font-size: 12px;
+    margin: 0 0 10px 2px;
+}`
+},
+{
+  id:'b62',
+  type:'bubble',
+  name:'平面',
+  author:'七九',
+  group:'g-bodian',
+  groupLabel:'粉色波点系列',
+  previews:[
+    {t:'sent',v:'生命给了我多少积雪'},
+    {t:'received',v:'我就能遇到多少春天'}
+  ],
+  css:`
+.message {
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.70) !important;
+
+  box-shadow:
+    0 4px 10px rgba(255, 122, 173, 0.18),
+    0 1px 3px rgba(255, 122, 173, 0.14) !important;
+
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.message.message-sent {
+  color: #3b1430 !important;
+
+  background-color: #f7b8d2 !important;
+
+  background-image:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.45) 0 18px, rgba(255,255,255,0.00) 52px),
+    radial-gradient(circle at 7px 7px, rgba(255,255,255,0.22) 0 1.5px, transparent 1.6px),
+    radial-gradient(circle at 13px 12px, rgba(255,255,255,0.16) 0 0.9px, transparent 1px),
+    radial-gradient(circle at 10px 10px, rgba(255,255,255,0.18) 0 2.2px, transparent 2.3px) !important;
+
+  background-size:
+    100% 100%,
+    18px 18px,
+    22px 22px,
+    40px 40px !important;
+
+  background-repeat:
+    no-repeat,
+    repeat,
+    repeat,
+    repeat !important;
+
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0 !important;
+
+  box-shadow:
+    0 4px 10px rgba(255, 122, 173, 0.18),
+    0 1px 3px rgba(255, 122, 173, 0.14),
+    inset 0 0 0 1px rgba(255,255,255,0.22),
+    inset 0 10px 18px rgba(255,255,255,0.16) !important;
+}
+
+.message.message-received {
+  color: #4a2536 !important;
+
+  background-color: #fff2f8 !important;
+
+  background-image:
+    radial-gradient(circle at 26% 16%, rgba(255,255,255,0.55) 0 20px, rgba(255,255,255,0.00) 56px),
+    radial-gradient(circle at 7px 7px, rgba(247,184,210,0.28) 0 1.4px, transparent 1.5px),
+    radial-gradient(circle at 14px 12px, rgba(247,184,210,0.20) 0 0.9px, transparent 1px),
+    radial-gradient(circle at 10px 10px, rgba(247,184,210,0.18) 0 2px, transparent 2.1px) !important;
+
+  background-size:
+    100% 100%,
+    20px 20px,
+    24px 24px,
+    44px 44px !important;
+
+  background-repeat:
+    no-repeat,
+    repeat,
+    repeat,
+    repeat !important;
+
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0 !important;
+
+  border: 1px solid rgba(247, 184, 210, 0.60) !important;
+
+  box-shadow:
+    0 4px 10px rgba(255, 122, 173, 0.14),
+    0 1px 3px rgba(255, 122, 173, 0.10),
+    inset 0 0 0 1px rgba(255,255,255,0.28),
+    inset 0 10px 18px rgba(255,255,255,0.18) !important;
+}`
+},
+{
+id:'b63',
+type:'bubble',
+name:'小雪人',
+author:'眠眠',
+group:'shenkong',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'你是我朝夕相伴触手可及的虚拟'},
+{t:'received',v:'你是我未曾拥有无法捕捉的亲昵'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: #FDFCFA !important;
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+padding-top: 24px !important; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06) !important; 
+position: relative !important;
+}
+
+.message-received::before {
+content: "";
+position: absolute;
+top: -2px; 
+right: -2px;
+width: 30px; 
+height: 30px; 
+background-image: url('https://zkaicc.huilan.com/aicc/api/aicc-file/miniofile/preViewPicture/aicc/qdqqd_1771654083526.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: top right;
+transform: scaleX(-1); 
+z-index: 1;
+pointer-events: none; 
+}
+
+.message-sent {
+background: #FDFCFA !important; 
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px !important;
+padding-top: 24px !important; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06) !important; 
+position: relative !important;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+top: -2px; 
+left: -2px; 
+width: 30px; 
+height: 30px;
+background-image: url('https://zkaicc.huilan.com/aicc/api/aicc-file/miniofile/preViewPicture/aicc/qdqqd_1771654083526.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: top left;
+z-index: 1;
+pointer-events: none;
+}`
+},
+{
+id:'b64',
+type:'bubble',
+name:'鸦式震惊',
+author:'眠眠',
+group:'shenkong',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'你是我朝夕相伴触手可及的虚拟'},
+{t:'received',v:'你是我未曾拥有无法捕捉的亲昵'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: #858585 !important;
+border-color: transparent !important;
+color: #ffffff !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+position: relative;
+}
+
+.message-received::before {
+content: "";
+position: absolute;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background-image: url("https://zl.wpscdn.cn/2026/02/21/space_img/9c467bd0-a90d-4604-bf68-c0557f6875f2.png");
+background-size: cover;
+background-position: center;
+transform: scaleX(-1);
+top: -9px;
+right: -4px;
+left: auto;
+z-index: 10;
+}
+
+.message-received::after {
+content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+background-image: url("https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/C698EDC842614086809CF2D2E4FDA217/qdqqd.png");
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+transform: scaleX(-1);
+top: -10px;
+left: -4px;
+right: auto;
+z-index: 10;
+}
+
+.message-sent {
+background: #858585 !important;
+border-color: transparent !important;
+color: #ffffff !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px !important;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+position: relative;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background-image: url("https://zl.wpscdn.cn/2026/02/21/space_img/9c467bd0-a90d-4604-bf68-c0557f6875f2.png");
+background-size: cover;
+background-position: center;
+top: -9px;
+left: -4px;
+z-index: 10;
+}
+
+.message-sent::after {
+content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+background-image: url("https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/C698EDC842614086809CF2D2E4FDA217/qdqqd.png");
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+top: -10px;
+right: -4px;
+z-index: 10;
+}`
+},
+{
+id:'b65',
+type:'bubble',
+name:'两颗苹果',
+author:'眠眠',
+group:'shenkong',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'你是我朝夕相伴触手可及的虚拟'},
+{t:'received',v:'你是我未曾拥有无法捕捉的亲昵'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: #DC6064 !important;
+border-color: transparent !important;
+color: #FFFFFF !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+box-shadow: 0 3px 8px rgba(220, 96, 100, 0.28) !important;
+position: relative;
+z-index: 1;
+}
+
+.message-received > * {
+position: relative;
+z-index: 3 !important;
+}
+
+.message-received::before {
+content: "";
+position: absolute;
+top: -4px;
+right: -4px;
+width: 28px;
+height: 28px;
+background-image: url('https://cn.oilgasmall.com/uploads/20260221/216565523b7c3c4b71634414a27165dd.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 2;
+}
+
+.message-sent {
+background: #95BD6B !important;
+border-color: transparent !important;
+color: #FFFFFF !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px 8px 32px !important;
+box-shadow: 0 3px 8px rgba(120, 150, 90, 0.28) !important;
+position: relative;
+z-index: 1;
+}
+
+.message-sent > * {
+position: relative;
+z-index: 3 !important;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+top: -4px;
+left: -4px;
+width: 28px;
+height: 28px;
+background-image: url('https://cdncs.ykt.cbern.com.cn/v0.1/download?path=/zxx_feedback/qdqqd/1771660206893.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 2;
+}`
+},
+{
+id:'b66',
+type:'bubble',
+name:'兔球球',
+author:'眠眠',
+group:'shenkong',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'你是我朝夕相伴触手可及的虚拟'},
+{t:'received',v:'你是我未曾拥有无法捕捉的亲昵'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: #ffffff !important;
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 8px 16px !important;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+position: relative;
+z-index: 0;
+}
+
+.message-sent {
+background: #ffffff !important;
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 8px 16px !important;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+position: relative;
+z-index: 0;
+}
+
+.message-sent > *,
+.message-received > * {
+position: relative;
+z-index: 9999 !important;
+}
+
+.message-sent::before {
+content: "";
+position: absolute;
+top: -12px;
+left: 9px;
+width: 22px;
+height: 22px;
+background-image: url("https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/4EBC1F4C96EC41B8AB6AD7A255DB0851/qdqqd.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 1;
+}
+
+.message-sent::after {
+content: "";
+position: absolute;
+top: 4px;
+left: 10px;
+width: 16px;
+height: 16px;
+background-image: url("https://img.sobot.com/c3d7f65e19e748b28fc7e9f989624633/console/wsRes/ticket/20260220/1768af743e16171c0f95c5258f18faeb/sofSC_1771587833823.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 1;
+}
+
+.message-sent .right-icon {
+content: "";
+position: absolute;
+top: -4px;
+right: -4px;
+width: 15px;
+height: 15px;
+background-image: url("https://cdncs.ykt.cbern.com.cn/v0.1/download?path=/zxx_feedback/qdqqd/1771588610541.png");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 2;
+}
+
+.message-received::before {
+content: "";
+position: absolute;
+top: -12px;
+right: 9px;
+width: 22px;
+height: 22px;
+background-image: url("https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/4EBC1F4C96EC41B8AB6AD7A255DB0851/qdqqd.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 1;
+}
+
+.message-received::after {
+content: "";
+position: absolute;
+top: 4px;
+right: 10px;
+width: 16px;
+height: 16px;
+background-image: url("https://img.sobot.com/c3d7f65e19e748b28fc7e9f989624633/console/wsRes/ticket/20260220/1768af743e16171c0f95c5258f18faeb/sofSC_1771587833823.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 1;
+}
+
+.message-received .left-icon {
+content: "";
+position: absolute;
+top: -4px;
+left: -4px;
+width: 15px;
+height: 15px;
+background-image: url("https://cdncs.ykt.cbern.com.cn/v0.1/download?path=/zxx_feedback/qdqqd/1771588610541.png");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+pointer-events: none;
+z-index: 2;
+}`
+},
+{
+id:'b66',
+type:'bubble',
+name:'涂鸦叽',
+author:'眠眠',
+group:'shenkong',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'你是我朝夕相伴触手可及的虚拟'},
+{t:'received',v:'你是我未曾拥有无法捕捉的亲昵'}
+],
+css:`.message {
+box-shadow: none !important;
+border-width: 0 !important;
+font-weight: 500 !important;
+position: relative;
+overflow: visible !important;
+}
+
+.message-received {
+background: rgba(255, 228, 140, 1) !important;
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 24px 4px !important;
+padding: 6px 14px !important;
+padding-top: 22px !important;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+position: relative !important;
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+.message-received * {
+position: relative !important;
+z-index: 10 !important;
+top: -3px !important;
+}
+
+.message-received::before {
+content: "" !important;
+position: absolute !important;
+top: -10px !important;
+left: auto !important;
+right: -8px !important;
+width: 36px !important;
+height: 36px !important;
+background-image: url('https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/FD4C5A8F56EC43EFB326655DB2974217/qdqqd.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+background-position: center !important;
+transform: scaleX(-1) !important;
+pointer-events: none !important;
+z-index: 1 !important;
+-webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+}
+
+.message-received::after {
+content: "" !important;
+position: absolute !important;
+bottom: -8px !important;
+left: -6px !important;
+right: auto !important;
+width: 32px !important;
+height: 32px !important;
+background-image: url('https://static.eeo.cn/upload/images/20260221/197b5dc95b59205c5381.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+background-position: center !important;
+transform: scaleX(-1) !important;
+pointer-events: none !important;
+z-index: 1 !important;
+-webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+}
+
+.message-sent {
+background: rgba(255, 228, 140, 1) !important;
+border-color: transparent !important;
+color: #000000 !important;
+border-radius: 24px 24px 4px 24px !important;
+padding: 6px 14px !important;
+padding-top: 22px !important;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+position: relative !important;
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+.message-sent * {
+position: relative !important;
+z-index: 10 !important;
+top: -3px !important;
+}
+
+.message-sent::before {
+content: "" !important;
+position: absolute !important;
+top: -10px !important;
+left: -8px !important;
+width: 36px !important;
+height: 36px !important;
+background-image: url('https://file.ljcdn.com/psd-sinan-file/prod/appeal_evidence/FD4C5A8F56EC43EFB326655DB2974217/qdqqd.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+background-position: center !important;
+pointer-events: none !important;
+z-index: 1 !important;
+-webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+}
+
+.message-sent::after {
+content: "" !important;
+position: absolute !important;
+bottom: -8px !important;
+right: -6px !important;
+width: 32px !important;
+height: 32px !important;
+background-image: url('https://static.eeo.cn/upload/images/20260221/197b5dc95b59205c5381.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+background-position: center !important;
+pointer-events: none !important;
+z-index: 1 !important;
+-webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
+}`
+}
 ];
 const ALL = [...BUBBLES, ...FONTS];
