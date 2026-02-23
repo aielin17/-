@@ -1867,7 +1867,7 @@ text-shadow:
 {
   id: 'b33',
   type: 'bubble',
-  name: '心脉',
+  name: '边框',
   author: '11',
   group: 'g-xinmai',
   groupLabel: '心脉系列',
@@ -2118,7 +2118,7 @@ text-shadow:
 .message-sent { background: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.9) !important; color: #1C261E !important; text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important; border-radius: 24px !important; padding: 8px 16px !important; box-shadow: 0 4px 8px rgba(128, 128, 128, 0.5), 0 0 0 2px rgba(128, 128, 128, 0.3) inset !important; }`
 },
 {
-  id:'b37',type:'bubble',name:'心脉·爱心版',author:'11',
+  id:'b37',type:'bubble',name:'无边框',author:'11',
   group:'g-xinmai',groupLabel:'心脉系列',
   previews:[
     {t:'sent',v:'多幸运遇见了你'},
@@ -4414,9 +4414,9 @@ const CARDS = [
     id:'card1',
     type:'card',
     name:'系统预设备份',
-    author:'官方',
+    author:'milk',
     desc:'包含自定义回复、表情、戳一戳动作、状态和座右铭的完整预设包，可直接导入使用。',
-    tags:['回复','表情','戳一戳','状态','座右铭'],
+    tags:['回复','表情','戳一戳','状态','格言'],
     fileType:'json',
     fileName:'presets-backup.json',
     file:'https://img.heliar.top/file/1771878331120_presets-backup.json',
