@@ -51,6 +51,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
             字体 <span class="pill-count" id="c-font">0</span>
           </div>
+          <div class="type-pill" data-type="card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            字卡 <span class="pill-count" id="c-card">0</span>
+          </div>
           <div class="type-pill fav-pill" data-type="fav">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             收藏 <span class="pill-count" id="c-fav">0</span>
@@ -86,22 +90,23 @@
       <p>选择类型，填写信息，通过邮件发送给我</p>
     </div>
     <div class="s-type-row">
-      <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡投稿</button>
-      <button class="s-type-btn" onclick="switchForm('font')">✦ 字体投稿</button>
+      <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡</button>
+      <button class="s-type-btn" onclick="switchForm('font')">✦ 字体</button>
+      <button class="s-type-btn" onclick="switchForm('card')">📋 字卡</button>
     </div>
 
     <div class="form-panel active" id="form-bubble">
       <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
       <div class="fg">
-        <label class="fl">所属系列（可选）</label>
+        <label class="fl">所属系列</label>
         <span class="fl-sub">如果这是某系列的其中一个变体，请填写系列名称，方便归组展示</span>
         <input type="text" class="fi" placeholder="例如：心脉系列（留空则为独立气泡）" id="bubble-series">
       </div>
       <div class="fg">
-        <label class="fl">系列 ID（可选）</label>
-        <span class="fl-sub">同系列所有变体需填写相同 ID，仅限英文字母/数字，例如：xinmai</span>
-        <input type="text" class="fi" placeholder="例如：xinmai（新系列可留空，由管理员分配）" id="bubble-group-id">
+        <label class="fl">系列 ID</label>
+        <span class="fl-sub">同系列所有变体必须填写相同 ID，仅限英文字母/数字，例如：xinmai</span>
+        <input type="text" class="fi" placeholder="例如：xinmai" id="bubble-group-id">
       </div>
       <div class="fg">
         <label class="fl">CSS 代码</label>
@@ -194,6 +199,66 @@
       </div>
     </div>
 
+    <div class="form-panel" id="form-card">
+      <div class="fg"><label class="fl">字卡名称</label><input type="text" class="fi" placeholder="例如：情话精选、每日回复包" id="card-name"></div>
+      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="card-author"></div>
+      <div class="fg">
+        <label class="fl">字卡描述</label>
+        <span class="fl-sub">简短介绍这个字卡包含什么内容、适合谁使用</span>
+        <textarea class="fta" id="card-desc" placeholder="例如：适合恋与深空的日常聊天预设，包含回复、表情和状态。" style="height:80px"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">文件直链</label>
+        <span class="fl-sub">文件需托管在公开可访问的地址（GitHub Raw、catbox.moe 等），支持 .json / .txt / .zip</span>
+        <input type="text" class="fi" placeholder="https://raw.githubusercontent.com/yourname/repo/main/presets.json" id="card-file-url">
+      </div>
+      <div class="fg">
+        <label class="fl">文件格式</label>
+        <select class="fi" id="card-file-type">
+          <option value="json">JSON</option>
+          <option value="txt">TXT</option>
+          <option value="zip">ZIP</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">标签</label>
+        <span class="fl-sub">用逗号分隔，例如：回复,表情,状态</span>
+        <input type="text" class="fi" placeholder="回复, 表情, 状态" id="card-tags">
+      </div>
+      <div class="fg">
+        <label class="fl">内容数量（可选）</label>
+        <span class="fl-sub">JSON 格式，例如：{"自定义回复": 80, "表情": 20}</span>
+        <textarea class="fta" id="card-item-counts" placeholder='{"自定义回复": 80, "表情": 20}' style="height:72px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
+      </div>
+      <button class="submit-btn" onclick="doSubmit('card')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        唤起邮件客户端发送
+      </button>
+      <div class="fallback-panel" id="fallback-card">
+        <div class="fallback-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          没有邮件客户端？手动发送
+        </div>
+        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
+        <div class="fallback-to">
+          <span>收件地址</span>
+          <strong id="fb-email-card"><a href="mailto:3152037224@qq.com">3152037224@qq.com</a></strong>
+        </div>
+        <textarea class="fallback-code" id="fb-content-card" readonly></textarea>
+        <div class="fallback-btns">
+          <button class="fb-btn" onclick="copyFallback('card')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            复制投稿内容
+          </button>
+          <button class="fb-btn" onclick="copyEmail('card')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            复制收件地址
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -237,6 +302,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
           字体 <span class="pill-count" id="mc-font">0</span>
         </div>
+        <div class="type-pill" data-type="card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          字卡 <span class="pill-count" id="mc-card">0</span>
+        </div>
         <div class="type-pill fav-pill" data-type="fav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           收藏 <span class="pill-count" id="mc-fav">0</span>
@@ -255,7 +324,6 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 <script src="data.js"></script>
-
 <script src="main.js"></script>
 
 </body>

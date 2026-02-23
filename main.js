@@ -45,6 +45,38 @@ function copyText(text, label){
   }
 }
 
+// ─── 字卡下载 ────────────────────────────────────────────────────────────────
+// 用 fetch → Blob → object URL 的方式触发下载
+// 好处：download 属性完全由我们控制，文件名保证是 UTF-8，不依赖服务器响应头
+function downloadCard(item){
+  const fileName = item.fileName || (item.id + '.' + (item.fileType || 'json'));
+  toast('📥 正在下载…');
+
+  fetch(item.file)
+    .then(res => {
+      if(!res.ok) throw new Error('网络错误 ' + res.status);
+      return res.blob();
+    })
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;          // 直接给中文文件名，浏览器会正确处理
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+      toast('✅ 下载成功：' + fileName);
+    })
+    .catch(err => {
+      console.error('下载失败', err);
+      // fetch 跨域失败时降级：直接在新标签打开链接让浏览器处理
+      toast('⚠️ 正在跳转下载链接…');
+      window.open(item.file, '_blank');
+    });
+}
+
 function isFav(id){ return favorites.includes(id); }
 
 function toggleFav(id){
@@ -85,7 +117,7 @@ function getFiltered(){
     if(state.type==='fav' && !isFav(item.id)) return false;
     if(state.type!=='all' && state.type!=='fav' && item.type!==state.type) return false;
     if(state.author!=='all' && item.author!==state.author) return false;
-    if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
+    if(q && !item.name.toLowerCase().includes(q) && !(item.author||'').toLowerCase().includes(q) && !(item.desc||'').toLowerCase().includes(q)) return false;
     return true;
   });
 }
@@ -96,13 +128,13 @@ function countFor(type){
     if(type!=='all' && type!=='fav' && item.type!==type) return false;
     if(state.author!=='all' && item.author!==state.author) return false;
     const q = state.query.toLowerCase();
-    if(q && !item.name.toLowerCase().includes(q) && !item.author.toLowerCase().includes(q)) return false;
+    if(q && !item.name.toLowerCase().includes(q) && !(item.author||'').toLowerCase().includes(q)) return false;
     return true;
   }).length;
 }
 
 function renderCounts(){
-  ['all','bubble','font','fav'].forEach(t=>{
+  ['all','bubble','font','card','fav'].forEach(t=>{
     const n = countFor(t);
     ['c-'+t, 'mc-'+t].forEach(id=>{
       const el = document.getElementById(id);
@@ -138,6 +170,13 @@ function renderAuthors(){
   });
 }
 
+function getBadgeHTML(item){
+  if(item.type==='bubble') return '<span class="card-badge badge-bubble">气泡</span>';
+  if(item.type==='font')   return '<span class="card-badge badge-font">字体</span>';
+  if(item.type==='card')   return '<span class="card-badge badge-card">字卡</span>';
+  return '';
+}
+
 function renderCards(){
   const grid = document.getElementById('card-grid');
   grid.innerHTML = '';
@@ -170,8 +209,62 @@ function renderCards(){
       renderedGroups.add(item.group);
     }
 
+    // ─── 字卡卡片 ──────────────────────────────────────────────────────────
+    if(item.type === 'card'){
+      const card = document.createElement('div');
+      card.className = 'item-card card-type-card' + (isFav(item.id)?' favorited':'');
+      card.style.animationDelay = Math.min(i * 0.04, 0.3) + 's';
+      card.dataset.id = item.id;
+
+      const favOn = isFav(item.id);
+      const tagsHTML = (item.tags||[]).map(t=>`<span class="card-tag">${t}</span>`).join('');
+      const countsHTML = item.itemCounts
+        ? Object.entries(item.itemCounts).map(([k,v])=>`<span class="card-count-item"><b>${v}</b> ${k}</span>`).join('')
+        : '';
+
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="card-name">${item.name}</span>
+          ${getBadgeHTML(item)}
+        </div>
+        <span class="card-author">${item.author}</span>
+        ${item.desc ? `<p class="card-desc">${item.desc}</p>` : ''}
+        ${countsHTML ? `<div class="card-counts">${countsHTML}</div>` : ''}
+        ${tagsHTML ? `<div class="card-tags">${tagsHTML}</div>` : ''}
+        <div class="card-actions">
+          <button class="btn-preview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            详情
+          </button>
+          <button class="btn-icon btn-fav ${favOn?'on':''}" title="${favOn?'取消收藏':'收藏'}">
+            <svg viewBox="0 0 24 24" fill="${favOn?'currentColor':'none'}" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="btn-icon btn-download" title="下载文件">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+        </div>
+      `;
+
+      card.querySelector('.btn-preview').addEventListener('click', e=>{ e.stopPropagation(); openModal(item); });
+      card.querySelector('.btn-fav').addEventListener('click', e=>{
+        e.stopPropagation();
+        toggleFav(item.id);
+        const b=e.currentTarget;
+        const on=isFav(item.id);
+        b.classList.toggle('on',on);
+        b.title=on?'取消收藏':'收藏';
+        b.querySelector('svg').setAttribute('fill',on?'currentColor':'none');
+      });
+      card.querySelector('.btn-download').addEventListener('click', e=>{ e.stopPropagation(); downloadCard(item); });
+      card.addEventListener('click', ()=>openModal(item));
+
+      grid.appendChild(card);
+      return;
+    }
+
+    // ─── 气泡 / 字体卡片（原逻辑）─────────────────────────────────────────
     const siblings = item.group ? BUBBLES.filter(b=>b.group===item.group) : null;
-    const activeItem = item; 
+    const activeItem = item;
 
     if(item.group) groupSelected[item.group] = item.id;
 
@@ -180,9 +273,7 @@ function renderCards(){
     card.style.animationDelay = Math.min(i * 0.04, 0.3) + 's';
     card.dataset.id = item.id;
 
-    const badge = item.type==='bubble'
-      ? '<span class="card-badge badge-bubble">气泡</span>'
-      : '<span class="card-badge badge-font">字体</span>';
+    const badge = getBadgeHTML(item);
     const nameStyle = item.type==='font' ? `style="font-family:${item.family}"` : '';
     const copyIcon = item.type==='bubble'
       ? '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'
@@ -257,8 +348,7 @@ function renderCards(){
       if(item.group){
         const selId = groupSelected[item.group] || item.id;
         const selItem = siblings.find(s=>s.id===selId) || item;
-        const selName = selItem.name;
-        copyText(selItem.css, `CSS（${selName}）`);
+        copyText(selItem.css, `CSS（${selItem.name}）`);
       } else {
         copyText(item.type==='bubble'?item.css:item.url, item.type==='bubble'?'CSS':'字体链接');
       }
@@ -288,9 +378,7 @@ function openModal(item){
   const favBtn   = document.getElementById('modal-fav-btn');
 
   name.textContent = item.name;
-  badgeEl.innerHTML = item.type==='bubble'
-    ? '<span class="card-badge badge-bubble">气泡</span>'
-    : '<span class="card-badge badge-font">字体</span>';
+  badgeEl.innerHTML = getBadgeHTML(item);
 
   const favOn = isFav(item.id);
   favBtn.classList.toggle('on', favOn);
@@ -301,7 +389,55 @@ function openModal(item){
   body.innerHTML = '';
   footer.innerHTML = '';
 
+  // ─── 字卡 modal ──────────────────────────────────────────────────────────
+  if(item.type === 'card'){
+    document.getElementById('dbs').textContent = '';
+    body.className = 'modal-body modal-body-card';
+
+    const tagsHTML = (item.tags||[]).map(t=>`<span class="card-tag">${t}</span>`).join('');
+    const countsHTML = item.itemCounts
+      ? Object.entries(item.itemCounts).map(([k,v])=>`
+          <div class="card-modal-count">
+            <span class="cmc-num">${v}</span>
+            <span class="cmc-label">${k}</span>
+          </div>`).join('')
+      : '';
+
+    body.innerHTML = `
+      <div class="card-modal-hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      ${item.desc ? `<p class="card-modal-desc">${item.desc}</p>` : ''}
+      ${countsHTML ? `<div class="card-modal-counts">${countsHTML}</div>` : ''}
+      <div class="card-modal-meta">
+        ${item.fileType ? `<div class="cmm-row"><span>文件格式</span><strong>.${item.fileType.toUpperCase()}</strong></div>` : ''}
+        ${item.size     ? `<div class="cmm-row"><span>文件大小</span><strong>${item.size}</strong></div>` : ''}
+        ${item.exportDate ? `<div class="cmm-row"><span>更新日期</span><strong>${item.exportDate}</strong></div>` : ''}
+        ${item.author   ? `<div class="cmm-row"><span>作者</span><strong>${item.author}</strong></div>` : ''}
+      </div>
+      ${tagsHTML ? `<div class="card-tags card-modal-tags">${tagsHTML}</div>` : ''}
+    `;
+
+    const dlBtn = document.createElement('button');
+    dlBtn.className = 'copy-css-btn card-dl-btn';
+    dlBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下载 ${item.fileName||item.id+'.'+item.fileType}`;
+    dlBtn.onclick = ()=>downloadCard(item);
+    footer.appendChild(dlBtn);
+
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    return;
+  }
+
+  // ─── 气泡 modal ──────────────────────────────────────────────────────────
   if(item.type === 'bubble'){
+    body.className = 'modal-body';
     document.getElementById('dbs').textContent = item.css;
 
     function renderBubblePreviews(previewItem){
@@ -433,6 +569,8 @@ function openModal(item){
     footer.appendChild(copyBtn);
 
   } else {
+    // ─── 字体 modal ────────────────────────────────────────────────────────
+    body.className = 'modal-body';
     document.getElementById('dbs').textContent = '';
 
     const box = document.createElement('div');
@@ -525,10 +663,11 @@ const SUBMIT_EMAIL = '3152037224@qq.com';
 
 window.switchForm = function(type){
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.s-type-btn').forEach((b,i)=>b.classList.toggle('active',(type==='bubble'&&i===0)||(type==='font'&&i===1)));
+  document.querySelectorAll('.s-type-btn').forEach((b,i)=>b.classList.toggle('active',
+    (type==='bubble'&&i===0)||(type==='font'&&i===1)||(type==='card'&&i===2)
+  ));
   document.getElementById('form-'+type).classList.add('active');
-  document.getElementById('fallback-bubble').classList.remove('show');
-  document.getElementById('fallback-font').classList.remove('show');
+  ['bubble','font','card'].forEach(t=>{ const el=document.getElementById('fallback-'+t); if(el) el.classList.remove('show'); });
 };
 
 function buildBubbleCode(name, author, css, demos, series, groupId){
@@ -543,6 +682,13 @@ function buildFontCode(name, author, url, category){
   const nextId = 'f' + (FONTS.length + 1);
   const nextFamily = 'F' + (FONTS.length + 1);
   return `/* === 字体投稿 === */\n/* 1. 在 @font-face 添加: */\n@font-face { font-family:'${nextFamily}'; src:url('${url}') format('truetype'); font-display:swap }\n\n/* 2. 在 FONTS 数组添加: */\n{\n  id:'${nextId}',\n  type:'font',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  family:'${nextFamily}',\n  category:'${category||'其他'}',\n  url:'${url}'\n}\n\n/* 注意：新字体需用户在画廊收藏后才会显示在预览字体切换的"已收藏"区域 */`;
+}
+
+function buildCardCode(name, author, desc, tags, fileUrl, fileType, itemCounts){
+  const nextId = 'card' + (CARDS.length + 1);
+  const fileName = fileUrl.split('/').pop() || 'file.' + fileType;
+  const countsStr = itemCounts ? JSON.stringify(itemCounts, null, 4) : '{}';
+  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  fileType:'${fileType||'json'}',\n  fileName:'${fileName}',\n  file:'${fileUrl}',\n  size:'待确认',\n  itemCounts:${countsStr},\n  exportDate:'${new Date().toISOString().slice(0,10)}'\n}`;
 }
 
 window.doSubmit = function(type){
@@ -565,7 +711,7 @@ window.doSubmit = function(type){
     document.getElementById('fb-content-bubble').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-bubble').classList.add('show');
 
-  } else {
+  } else if(type==='font'){
     const name   = document.getElementById('font-name').value.trim();
     const author = document.getElementById('font-author').value.trim();
     const url    = document.getElementById('font-url').value.trim();
@@ -578,6 +724,27 @@ window.doSubmit = function(type){
 
     document.getElementById('fb-content-font').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-font').classList.add('show');
+
+  } else if(type==='card'){
+    const name   = document.getElementById('card-name').value.trim();
+    const author = document.getElementById('card-author').value.trim();
+    const desc   = document.getElementById('card-desc').value.trim();
+    const tags   = document.getElementById('card-tags').value.trim();
+    const fileUrl= document.getElementById('card-file-url').value.trim();
+    const fileType = document.getElementById('card-file-type').value;
+    const itemCounts = (() => {
+      try { return JSON.parse(document.getElementById('card-item-counts').value || 'null'); }
+      catch(e) { return null; }
+    })();
+
+    if(!name || !fileUrl){ toast('⚠️ 请填写字卡名称和文件链接'); return; }
+
+    code = buildCardCode(name, author, desc, tags, fileUrl, fileType, itemCounts);
+    subject = `【字卡投稿】${name} - ${author||'匿名'}`;
+    body = `投稿类型：字卡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}描述：${desc}${nl}文件链接：${fileUrl}${nl}${nl}--- 可直接粘贴到代码的数据条目 ---${nl}${code}`;
+
+    document.getElementById('fb-content-card').value = `收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
+    document.getElementById('fallback-card').classList.add('show');
   }
 
   window.location.href = `mailto:${SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -613,7 +780,7 @@ window.copyEmail = function(type){
     }
   }
   applyTheme();
-  
+
   btn.addEventListener('click', ()=>{
     dark = !dark;
     localStorage.setItem('theme', dark ? 'dark' : 'light');

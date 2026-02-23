@@ -138,6 +138,7 @@ body{
 }
 .badge-bubble{background:#e8f0ff;color:#3478f6}
 .badge-font{background:#f0eaff;color:#8b5cf6}
+.badge-card{background:#e6f9f0;color:#16a34a}
 
 .card-author{font-size:11.5px;color:var(--text-sub);background:#f4f4f8;padding:3px 8px;border-radius:6px;width:fit-content}
 
@@ -414,6 +415,63 @@ body{
 @keyframes slideDown{to{transform:translateY(0)}}
 @keyframes fadeIn{to{opacity:1}}
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+
+/* ─── 字卡卡片 ────────────────────────────────────────────────────────────── */
+.card-type-card{
+  background:linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface) 95%, #16a34a));
+  border-color:color-mix(in srgb, var(--border) 80%, #16a34a) !important;
+}
+.card-type-card:hover{border-color:color-mix(in srgb, var(--border-strong) 60%, #16a34a) !important}
+
+.card-desc{font-size:12px;color:var(--text-sub);line-height:1.55;margin:-4px 0 2px}
+.card-counts{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0}
+.card-count-item{font-size:11px;color:var(--text-sub);background:#f0faf5;border:1px solid #d1fae5;border-radius:6px;padding:2px 8px}
+.card-count-item b{color:#16a34a;font-weight:700}
+.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.card-tag{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:5px;background:#f0faf5;color:#16a34a;border:1px solid #d1fae5}
+
+/* 字卡 Modal */
+.modal-body-card{gap:14px;padding:20px 20px}
+.card-modal-hero{
+  display:flex;align-items:center;justify-content:center;
+  width:64px;height:64px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);
+  border-radius:18px;margin:0 auto 4px;
+  box-shadow:0 4px 16px rgba(22,163,74,.18);
+}
+.card-modal-hero svg{width:30px;height:30px;color:#16a34a}
+.card-modal-desc{font-size:14px;color:var(--text-sub);text-align:center;line-height:1.6;padding:0 4px}
+.card-modal-counts{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+  gap:8px;background:#f4fdf8;border:1.5px solid #d1fae5;border-radius:12px;padding:12px;
+}
+.card-modal-count{text-align:center}
+.cmc-num{display:block;font-size:22px;font-weight:800;color:#16a34a;line-height:1.1}
+.cmc-label{font-size:11px;color:var(--text-muted);font-weight:500}
+.card-modal-meta{
+  background:#f8f8fc;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;
+}
+.cmm-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);
+}
+.cmm-row:last-child{border-bottom:none}
+.cmm-row span{color:var(--text-muted)}
+.cmm-row strong{color:var(--text);font-weight:600}
+.card-modal-tags{justify-content:center;padding:0 4px}
+
+.card-dl-btn{
+  background:linear-gradient(135deg,#16a34a,#15803d) !important;
+}
+.card-dl-btn:hover{background:linear-gradient(135deg,#15803d,#166534) !important}
+
+/* 暗色模式字卡补丁 */
+.dark .card-type-card{border-color:color-mix(in srgb, var(--border) 80%, #16a34a) !important}
+.dark .card-count-item{background:#0d2b1a;border-color:#1a4a2a}
+.dark .card-tag{background:#0d2b1a;border-color:#1a4a2a}
+.dark .card-modal-counts{background:#0d2b1a;border-color:#1a4a2a}
+.dark .card-modal-meta{background:#1a1a22}
+.dark .cmm-row{border-color:#2a2a35}
+.dark .badge-card{background:#0d2b1a;color:#4ade80}
 
 @media(max-width:768px){
   .sidebar{display:none}

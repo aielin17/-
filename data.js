@@ -4409,4 +4409,42 @@ mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
 }`
 }
 ];
-const ALL = [...BUBBLES, ...FONTS];
+const CARDS = [
+  {
+    id:'card1',
+    type:'card',
+    name:'系统预设备份',
+    author:'官方',
+    desc:'包含自定义回复、表情、戳一戳动作、状态和座右铭的完整预设包，可直接导入使用。',
+    tags:['回复','表情','戳一戳','状态','座右铭'],
+    fileType:'json',
+    fileName:'presets-backup.json',
+    file:'https://img.heliar.top/file/1771878331120_presets-backup.json',
+    size:'约 18 KB',
+    itemCounts:{
+      '自定义回复': 250,
+      '自定义表情': 63,
+      '戳一戳': 20,
+      '状态': 96,
+      '座右铭': 65
+    },
+    exportDate:'2026-02-24'
+  }
+  // 继续添加字卡，比如：
+  // {
+  //   id:'card2',
+  //   type:'card',
+  //   name:'情话精选',
+  //   author:'milk',
+  //   desc:'精心整理的情话回复包。',
+  //   tags:['回复','情话'],
+  //   fileType:'json',
+  //   fileName:'love-replies.json',
+  //   file:'./assets/cards/love-replies.json',
+  //   size:'约 8 KB',
+  //   itemCounts:{ '自定义回复': 80 },
+  //   exportDate:'2026-02-24'
+  // }
+];
+
+const ALL = [...BUBBLES, ...FONTS, ...CARDS];
