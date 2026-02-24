@@ -4407,7 +4407,1173 @@ z-index: 1 !important;
 -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
 mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
 }`
+},
+{
+id:'b68',
+type:'bubble',
+name:'粉蓝',
+author:'企鹅.com',
+group:'xingxing',
+groupLabel:'小星星系列',
+previews:[
+{t:'sent',v:'"從雲朵上摘下一顆星星'},
+{t:'received',v:'是來自夜幕的禮物'}
+],
+css:`
+.message-sent {
+font-size: 12.5px !important;
+padding: 5px 10px !important;
+background: #F0F9FF !important;
+color: #222222 !important;
+border: 1px solid rgba(0, 0, 0, 0.2) !important;
+border-radius: 8px 2px 8px 8px !important;
+box-shadow:
+0 0 8px rgba(255, 255, 255, 1),
+0 0 15px rgba(255, 255, 255, 0.7),
+0 0 25px rgba(255, 255, 255, 0.4) !important;
+margin-right: 4px !important;
+margin-bottom: 6px !important;
+position: relative !important;
+display: inline-block !important;
+max-width: 98% !important;
+min-width: 30px !important;
+word-wrap: break-word !important;
+word-break: normal !important;
+line-height: 1.4 !important;
+letter-spacing: -0.3px !important;
+overflow: visible !important;
+z-index: 1 !important;
 }
+
+.message-sent::before {
+content: '★';
+position: absolute !important;
+left: -7px !important;
+top: -7px !important;
+font-size: 14px !important;
+color: #FFF9C4 !important;
+text-shadow:
+-0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+-0.5px 0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px 0.5px 0 rgba(0, 0, 0, 0.2) !important;
+pointer-events: none !important;
+z-index: 3 !important;
+line-height: 1 !important;
+background: transparent !important;
+display: block !important;
+}
+
+.message-received {
+font-size: 12.5px !important;
+padding: 5px 10px !important;
+background: #FFF5F7 !important;
+color: #222222 !important;
+border: 1px solid rgba(0, 0, 0, 0.2) !important;
+border-radius: 2px 8px 8px 8px !important;
+box-shadow:
+0 0 8px rgba(255, 255, 255, 1),
+0 0 15px rgba(255, 255, 255, 0.7),
+0 0 25px rgba(255, 255, 255, 0.4) !important;
+margin-left: 4px !important;
+margin-bottom: 6px !important;
+position: relative !important;
+display: inline-block !important;
+max-width: 98% !important;
+min-width: 30px !important;
+word-wrap: break-word !important;
+word-break: normal !important;
+line-height: 1.4 !important;
+letter-spacing: -0.3px !important;
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+.message-received::before {
+content: '★';
+position: absolute !important;
+left: -7px !important;
+bottom: -7px !important;
+font-size: 14px !important;
+color: #E1F5FE !important;
+text-shadow:
+-0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+-0.5px 0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px 0.5px 0 rgba(0, 0, 0, 0.2) !important;
+pointer-events: none !important;
+z-index: 3 !important;
+line-height: 1 !important;
+background: transparent !important;
+display: block !important;
+}
+
+[class*="ribbon"], [class*="bow"], [class*="tail"] {
+display: none !important;
+}`
+},
+{
+id:'b69',
+type:'bubble',
+name:'黄紫',
+author:'企鹅.com',
+group:'xingxing',
+groupLabel:'小星星系列',
+previews:[
+{t:'sent',v:'"從雲朵上摘下一顆星星'},
+{t:'received',v:'是來自夜幕的禮物'}
+],
+css:`
+.message-sent {
+font-size: 12.5px !important;
+padding: 5px 10px !important;
+background: #F8F0FC !important;
+color: #222222 !important;
+border: 1px solid rgba(0, 0, 0, 0.2) !important;
+border-radius: 8px 2px 8px 8px !important;
+box-shadow:
+0 0 8px rgba(255, 255, 255, 1),
+0 0 15px rgba(255, 255, 255, 0.7),
+0 0 25px rgba(255, 255, 255, 0.4) !important;
+margin-right: 4px !important;
+margin-bottom: 6px !important;
+position: relative !important;
+display: inline-block !important;
+max-width: 98% !important;
+min-width: 30px !important;
+word-wrap: break-word !important;
+word-break: normal !important;
+line-height: 1.4 !important;
+letter-spacing: -0.3px !important;
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+.message-sent::before {
+content: '★';
+position: absolute !important;
+left: -7px !important;
+top: -7px !important;
+font-size: 14px !important;
+color: #FFF9C4 !important;
+text-shadow:
+-0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+-0.5px 0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px 0.5px 0 rgba(0, 0, 0, 0.2) !important;
+pointer-events: none !important;
+z-index: 3 !important;
+line-height: 1 !important;
+background: transparent !important;
+display: block !important;
+}
+
+.message-received {
+font-size: 12.5px !important;
+padding: 5px 10px !important;
+background: #FFFEF0 !important;
+color: #222222 !important;
+border: 1px solid rgba(0, 0, 0, 0.2) !important;
+border-radius: 2px 8px 8px 8px !important;
+box-shadow:
+0 0 8px rgba(255, 255, 255, 1),
+0 0 15px rgba(255, 255, 255, 0.7),
+0 0 25px rgba(255, 255, 255, 0.4) !important;
+margin-left: 4px !important;
+margin-bottom: 6px !important;
+position: relative !important;
+display: inline-block !important;
+max-width: 98% !important;
+min-width: 30px !important;
+word-wrap: break-word !important;
+word-break: normal !important;
+line-height: 1.4 !important;
+letter-spacing: -0.3px !important;
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+.message-received::before {
+content: '★';
+position: absolute !important;
+left: -7px !important;
+bottom: -7px !important;
+font-size: 14px !important;
+color: #E1F5FE !important;
+text-shadow:
+-0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px -0.5px 0 rgba(0, 0, 0, 0.2),
+-0.5px 0.5px 0 rgba(0, 0, 0, 0.2),
+0.5px 0.5px 0 rgba(0, 0, 0, 0.2) !important;
+pointer-events: none !important;
+z-index: 3 !important;
+line-height: 1 !important;
+background: transparent !important;
+display: block !important;
+}
+
+[class*="ribbon"], [class*="bow"], [class*="tail"] {
+display: none !important;
+}`
+},
+{
+  id:'b70',
+  type:'bubble',
+  name:'静态',
+  author:'Spring',
+  group:'maotaotao',
+  groupLabel:'猫桃桃',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #ffe6ea 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+
+.message.message-received::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  right: -4px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGyppnClllViNAAH6-lVr3_1ARfuXBlIAAokiAALpSeFUHqxGtsxX0ug6BA.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-received::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: -4px !important;
+  width: 12px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy1pnCqKXtdujJceQRavKzV77XqAtQACkSIAAulJ4VSGKFw_uvn2OToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy5pnCvm8qjZsgR2tVqGes5f2-OXIgACkyIAAulJ4VQ3Dn8LjxQk6ToE.png) !important;
+  background-size: 10px 10px, 12px 12px !important;
+  background-position: top left, bottom left !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: -4px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGyppnClllViNAAH6-lVr3_1ARfuXBlIAAokiAALpSeFUHqxGtsxX0ug6BA.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  right: -4px !important;
+  width: 12px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy1pnCqKXtdujJceQRavKzV77XqAtQACkSIAAulJ4VSGKFw_uvn2OToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy5pnCvm8qjZsgR2tVqGes5f2-OXIgACkyIAAulJ4VQ3Dn8LjxQk6ToE.png) !important;
+  background-size: 10px 10px, 12px 12px !important;
+  background-position: top right, bottom right !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}`
+},
+{
+  id:'b71',
+  type:'bubble',
+  name:'动态',
+  author:'Spring',
+  group:'maotaotao',
+  groupLabel:'猫桃桃',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #ffe6ea 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+
+@-webkit-keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.message.message-received::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  right: -4px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGyppnClllViNAAH6-lVr3_1ARfuXBlIAAokiAALpSeFUHqxGtsxX0ug6BA.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  -webkit-animation: pulse 2.5s ease-in-out infinite !important;
+  animation: pulse 2.5s ease-in-out infinite !important;
+}
+
+.message.message-received::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: -4px !important;
+  width: 12px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy1pnCqKXtdujJceQRavKzV77XqAtQACkSIAAulJ4VSGKFw_uvn2OToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy5pnCvm8qjZsgR2tVqGes5f2-OXIgACkyIAAulJ4VQ3Dn8LjxQk6ToE.png) !important;
+  background-size: 10px 10px, 12px 12px !important;
+  background-position: top left, bottom left !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  -webkit-animation: pulse 2.5s ease-in-out infinite !important;
+  animation: pulse 2.5s ease-in-out infinite !important;
+}
+
+.message.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: -4px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGyppnClllViNAAH6-lVr3_1ARfuXBlIAAokiAALpSeFUHqxGtsxX0ug6BA.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  -webkit-animation: pulse 2.5s ease-in-out infinite !important;
+  animation: pulse 2.5s ease-in-out infinite !important;
+}
+
+.message.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  right: -4px !important;
+  width: 12px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy1pnCqKXtdujJceQRavKzV77XqAtQACkSIAAulJ4VSGKFw_uvn2OToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERGy5pnCvm8qjZsgR2tVqGes5f2-OXIgACkyIAAulJ4VQ3Dn8LjxQk6ToE.png) !important;
+  background-size: 10px 10px, 12px 12px !important;
+  background-position: top right, bottom right !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  -webkit-animation: pulse 2.5s ease-in-out infinite !important;
+  animation: pulse 2.5s ease-in-out infinite !important;
+}`
+},
+{
+  id:'b72',
+  type:'bubble',
+  name:'青苹果🍏',
+  author:'咕咕咕小瓷',
+  previews:[
+    {t:'sent',v:'青苹果'},
+    {t:'received',v:'酸甜'}
+  ],
+  css:`
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #d4e8c5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            padding: 1.5rem;
+        }
+
+        .preview-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .message-received,
+        .message-sent {
+            display: flex;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .message-received {
+            justify-content: flex-start;
+        }
+
+        .message-sent {
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            max-width: 75%;
+            padding: 16px 22px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            word-break: break-word;
+            position: relative;
+            color: #1b3c21;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
+            border: 2px solid #79a55b;
+            transition: all 0.1s ease;
+            z-index: 2;
+        }
+
+        .message-received .bubble {
+            border-radius: 32px 32px 32px 8px;
+            background: #e6f5d4;
+            background: radial-gradient(circle at 10% 20%, #f4ffe4, #d2ecba);
+            background-image: repeating-linear-gradient(-45deg, rgba(180, 215, 140, 0.2) 0px, rgba(180, 215, 140, 0.2) 8px, transparent 8px, transparent 16px);
+            border-color: #79a55b;
+            box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
+        }
+
+        .message-received .bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 22px;
+            height: 22px;
+            background: #96c280;
+            border-radius: 80% 0 60% 20%;
+            transform: rotate(15deg) skewX(3deg);
+            border-left: 3px solid #628d44;
+            border-bottom: 3px solid #628d44;
+            box-shadow: -2px 4px 0 #3f632b;
+            opacity: 0.9;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .message-sent .bubble {
+            border-radius: 32px 32px 8px 32px;
+            background: #f9fff2;
+            border-color: #6d9e4f;
+            box-shadow: 0 8px 0 #4e7a3c, 0 12px 18px -8px #2e5722;
+            background-color: #f9fff2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-sent .bubble::after {
+            content: '';
+            position: absolute;
+            left: auto;
+            right: 20px;
+            bottom: -10px;
+            width: 22px;
+            height: 22px;
+            background: #8bb46c;
+            border-radius: 80% 0 60% 20%;
+            transform: rotate(95deg) scaleX(-1);
+            border-left: 3px solid #51793b;
+            border-bottom: 3px solid #51793b;
+            box-shadow: 2px 4px 0 #3f632b;
+            opacity: 0.9;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .message-sent .bubble .seed-left {
+            position: absolute;
+            top: 45%;
+            left: 30%;
+            width: 14px;
+            height: 20px;
+            background: #5a3e24;
+            border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+            transform: rotate(-15deg) scale(1.1);
+            box-shadow: 0 3px 0 #3d2b18, inset -1px -1px 2px #8b6a4b;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .message-sent .bubble .seed-left::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 4px;
+            height: 6px;
+            background: rgba(255, 240, 210, 0.4);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+        }
+
+        .message-sent .bubble .seed-right {
+            position: absolute;
+            top: 45%;
+            right: 30%;
+            width: 14px;
+            height: 20px;
+            background: #5a3e24;
+            border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 3px 0 #3d2b18, inset 1px -1px 2px #8b6a4b;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .message-sent .bubble .seed-right::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 4px;
+            height: 6px;
+            background: rgba(255, 240, 210, 0.4);
+            border-radius: 50%;
+            transform: rotate(10deg);
+        }
+
+        .message-received .bubble .apple-cover {
+            position: absolute;
+            top: -12px;
+            right: -10px;
+            font-size: 2.2rem;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 20;
+            transform: rotate(12deg);
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+            text-shadow: 1px 1px 0 #52803a;
+            line-height: 1;
+        }
+
+        .message-sent .bubble .apple-cover {
+            position: absolute;
+            top: -12px;
+            left: -10px;
+            font-size: 2.2rem;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 20;
+            transform: rotate(-8deg);
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+            text-shadow: 1px 1px 0 #52803a;
+            line-height: 1;
+        }
+
+        .message-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #537a41;
+            font-weight: 500;
+            position: relative;
+            z-index: 4;
+        }
+
+        .message-received .message-meta {
+            justify-content: flex-start;
+            padding-left: 8px;
+        }
+
+        .message-sent .message-meta {
+            justify-content: flex-end;
+            padding-right: 8px;
+        }
+
+        .green-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #7fb24f;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .bubble p {
+            margin: 0 0 8px 0;
+            position: relative;
+            z-index: 10;
+            padding: 2px 4px;
+            border-radius: 4px;
+            text-shadow: 0 0 2px white;
+        }
+
+        .bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bubble {
+            position: relative;
+            overflow: visible;
+        }`
+    },
+{
+  id:'b73',
+  type:'bubble',
+  name:'黑灰',
+  author:'蛋挞',
+  group:'xiankuang',
+groupLabel:'线框系列',
+  previews:[
+    {t:'sent',v:'有多少天长地久'},
+    {t:'received',v:'有几回细水长流'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 8px 10px 8px 14px !important;
+  z-index: 1 !important;
+}
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #fff !important;
+  padding: 8px 16px 8px 10px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771910352140_IMG_5865.png') !important;
+  border-image-slice: 373 537 173 482 fill !important;
+  border-image-width: 21px 30px 10px 27px !important;
+  transform: scaleX(-1) !important;
+  pointer-events: none;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771910347831_IMG_5864.png') !important;
+  border-image-slice: 391 495 132 523 fill !important;
+  border-image-width: 22px 28px 7px 29px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b74',
+  type:'bubble',
+  name:'灰白',
+  author:'蛋挞',
+  group:'xiankuang',
+groupLabel:'线框系列',
+  previews:[
+    {t:'sent',v:'生命是一场冗长的雨'},
+    {t:'received',v:'晴天在你出现时降临'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 9px 9px 9px 14px !important;
+  z-index: 1 !important;
+}
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 8px 14px 8px 10px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771904063155_IMG_5858.png') !important;
+  border-image-slice: 457 515 154 498 fill !important;
+  border-image-width: 25px 29px 9px 28px !important;
+  transform: scaleX(-1) !important;
+  pointer-events: none;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771904063914_IMG_5856.png') !important;
+  border-image-slice: 435 562 166 457 fill !important;
+  border-image-width: 24px 31px 9px 25px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b75',
+  type:'bubble',
+  name:'蓝白',
+  author:'蛋挞',
+  group:'xiankuang',
+groupLabel:'线框系列',
+  previews:[
+    {t:'sent',v:'生命是一场冗长的雨'},
+    {t:'received',v:'晴天在你出现时降临'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+}
+.message.message-received {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 9px 9px 9px 14px !important;
+  z-index: 1 !important;
+}
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 8px 14px 8px 10px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771906003234_IMG_5854.png') !important;
+  border-image-slice: 448 487 152 529 fill !important;
+  border-image-width: 25px 27px 8px 29px !important;
+  transform: scaleX(-1) !important;
+  pointer-events: none;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771904063914_IMG_5856.png') !important;
+  border-image-slice: 435 562 166 457 fill !important;
+  border-image-width: 24px 31px 9px 25px !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b76',
+  type:'bubble',
+  name:'熊猫熊猫',
+  author:'蛋挞',
+  previews:[
+    {t:'sent',v:'生活给了我一拳'},
+    {t:'received',v:'我原地睡了一觉૮₍ ˃̶ ꇴ ˂̶ ₎ა'}
+  ],
+  css:`.chat-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: min(280px, 100%) !important;
+  word-wrap: break-word !important;
+}
+.message.message-received,
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #000000 !important;
+  padding: 9px 12px 8px 11px !important;
+  z-index: 1 !important;
+}
+.message.message-received::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  border-style: solid !important;
+  border-image-repeat: repeat !important;
+  border-image-source: url('https://img.heliar.top/file/1771575862869_IMG_5522.png') !important;
+  border-image-slice: 577 839 522 761 fill !important;
+  border-image-width: 13px 19px 12px 17px !important;
+  pointer-events: none;
+}`
+},
+{
+id:'b77',
+type:'bubble',
+name:'午夜猫蝠',
+author:'11',
+previews:[
+{t:'sent',v:'多幸运遇见了你'},
+{t:'received',v:'多幸运爱上了你'}
+],
+css:`.message {
+  box-shadow: none !important;
+  border: none !important;
+  font-weight: 500 !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+.message-received {
+  background-color: transparent !important;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 1) 0%, rgba(255, 204, 0, 1) 100%, transparent 50px),
+    url('https://img.heliar.top/file/1771855162584_bg-texture.png'),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.41), rgba(26, 26, 26, 0.41)) !important;
+  background-position: 50% 50%, 0 0, 0 0 !important;
+  background-size: 69px auto, 100% 100%, 100% 100% !important;
+  background-repeat: no-repeat, no-repeat, no-repeat !important;
+  background-blend-mode: screen !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  color: #000 !important;
+  border-radius: 24px !important;
+  padding: 8px 16px !important;
+  position: relative !important;
+}
+
+.message-sent {
+  background-color: transparent !important;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 1) 0%, rgba(255, 204, 0, 1) 100%, transparent 50px),
+    url('https://img.heliar.top/file/1771855162584_bg-texture.png'),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.41), rgba(26, 26, 26, 0.41)) !important;
+  background-position: 50% 50%, 0 0, 0 0 !important;
+  background-size: 69px auto, 100% 100%, 100% 100% !important;
+  background-repeat: no-repeat, no-repeat, no-repeat !important;
+  background-blend-mode: screen !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  color: #000 !important;
+  border-radius: 24px !important;
+  padding: 8px 16px !important;
+  position: relative !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 45px !important;
+  height: 45px !important;
+  background-image: url('https://img.heliar.top/file/1771855500929_retouch_2026022011501390.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.75 !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: translate(-22px, -12px) rotate(20deg) scaleX(-1) !important;
+  animation: pawFloat 3s ease-in-out infinite !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+}
+
+.message::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 46px !important;
+  height: 46px !important;
+  background-image: url('https://img.heliar.top/file/1771855174377_sticker-right.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translate(30px, 12px) rotate(-70deg) scaleX(-1) !important;
+  animation: none !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.message--other::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 45px !important;
+  height: 45px !important;
+  background-image: url('https://img.heliar.top/file/1771855500929_retouch_2026022011501390.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.75 !important;
+  right: 0 !important;
+  top: 0 !important;
+  transform: translate(22px, -12px) rotate(-20deg) scaleX(-1) !important;
+  animation: pawFloatOther 3s ease-in-out infinite !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+}
+
+.message--other::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 46px !important;
+  height: 46px !important;
+  background-image: url('https://img.heliar.top/file/1771855174377_sticker-right.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translate(30px, 12px) rotate(-70deg) scaleX(-1) !important;
+  animation: none !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+@keyframes pawFloat {
+  0%,100% { transform: translate(-22px, -12px) rotate(20deg) scaleX(-1); }
+  50%     { transform: translate(-22px, -17px) rotate(20deg) scaleX(-1); }
+}
+@keyframes pawFloatOther {
+  0%,100% { transform: translate(22px, -12px) rotate(-20deg) scaleX(-1); }
+  50%     { transform: translate(22px, -17px) rotate(-20deg) scaleX(-1); }
+}`
+},
+{
+id:'b78',
+type:'bubble',
+name:'猫眠',
+author:'11',
+previews:[
+{t:'sent',v:'多幸运遇见了你'},
+{t:'received',v:'多形象爱上了你'}
+],
+css:`.message {
+position: relative !important;
+overflow: visible !important;
+box-sizing: border-box !important;
+padding: 8px 10px 8px 10px !important;
+border-radius: 18px !important;
+
+display: flex !important;
+flex-direction: column !important;
+justify-content: flex-start !important;
+text-align: left !important;
+
+max-width: 100% !important;
+min-width: 0px !important;
+min-height: 36px !important;
+
+background-color: transparent !important;
+background-image: radial-gradient(circle at 80% 80%, rgba(77, 77, 77, 0.54), rgba(77, 77, 77, 0.26)) !important;
+background-position: center !important;
+background-size: cover !important;
+background-repeat: no-repeat !important;
+background-blend-mode: multiply !important;
+
+box-shadow: 1px 2px 15px rgba(230, 230, 230, 0.18), inset -2px 2px 15px rgba(255, 255, 255, 0.7), inset 2px -2px 15px rgba(0, 0, 0, 0.1) !important;
+color: #FFFFFF !important;
+backdrop-filter: blur(9px) !important;
+-webkit-backdrop-filter: blur(9px) !important;
+
+line-height: 1.55 !important;
+letter-spacing: 0.02em !important;
+word-break: break-word !important;
+z-index: 1 !important;
+border: 0px solid transparent !important;
+outline: 1px solid rgba(207, 207, 207, 1) !important;
+outline-offset: 0px !important;
+}
+
+.message::after {
+content: '' !important;
+position: absolute !important;
+width: 32px !important;
+height: 32px !important;
+background-image: url('https://img.heliar.top/file/1771862313856_retouch_2026022323580277.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+opacity: 1 !important;
+right: 0 !important;
+bottom: 0 !important;
+transform: translate(20px, 28px) rotate(-10deg) !important;
+z-index: 2 !important;
+pointer-events: none !important;
+filter: brightness(1.2) contrast(1.1) saturate(1.3) drop-shadow(0 4px 8px rgba(0,0,0,0.4)) !important;
+}
+
+.message::before {
+content: '' !important;
+position: absolute !important;
+width: 40px !important;
+height: 40px !important;
+background-image: url('https://img.heliar.top/file/1771861962025_retouch_2026022323521780.png') !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+opacity: 1 !important;
+left: 0 !important;
+top: 0 !important;
+z-index: 2 !important;
+pointer-events: none !important;
+border: none !important;
+background-color: transparent !important;
+filter: brightness(1.2) contrast(1.1) saturate(1.3) drop-shadow(0 4px 8px rgba(0,0,0,0.4)) !important;
+animation: floatCatLeft 3.2s ease-in-out infinite;
+}
+
+@keyframes floatCatLeft {
+0% { transform: translate(-20px, -12px) rotate(-15deg) translateY(0); }
+50% { transform: translate(-20px, -17px) rotate(-15deg) translateY(0); }
+100% { transform: translate(-20px, -12px) rotate(-15deg) translateY(0); }
+}
+
+.message-container {
+align-items: flex-start !important;
+margin-bottom: 1px !important;
+}
+
+.quote-popup,
+.message-quote,
+.reference-popup,
+[class*="quote"],
+[class*="reference"] {
+z-index: 100 !important;
+position: relative;
+}`
+},
 ];
 const CARDS = [
   {
