@@ -5069,8 +5069,6 @@ display: none !important;
   type:'bubble',
   name:'黑灰',
   author:'蛋挞',
-  group:'xiankuang',
-groupLabel:'线框系列',
   previews:[
     {t:'sent',v:'有多少天长地久'},
     {t:'received',v:'有几回细水长流'}
