@@ -6077,8 +6077,6 @@ const CARDS = [
       '状态': 96,
       '座右铭': 65
     },
-    exportDate:'2026-02-24'
-  }
 {
   id:'card2',
   type:'card',
@@ -6092,8 +6090,6 @@ const CARDS = [
   itemCounts:{
     "自定义回复": 203
 },
-  exportDate:'2026-02-25'
-}
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
