@@ -5572,6 +5572,491 @@ z-index: 100 !important;
 position: relative;
 }`
 },
+{
+  id: 'b79',
+  type: 'bubble',
+  name: '粉黄-蓝绿',
+  author: '晨鸢',
+  previews: [
+    { t: 'sent', v: '澄澈的天空下是什么？' },
+    { t: 'received', v: '草莓芒果慕斯。' }
+  ],
+  css: `
+.message {
+  box-shadow: none !important;
+  border-width: 0 !important;
+  font-weight: 500 !important;
+  position: relative !important;
+  overflow: visible !important;
+  padding: 7px 13px !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  border-radius: 18px !important;
+  max-width: 95% !important;
+  letter-spacing: 0.01em;
+  background: transparent !important;
+  transition: all 0.2s ease;
+}
+
+.message-sent {
+  background: linear-gradient(180deg, rgba(200, 235, 255, 0.9) 0%, rgba(180, 230, 200, 0.9) 100%) !important;
+  border: 1px solid rgba(160, 220, 250, 0.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 24px 24px 4px 24px !important;
+  box-shadow: 0 8px 16px -6px rgba(120, 180, 220, 0.25), 3px 0 10px -5px rgba(140, 200, 220, 0.2), inset 0 -4px 10px -4px rgba(100, 150, 180, 0.2), inset 3px 3px 10px -4px rgba(240, 250, 255, 0.6), inset 0 0 10px 3px rgba(180, 220, 255, 0.2), inset 0 0 0 1px rgba(140, 200, 230, 0.2), 0 0 15px 3px rgba(160, 210, 240, 0.15) !important;
+  color: #1a3a4a !important;
+  padding: 8px 16px !important;
+  position: relative !important;
+  margin-right: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+.message-received {
+  background: linear-gradient(180deg, rgba(255, 220, 240, 0.9) 0%, rgba(255, 235, 200, 0.9) 100%) !important;
+  border: 1px solid rgba(255, 200, 220, 0.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 24px 24px 24px 4px !important;
+  box-shadow: 0 8px 16px -6px rgba(255, 180, 200, 0.25), -2px 0 8px -5px rgba(255, 200, 180, 0.2), inset 0 -4px 10px -4px rgba(230, 150, 170, 0.15), inset 2px 3px 10px -4px rgba(255, 245, 230, 0.7), inset 0 0 10px 3px rgba(255, 210, 220, 0.2), inset 0 0 0 1px rgba(255, 190, 210, 0.2), 0 0 15px 3px rgba(255, 200, 210, 0.15) !important;
+  color: #5a3a3a !important;
+  padding: 8px 16px !important;
+  position: relative !important;
+  margin-left: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  left: 12px !important;
+  width: calc(100% - 24px) !important;
+  height: 8px !important;
+  background: rgba(220, 210, 230, 0.5) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  left: 12px !important;
+  width: calc(100% - 24px) !important;
+  height: 8px !important;
+  background: rgba(220, 210, 230, 0.5) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+
+.message-sent::before {
+  content: "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️" !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  left: 12px !important;
+  width: 70% !important;
+  height: 8px !important;
+  font-size: 10px !important;
+  line-height: 8px !important;
+  letter-spacing: 2.5px !important;
+  color: transparent !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  z-index: 6 !important;
+  text-shadow: 0 0 8px #a0d8d0, 0 0 12px #b0e8e0 !important;
+  background: linear-gradient(90deg, #b0e0d8, #c0f0e8, #b0e0d8) !important;
+  background-size: 200% 100% !important;
+  border-radius: 12px !important;
+  pointer-events: none !important;
+  animation: progressFlowSent 5s ease-in-out infinite !important;
+  font-weight: normal !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.message-received::before {
+  content: "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️" !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  left: 12px !important;
+  width: 60% !important;
+  height: 8px !important;
+  font-size: 10px !important;
+  line-height: 8px !important;
+  letter-spacing: 2.5px !important;
+  color: transparent !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  z-index: 6 !important;
+  text-shadow: 0 0 8px #ffd0a0, 0 0 12px #ffe0b0 !important;
+  background: linear-gradient(90deg, #ffd8a0, #ffe8b0, #ffd8a0) !important;
+  background-size: 200% 100% !important;
+  border-radius: 12px !important;
+  pointer-events: none !important;
+  animation: progressFlowReceived 6s ease-in-out infinite !important;
+  font-weight: normal !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+@keyframes progressFlowSent {
+  0% {
+    background-position: 0% 0%;
+    width: 30%;
+    opacity: 0.9;
+  }
+  25% {
+    width: 60%;
+    opacity: 1;
+  }
+  50% {
+    width: 85%;
+    opacity: 1;
+  }
+  75% {
+    width: 45%;
+    opacity: 1;
+  }
+  100% {
+    width: 30%;
+    opacity: 0.9;
+    background-position: 200% 0%;
+  }
+}
+
+@keyframes progressFlowReceived {
+  0% {
+    background-position: 0% 0%;
+    width: 40%;
+    opacity: 0.9;
+  }
+  33% {
+    width: 70%;
+    opacity: 1;
+  }
+  66% {
+    width: 50%;
+    opacity: 1;
+  }
+  100% {
+    width: 40%;
+    opacity: 0.9;
+    background-position: 200% 0%;
+  }
+}
+
+.message-sent .star-left {
+  content: "✦" !important;
+  position: absolute !important;
+  left: -16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(1) !important;
+  font-size: 22px !important;
+  color: white !important;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #a0d0ff, 0 0 40px #a0d0ff !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  animation: starTwinkle 1.5s ease-in-out infinite !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+}
+
+.message-sent .star-right {
+  content: "✦" !important;
+  position: absolute !important;
+  right: -16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(1) !important;
+  font-size: 22px !important;
+  color: white !important;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #a0d0ff, 0 0 40px #a0d0ff !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  animation: starTwinkle 1.8s ease-in-out infinite !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+}
+
+.message-received .star-left {
+  content: "✦" !important;
+  position: absolute !important;
+  left: -16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(1) !important;
+  font-size: 22px !important;
+  color: white !important;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffd0a0, 0 0 40px #ffd0a0 !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  animation: starTwinkle 1.8s ease-in-out infinite !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+}
+
+.message-received .star-right {
+  content: "✦" !important;
+  position: absolute !important;
+  right: -16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(1) !important;
+  font-size: 22px !important;
+  color: white !important;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffd0a0, 0 0 40px #ffd0a0 !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  animation: starTwinkle 1.5s ease-in-out infinite !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(0.8);
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px currentColor;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1);
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 35px currentColor;
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px currentColor;
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(0.8);
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+  }
+}
+
+.message p {
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.message .meta {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-top: 4px;
+  text-align: right;
+  color: #1a3a4a !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+.message-received .meta {
+  color: #5a3a3a !important;
+}
+
+.message-sent:hover {
+  box-shadow: 0 12px 20px -8px rgba(120, 180, 220, 0.3), 3px 0 12px -6px rgba(140, 200, 220, 0.25), inset 0 -5px 12px -4px rgba(100, 150, 180, 0.2), inset 3px 3px 12px -4px rgba(240, 250, 255, 0.7), inset 0 0 12px 4px rgba(180, 220, 255, 0.25), inset 0 0 0 1px rgba(140, 200, 230, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.message-received:hover {
+  box-shadow: 0 10px 18px -8px rgba(255, 160, 180, 0.25), -2px 0 10px -6px rgba(255, 180, 160, 0.2), inset 0 -4px 12px -4px rgba(230, 130, 150, 0.15), inset 2px 3px 12px -4px rgba(255, 250, 235, 0.7), inset 0 0 12px 4px rgba(255, 200, 220, 0.25), inset 0 0 0 1px rgba(255, 180, 200, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .message-sent {
+    background: linear-gradient(180deg, rgba(90, 140, 180, 0.95) 0%, rgba(80, 150, 130, 0.95) 100%) !important;
+    border-color: rgba(120, 180, 220, 0.25) !important;
+    color: #e0f0ff !important;
+    box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.5), inset 0 -4px 10px -4px rgba(30, 60, 80, 0.3), inset 3px 3px 10px -4px rgba(150, 200, 240, 0.15), inset 0 0 10px 3px rgba(80, 140, 180, 0.15), inset 0 0 0 1px rgba(100, 160, 200, 0.2) !important;
+  }
+  .message-received {
+    background: linear-gradient(180deg, rgba(160, 100, 130, 0.95) 0%, rgba(200, 160, 100, 0.95) 100%) !important;
+    border-color: rgba(200, 140, 170, 0.25) !important;
+    color: #fff0e0 !important;
+    box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.5), inset 0 -4px 10px -4px rgba(80, 40, 50, 0.3), inset 2px 3px 10px -4px rgba(200, 150, 170, 0.15), inset 0 0 10px 3px rgba(140, 90, 110, 0.15), inset 0 0 0 1px rgba(160, 110, 130, 0.2) !important;
+  }
+  .message-sent::before {
+    text-shadow: 0 0 8px #80c0b8, 0 0 12px #a0d8d0 !important;
+    background: linear-gradient(90deg, #90c8c0, #b0e0d8, #90c8c0) !important;
+  }
+  .message-received::before {
+    text-shadow: 0 0 8px #d0a880, 0 0 12px #e0c090 !important;
+    background: linear-gradient(90deg, #d8b080, #e8c8a0, #d8b080) !important;
+  }
+  .message-sent .star-left,
+  .message-sent .star-right {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px #a0d0ff !important;
+  }
+  .message-received .star-left,
+  .message-received .star-right {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px #ffc8a0 !important;
+  }
+  .message .meta {
+    color: #e0f0ff !important;
+  }
+  .message-received .meta {
+    color: #fff0e0 !important;
+  }
+}`
+},
+{
+  id:'b80',
+  type:'bubble',
+  name:'黑白灰说是',
+  author:'gyo',
+  previews:[
+    {t:'sent',v:'幸福不在别处'},
+    {t:'received',v:'你就是我的全部'}
+  ],
+  css:`
+.message {
+  position: relative !important;
+  overflow: visible !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+  margin: 8px 0 !important;
+  clear: both !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.message-sent {
+  float: right !important;
+  background: #3a3a3c !important; 
+  color: #ffffff !important;
+  border-radius: 26px 29px 4px 29px !important;
+  padding: 10px 14px !important;
+  margin-right: 12px !important;
+}
+.message-received {
+  float: left !important;
+  background: #e9e9e9 !important; 
+  color: #000000 !important;
+  border-radius: 29px 26px 29px 4px !important;
+  padding: 10px 14px !important;
+  margin-left: 12px !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-style: solid !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  bottom: 0 !important;
+  right: -10px !important;
+  border-width: 18px 0 0px 17px !important;
+  border-color: transparent transparent transparent #3a3a3c !important;
+}
+
+.message.message-received::after {
+  bottom: 0 !important;
+  left: -10px !important;
+  border-width: 18px 17px 0px 0 !important;
+  border-color: transparent #e9e9eb transparent transparent !important;
+}
+
+.message-sent + .message-sent,
+.message-received + .message-received {
+  margin-top: 4px !important;
+}
+
+.message-sent + .message-sent::after,
+.message-received + .message-received::after {
+  display: none !important;
+}`
+},
+{
+  id: 'b81',
+  type: 'bubble',
+  name: '黑与白小尖角',
+  author: 'yuuuxii',
+  previews: [
+    { t: 'sent', v: '我一个平民老百姓跟你们这些权势滔天的人说不清楚' },
+    { t: 'received', v: '看不懂' }
+  ],
+  css: `.message{
+  box-shadow: none !important;
+  border-width: 0 !important;
+  font-weight: 500 !important;
+  position: relative !important;
+  overflow: visible !important;
+  padding: 7px 13px !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 3px rgba(0,0,0,.3) !important;
+}
+
+.message-received{
+  background: #fff !important;
+  border-color: transparent !important;
+  color: #000 !important;
+  border-radius: 29px 26px 30px 2px !important;
+  padding: 7px 16px !important;
+  box-shadow: 0 4px 7px rgba(0,0,0,.2) !important;
+}
+
+.message-sent{
+  background: #333 !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  border-radius: 26px 30px 2px 29px !important;
+  padding: 7px 16px !important;
+  box-shadow: 0 4px 7px rgba(0,0,0,.2) !important;
+}
+
+.message::after{
+  content: '' !important;
+  position: absolute !important;
+  width: 30px !important;
+  height: 15px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  z-index: 0 !important;
+}
+
+.message.message-sent::after{
+  bottom: -3.0px !important;
+  right: -16px !important;
+  background-color: #333 !important;
+  clip-path: polygon(0 0, -750% 0, 66% 83%) !important;
+  filter: drop-shadow(0px 0px 0px rgba(180,120,140,.4)) !important;
+}
+
+.message.message-received::after{
+  bottom: -6.0px !important;
+  left: -8px !important;
+  background-color: #fff !important;
+  clip-path: polygon(0 60%, 99990% 0, 900% -999%) !important;
+  filter: drop-shadow(0px 0px 0px rgba(180,120,140,.0)) !important;
+}`
+}
 ];
 const CARDS = [
   {
@@ -5594,21 +6079,21 @@ const CARDS = [
     },
     exportDate:'2026-02-24'
   }
-  // 继续添加字卡，比如：
-  // {
-  //   id:'card2',
-  //   type:'card',
-  //   name:'情话精选',
-  //   author:'milk',
-  //   desc:'精心整理的情话回复包。',
-  //   tags:['回复','情话'],
-  //   fileType:'json',
-  //   fileName:'love-replies.json',
-  //   file:'./assets/cards/love-replies.json',
-  //   size:'约 8 KB',
-  //   itemCounts:{ '自定义回复': 80 },
-  //   exportDate:'2026-02-24'
-  // }
+{
+  id:'card2',
+  type:'card',
+  name:'小情侣日常向补充包1.0',
+  author:'KUM',
+  desc:'小情侣日常向，1.0简单型',
+  tags:[],
+  fileType:'json',
+  fileName:'qrVun6A9B',
+  file:'https://z.wiki/u/qrVun6A9B',
+  itemCounts:{
+    "自定义回复": 203
+},
+  exportDate:'2026-02-25'
+}
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
