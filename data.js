@@ -6077,6 +6077,7 @@ const CARDS = [
       '状态': 96,
       '座右铭': 65
     },
+}
 {
   id:'card2',
   type:'card',
@@ -6089,6 +6090,7 @@ const CARDS = [
   file:'https://z.wiki/u/qrVun6A9B',
   itemCounts:{
     "自定义回复": 203
+}
 },
 ];
 
