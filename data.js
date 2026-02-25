@@ -6076,22 +6076,21 @@ const CARDS = [
       '戳一戳': 20,
       '状态': 96,
       '座右铭': 65
-    }
-},
-{
-  id:'card2',
-  type:'card',
-  name:'小情侣日常向补充包1.0',
-  author:'KUM',
-  desc:'小情侣日常向，1.0简单型',
-  tags:[],
-  fileType:'json',
-  fileName:'qrVun6A9B',
-  file:'https://z.wiki/u/qrVun6A9B',
-  itemCounts:{
-    "自定义回复": 203
-}
-},
-];
-
+    } 
+  },
+  {
+    id:'card2',
+    type:'card',
+    name:'小情侣日常向补充包1.0',
+    author:'KUM',
+    desc:'小情侣日常向，1.0简单型',
+    tags:[],
+    fileType:'json',
+    fileName:'qrVun6A9B',
+    file:'https://img.heliar.top/file/1772049568884_小情侣日常向万能字卡扩充1.json',
+    itemCounts:{
+      "自定义回复": 203
+    } 
+  }
+]; 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
