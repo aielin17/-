@@ -6056,7 +6056,349 @@ position: relative;
   clip-path: polygon(0 60%, 99990% 0, 900% -999%) !important;
   filter: drop-shadow(0px 0px 0px rgba(180,120,140,.0)) !important;
 }`
+},
+{
+  id:'b82',
+  type:'bubble',
+  name:'动态半透明四叶草',
+  author:'iAci',
+  previews:[
+    {t:'sent',v:'这个气泡怎么样'},
+    {t:'received',v:'看起来不错'}
+  ],
+  css:`
+.message-sent {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 20px 20px 4px 20px !important;
+    padding: 10px 16px !important;
+    color: #333333 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-width: 70% !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    word-break: break-word !important;
 }
+
+.message-received {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 20px 20px 20px 4px !important;
+    padding: 10px 16px !important;
+    color: #333333 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-width: 70% !important;
+    width: fit-content !important;
+    margin-right: auto !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    word-break: break-word !important;
+}
+
+.message-sent::after {
+    content: '🍀' !important;
+    position: absolute !important;
+    bottom: -12px !important;
+    right: -12px !important;
+    font-size: 20px !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+}
+
+.message-received::before {
+    content: '🍀' !important;
+    position: absolute !important;
+    top: -12px !important;
+    left: -12px !important;
+    font-size: 20px !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+}
+
+.message-sent, .message-received {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+.message-sent, .message-received {
+    max-width: 90vw !important; 
+    width: fit-content !important; 
+    min-width: unset !important; 
+    
+    word-break: break-word !important;
+    white-space: normal !important;
+    
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
+    
+    justify-self: start !important;
+    align-self: auto !important;
+}
+
+.message-received {
+    justify-self: start !important;
+    margin-right: auto !important;
+}
+
+.message-sent {
+    justify-self: end !important;
+    margin-left: auto !important;
+}
+.message-sent {
+    position: relative;
+    overflow: visible;
+}
+
+.message-sent::after {
+    content: '🍀';
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    font-size: 22px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    animation: cloverFall 4s ease-in infinite; 
+    pointer-events: none;
+}
+
+.message-sent::before {
+    content: '🍀';
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    animation: cloverFall 4.5s ease-in infinite;
+    animation-delay: 1s; 
+    pointer-events: none;
+}
+
+.message-received {
+    position: relative;
+    overflow: visible;
+}
+
+.message-received::after {
+    content: '🍀';
+    position: absolute;
+    bottom: -15px;
+    left: -10px;
+    font-size: 22px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    animation: cloverFall 4.2s ease-in infinite;
+    animation-delay: 0.5s;
+    pointer-events: none;
+}
+
+.message-received::before {
+    content: '🍀';
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    animation: cloverFall 3.8s ease-in infinite;
+    animation-delay: 1.3s;
+    pointer-events: none;
+}
+
+@keyframes cloverFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(20px) rotate(90deg);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(40px) rotate(180deg);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(60px) rotate(270deg);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(80px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.message-sent::after {
+    animation: cloverFallRight 4s ease-in infinite;
+}
+
+.message-sent::before {
+    animation: cloverFallLeft 4.5s ease-in infinite;
+}
+
+.message-received::after {
+    animation: cloverFallLeft 4.2s ease-in infinite;
+}
+
+.message-received::before {
+    animation: cloverFallRight 3.8s ease-in infinite;
+}
+
+@keyframes cloverFallRight {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    25% { transform: translate(5px, 20px) rotate(90deg); opacity: 0.9; }
+    50% { transform: translate(10px, 40px) rotate(180deg); opacity: 0.7; }
+    75% { transform: translate(5px, 60px) rotate(270deg); opacity: 0.4; }
+    100% { transform: translate(0, 80px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes cloverFallLeft {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    25% { transform: translate(-5px, 20px) rotate(90deg); opacity: 0.9; }
+    50% { transform: translate(-10px, 40px) rotate(180deg); opacity: 0.7; }
+    75% { transform: translate(-5px, 60px) rotate(270deg); opacity: 0.4; }
+    100% { transform: translate(0, 80px) rotate(360deg); opacity: 0; }
+}`
+},
+{
+  id:'b83',
+  type:'bubble',
+  name:'圆角',
+  author:'蛋挞',
+  group:'hui',
+  groupLabel:'灰调渐变',
+  previews:[
+    {t:'sent',v:'拥有一颗细腻的心'},
+    {t:'received',v:'感受更多的是幸福还是悲伤'}
+  ],
+  css:`.message {
+    position: relative !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    width: fit-content !important;
+    max-width: 280px !important;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 8px 11px;
+    border: none;
+}
+.message.message-sent,
+.message.message-received {
+    display: inline-block;
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    width: auto;
+    min-width: 70%;
+    color: #2b2b2b;
+}
+.message.message-sent {
+    background: radial-gradient(circle at 20% 30%, #fafafa, #d6d6d6);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.message.message-received {
+    background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}`
+},
+{
+  id:'b84',
+  type:'bubble',
+  name:'不对称',
+  author:'蛋挞',
+  group:'hui',
+  groupLabel:'灰调渐变',
+  previews:[
+    {t:'sent',v:'拥有一颗细腻的心'},
+    {t:'received',v:'感受更多的是幸福还是悲伤'}
+  ],
+  css:`.message {
+    position: relative !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    width: fit-content !important;
+    max-width: 280px !important;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 8px 11px;
+    border: none;
+}
+.message.message-sent,
+.message.message-received {
+    display: inline-block;
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    width: auto;
+    min-width: 70%;
+    color: #2b2b2b;
+}
+.message.message-sent {
+    border-radius: 20px 20px 4px 20px;
+    box-shadow: 
+        0 4px 6px rgba(0,0,0,0.1),
+        inset 0 1px 3px rgba(255,255,255,0.8),
+        0 0 0 1px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #e8e8e8, #c0c0c0);
+}
+.message.message-received {
+    border-radius: 20px 20px 20px 4px;
+    box-shadow: 
+        0 4px 6px rgba(0,0,0,0.1),
+        inset 0 1px 3px rgba(255,255,255,0.8),
+        0 0 0 1px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}`
+},
 ];
 const CARDS = [
   {
@@ -6084,13 +6426,41 @@ const CARDS = [
     name:'小情侣日常向补充包1.0',
     author:'KUM',
     desc:'小情侣日常向，1.0简单型',
-    tags:[],
     fileType:'json',
     fileName:'qrVun6A9B',
     file:'https://img.heliar.top/file/1772049568884_小情侣日常向万能字卡扩充1.json',
     itemCounts:{
       "自定义回复": 203
     } 
-  }
+  },
+  {
+id:'card3',
+type:'card',
+name:'日常聊天没问题了应该',
+author:'袁愿',
+desc:'‼️有恋与深空、未定事件簿男主微量台词！',
+fileType:'json',
+fileName:'字卡.json',
+file:'https://img.heliar.top/file/1772219016098_字卡.json',
+itemCounts:{
+    "字卡":854,
+    "状态":90,
+    "emoji":108,
+}
+},
+{
+  id:'card4',
+  type:'card',
+  name:'小情侣日常向补充包2.0-颜文字篇',
+  author:'KUM',
+  desc:'小情侣日常向的颜文字(*¯︶¯*)',
+  fileType:'json',
+  fileName:'颜文字',
+  file:'https://img.heliar.top/file/1772219734347_小情侣的日常2.0__颜文字篇.json',
+  itemCounts:{
+    "自定义回复": 88
+},
+  exportDate:'2026-02-26'
+}
 ]; 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
