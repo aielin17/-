@@ -7210,7 +7210,7 @@ itemCounts:{
 },
 {
   id:'card6',
-  type:'card'
+  type:'card',
   name:'秦彻字卡',
   author:'¿?CRazy',
   desc:'包含一些基础字卡+秦彻语录+我编的',
