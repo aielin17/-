@@ -29,6 +29,24 @@ author:'小鼠比尼',
 family:'F7',
 category:'手写',
 url:'https://files.catbox.moe/sfl1v7.ttf'
+},
+{
+  id:'f8',
+  type:'font',
+  name:'苹方黑体',
+  author:'Wind',
+  family:'F8',
+  category:'手写',
+  url:'https://files.catbox.moe/t0ivgi.ttf'
+},
+{
+  id:'f9',
+  type:'font',
+  name:'苹方细体',
+  author:'Wind',
+  family:'F8',
+  category:'手写',
+  url:'https://files.catbox.moe/vgvbzl.ttf'
 }
 ];
 const BUBBLES = [
@@ -6399,6 +6417,759 @@ position: relative;
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
 }`
 },
+{
+  id:'b85',
+  type:'bubble',
+  name:'蓝色玻璃',
+  author:'司七',
+  previews:[
+    {t:'sent',v:'哦亲爱的告诉你'},
+    {t:'received',v:'我有许多小淘气'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background: linear-gradient(135deg,
+        rgba(219, 234, 254, 0.7),
+        rgba(191, 219, 254, 0.6)
+    ) !important;
+
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10) !important;
+
+    border: 1px solid rgba(37, 99, 235, 0.20) !important;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.55) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.45) !important;
+
+    color: #0f172a !important;
+
+    backdrop-filter: blur(8px) saturate(110%);
+    -webkit-backdrop-filter: blur(8px) saturate(110%);
+}
+.message-sent {
+    background: linear-gradient(135deg,
+        rgba(191, 219, 254, 0.7),
+        rgba(147, 197, 253, 0.5)
+    ) !important;
+    border-radius: 20px 20px 6px 20px;
+}
+
+.message-received {
+    border-radius: 20px 20px 20px 6px;
+}`
+},
+{
+  id:'b86',
+  type:'bubble',
+  name:'夜色星闪',
+  author:'司七',
+  previews:[
+
+  ],
+  css:`.message-sent,
+.message-received {
+    position: relative;
+    overflow: hidden;
+
+    background:
+      radial-gradient(140px 100px at 18% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.00) 70%),
+      radial-gradient(220px 160px at 82% 30%, rgba(255,255,255,0.06), rgba(255,255,255,0.00) 75%),
+      linear-gradient(180deg, #162a66 0%, #1d4ed8 100%) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.24) !important;
+    color: #f8fafc !important;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.message-sent::before,
+.message-received::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+      linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/1px 12px no-repeat,
+      linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/12px 1px no-repeat,
+
+      linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/1px 10px no-repeat,
+      linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/10px 1px no-repeat,
+
+      linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/1px 9px no-repeat,
+      linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/9px 1px no-repeat,
+
+      linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/1px 7px no-repeat,
+      linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/7px 1px no-repeat;
+
+    opacity: 0.55;
+    animation: starTwinkleCross 3.8s ease-in-out infinite;
+}
+
+.message-sent::after,
+.message-received::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+      radial-gradient(1px 1px at 14% 42%, rgba(255,255,255,0.55) 99%, transparent 100%),
+      radial-gradient(1px 1px at 30% 18%, rgba(255,255,255,0.45) 99%, transparent 100%),
+      radial-gradient(1px 1px at 56% 40%, rgba(255,255,255,0.42) 99%, transparent 100%),
+      radial-gradient(1px 1px at 72% 66%, rgba(255,255,255,0.40) 99%, transparent 100%),
+      radial-gradient(1px 1px at 90% 34%, rgba(255,255,255,0.46) 99%, transparent 100%);
+
+    opacity: 0.38;
+    animation: starTwinkleDots 5.6s ease-in-out infinite;
+}
+
+@keyframes starTwinkleCross {
+    0%, 100% { opacity: 0.42; transform: translate3d(0,0,0); }
+    35%      { opacity: 0.68; transform: translate3d(0.5px,-0.5px,0); }
+    70%      { opacity: 0.50; transform: translate3d(-0.5px,0.5px,0); }
+}
+
+@keyframes starTwinkleDots {
+    0%, 100% { opacity: 0.28; }
+    40%      { opacity: 0.46; }
+    75%      { opacity: 0.32; }
+}
+
+.message-sent { border-radius: 18px 18px 6px 18px; }
+.message-received { border-radius: 18px 18px 18px 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .message-sent::before, .message-received::before,
+    .message-sent::after,  .message-received::after { animation: none; }
+}`
+},
+{
+  id:'b87',
+  type:'bubble',
+  name:'渐变玻璃',
+  author:'心恋',
+  previews:[
+    {t:'sent',v:'唯一的奇迹'},
+    {t:'received',v:'就是与你相遇的瞬间'}
+  ],
+  css:`.message-sent {
+  position: relative !important;
+  background: linear-gradient(0deg, rgba(250, 250, 250, 0.95) 0%, rgba(140, 140, 140, 0.9) 100%) !important; /* 从上到下，浅→深 */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 12px 12px 0 12px !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 5px 12px !important;
+  margin: 25px 0 3px auto !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #333 !important;
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-sent * {
+  color: #333 !important;
+}
+
+.message-received {
+  position: relative !important;
+  background: linear-gradient(0deg, rgba(250, 250, 250, 0.95) 0%, rgba(140, 140, 140, 0.9) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 12px 12px 12px 0 !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 5px 12px !important;
+  margin: 25px auto 3px 0 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #333 !important;
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-received * {
+  color: #333 !important;
+}`
+},
+{
+  id:'b88',
+  type:'bubble',
+  name:'这个气泡好禁欲',
+  author:'mio',
+  previews:[
+    {t:'sent',v:'♡小貓成長日記✧ ♡'},
+    {t:'received',v:'干からびた海からの悲鳴'},
+    {t:'sent',v:'我們好中二'},
+    {t:'received',v:'桀桀桀'}
+  ],
+  css:`
+.message {
+  border-radius: 20px !important; 
+  box-shadow: none !important;
+  padding: 7px 16px !important; 
+  position: relative !important;
+  overflow: visible !important; 
+  line-height: 1.4 !important; 
+}
+
+.message.message-received {
+  background-color: #F2F2F2 !important; 
+  color: #333333 !important; 
+}
+
+.message.message-sent {
+  background-color: #E5E5E5 !important; 
+  color: #333333 !important; 
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  z-index: 1 !important;
+}
+
+/* 5. 左侧气泡尾巴：位置微调以匹配更窄的气泡 */
+.message.message-received::after {
+  bottom: 1px !important;   /* 气泡变窄后，尾巴位置稍微下调 1px 看起来更稳 */
+  left: -8px !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 V20 H0 C10 20 20 15 20 0 Z' fill='%23F2F2F2'/%3E%3C/svg%3E") !important;
+}
+
+/* 6. 右侧气泡尾巴：位置微调以匹配更窄的气泡 */
+.message.message-sent::after {
+  bottom: 1px !important;   /* 气泡变窄后，尾巴位置稍微下调 1px 看起来更稳 */
+  right: -8px !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 V20 H20 C10 20 0 15 0 0 Z' fill='%23E5E5E5'/%3E%3C/svg%3E") !important;
+}`
+},
+{
+  id:'b89',
+  type:'bubble',
+  name:'静态',
+  author:'司七',
+  group:'yudi',
+  groupLabel:'灰蓝雨滴系列',
+  previews:[
+    {t:'sent',v:'雪地里相爱，他们说零下已结晶的誓言不会坏'},
+    {t:'received',v:'你还是住在我的回忆里不出来'}
+  ],
+  css:`.message-sent,
+.message-received{
+  position: relative;
+  overflow: visible;
+
+  background:
+    radial-gradient(140% 70% at 50% 55%, rgba(120, 170, 230, 0.06), rgba(120, 170, 230, 0.00) 60%),
+    linear-gradient(135deg,
+      rgba(244, 246, 249, 0.92),
+      rgba(226, 231, 239, 0.86)
+    ) !important;
+
+  backdrop-filter: blur(10px) saturate(105%);
+  -webkit-backdrop-filter: blur(10px) saturate(105%);
+
+  border: 1px solid rgba(30, 41, 59, 0.14) !important;
+  border-top: 1px solid rgba(255,255,255,0.58) !important;
+  border-left: 1px solid rgba(255,255,255,0.48) !important;
+
+  box-shadow: 0 10px 22px rgba(15,23,42,0.10) !important;
+  color: #0f172a !important;
+}
+
+.message-sent::after,
+.message-received::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+  bottom: 0%;
+  width: 26px;     /* [可调] 更宽一点 */
+  height: 25px;    /* [可调] 更矮一点 */
+
+  /* ---------- 雨滴缩放与“高矮胖瘦”微调（可调） ---------- */
+  /* scale(0.7) = 70% 大小 */
+  /* scaleX > 1 更胖；scaleY < 1 更矮（你这版是反过来：略瘦+略高） */
+  transform: scale(0.7) scaleX(0.95) scaleY(1.18);
+
+  /* ---------- 颜色与线条（可调） ---------- */
+  opacity: 0.86;   /* [可调] 0.70~0.90 */
+  background-repeat:no-repeat;
+  background-size: contain;
+
+  /* [可调] 描边颜色：#89A0BF（灰蓝） */
+  /* [可调] 描边粗细：stroke-width 当前 1.25 */
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
+<path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='none' stroke='%2389A0BF' stroke-width='1.25' stroke-linejoin='round'/>\
+</svg>");
+}
+
+/* 远离头像一侧：靠中间那侧（可调靠外程度） */
+/* [可调] 越小（更负）越靠外：-14px（贴近）-> -22px（更外）-> -28px（很外） */
+.message-received::after{ right: -22px; } /* 左侧气泡 -> 雨滴在右边 */
+.message-sent::after{ left: -22px; }     /* 右侧气泡 -> 雨滴在左边 */
+
+/* [可选] 如果你想让静态雨滴略微“贴近底边但不压到气泡边缘”，可以开一点点微偏移：
+.message-sent::after,
+.message-received::after{ margin-bottom: -2px; }
+*/`
+},
+{
+  id:'b90',
+  type:'bubble',
+  name:'动态',
+  author:'司七',
+  group:'yudi',
+  groupLabel:'灰蓝雨滴系列',
+  previews:[
+    {t:'sent',v:'雪地里相爱，他们说零下已结晶的誓言不会坏'},
+    {t:'received',v:'你还是住在我的回忆里不出来'}
+  ],
+  css:`/* =========================
+   黑灰背景适配 · 忧郁蓝调磨砂气泡
+   ========================= */
+.message-sent,
+.message-received{
+  position: relative;
+  overflow: visible;
+
+  /* -------- 主体透明度（可调） -------- */
+  /* 第三个和第四个 alpha 越小越透明 */
+  background:
+    /* [可调] 内部冷蓝雾感层（0.04~0.10） */
+    radial-gradient(140% 80% at 50% 60%,
+      rgba(90, 130, 190, 0.08),
+      rgba(90, 130, 190, 0.00) 65%
+    ),
+    /* [可调] 主玻璃底色（建议 0.18~0.32） */
+    linear-gradient(135deg,
+      rgba(40, 48, 58, 0.28),
+      rgba(55, 65, 78, 0.22)
+    ) !important;
+
+  /* -------- 磨砂强度（可调） -------- */
+  backdrop-filter: blur(14px) saturate(110%);
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+
+  /* -------- 玻璃边缘（可调） -------- */
+  border: 1px solid rgba(140, 170, 210, 0.18) !important;
+  border-top: 1px solid rgba(255,255,255,0.10) !important;
+  border-left: 1px solid rgba(255,255,255,0.06) !important;
+
+  /* -------- 外阴影（可调） -------- */
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.45),
+    inset 0 0 18px rgba(120,160,220,0.08);
+
+  color: #e5edf7 !important; /* 深背景下建议浅字 */
+}
+
+/* =========================
+   忧郁蓝雨滴（动态）
+   ========================= */
+.message-sent::after,
+.message-received::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+
+  /* ---------- 位置 ---------- */
+  bottom: 12%;        /* [可调] 初始位置 */
+  width: 26px;
+  height: 25px;
+
+  /* ---------- 尺寸形态（可调） ---------- */
+  transform: scale(0.7) scaleX(1.05) scaleY(0.95);
+
+  opacity: 0.75;      /* [可调] 黑背景建议 0.65~0.85 */
+
+  background-repeat:no-repeat;
+  background-size: contain;
+
+  /* -------- 忧郁蓝描边（可调） -------- */
+  /* 改颜色只需要改 stroke 后面的十六进制 */
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
+<path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='none' stroke='%236F8FBF' stroke-width='1.2' stroke-linejoin='round'/>\
+</svg>");
+
+  /* -------- 动画节奏（可调） -------- */
+  animation: dropletFloatBottom 4.6s ease-in-out infinite;
+}
+
+/* 远离头像的一侧 */
+.message-received::after{ right: -24px; }
+.message-sent::after{ left: -24px; }
+
+/* =========================
+   浮动范围（底部区域内）
+   ========================= */
+@keyframes dropletFloatBottom{
+  /* [可调] 最低点 */
+  0%, 100% { bottom: 8%; opacity: 0.78; }
+  /* [可调] 最高点（建议不超过 40%） */
+  50%      { bottom: 32%; opacity: 0.60; }
+}
+
+/* 低动效偏好 */
+@media (prefers-reduced-motion: reduce){
+  .message-sent::after, .message-received::after{ animation: none; }
+}`
+},
+{
+  id:'b91',
+  type:'bubble',
+  name:'实心',
+  author:'司七',
+  group:'yudi',
+  groupLabel:'灰蓝雨滴系列',
+  previews:[
+    {t:'sent',v:'雪地里相爱，他们说零下已结晶的誓言不会坏'},
+    {t:'received',v:'你还是住在我的回忆里不出来'}
+  ],
+  css:`/* =========================
+   浅色灰蓝磨砂气泡
+   ========================= */
+.message-sent,
+.message-received{
+  position: relative;
+  overflow: visible;
+
+  background:
+    radial-gradient(140% 70% at 50% 55%, rgba(120, 170, 230, 0.06), rgba(120, 170, 230, 0.00) 60%),
+    linear-gradient(135deg, rgba(244, 246, 249, 0.92), rgba(226, 231, 239, 0.86)) !important;
+
+  backdrop-filter: blur(10px) saturate(105%);
+  -webkit-backdrop-filter: blur(10px) saturate(105%);
+
+  border: 1px solid rgba(30, 41, 59, 0.14) !important;
+  border-top: 1px solid rgba(255,255,255,0.58) !important;
+  border-left: 1px solid rgba(255,255,255,0.48) !important;
+
+  box-shadow: 0 10px 22px rgba(15,23,42,0.10) !important;
+  color: #0f172a !important;
+}
+
+/* =========================
+   实心渐变雨滴（通用形状）
+   - 顶部：低饱和灰蓝
+   - 底部：近白
+   - 微发光：drop-shadow（可调）
+   ========================= */
+.message-sent::after,
+.message-received::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+
+  /* ------- 位置（可调） ------- */
+  bottom: 12%;           /* [可调] 靠下就调小/负值 */
+  /* 远离头像那侧（靠中间）在下面分别设 left/right */
+
+  /* ------- 尺寸/形态（可调） ------- */
+  width: 26px;
+  height: 25px;
+  transform: scale(0.7) scaleX(0.95) scaleY(1.18); /* [可调] 胖瘦高矮 */
+
+  /* ------- 透明度（可调） ------- */
+  opacity: 0.92;         /* [可调] 0.75~0.95 */
+
+  background-repeat:no-repeat;
+  background-size: contain;
+
+  /* ------- 渐变色（可调） -------
+     topColor：#8AA2BE（灰蓝）
+     bottomColor：#F6FAFF（近白）
+  */
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
+<defs>\
+<linearGradient id='g' x1='0' y1='0' x2='0' y2='1'>\
+<stop offset='0%' stop-color='%238AA2BE' stop-opacity='0.95'/>\
+<stop offset='100%' stop-color='%23F6FAFF' stop-opacity='0.95'/>\
+</linearGradient>\
+</defs>\
+<path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='url(%23g)'/>\
+</svg>");
+
+  /* ------- 微发光（可调） -------
+     这是“柔光”不是霓虹：把 alpha 控制在 0.12~0.25
+  */
+  filter:
+    drop-shadow(0 0 6px rgba(140, 170, 210, 0.20))
+    drop-shadow(0 2px 10px rgba(15, 23, 42, 0.10));
+
+  /* ------- 动画（保留动态） ------- */
+  animation: dropletFloatBottom 3.8s ease-in-out infinite;
+}
+
+/* 远离头像一侧：靠中间那侧（可调靠外程度） */
+.message-received::after{ right: -22px; }
+.message-sent::after{ left: -22px; }
+
+/* 浮动范围：底部区域内（可调） */
+@keyframes dropletFloatBottom{
+  0%, 100% { bottom: -5%;  opacity: 0.92; }
+  50%      { bottom: 15%; opacity: 0.78; }
+}`
+},
+{
+  id:'b92',
+  type:'bubble',
+  name:'晨雾雪松',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: #8da399 !important;
+    color: #f5f5f0 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 6px rgba(141, 163, 153, 0.3) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important; 
+}
+
+.message-received {
+    background-color: #e6e2d3 !important;
+    color: #5c544d !important;
+    box-shadow: 0 2px 6px rgba(230, 226, 211, 0.5) !important;
+}`
+},
+{
+  id:'b93',
+  type:'bubble',
+  name:'原木手札',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: #dcbfa6 !important;
+    color: #4a3728 !important;
+    border: 1.5px dashed #a67c52 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    padding: 12px 18px !important;
+}
+.message-received {
+    background-color: #f4e8d8 !important;
+    border: 1.5px dashed #c4a482 !important;
+    color: #5c4a3d !important;
+}`
+},
+{
+  id:'b94',
+  type:'bubble',
+  name:'藤蔓低语',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: #f0f4f1 !important;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 Q 25 20, 50 40 T 100 40' fill='none' stroke='%23c5d5cb' stroke-width='2'/%3E%3Ccircle cx='25' cy='30' r='3' fill='%23c5d5cb'/%3E%3Ccircle cx='75' cy='35' r='2' fill='%23c5d5cb'/%3E%3C/svg%3E") !important;
+    background-position: bottom left !important;
+    background-repeat: repeat-x !important;
+
+    color: #3a4a40 !important;
+
+    border-top: 1px solid #d0e0d5 !important;
+    border-left: 1px solid #d0e0d5 !important;
+    border-radius: 12px !important;
+
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.03) !important;
+
+    padding-bottom: 20px !important;
+}`
+},
+{
+  id:'b95',
+  type:'bubble',
+  name:'暗色微光',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: rgba(15, 15, 15, 0.35) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    color: #f0f0f0 !important;
+    border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    padding: 12px 18px !important;
+    letter-spacing: 0.5px !important;
+}
+
+.message-received {
+    background-color: rgba(30, 30, 30, 0.3) !important;
+    border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
+}`
+},
+{
+  id:'b96',
+  type:'bubble',
+  name:'晨间露水',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+
+    color: #2c3e50 !important;
+
+    border-radius: 30px !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow:
+        inset 0 8px 10px rgba(255, 255, 255, 0.8),
+        inset 0 -4px 6px rgba(255, 255, 255, 0.3),
+        inset -4px 0 8px rgba(0, 0, 0, 0.05),
+        0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    padding: 12px 24px !important;
+}
+
+.message-received {
+    background-color: rgba(240, 248, 255, 0.15) !important; 
+    box-shadow:
+        inset 0 8px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -4px 6px rgba(255, 255, 255, 0.4),
+        inset 4px 0 8px rgba(0, 0, 0, 0.05),
+        0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}`
+},
+{
+  id:'b97',
+  type:'bubble',
+  name:'不规则水滴',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #1a1a1a !important;
+    border-radius: 40% 40% 60% 60% / 30% 30% 70% 70% !important;
+    border: none !important;
+
+    box-shadow:
+        inset 0 15px 15px -5px rgba(255, 255, 255, 0.9),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.1),
+        0 15px 25px -5px rgba(0, 0, 0, 0.2) !important;
+
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+
+    padding: 15px 25px 20px 25px !important; 
+}
+
+.message-received {
+    border-radius: 60% 40% 70% 50% / 50% 30% 80% 60% !important;
+}`
+},
+{
+  id:'b98',
+  type:'bubble',
+  name:'深海流体',
+  author:'T',
+  group:'Tree',
+  groupLabel:'森系',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background-color: rgba(10, 15, 20, 0.6) !important;
+
+    color: #e0f7fa !important;
+    text-shadow: 0 0 5px rgba(224, 247, 250, 0.5) !important;
+
+    border-radius: 25px !important;
+
+    box-shadow:
+        inset 0 6px 12px rgba(150, 200, 255, 0.4),
+        inset 0 -6px 15px rgba(0, 0, 0, 0.9),
+        0 8px 20px rgba(0, 20, 40, 0.8) !important;
+
+    border-top: 1px solid rgba(150, 200, 255, 0.3) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8) !important;
+
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+
+    padding: 12px 22px !important;
+}`
+},
+{
+  id:'b99',
+  type:'bubble',
+  name:'流光溢彩',
+  author:'T',
+  previews:[
+    {t:'sent',v:'你认为下一步是什么？'},
+    {t:'received',v:'当然是永远在一起'}
+  ],
+  css:`.message-sent,
+.message-received {
+    background: linear-gradient(135deg, #ffd1ff 0%, #fac0e1 100%) !important;
+    color: #8a4b69 !important;
+    border: none !important;
+    border-radius: 30px 30px 30px 10px !important;
+    box-shadow: 0 8px 15px rgba(250, 192, 225, 0.4) !important;
+    padding: 14px 22px !important;
+    font-weight: bold !important;
+    letter-spacing: 0.5px !important;
+}
+
+.message-received {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+    color: #4a558a !important;
+    border-radius: 30px 30px 10px 30px !important;
+    box-shadow: 0 8px 15px rgba(142, 197, 252, 0.4) !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -6461,6 +7232,30 @@ itemCounts:{
     "自定义回复": 88
 },
   exportDate:'2026-02-26'
-}
+},
+{
+  id:'card5',
+  type:'card',
+  name:'颜文字',
+  author:'捌壹零',
+  desc:'很多很多的颜文字，很多样式都加了',
+  tags:["颜文字","表情","状态","字卡"],
+  fileType:'json',
+  fileName:'颜文字',
+  file:'https://img.heliar.top/file/1772400241219_捌壹零的颜文字.json',
+  itemCounts:{},
+},
+{
+  id:'card6',
+  type:'card'
+  name:'秦彻字卡',
+  author:'¿?CRazy',
+  desc:'包含一些基础字卡+秦彻语录+我编的',
+  tags:["回复"],
+  fileType:'json',
+  fileName:'秦彻',
+  file:'https://img.heliar.top/file/1772348005616_秦彻.json',
+  itemCounts:{},
+} 
 ]; 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];

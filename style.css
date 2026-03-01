@@ -28,7 +28,8 @@
 @font-face { font-family:'F5'; src:url('https://files.catbox.moe/sshsu7.ttf') format('truetype'); font-display:swap }
 @font-face { font-family:'F6'; src:url('https://image.uglycat.cc/1ma2ld.ttf') format('truetype'); font-display:swap }
 @font-face { font-family:'F7'; src:url('https://files.catbox.moe/sfl1v7.ttf') format('truetype'); font-display:swap }
-
+@font-face { font-family:'F8'; src:url('https://files.catbox.moe/t0ivgi.ttf') format('truetype'); font-display:swap }
+@font-face { font-family:'F9'; src:url('https://files.catbox.moe/vgvbzl.ttf') format('truetype'); font-display:swap }
 html{height:100%}
 body{
   font-family:-apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;
