@@ -6692,33 +6692,22 @@ position: relative;
   pointer-events:none;
   z-index:-1;
   bottom: 0%;
-  width: 26px;     /* [可调] 更宽一点 */
-  height: 25px;    /* [可调] 更矮一点 */
-
-  /* ---------- 雨滴缩放与“高矮胖瘦”微调（可调） ---------- */
-  /* scale(0.7) = 70% 大小 */
-  /* scaleX > 1 更胖；scaleY < 1 更矮（你这版是反过来：略瘦+略高） */
+  width: 26px; 
+  height: 25px; 
   transform: scale(0.7) scaleX(0.95) scaleY(1.18);
 
-  /* ---------- 颜色与线条（可调） ---------- */
-  opacity: 0.86;   /* [可调] 0.70~0.90 */
+  opacity: 0.86;  
   background-repeat:no-repeat;
   background-size: contain;
-
-  /* [可调] 描边颜色：#89A0BF（灰蓝） */
-  /* [可调] 描边粗细：stroke-width 当前 1.25 */
   background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
 <path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='none' stroke='%2389A0BF' stroke-width='1.25' stroke-linejoin='round'/>\
 </svg>");
 }
 
-/* 远离头像一侧：靠中间那侧（可调靠外程度） */
-/* [可调] 越小（更负）越靠外：-14px（贴近）-> -22px（更外）-> -28px（很外） */
-.message-received::after{ right: -22px; } /* 左侧气泡 -> 雨滴在右边 */
-.message-sent::after{ left: -22px; }     /* 右侧气泡 -> 雨滴在左边 */
+.message-received::after{ right: -22px; } 
+.message-sent::after{ left: -22px; }
 
-/* [可选] 如果你想让静态雨滴略微“贴近底边但不压到气泡边缘”，可以开一点点微偏移：
 .message-sent::after,
 .message-received::after{ margin-bottom: -2px; }
 */`
@@ -6734,48 +6723,35 @@ position: relative;
     {t:'sent',v:'雪地里相爱，他们说零下已结晶的誓言不会坏'},
     {t:'received',v:'你还是住在我的回忆里不出来'}
   ],
-  css:`/* =========================
-   黑灰背景适配 · 忧郁蓝调磨砂气泡
-   ========================= */
+  css:`
 .message-sent,
 .message-received{
   position: relative;
   overflow: visible;
 
-  /* -------- 主体透明度（可调） -------- */
-  /* 第三个和第四个 alpha 越小越透明 */
   background:
-    /* [可调] 内部冷蓝雾感层（0.04~0.10） */
     radial-gradient(140% 80% at 50% 60%,
       rgba(90, 130, 190, 0.08),
       rgba(90, 130, 190, 0.00) 65%
     ),
-    /* [可调] 主玻璃底色（建议 0.18~0.32） */
     linear-gradient(135deg,
       rgba(40, 48, 58, 0.28),
       rgba(55, 65, 78, 0.22)
     ) !important;
 
-  /* -------- 磨砂强度（可调） -------- */
   backdrop-filter: blur(14px) saturate(110%);
   -webkit-backdrop-filter: blur(14px) saturate(110%);
 
-  /* -------- 玻璃边缘（可调） -------- */
   border: 1px solid rgba(140, 170, 210, 0.18) !important;
   border-top: 1px solid rgba(255,255,255,0.10) !important;
   border-left: 1px solid rgba(255,255,255,0.06) !important;
 
-  /* -------- 外阴影（可调） -------- */
   box-shadow:
     0 10px 28px rgba(0,0,0,0.45),
     inset 0 0 18px rgba(120,160,220,0.08);
 
-  color: #e5edf7 !important; /* 深背景下建议浅字 */
+  color: #e5edf7 !important; 
 }
-
-/* =========================
-   忧郁蓝雨滴（动态）
-   ========================= */
 .message-sent::after,
 .message-received::after{
   content:"";
@@ -6783,45 +6759,34 @@ position: relative;
   pointer-events:none;
   z-index:-1;
 
-  /* ---------- 位置 ---------- */
-  bottom: 12%;        /* [可调] 初始位置 */
+  bottom: 12%;    
   width: 26px;
   height: 25px;
 
-  /* ---------- 尺寸形态（可调） ---------- */
   transform: scale(0.7) scaleX(1.05) scaleY(0.95);
 
-  opacity: 0.75;      /* [可调] 黑背景建议 0.65~0.85 */
+  opacity: 0.75;      
 
   background-repeat:no-repeat;
   background-size: contain;
 
-  /* -------- 忧郁蓝描边（可调） -------- */
-  /* 改颜色只需要改 stroke 后面的十六进制 */
   background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
 <path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='none' stroke='%236F8FBF' stroke-width='1.2' stroke-linejoin='round'/>\
 </svg>");
 
-  /* -------- 动画节奏（可调） -------- */
   animation: dropletFloatBottom 4.6s ease-in-out infinite;
 }
 
-/* 远离头像的一侧 */
 .message-received::after{ right: -24px; }
 .message-sent::after{ left: -24px; }
 
-/* =========================
-   浮动范围（底部区域内）
-   ========================= */
+
 @keyframes dropletFloatBottom{
-  /* [可调] 最低点 */
   0%, 100% { bottom: 8%; opacity: 0.78; }
-  /* [可调] 最高点（建议不超过 40%） */
   50%      { bottom: 32%; opacity: 0.60; }
 }
 
-/* 低动效偏好 */
 @media (prefers-reduced-motion: reduce){
   .message-sent::after, .message-received::after{ animation: none; }
 }`
@@ -6929,7 +6894,7 @@ position: relative;
   type:'bubble',
   name:'晨雾雪松',
   author:'T',
-  group:'Tree',
+  group:'tree',
   groupLabel:'森系',
   previews:[
     {t:'sent',v:'你认为下一步是什么？'},
@@ -6957,7 +6922,7 @@ position: relative;
   type:'bubble',
   name:'原木手札',
   author:'T',
-  group:'Tree',
+  group:'tree',
   groupLabel:'森系',
   previews:[
     {t:'sent',v:'你认为下一步是什么？'},
@@ -6983,7 +6948,7 @@ position: relative;
   type:'bubble',
   name:'藤蔓低语',
   author:'T',
-  group:'Tree',
+  group:'tree',
   groupLabel:'森系',
   previews:[
     {t:'sent',v:'你认为下一步是什么？'},
@@ -7080,7 +7045,7 @@ position: relative;
   type:'bubble',
   name:'不规则水滴',
   author:'T',
-  group:'Tree',
+  group:'tree',
   groupLabel:'森系',
   previews:[
     {t:'sent',v:'你认为下一步是什么？'},
@@ -7113,7 +7078,7 @@ position: relative;
   type:'bubble',
   name:'深海流体',
   author:'T',
-  group:'Tree',
+  group:'tree',
   groupLabel:'森系',
   previews:[
     {t:'sent',v:'你认为下一步是什么？'},
@@ -7230,8 +7195,7 @@ itemCounts:{
   file:'https://img.heliar.top/file/1772219734347_小情侣的日常2.0__颜文字篇.json',
   itemCounts:{
     "自定义回复": 88
-},
-  exportDate:'2026-02-26'
+}
 },
 {
   id:'card5',
@@ -7243,7 +7207,6 @@ itemCounts:{
   fileType:'json',
   fileName:'颜文字',
   file:'https://img.heliar.top/file/1772400241219_捌壹零的颜文字.json',
-  itemCounts:{},
 },
 {
   id:'card6',
@@ -7255,7 +7218,6 @@ itemCounts:{
   fileType:'json',
   fileName:'秦彻',
   file:'https://img.heliar.top/file/1772348005616_秦彻.json',
-  itemCounts:{},
-} 
+}
 ]; 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
