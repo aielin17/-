@@ -47,6 +47,69 @@ url:'https://files.catbox.moe/sfl1v7.ttf'
   family:'F8',
   category:'手写',
   url:'https://files.catbox.moe/vgvbzl.ttf'
+},
+{
+  id:'f10',
+  type:'font',
+  name:'汉稚体',
+  author:'momo',
+  family:'F10',
+  category:'手写',
+  url:'https://image.uglycat.cc/rxqq13.ttf'
+},
+{
+id:'f10',
+type:'font',
+name:'Skies',
+author:'颜小雪',
+family:'F11',
+category:'等宽',
+url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233cb5d652afce72/Everskies%208.ttf'
+},
+{
+ id:'f11',
+ type:'font',
+ name:'寒蝉团圆体',
+ author:'石榴',
+ family:'F10',
+ category:'其他',
+ url:'https://raw.githubcusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
+},
+{
+ id:'f12',
+ type:'font',
+ name:'Code2003',
+ author:'来源网络',
+ family:'F10',
+ category:'无衬线',
+ url:'https://raw.githubcusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
+},
+{
+ id:'f13',
+ type:'font',
+ name:'呆萌手写体',
+ author:'来自网络',
+ family:'F10',
+ category:'手写',
+ url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf'
+},
+{
+ id:'f14',
+ type:'font',
+ name:'缝合怪像素字体',
+ author:'来自网络',
+ family:'F10',
+ category:'其他',
+ url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/fusion-pixel-12px-proportional.ttf'
+},
+{
+ id:'f15',
+ type:'font',
+ name:'也字工厂小石头',
+ author:'来自网络',
+ family:'F10',
+ category:'手写',
+ url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
 }
 ];
 const BUBBLES = [
@@ -6802,9 +6865,7 @@ position: relative;
     {t:'sent',v:'雪地里相爱，他们说零下已结晶的誓言不会坏'},
     {t:'received',v:'你还是住在我的回忆里不出来'}
   ],
-  css:`/* =========================
-   浅色灰蓝磨砂气泡
-   ========================= */
+  css:`
 .message-sent,
 .message-received{
   position: relative;
@@ -6825,12 +6886,7 @@ position: relative;
   color: #0f172a !important;
 }
 
-/* =========================
-   实心渐变雨滴（通用形状）
-   - 顶部：低饱和灰蓝
-   - 底部：近白
-   - 微发光：drop-shadow（可调）
-   ========================= */
+
 .message-sent::after,
 .message-received::after{
   content:"";
@@ -6838,25 +6894,13 @@ position: relative;
   pointer-events:none;
   z-index:-1;
 
-  /* ------- 位置（可调） ------- */
-  bottom: 12%;           /* [可调] 靠下就调小/负值 */
-  /* 远离头像那侧（靠中间）在下面分别设 left/right */
-
-  /* ------- 尺寸/形态（可调） ------- */
+  bottom: 12%;          
   width: 26px;
   height: 25px;
-  transform: scale(0.7) scaleX(0.95) scaleY(1.18); /* [可调] 胖瘦高矮 */
-
-  /* ------- 透明度（可调） ------- */
-  opacity: 0.92;         /* [可调] 0.75~0.95 */
-
+  transform: scale(0.7) scaleX(0.95) scaleY(1.18); 
+  opacity: 0.92;  
   background-repeat:no-repeat;
   background-size: contain;
-
-  /* ------- 渐变色（可调） -------
-     topColor：#8AA2BE（灰蓝）
-     bottomColor：#F6FAFF（近白）
-  */
   background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'>\
 <defs>\
@@ -6867,23 +6911,16 @@ position: relative;
 </defs>\
 <path d='M16 2 C16 2, 26 12, 26 17 C26 23, 21.8 26, 16 26 C10.2 26, 6 23, 6 17 C6 12, 16 2, 16 2 Z' fill='url(%23g)'/>\
 </svg>");
-
-  /* ------- 微发光（可调） -------
-     这是“柔光”不是霓虹：把 alpha 控制在 0.12~0.25
-  */
   filter:
     drop-shadow(0 0 6px rgba(140, 170, 210, 0.20))
     drop-shadow(0 2px 10px rgba(15, 23, 42, 0.10));
 
-  /* ------- 动画（保留动态） ------- */
   animation: dropletFloatBottom 3.8s ease-in-out infinite;
 }
 
-/* 远离头像一侧：靠中间那侧（可调靠外程度） */
 .message-received::after{ right: -22px; }
 .message-sent::after{ left: -22px; }
 
-/* 浮动范围：底部区域内（可调） */
 @keyframes dropletFloatBottom{
   0%, 100% { bottom: -5%;  opacity: 0.92; }
   50%      { bottom: 15%; opacity: 0.78; }
@@ -7135,6 +7172,1076 @@ position: relative;
     box-shadow: 0 8px 15px rgba(142, 197, 252, 0.4) !important;
 }`
 },
+{
+  id:'b100',
+  type:'bubble',
+  name:'奇迹小狗',
+  author:'二极管',
+  previews:[
+    {t:'sent',v:'小狗小狗'},
+    {t:'received',v:'汪汪汪'}
+  ],
+  css:`
+@keyframes woof-pop {
+    0% {
+        opacity: 0;
+        transform: translate(-10px, 10px) scale(0.5);
+    }
+    50% {
+        transform: translate(0, -5px) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.message-sent *:not(::after), .message-received *:not(::after) {
+    animation: none !important;
+    transition: none !important;
+}
+
+.message-sent {
+    position: relative !important;
+    background-color: #333333 !important;
+    
+    background-image: 
+        url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'), 
+        radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px) !important;
+    background-repeat: no-repeat, repeat !important;
+    background-position: center right 15px, 0 0 !important;
+    background-size: 24px, 12px 12px !important;
+    
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    opacity: 0.9 !important;
+    
+    border-radius: 20px !important;
+    color: #ffffff !important;
+    
+    padding: 12px 50px 12px 45px !important;
+    margin: 15px 10px 10px auto !important; 
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    max-width: fit-content !important;
+    overflow: visible !important; 
+}
+
+.message-sent::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-image: url('https://i.postimg.cc/02WSMvFP/wu-biao-ti7-20260221171618.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    z-index: 2 !important;
+}
+
+.message-sent::after {
+    content: '主人' !important;
+    position: absolute !important;
+    top: -10px !important;
+    right: -5px !important;
+    
+    background-color: #4a4a4a !important;
+    color: #e0e0e0 !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    padding: 3px 6px !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 4px !important;
+    
+    transform: rotate(8deg) !important;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3) !important;
+    z-index: 3 !important;
+    pointer-events: none !important;
+}
+
+.message-received {
+    position: relative !important;
+    background-color: #FDF6E3 !important;
+    
+    background-image: 
+        url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'),
+        radial-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px) !important;
+    background-repeat: no-repeat, repeat !important;
+    background-position: center right 15px, 0 0 !important;
+    background-size: 24px, 12px 12px !important;
+    
+    border: 2px solid #8B5A2B !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    opacity: 0.9 !important;
+    
+    border-radius: 20px !important;
+    color: #5C4033 !important;
+    
+    padding: 12px 50px 12px 45px !important;
+    margin: 15px auto 10px 10px !important; 
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    max-width: fit-content !important;
+    overflow: visible !important;
+}
+
+.message-received::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 10px !important;
+    transform: translateY(-50%) scaleX(-1) !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-image: url('https://i.postimg.cc/02WSMvFP/wu-biao-ti7-20260221171618.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    z-index: 2 !important;
+}
+
+.message-received::after {
+    content: '汪' !important;
+    position: absolute !important;
+    top: -14px !important;
+    left: -2px !important;
+    
+    background-color: #8B5A2B !important;
+    color: #fff !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    padding: 2px 6px !important;
+    border-radius: 8px 8px 8px 0 !important; 
+    border: 1px solid #FDF6E3 !important;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
+    
+    transform-origin: bottom left !important;
+    animation: woof-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+    z-index: 3 !important;
+}
+
+.message-sent:has(> img:only-child),
+.message-received:has(> img:only-child),
+.message-sent:has(.red-packet),
+.message-received:has(.red-packet) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 5px !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+}
+
+.message-sent:has(> img:only-child)::before,
+.message-sent:has(> img:only-child)::after,
+.message-received:has(> img:only-child)::before,
+.message-received:has(> img:only-child)::after,
+.message-sent:has(.red-packet)::before,
+.message-sent:has(.red-packet)::after {
+    display: none !important;
+}
+
+.message-sent:has(> img:only-child) img,
+.message-received:has(> img:only-child) img {
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+}`
+},
+{
+  id:'b101',
+  type:'bubble',
+  name:'动态版',
+  author:'Spring',
+  group:'ziwumaomao',
+  groupLabel:'紫雾猫猫',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message-received,
+.message-sent {
+    border: none !important;
+    border-radius: 999px !important;
+    background: 
+        radial-gradient(ellipse 80% 50% at center, #e6e6ff 0%, transparent 50%),
+        radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+        #ffffff !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    padding: 6px 16px !important;
+    position: relative !important;
+    overflow: visible !important;
+    color: #4a2c66 !important;
+}
+
+.message-received::before,
+.message-received::after,
+.message-sent::before,
+.message-sent::after {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.message-received::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -6px !important;
+    right: -6px !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJFppi1tRqxFLIa21_jnwDknfmc2OgACViAAAt7rMVXs5ZGoWCUkxToE.png) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.message-received::after {
+    content: "" !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: -6px !important;
+    width: 22px !important;
+    height: 100% !important;
+    background-image:
+        url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+        url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+    background-size: 13px 13px, 16px 14px !important;
+    background-position: top left, bottom left !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.message-sent::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: -6px !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJFppi1tRqxFLIa21_jnwDknfmc2OgACViAAAt7rMVXs5ZGoWCUkxToE.png) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.message-sent::after {
+    content: "" !important;
+    position: absolute !important;
+    top: -6px !important;
+    right: -6px !important;
+    width: 22px !important;
+    height: 100% !important;
+    background-image:
+        url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+        url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+    background-size: 13px 13px, 16px 14px !important;
+    background-position: top right, bottom right !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}`
+},
+{
+  id:'b102',
+  type:'bubble',
+  name:'静态版',
+  author:'Spring',
+  group:'ziwumaomao',
+  groupLabel:'紫雾猫猫',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message-received,
+.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 80% 50% at center, #e6e6ff 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #4a2c66 !important;
+}
+
+.message-received::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  right: -6px !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJFppi1tRqxFLIa21_jnwDknfmc2OgACViAAAt7rMVXs5ZGoWCUkxToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message-received::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  left: -6px !important;
+  width: 22px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+  background-size: 13px 13px, 16px 14px !important;
+  background-position: top left, bottom left !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  left: -6px !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJFppi1tRqxFLIa21_jnwDknfmc2OgACViAAAt7rMVXs5ZGoWCUkxToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  right: -6px !important;
+  width: 22px !important;
+  height: 100% !important;
+  background-image:
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+  background-size: 13px 13px, 16px 14px !important;
+  background-position: top right, bottom right !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}`
+},
+{
+  id:'b103',
+  type:'bubble',
+  name:'甜梦团团',
+  author:'Spring',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 999px !important;
+  padding: 2px 16px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  line-height: 1.3 !important;
+  background-clip: padding-box !important;
+  position: relative !important;
+}
+.message.message-received {
+  background-color: #fff7fc !important;
+  color: #333333 !important;
+  border: 5px solid #ffffff !important;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.4) !important;
+}
+.message.message-sent {
+  background-color: #ffeef5 !important;
+  color: #333333 !important;
+  border: 5px solid #ffffff !important;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.45) !important;
+}
+
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 36px !important;
+  height: 36px !important;
+  background-image: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZkpppoxUX7xr4ZLIRJxwC3ibwF-PvwACKCIAAt7rOVVsxILJPkKuRDoE.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  top: -20px !important;
+  left: -15px !important;
+  border: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 28px !important;
+  height: 28px !important;
+  background-image: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZlxppo67DbS983EqcUOTLH1gFv-RvwACOCIAAt7rOVXhctNeBp42ljoE.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  bottom: -20px !important;
+  right: -10px !important;
+  border: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 36px !important;
+  height: 36px !important;
+  background-image: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZjBppob1irq8lnp9fXrjvHo_wtXayAACBiIAAt7rOVX3zNP6glfcHjoE.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  top: -20px !important;
+  right: -20px !important;
+  border: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 28px !important;
+  height: 28px !important;
+  background-image: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZlxppo67DbS983EqcUOTLH1gFv-RvwACOCIAAt7rOVXhctNeBp42ljoE.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  bottom: -20px !important;
+  left: -10px !important;
+  border: none !important;
+  z-index: 1 !important;
+}`
+},
+{
+  id:'b104',
+  type:'bubble',
+  name:'淡紫半透明',
+  author:'心恋',
+  previews:[
+    {t:'sent',v:'今年的生日愿望是什么？'},
+    {t:'received',v:'下一次回头的时候可以看见你'}
+  ],
+  css:`.message-sent {
+  position: relative !important;
+  background: linear-gradient(145deg, rgba(230, 217, 242, 0.7), rgba(220, 204, 230, 0.7)) !important;
+  border: 1px solid rgba(203, 184, 217, 0.6) !important;
+  border-radius: 8px 8px 2px 8px !important;
+  box-shadow: 
+    2px 2px 0 rgba(180, 160, 200, 0.25),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+  padding: 6px 14px !important;
+  margin: 18px 0 3px auto !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: rgba(90, 74, 107, 0.9) !important;
+  display: inline-block !important;
+  max-width: 260px !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-sent * {
+  color: rgba(90, 74, 107, 0.9) !important;
+}
+
+.message-received {
+  position: relative !important;
+  background: linear-gradient(145deg, rgba(230, 217, 242, 0.7), rgba(220, 204, 230, 0.7)) !important;
+  border: 1px solid rgba(203, 184, 217, 0.6) !important;
+  border-radius: 8px 8px 8px 2px !important;
+  box-shadow: 
+    2px 2px 0 rgba(180, 160, 200, 0.25),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+  padding: 6px 14px !important;
+  margin: 18px auto 3px 0 !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: rgba(90, 74, 107, 0.9) !important;
+  display: inline-block !important;
+  max-width: 260px !important;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  z-index: 1 !important;
+}
+.message-received * {
+  color: rgba(90, 74, 107, 0.9) !important;
+}`
+},
+{
+  id:'b105',
+  type:'bubble',
+  name:'细线黑白',
+  author:'心恋',
+  previews:[
+    {t:'sent',v:'我们是两个世界的人'},
+    {t:'received',v:'但我们拥有同频的爱'}
+  ],
+  css:`.message-sent {
+  position: relative !important;
+  background: #fff !important; 
+  border: 2px solid #000 !important;
+  border-radius: 18px 18px 5px 18px !important; 
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.8) !important; 
+  padding: 5px 12px !important;
+  margin: 25px 0 3px auto !important; 
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #000 !important; 
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 25px !important; 
+  z-index: 1 !important;
+}
+.message-sent * {
+  color: #000 !important; 
+}
+
+.message-sent::after {
+  content: '𐙚⊹₊⋆☆' !important; 
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 0 !important;
+  font-size: 14px !important; 
+  line-height: 1 !important;
+  color: #000 !important; 
+  background: transparent !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important; 
+}
+
+.message-received {
+  position: relative !important;
+  background: #fff !important;
+  border: 2px solid #000 !important;
+  border-radius: 18px 18px 18px 5px !important;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.8) !important;
+  padding: 5px 12px !important;
+  margin: 25px auto 3px 0 !important; 
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #000 !important;
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: visible !important;
+  margin-bottom: 25px !important;
+  z-index: 1 !important;
+}
+.message-received * {
+  color: #000 !important;
+}
+
+.message-received::after {
+  content: '𐙚⊹₊⋆☆' !important; 
+  position: absolute !important;
+  bottom: -20px !important;
+  right: 0 !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  color: #000 !important;
+  background: transparent !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}`
+},
+{
+  id:'b106',
+  type:'bubble',
+  name:'白色',
+  author:'Spring',
+  group:'huibaihudiejie',
+  groupLabel:'灰白蝴蝶结系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #ffffff 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+
+.message.message-received::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd45pqnsQJX-kyyvD8BV4Z2NYTBBW4QAC9R8AAhk0WVV11OhpWDHgmToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-received::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd59pqn4i24md5lEyh_xYi5Q9imUeEwACCiAAAhk0WVVQIOx-VeELpToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd45pqnsQJX-kyyvD8BV4Z2NYTBBW4QAC9R8AAhk0WVV11OhpWDHgmToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd59pqn4i24md5lEyh_xYi5Q9imUeEwACCiAAAhk0WVVQIOx-VeELpToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}`
+},
+{
+  id:'b107',
+  type:'bubble',
+  name:'灰色',
+  author:'Spring',
+  group:'huibaihudiejie',
+  groupLabel:'灰白蝴蝶结系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #d1d5db 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #f3f4f6 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+
+.message.message-received::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd45pqnsQJX-kyyvD8BV4Z2NYTBBW4QAC9R8AAhk0WVV11OhpWDHgmToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-received::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd59pqn4i24md5lEyh_xYi5Q9imUeEwACCiAAAhk0WVVQIOx-VeELpToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0px !important;
+  right: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd45pqnsQJX-kyyvD8BV4Z2NYTBBW4QAC9R8AAhk0WVV11OhpWDHgmToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.message.message-sent::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  left: -8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERd59pqn4i24md5lEyh_xYi5Q9imUeEwACCiAAAhk0WVVQIOx-VeELpToE.png) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}`
+},
+{
+  id:'b108',
+  type:'bubble',
+  name:'白色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #ffffff 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b109',
+  type:'bubble',
+  name:'粉色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #fdd8e5 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #fff0f6 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b110',
+  type:'bubble',
+  name:'紫色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #e8daf5 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #f5f0ff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b111',
+  type:'bubble',
+  name:'青绿色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #d8f5e2 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #f0fff6 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b112',
+  type:'bubble',
+  name:'墨绿色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #8eb8ac 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #e6f2ee 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b113',
+  type:'bubble',
+  name:'灰色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #d1d5db 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #f3f4f6 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b114',
+  type:'bubble',
+  name:'浅蓝色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #c6e2ff 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #f0f7ff 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
+{
+  id:'b115',
+  type:'bubble',
+  name:'浅黄色腮红',
+  author:'Spring',
+  group:'saihong',
+  groupLabel:'腮红系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: 
+    radial-gradient(ellipse 85% 50% at center, #fff2b2 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at center, #fffcf0 0%, transparent 60%),
+    #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 6px 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #333 !important;
+}
+.message.message-received::before,
+.message.message-received::after,
+.message.message-sent::before,
+.message.message-sent::after {
+  content: none !important;
+  display: none !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -7218,6 +8325,64 @@ itemCounts:{
   fileType:'json',
   fileName:'秦彻',
   file:'https://img.heliar.top/file/1772348005616_秦彻.json',
+},
+{
+id:'card7',
+type:'card',
+name:'沈星回字卡库',
+author:'金元饱',
+desc:'适用于恋与深空-沈星回。基础字卡（有参考Milk老师预设）+角色专属的字卡/顶部格言/开场动画（大多取自游戏文本）。部分内容存在个人角度的微微微量改动，请自行斟酌使用。',
+tags:["回复","表情","状态","开场动画"],
+fileType:'json',
+fileName:'SXH.json',
+file:'https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json',
+itemCounts:{
+"自定义回复": 449,
+"戳一戳": 29,
+"状态": 65,
+"座右铭": 21,
+"开场动画": 40,
+"自定义表情": 57
 }
+},
+{
+  id:'card8',
+  type:'card',
+  name:'小日常对话字卡',
+  author:'sovp.砚',
+  desc:'包含了少量多推字卡，爱称还有很简单，适合梦角回答问题的字卡。遇到不喜欢内容可自行修改',
+  tags:["日常","互动","字卡"],
+  fileType:'json',
+  fileName:'日常字卡',
+  file:'https://img.heliar.top/file/1772815194520_日常字卡.json',
+},
+{
+id:'card9',
+type:'card',
+name:'一些词卡',
+author:'1123',
+desc:'日常聊天',
+tags:["回复"],
+fileType:'json',
+fileName:'字卡.json',
+file:'https://test.fukit.cn/autoupload/fr/TnbLOneMepSjczCu1NVYYOBIM7xj03PS8hJGuYexNgqyl5f0KlZfm6UsKj-HyTuv/20260306/rtvF/%E4%B8%80%E4%BA%9B%E5%AD%97%E5%8D%A1.json',
+itemCounts:{
+"自定义回复": 200
+}
+},
+{
+  id:'card10',
+  type:'card',
+  name:'小乌梅专属',
+  author:'卡，要我一直抽吗？',
+  desc:'❗️❗️❗️❗️光与夜之恋黑发绿瞳男专用',
+  tags:["回复"],
+  fileType:'json',
+  fileName:'A的字卡',
+  file:'https://img.heliar.top/file/1772815672340_A的字卡.json',
+  itemCounts:{
+    "自定义回复": 251
+}
+},
 ]; 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS];
