@@ -137,16 +137,12 @@ function renderAuthors(){
     allChip.innerHTML = '全部 <span class="author-chip-n">'+ALL.length+'</span>';
     allChip.onclick = ()=>setAuthor('all');
     el.appendChild(allChip);
-    const sortedAuthors = Object.entries(authorMap).sort((a,b)=>{
-      if(a[0]==='milk') return -1;
-      if(b[0]==='milk') return 1;
-      return b[1]-a[1];
-    });
+    const sortedAuthors = Object.entries(authorMap).sort((a,b)=>b[1]-a[1]);
     sortedAuthors.forEach(([name,n])=>{
       const d = document.createElement('div');
       d.className = 'author-chip' + (state.author===name?' active':'');
       d.dataset.author = name;
-      d.innerHTML = name + (name==='milk'?' 👑':'')+' <span class="author-chip-n">'+n+'</span>';
+      d.innerHTML = name + ' <span class="author-chip-n">'+n+'</span>';
       d.onclick = ()=>setAuthor(name);
       el.appendChild(d);
     });
@@ -375,7 +371,7 @@ function renderMusicGroupModal(variants){
   body.appendChild(list);
 }
 
-
+function getCardBody(item){
   if(item.type==='bubble'){
     const msgs = (item.previews||[]).slice(0,2).map(p=>`
       <div class="bubble-row ${p.t}">
