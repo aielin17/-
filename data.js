@@ -8365,7 +8365,7 @@ desc:'日常聊天',
 tags:["回复"],
 fileType:'json',
 fileName:'字卡.json',
-file:'https://test.fukit.cn/autoupload/fr/TnbLOneMepSjczCu1NVYYOBIM7xj03PS8hJGuYexNgqyl5f0KlZfm6UsKj-HyTuv/20260306/rtvF/%E4%B8%80%E4%BA%9B%E5%AD%97%E5%8D%A1.json',
+file:'https://img.heliar.top/file/1772816551108_一些字卡.json',
 itemCounts:{
 "自定义回复": 200
 }
