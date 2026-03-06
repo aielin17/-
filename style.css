@@ -468,6 +468,58 @@ body{
 .music-dl-btn{background:linear-gradient(135deg,#7c3aed,#6d28d9) !important;border-color:transparent !important}
 .music-dl-btn:hover{box-shadow:0 6px 20px rgba(124,58,237,.4) !important;transform:translateY(-1px)}
 
+/* ── Tutorial card ──────────────────────────────────────────────────────── */
+.type-pill.tutorial-pill.active{background:rgba(234,88,12,.08);color:#ea580c}
+.type-pill.tutorial-pill.active .pill-count{background:rgba(234,88,12,.12);color:#ea580c}
+.badge-tutorial{background:#fff7ed;color:#ea580c}
+
+.card-type-tutorial{
+  background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 92%,#ea580c));
+  border-color:color-mix(in srgb,var(--border) 72%,#fdba74) !important;
+}
+.card-type-tutorial:hover{border-color:color-mix(in srgb,var(--border-strong) 50%,#ea580c) !important}
+.tutorial-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px;background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}
+
+/* Tutorial modal */
+.modal-body-tutorial{padding:0}
+.tutorial-hero-section{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  padding:24px 20px 18px;background:var(--surface);border-bottom:1px solid var(--border);
+}
+.tutorial-modal-hero{
+  width:68px;height:68px;
+  background:linear-gradient(135deg,#fff7ed,#fed7aa);
+  border-radius:20px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(234,88,12,.2);
+  flex-shrink:0;
+}
+.tutorial-modal-hero svg{width:32px;height:32px;color:#ea580c}
+.tutorial-modal-desc{font-size:13.5px;color:var(--text-sub);text-align:center;line-height:1.65;padding:0 8px;max-width:380px}
+.tutorial-modal-tags{justify-content:center;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--border)}
+.tutorial-content-wrap{
+  padding:20px 22px;background:var(--surface);flex:1;
+}
+.tutorial-content-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:var(--text-muted);margin-bottom:12px}
+.tutorial-content-box{
+  background:var(--surface-2);border:1.5px solid var(--border);border-radius:14px;
+  padding:18px 20px;
+  font-family:-apple-system,"SF Pro Text","PingFang SC",sans-serif;
+  font-size:12.5px;line-height:1.85;color:var(--text-sub);
+  white-space:pre-wrap;word-break:break-word;
+  max-height:340px;overflow-y:auto;
+}
+.tutorial-content-box::-webkit-scrollbar{width:3px}
+.tutorial-content-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.tutorial-copy-btn{background:linear-gradient(135deg,#ea580c,#c2410c) !important;border-color:transparent !important}
+.tutorial-copy-btn:hover{box-shadow:0 6px 20px rgba(234,88,12,.4) !important;transform:translateY(-1px)}
+
+/* dark patches */
+.dark .badge-tutorial{background:#2a1200;color:#fb923c}
+.dark .card-type-tutorial{border-color:color-mix(in srgb,var(--border) 72%,#ea580c) !important}
+.dark .tutorial-modal-hero{background:linear-gradient(135deg,#2a1200,#431a00)}
+.dark .tutorial-content-box{background:#1e1e28}
+
 /* ── Submit view ────────────────────────────────────────────────────────── */
 .submit-view{
   display:none;flex:1;overflow-y:auto;padding:28px 20px;
