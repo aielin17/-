@@ -115,7 +115,7 @@ function countFor(type){
 }
 
 function renderCounts(){
-  ['all','bubble','font','card','theme','music','tutorial','fav'].forEach(t=>{
+  ['all','bubble','font','card','theme','music','fav'].forEach(t=>{
     const n = countFor(t);
     ['c-'+t, 'mc-'+t].forEach(id=>{
       const el = document.getElementById(id);
@@ -157,7 +157,6 @@ function getBadgeHTML(item){
     card:   '<span class="card-badge badge-card">字卡</span>',
     theme:  '<span class="card-badge badge-theme">主题</span>',
     music:  '<span class="card-badge badge-music">音乐</span>',
-    tutorial:'<span class="card-badge badge-tutorial">教学</span>',
   };
   return map[item.type] || '';
 }
@@ -215,7 +214,6 @@ function makeItemCard(item, idx){
   if(item.type==='card')  card.classList.add('card-type-card');
   if(item.type==='theme') card.classList.add('card-type-theme');
   if(item.type==='music') card.classList.add('card-type-music');
-  if(item.type==='tutorial') card.classList.add('card-type-tutorial');
   card.dataset.id   = item.id;
   card.style.animationDelay = Math.min(idx * 28, 280) + 'ms';
 
@@ -225,8 +223,34 @@ function makeItemCard(item, idx){
       ${getBadgeHTML(item)}
     </div>
     <div class="card-author">${esc(item.author||'匿名')}</div>
-    ${getCardBody(item)}
+    ${item.type === 'bubble' ? '<div class="card-preview bubble-card-shadow-host"></div>' : getCardBody(item)}
   `;
+
+  // Bubble card: live preview using Shadow DOM (perfectly isolates the bubble CSS)
+  if(item.type === 'bubble'){
+    const host = card.querySelector('.bubble-card-shadow-host');
+    const shadow = host.attachShadow({mode:'open'});
+    const previewMsgs = (item.previews && item.previews.length)
+      ? item.previews.slice(0,2)
+      : [{t:'sent',v:'发送消息示例'},{t:'received',v:'接收消息示例'}];
+    const msgsHtml = previewMsgs.map(p=>
+      `<div class="msg-row ${p.t}"><div class="message message-${p.t}">${esc(p.v)}</div></div>`
+    ).join('');
+    shadow.innerHTML = `
+      <style>
+        :host{display:flex;flex-direction:column;gap:6px;padding:9px 11px;min-height:62px;box-sizing:border-box;}
+        .msg-row{display:flex;width:100%}
+        .msg-row.sent{justify-content:flex-end}
+        .msg-row.received{justify-content:flex-start}
+        .message{max-width:82%;font-size:11.5px;padding:5px 11px;border-radius:14px;line-height:1.4;word-break:break-word;position:relative;overflow:visible;}
+        .message-sent{background:#5b5fef;color:#fff;border-radius:14px 14px 3px 14px;}
+        .message-received{background:#fff;color:#333;border-radius:14px 14px 14px 3px;border:1px solid #e5e5ea;}
+        ${item.css||''}
+      </style>
+      ${msgsHtml}
+    `;
+  }
+
   card.addEventListener('click', ()=>openModal(item));
   return card;
 }
@@ -403,11 +427,6 @@ function getCardBody(item){
     const tags = (item.tags||[]).slice(0,3).map(t=>`<span class="music-tag">${esc(t)}</span>`).join('');
     return `${desc}${artist}${tags?`<div class="card-tags">${tags}</div>`:''}`;
   }
-  if(item.type==='tutorial'){
-    const desc = item.desc ? `<div class="card-desc">${esc(item.desc.slice(0,60)+(item.desc.length>60?'…':''))}</div>` : '';
-    const tags = (item.tags||[]).slice(0,3).map(t=>`<span class="tutorial-tag">${esc(t)}</span>`).join('');
-    return `${desc}${tags?`<div class="card-tags">${tags}</div>`:''}`;
-  }
   return '';
 }
 
@@ -428,7 +447,6 @@ function openModal(item){
   else if(item.type==='card')     renderCardModal(item);
   else if(item.type==='theme')    renderThemeModal(item);
   else if(item.type==='music')    renderMusicModal(item);
-  else if(item.type==='tutorial') renderTutorialModal(item);
 
   document.getElementById('modal-backdrop').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -453,6 +471,8 @@ function renderBubbleModal(item){
     favBtn.title = favOn2 ? '取消收藏' : '收藏';
     favBtn.querySelector('svg').setAttribute('fill', favOn2 ? 'currentColor' : 'none');
     favBtn.onclick = ()=>toggleFav(previewItem.id);
+    const msgsWrap = document.createElement('div');
+    msgsWrap.className = 'bubble-modal-msgs';
     (previewItem.previews||[{t:'sent',v:'你好'},{t:'received',v:'你好呀'}]).forEach(msg=>{
       const row = document.createElement('div');
       row.className = 'msg-row ' + msg.t;
@@ -460,8 +480,9 @@ function renderBubbleModal(item){
       bub.className = 'message message-' + msg.t;
       bub.textContent = msg.v;
       row.appendChild(bub);
-      body.appendChild(row);
+      msgsWrap.appendChild(row);
     });
+    body.appendChild(msgsWrap);
     body.style.fontFamily = state.fontFamily || '';
   }
 
@@ -735,55 +756,6 @@ function renderMusicModal(item){
   footer.querySelector('#btn-dl-music').onclick = ()=>downloadFile(item);
 }
 
-// ── Tutorial modal ────────────────────────────────────────────────────────
-function renderTutorialModal(item){
-  const body = document.getElementById('modal-body');
-  const footer = document.getElementById('modal-footer');
-  body.className = 'modal-body modal-body-tutorial';
-  body.innerHTML = '';
-  footer.innerHTML = '';
-
-  // Hero section
-  const hero = document.createElement('div');
-  hero.className = 'tutorial-hero-section';
-  hero.innerHTML = `
-    <div class="tutorial-modal-hero">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-    </div>
-    ${item.desc ? `<div class="tutorial-modal-desc">${esc(item.desc)}</div>` : ''}
-    ${(item.tags||[]).length ? `<div class="card-tags tutorial-modal-tags">${item.tags.map(t=>`<span class="tutorial-tag">${esc(t)}</span>`).join('')}</div>` : ''}
-  `;
-  body.appendChild(hero);
-
-  // Content block
-  const contentWrap = document.createElement('div');
-  contentWrap.className = 'tutorial-content-wrap';
-  contentWrap.innerHTML = `
-    <div class="tutorial-content-label">教程正文</div>
-    <div class="tutorial-content-box">${esc(item.content||'（暂无内容）')}</div>
-  `;
-  body.appendChild(contentWrap);
-
-  // Meta row
-  const meta = document.createElement('div');
-  meta.className = 'card-modal-meta';
-  meta.innerHTML = `
-    <div class="cmm-row"><span>作者</span><strong>${esc(item.author||'匿名')}</strong></div>
-  `;
-  body.appendChild(meta);
-
-  // Footer
-  footer.innerHTML = `
-    <div class="modal-footer-row-btns">
-      <button class="btn-action btn-primary tutorial-copy-btn" id="btn-copy-tutorial">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        复制全文
-      </button>
-    </div>
-  `;
-  footer.querySelector('#btn-copy-tutorial').onclick = ()=>copyText(item.content||'','教程内容');
-}
-
 // ── Modal close ───────────────────────────────────────────────────────────
 function closeModal(){
   document.getElementById('modal-backdrop').classList.remove('open');
@@ -850,11 +822,11 @@ window.switchForm = function(type){
   document.querySelectorAll('.s-type-btn').forEach((b,i)=>{
     b.classList.toggle('active',
       (type==='bubble'&&i===0)||(type==='font'&&i===1)||(type==='card'&&i===2)||
-      (type==='theme'&&i===3)||(type==='music'&&i===4)||(type==='tutorial'&&i===5)
+      (type==='theme'&&i===3)||(type==='music'&&i===4)
     );
   });
   document.getElementById('form-'+type).classList.add('active');
-  ['bubble','font','card','theme','music','tutorial'].forEach(t=>{
+  ['bubble','font','card','theme','music'].forEach(t=>{
     const el=document.getElementById('fallback-'+t); if(el) el.classList.remove('show');
   });
 };
@@ -960,19 +932,6 @@ window.doSubmit = function(type){
     document.getElementById('fb-content-music').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-music').classList.add('show');
 
-  } else if(type==='tutorial'){
-    const name   =document.getElementById('tutorial-name').value.trim();
-    const author =document.getElementById('tutorial-author').value.trim();
-    const desc   =document.getElementById('tutorial-desc').value.trim();
-    const content=document.getElementById('tutorial-content').value.trim();
-    const tags   =document.getElementById('tutorial-tags').value.trim();
-    if(!name||!content){toast('⚠️ 请填写教程名称和正文内容');return;}
-    const nextId='tut'+(TUTORIALS.length+1);
-    code=`/* === 教学投稿 === */\n{\n  id:'${nextId}',\n  type:'tutorial',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  content:\`${content}\`\n}`;
-    subject=`【教学投稿】${name} - ${author||'匿名'}`;
-    body=`投稿类型：教学文档${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}简介：${desc}${nl}${nl}--- 数据条目 ---${nl}${code}`;
-    document.getElementById('fb-content-tutorial').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
-    document.getElementById('fallback-tutorial').classList.add('show');
   }
 
   window.location.href=`mailto:${SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

@@ -373,7 +373,7 @@ body{
 .btn-action svg{width:15px;height:15px}
 
 /* Bubble modal */
-.modal-body-bubble{padding:20px}
+.modal-body-bubble{padding:0}
 #modal-preview-area{display:flex;flex-direction:column;gap:9px}
 
 /* Font modal */
@@ -744,8 +744,20 @@ select.fi{cursor:pointer}
 .msg-row{display:flex;width:100%}
 .msg-row.sent{justify-content:flex-end}
 .msg-row.received{justify-content:flex-start}
-.message{max-width:76%;font-size:15px;padding:9px 14px;background:#e5e5ea;border-radius:18px;word-break:break-word;line-height:1.45}
+.message{max-width:76%;font-size:15px;padding:9px 14px;background:#e5e5ea;border-radius:18px;word-break:break-word;line-height:1.5}
 .message-sent{background:var(--accent);color:#fff}
+
+/* Bubble modal messages wrapper - proper spacing */
+.bubble-modal-msgs{
+  display:flex;flex-direction:column;gap:12px;
+  padding:18px 20px;width:100%;box-sizing:border-box;
+}
+
+/* Bubble card shadow host - background matches card-preview */
+.bubble-card-shadow-host{
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;min-height:62px;
+}
 
 /* ── Font preview (original simple style) ──────────────────────────────── */
 .font-preview-box{background:var(--surface);border-radius:var(--radius);padding:24px;text-align:center;border:1px solid var(--border)}
