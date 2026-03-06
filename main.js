@@ -315,117 +315,150 @@ function openModal(item){
 
 // ── Bubble modal ──────────────────────────────────────────────────────────
 function renderBubbleModal(item){
-  const body = document.getElementById('modal-body');
-  body.className = 'modal-body modal-body-bubble';
-
-  const area = document.createElement('div');
-  area.id = 'modal-preview-area';
-
-  const msgs = (item.previews||[]).filter(p=>p.v).map(p=>{
-    const row = document.createElement('div');
-    row.className = 'bubble-row ' + p.t;
-    const msg = document.createElement('div');
-    msg.className = 'message ' + (p.t==='sent'?'message-sent':'message-received');
-    msg.textContent = p.v;
-    row.appendChild(msg);
-    return row;
-  });
-
-  msgs.forEach(m=>area.appendChild(m));
-  body.innerHTML = '';
-  body.appendChild(area);
-
-  // Inject CSS
-  document.getElementById('dbs').textContent = item.css || '';
-
+  const body   = document.getElementById('modal-body');
   const footer = document.getElementById('modal-footer');
-  footer.innerHTML = `
-    <button class="btn-action btn-secondary" id="btn-copy-css">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-      复制 CSS
-    </button>
-  `;
-  footer.querySelector('#btn-copy-css').onclick = ()=>copyText(item.css||'', 'CSS 代码');
+  const favBtn = document.getElementById('modal-fav-btn');
+  body.className = 'modal-body';
+  body.innerHTML = '';
+  footer.innerHTML = '';
+
+  function renderPreviews(previewItem){
+    body.innerHTML = '';
+    document.getElementById('dbs').textContent = previewItem.css || '';
+    currentModalItem = previewItem;
+    document.getElementById('modal-name').textContent = previewItem.name;
+    const favOn2 = isFav(previewItem.id);
+    favBtn.classList.toggle('on', favOn2);
+    favBtn.title = favOn2 ? '取消收藏' : '收藏';
+    favBtn.querySelector('svg').setAttribute('fill', favOn2 ? 'currentColor' : 'none');
+    favBtn.onclick = ()=>toggleFav(previewItem.id);
+    (previewItem.previews||[{t:'sent',v:'你好'},{t:'received',v:'你好呀'}]).forEach(msg=>{
+      const row = document.createElement('div');
+      row.className = 'msg-row ' + msg.t;
+      const bub = document.createElement('div');
+      bub.className = 'message message-' + msg.t;
+      bub.textContent = msg.v;
+      row.appendChild(bub);
+      body.appendChild(row);
+    });
+    body.style.fontFamily = state.fontFamily || '';
+  }
+
+  renderPreviews(item);
+  const modalState = { fontFamily: state.fontFamily || '' };
+
+  // Variant switcher for grouped bubbles
+  if(item.group){
+    const siblings = BUBBLES.filter(b=>b.group===item.group);
+    if(siblings.length > 1){
+      const varSection = document.createElement('div');
+      varSection.className = 'variant-section';
+      const varLabel = document.createElement('div');
+      varLabel.className = 'variant-label';
+      varLabel.innerHTML = `同系列变体 <span class="variant-tag">${esc(item.groupLabel||item.group)}</span>`;
+      varSection.appendChild(varLabel);
+      const varRow = document.createElement('div');
+      varRow.className = 'variant-row';
+      siblings.forEach(sib=>{
+        const vBtn = document.createElement('button');
+        vBtn.className = 'variant-btn' + (sib.id===item.id?' active':'');
+        vBtn.textContent = sib.name;
+        vBtn.dataset.varId = sib.id;
+        vBtn.addEventListener('click', ()=>{
+          renderPreviews(sib);
+          varRow.querySelectorAll('.variant-btn').forEach(b=>b.classList.toggle('active', b.dataset.varId===sib.id));
+          copyBtn.onclick = ()=>copyText(sib.css||'','CSS');
+        });
+        varRow.appendChild(vBtn);
+      });
+      varSection.appendChild(varRow);
+      footer.appendChild(varSection);
+    }
+  }
+
+  // Font switcher
+  const switchLabel = document.createElement('div');
+  switchLabel.className = 'font-switch-label';
+  switchLabel.textContent = '收藏字体';
+  footer.appendChild(switchLabel);
+
+  const defSection = document.createElement('div');
+  defSection.className = 'font-cat-section';
+  const defHeader = document.createElement('div');
+  defHeader.className = 'font-cat-header';
+  defHeader.innerHTML = '<span class="font-cat-name">默认</span>';
+  defSection.appendChild(defHeader);
+  const defRow = document.createElement('div');
+  defRow.className = 'modal-footer-row';
+  const defBtn = document.createElement('button');
+  defBtn.className = 'font-btn' + (modalState.fontFamily===''?' active':'');
+  defBtn.textContent = '默认字体';
+  defBtn.onclick = ()=>{ modalState.fontFamily=''; body.style.fontFamily=''; saveFont(''); updateFontBtns(footer,modalState); };
+  defRow.appendChild(defBtn);
+  const DEFAULT_FONT_IDS = ['f1','f2','f3'];
+  FONTS.filter(f=>DEFAULT_FONT_IDS.includes(f.id)).forEach(f=>{
+    const btn = document.createElement('button');
+    btn.className = 'font-btn'+(modalState.fontFamily===f.family?' active':'');
+    btn.style.fontFamily = f.family; btn.dataset.family = f.family; btn.textContent = f.name;
+    btn.onclick = ()=>{ modalState.fontFamily=f.family; body.style.fontFamily=f.family; saveFont(f.family); updateFontBtns(footer,modalState); };
+    defRow.appendChild(btn);
+  });
+  defSection.appendChild(defRow);
+  footer.appendChild(defSection);
+
+  const favFonts = FONTS.filter(f=>fontFavorites.includes(f.id)&&!DEFAULT_FONT_IDS.includes(f.id));
+  const favFontSection = document.createElement('div');
+  favFontSection.className = 'font-cat-section';
+  favFontSection.innerHTML = '<div class="font-cat-header"><span class="font-cat-name">已收藏</span></div>';
+  const favFontRow = document.createElement('div');
+  favFontRow.className = 'modal-footer-row';
+  if(!favFonts.length){
+    const hint = document.createElement('span');
+    hint.style.cssText = 'font-size:11px;color:var(--text-muted);padding:4px 2px';
+    hint.textContent = '在画廊收藏字体后显示于此';
+    favFontRow.appendChild(hint);
+  } else {
+    favFonts.forEach(f=>{
+      const btn = document.createElement('button');
+      btn.className = 'font-btn'+(modalState.fontFamily===f.family?' active':'');
+      btn.style.fontFamily = f.family; btn.dataset.family = f.family; btn.textContent = f.name;
+      btn.onclick = ()=>{ modalState.fontFamily=f.family; body.style.fontFamily=f.family; saveFont(f.family); updateFontBtns(footer,modalState); };
+      favFontRow.appendChild(btn);
+    });
+  }
+  favFontSection.appendChild(favFontRow);
+  footer.appendChild(favFontSection);
+
+  const copyBtn = document.createElement('button');
+  copyBtn.className = 'copy-css-btn';
+  copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制 CSS 代码`;
+  copyBtn.onclick = ()=>copyText(item.css||'','CSS');
+  footer.appendChild(copyBtn);
 }
 
 // ── Font modal ────────────────────────────────────────────────────────────
-const FONT_PREVIEW_TEXTS = [
-  '春江花月夜',
-  '今天也要好好爱你',
-  '月落乌啼霜满天',
-  '人生若只如初见',
-  'Style Gallery',
-  'ABCDEFG 0123456789',
-];
-
 function renderFontModal(item){
-  const body = document.getElementById('modal-body');
+  const body   = document.getElementById('modal-body');
+  const footer = document.getElementById('modal-footer');
   body.className = 'modal-body';
   body.innerHTML = '';
+  footer.innerHTML = '';
+  document.getElementById('dbs').textContent = '';
 
-  const modalState = { fontFamily: state.fontFamily || item.family, previewText: FONT_PREVIEW_TEXTS[0] };
-
-  function rebuildBody(){
-    body.innerHTML = `
-      <div class="font-preview-box">
-        <div class="font-preview-text" id="fp-text" style="font-family:'${modalState.fontFamily}',sans-serif">${esc(modalState.previewText)}</div>
-      </div>
-      <div style="padding:12px 18px;background:var(--surface);border-bottom:1px solid var(--border)">
-        <input type="text" class="fi" id="fp-input" placeholder="输入自定义预览文字…" value="${esc(modalState.previewText)}" style="font-size:13px">
-      </div>
-      <div class="font-btns-wrap">
-        <div class="font-btns-label">选择字体</div>
-        <div class="font-btn-row" id="fb-row">
-          ${FONTS.map(f=>`<button class="font-btn${f.family===modalState.fontFamily?' active':''}" data-family="${f.family}">${esc(f.name)}</button>`).join('')}
-        </div>
-      </div>
-      <div class="font-meta-row">
-        <div class="font-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> <strong>${esc(item.category||'')}</strong></div>
-        <div class="font-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <strong>${esc(item.author||'匿名')}</strong></div>
-      </div>
-    `;
-
-    body.querySelector('#fp-input').addEventListener('input', function(){
-      modalState.previewText = this.value || FONT_PREVIEW_TEXTS[0];
-      body.querySelector('#fp-text').textContent = modalState.previewText;
-      body.querySelector('#fp-text').style.fontFamily = `'${modalState.fontFamily}',sans-serif`;
-    });
-
-    body.querySelectorAll('.font-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        modalState.fontFamily = btn.dataset.family;
-        state.fontFamily = btn.dataset.family;
-        saveFont(btn.dataset.family);
-        document.getElementById('dbs').textContent = `body, * { font-family:'${btn.dataset.family}',sans-serif !important }`;
-        body.querySelectorAll('.font-btn').forEach(b=>b.classList.toggle('active', b.dataset.family===modalState.fontFamily));
-        body.querySelector('#fp-text').style.fontFamily = `'${modalState.fontFamily}',sans-serif`;
-      });
-    });
-  }
-
-  rebuildBody();
-
-  const footer = document.getElementById('modal-footer');
-  footer.innerHTML = `
-    <button class="btn-action btn-secondary" id="btn-dl-font">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      下载字体
-    </button>
-    <button class="btn-action btn-primary" id="btn-apply-font">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
-      应用到全站
-    </button>
+  const box = document.createElement('div');
+  box.className = 'font-preview-box';
+  box.innerHTML = `
+    <div class="font-big" style="font-family:${esc(item.family)}">字体预览<br>我许愿一个有你的冬天</div>
+    <div class="font-small" style="font-family:${esc(item.family)}">我四季都在<br>Aa Bb Cc 123</div>
+    <div class="font-chars" style="font-family:${esc(item.family)}">永远 爱你 思念</div>
   `;
-  footer.querySelector('#btn-dl-font').onclick = ()=>{
-    const cur = FONTS.find(f=>f.family===modalState.fontFamily)||item;
-    downloadFile({...cur, fileName: cur.name+'.'+(cur.url.split('.').pop()||'ttf'), file: cur.url});
-  };
-  footer.querySelector('#btn-apply-font').onclick = ()=>{
-    state.fontFamily = modalState.fontFamily;
-    saveFont(modalState.fontFamily);
-    document.getElementById('dbs').textContent = `body, * { font-family:'${modalState.fontFamily}',sans-serif !important }`;
-    toast('✅ 字体已应用：' + (FONTS.find(f=>f.family===modalState.fontFamily)||item).name);
-  };
+  body.appendChild(box);
+
+  const copyBtn = document.createElement('button');
+  copyBtn.className = 'copy-css-btn';
+  copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>复制字体链接`;
+  copyBtn.onclick = ()=>copyText(item.url||'','字体链接');
+  footer.appendChild(copyBtn);
 }
 
 // ── Card modal ────────────────────────────────────────────────────────────
@@ -469,14 +502,16 @@ function renderCardModal(item){
 
   const footer = document.getElementById('modal-footer');
   footer.innerHTML = `
-    <button class="btn-action btn-secondary" id="btn-copy-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-      复制链接
-    </button>
-    <button class="btn-action btn-primary card-dl-btn" id="btn-dl-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      下载字卡
-    </button>
+    <div class="modal-footer-row-btns">
+      <button class="btn-action btn-secondary" id="btn-copy-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        复制链接
+      </button>
+      <button class="btn-action btn-primary card-dl-btn" id="btn-dl-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下载字卡
+      </button>
+    </div>
   `;
   footer.querySelector('#btn-copy-link').onclick = ()=>copyText(item.file||'', '文件链接');
   footer.querySelector('#btn-dl-card').onclick = ()=>downloadFile(item);
@@ -521,10 +556,12 @@ function renderThemeModal(item){
 
   const footer = document.getElementById('modal-footer');
   footer.innerHTML = `
-    <button class="btn-action btn-primary theme-copy-btn" id="btn-copy-theme-css">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-      复制 CSS 代码
-    </button>
+    <div class="modal-footer-row-btns">
+      <button class="btn-action btn-primary theme-copy-btn" id="btn-copy-theme-css">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        复制 CSS 代码
+      </button>
+    </div>
   `;
   footer.querySelector('#btn-copy-theme-css').onclick = ()=>copyText(item.css||'', 'CSS 代码');
 }
@@ -562,14 +599,16 @@ function renderMusicModal(item){
 
   const footer = document.getElementById('modal-footer');
   footer.innerHTML = `
-    <button class="btn-action btn-secondary" id="btn-copy-music-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-      复制链接
-    </button>
-    <button class="btn-action btn-primary music-dl-btn" id="btn-dl-music">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      下载音乐
-    </button>
+    <div class="modal-footer-row-btns">
+      <button class="btn-action btn-secondary" id="btn-copy-music-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        复制链接
+      </button>
+      <button class="btn-action btn-primary music-dl-btn" id="btn-dl-music">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下载音乐
+      </button>
+    </div>
   `;
   footer.querySelector('#btn-copy-music-link').onclick = ()=>copyText(item.file||'', '文件链接');
   footer.querySelector('#btn-dl-music').onclick = ()=>downloadFile(item);
