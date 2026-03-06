@@ -8385,4 +8385,86 @@ itemCounts:{
 }
 },
 ]; 
-const ALL = [...BUBBLES, ...FONTS, ...CARDS];
+
+const THEMES = [
+  {
+    id:'th1',
+    type:'theme',
+    name:'Milk 粉',
+    author:'milk',
+    desc:'温柔粉色系主题，渐变顶栏 + 粉色发送按钮，适合浪漫日常风格。',
+    tags:['粉色','温柔','浪漫'],
+    colors:['#fdf6f8','#e8749a','#f4a0bc','#fff0f4','#3d2030'],
+    css:`:root {
+  --primary-bg: #fdf6f8;
+  --secondary-bg: #fff0f4;
+  --accent-color: #e8749a;
+  --accent-color-rgb: 232, 116, 154;
+  --text-primary: #3d2030;
+  --text-secondary: #a08090;
+  --border-color: rgba(232, 116, 154, 0.15);
+  --chat-bg: #fef8fa;
+}
+
+/* 顶栏 */
+#partner-info {
+  background: linear-gradient(135deg, #fff0f4 0%, #fde8ef 100%);
+  border-bottom: 1px solid rgba(232, 116, 154, 0.2);
+  box-shadow: 0 2px 12px rgba(232, 116, 154, 0.08);
+}
+
+/* 输入区 */
+#input-area {
+  background: #fff0f4;
+  border-top: 1px solid rgba(232, 116, 154, 0.15);
+}
+
+#message-input {
+  background: #fff;
+  border: 1.5px solid rgba(232, 116, 154, 0.25);
+  border-radius: 20px;
+  color: #3d2030;
+}
+
+#message-input:focus {
+  border-color: #e8749a;
+  box-shadow: 0 0 0 3px rgba(232, 116, 154, 0.1);
+}
+
+/* 发送按钮 */
+#send-btn {
+  background: linear-gradient(135deg, #f4a0bc, #e8749a);
+  box-shadow: 0 4px 14px rgba(232, 116, 154, 0.4);
+  border-radius: 14px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 116, 154, 0.3);
+  border-radius: 4px;
+}
+
+/* 模态框 */
+.modal-content {
+  background: #fff8fa;
+  border: 1px solid rgba(232, 116, 154, 0.15);
+  box-shadow: 0 20px 50px rgba(232, 116, 154, 0.12);
+}
+
+/* 设置卡片 */
+.settings-card {
+  background: #fff;
+  border: 1.5px solid rgba(232, 116, 154, 0.15);
+}
+.settings-card:hover {
+  border-color: #e8749a;
+  background: #fff5f8;
+}`
+  }
+];
+
+const MUSIC = [];
+
+const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];

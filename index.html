@@ -16,7 +16,7 @@
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
       </svg>
     </div>
-    Style Gallery
+    <span>Style Gallery</span>
   </div>
   <div class="search-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -55,6 +55,14 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             字卡 <span class="pill-count" id="c-card">0</span>
           </div>
+          <div class="type-pill theme-pill" data-type="theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            主题 <span class="pill-count" id="c-theme">0</span>
+          </div>
+          <div class="type-pill music-pill" data-type="music">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            音乐 <span class="pill-count" id="c-music">0</span>
+          </div>
           <div class="type-pill fav-pill" data-type="fav">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             收藏 <span class="pill-count" id="c-fav">0</span>
@@ -83,6 +91,7 @@
 
 </div>
 
+<!-- ── Submit view ── -->
 <div class="submit-view" id="submit-view">
   <div class="submit-card">
     <div class="s-header">
@@ -93,8 +102,11 @@
       <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡</button>
       <button class="s-type-btn" onclick="switchForm('font')">✦ 字体</button>
       <button class="s-type-btn" onclick="switchForm('card')">📋 字卡</button>
+      <button class="s-type-btn" onclick="switchForm('theme')">🎨 主题</button>
+      <button class="s-type-btn" onclick="switchForm('music')">🎵 音乐</button>
     </div>
 
+    <!-- Bubble form -->
     <div class="form-panel active" id="form-bubble">
       <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
@@ -117,10 +129,10 @@
         <label class="fl">预览对话（2～4 条）</label>
         <span class="fl-sub">留空则跳过该行</span>
         <div class="preview-inputs">
-          <div class="pi-row"><span class="pi-tag">发送</span><input type="text" class="fi" id="p1" placeholder="第一条消息"></div>
-          <div class="pi-row"><span class="pi-tag">接收</span><input type="text" class="fi" id="p2" placeholder="第二条消息"></div>
-          <div class="pi-row"><span class="pi-tag">发送</span><input type="text" class="fi" id="p3" placeholder="第三条（可选）"></div>
-          <div class="pi-row"><span class="pi-tag">接收</span><input type="text" class="fi" id="p4" placeholder="第四条（可选）"></div>
+          <div class="pi-row"><span class="pi-tag">发</span><input type="text" class="fi" id="p1" placeholder="第一条消息（发送方）"></div>
+          <div class="pi-row"><span class="pi-tag">收</span><input type="text" class="fi" id="p2" placeholder="第二条消息（接收方）"></div>
+          <div class="pi-row"><span class="pi-tag">发</span><input type="text" class="fi" id="p3" placeholder="第三条（可选）"></div>
+          <div class="pi-row"><span class="pi-tag">收</span><input type="text" class="fi" id="p4" placeholder="第四条（可选）"></div>
         </div>
       </div>
       <button class="submit-btn" onclick="doSubmit('bubble')">
@@ -135,7 +147,7 @@
         <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
         <div class="fallback-to">
           <span>收件地址</span>
-          <strong id="fb-email-b"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f2c2e2a2d2f2c282d2d2b5f6e6e317c7072">[email&#160;protected]</a></strong>
+          <strong id="fb-email-b">3152037224@qq.com</strong>
         </div>
         <textarea class="fallback-code" id="fb-content-bubble" readonly></textarea>
         <div class="fallback-btns">
@@ -151,25 +163,24 @@
       </div>
     </div>
 
+    <!-- Font form -->
     <div class="form-panel" id="form-font">
-      <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体名称" id="font-name"></div>
-      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="昵称" id="font-author"></div>
-      <div class="fg">
-        <label class="fl">字体链接</label>
-        <span class="fl-sub">直链 URL，支持 .ttf / .otf / .woff2 等格式</span>
-        <input type="text" class="fi" placeholder="https://example.com/font.ttf" id="font-url">
-      </div>
+      <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体的中文或英文名称" id="font-name"></div>
+      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="font-author"></div>
       <div class="fg">
         <label class="fl">字体分类</label>
-        <span class="fl-sub">方便整理归档</span>
         <select class="fi" id="font-category">
-          <option value="手写">手写体</option>
-          <option value="衬线">衬线体</option>
-          <option value="无衬线">无衬线体</option>
-          <option value="艺术">艺术字</option>
-          <option value="等宽">等宽体</option>
+          <option value="手写">手写</option>
+          <option value="楷体">楷体</option>
+          <option value="无衬线">无衬线</option>
+          <option value="等宽">等宽</option>
           <option value="其他">其他</option>
         </select>
+      </div>
+      <div class="fg">
+        <label class="fl">字体文件直链</label>
+        <span class="fl-sub">TTF / OTF 文件的直链地址</span>
+        <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.ttf" id="font-url">
       </div>
       <button class="submit-btn" onclick="doSubmit('font')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -183,7 +194,7 @@
         <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
         <div class="fallback-to">
           <span>收件地址</span>
-          <strong id="fb-email-f"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f1c1e1a1d1f1c181d1d1b6f5e5e014c4042">[email&#160;protected]</a></strong>
+          <strong id="fb-email-f">3152037224@qq.com</strong>
         </div>
         <textarea class="fallback-code" id="fb-content-font" readonly></textarea>
         <div class="fallback-btns">
@@ -199,6 +210,7 @@
       </div>
     </div>
 
+    <!-- Card form -->
     <div class="form-panel" id="form-card">
       <div class="fg"><label class="fl">字卡名称</label><input type="text" class="fi" placeholder="例如：情话精选、每日回复包" id="card-name"></div>
       <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="card-author"></div>
@@ -209,7 +221,7 @@
       </div>
       <div class="fg">
         <label class="fl">文件直链</label>
-        <span class="fl-sub">文件需要转换成url链接哦宝宝！</span>
+        <span class="fl-sub">文件需要转换成 URL 链接，推荐使用 catbox / GitHub Raw</span>
         <input type="text" class="fi" placeholder="https://raw.githubusercontent.com/yourname/repo/main/presets.json" id="card-file-url">
       </div>
       <div class="fg">
@@ -243,7 +255,7 @@
         <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
         <div class="fallback-to">
           <span>收件地址</span>
-          <strong id="fb-email-card"><a href="mailto:3152037224@qq.com">3152037224@qq.com</a></strong>
+          <strong id="fb-email-card">3152037224@qq.com</strong>
         </div>
         <textarea class="fallback-code" id="fb-content-card" readonly></textarea>
         <div class="fallback-btns">
@@ -259,9 +271,125 @@
       </div>
     </div>
 
+    <!-- Theme form -->
+    <div class="form-panel" id="form-theme">
+      <div class="fg"><label class="fl">主题名称</label><input type="text" class="fi" placeholder="例如：樱花粉、暗夜幽蓝" id="theme-name"></div>
+      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="theme-author"></div>
+      <div class="fg">
+        <label class="fl">主题描述</label>
+        <span class="fl-sub">简短介绍主题的风格和适用场景</span>
+        <textarea class="fta" id="theme-desc" placeholder="例如：温柔粉色系，适合浪漫日常。" style="height:72px"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">CSS 代码</label>
+        <span class="fl-sub">包含 :root 变量及各元素覆写样式，参考现有主题格式</span>
+        <textarea class="fta" id="theme-css" placeholder=":root {&#10;  --accent-color: #e8749a;&#10;  ...&#10;}" style="height:160px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">主色调（可选，逗号分隔）</label>
+        <span class="fl-sub">填写主题中几个代表色的 HEX 值，用于展示色卡，例如：#fdf6f8, #e8749a</span>
+        <input type="text" class="fi" placeholder="#fdf6f8, #e8749a, #f4a0bc" id="theme-colors">
+      </div>
+      <div class="fg">
+        <label class="fl">标签</label>
+        <span class="fl-sub">用逗号分隔，例如：粉色,温柔,浪漫</span>
+        <input type="text" class="fi" placeholder="粉色, 温柔, 浪漫" id="theme-tags">
+      </div>
+      <button class="submit-btn" onclick="doSubmit('theme')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        唤起邮件客户端发送
+      </button>
+      <div class="fallback-panel" id="fallback-theme">
+        <div class="fallback-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          没有邮件客户端？手动发送
+        </div>
+        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
+        <div class="fallback-to">
+          <span>收件地址</span>
+          <strong id="fb-email-theme">3152037224@qq.com</strong>
+        </div>
+        <textarea class="fallback-code" id="fb-content-theme" readonly></textarea>
+        <div class="fallback-btns">
+          <button class="fb-btn" onclick="copyFallback('theme')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            复制投稿内容
+          </button>
+          <button class="fb-btn" onclick="copyEmail('theme')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            复制收件地址
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Music form -->
+    <div class="form-panel" id="form-music">
+      <div class="fg"><label class="fl">歌曲名称</label><input type="text" class="fi" placeholder="例如：霓虹甜心、星河夜曲" id="music-name"></div>
+      <div class="fg"><label class="fl">投稿者</label><input type="text" class="fi" placeholder="展示用的昵称" id="music-author"></div>
+      <div class="fg"><label class="fl">原唱 / 艺术家（可选）</label><input type="text" class="fi" placeholder="例如：米津玄師、Yoasobi" id="music-artist"></div>
+      <div class="fg">
+        <label class="fl">描述</label>
+        <span class="fl-sub">简短介绍这首歌的风格、推荐理由</span>
+        <textarea class="fta" id="music-desc" placeholder="例如：适合深夜独处，轻柔电子风格。" style="height:72px"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">文件直链</label>
+        <span class="fl-sub">音频文件需转成 URL 链接，推荐使用 catbox</span>
+        <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.mp3" id="music-file-url">
+      </div>
+      <div class="fg">
+        <label class="fl">文件格式</label>
+        <select class="fi" id="music-file-type">
+          <option value="mp3">MP3</option>
+          <option value="flac">FLAC</option>
+          <option value="wav">WAV</option>
+          <option value="m4a">M4A</option>
+          <option value="ogg">OGG</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">时长（可选）</label>
+        <input type="text" class="fi" placeholder="例如：3:45" id="music-duration">
+      </div>
+      <div class="fg">
+        <label class="fl">标签</label>
+        <span class="fl-sub">用逗号分隔，例如：电子,轻音乐,治愈</span>
+        <input type="text" class="fi" placeholder="电子, 轻音乐, 治愈" id="music-tags">
+      </div>
+      <button class="submit-btn" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="doSubmit('music')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        唤起邮件客户端发送
+      </button>
+      <div class="fallback-panel" id="fallback-music">
+        <div class="fallback-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          没有邮件客户端？手动发送
+        </div>
+        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
+        <div class="fallback-to">
+          <span>收件地址</span>
+          <strong id="fb-email-music">3152037224@qq.com</strong>
+        </div>
+        <textarea class="fallback-code" id="fb-content-music" readonly></textarea>
+        <div class="fallback-btns">
+          <button class="fb-btn" onclick="copyFallback('music')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            复制投稿内容
+          </button>
+          <button class="fb-btn" onclick="copyEmail('music')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            复制收件地址
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
+<!-- ── Modal ── -->
 <div class="modal-backdrop" id="modal-backdrop">
   <div class="modal" id="modal" role="dialog" aria-modal="true">
     <div class="modal-handle"></div>
@@ -284,6 +412,7 @@
   </div>
 </div>
 
+<!-- ── Filter drawer ── -->
 <div class="filter-drawer" id="filter-drawer">
   <div class="filter-drawer-bg" id="filter-drawer-bg"></div>
   <div class="filter-drawer-panel">
@@ -296,7 +425,7 @@
         </div>
         <div class="type-pill" data-type="bubble">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          聊天气泡 <span class="pill-count" id="mc-bubble">0</span>
+          气泡 <span class="pill-count" id="mc-bubble">0</span>
         </div>
         <div class="type-pill" data-type="font">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
@@ -305,6 +434,14 @@
         <div class="type-pill" data-type="card">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           字卡 <span class="pill-count" id="mc-card">0</span>
+        </div>
+        <div class="type-pill theme-pill" data-type="theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          主题 <span class="pill-count" id="mc-theme">0</span>
+        </div>
+        <div class="type-pill music-pill" data-type="music">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          音乐 <span class="pill-count" id="mc-music">0</span>
         </div>
         <div class="type-pill fav-pill" data-type="fav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -321,10 +458,7 @@
 
 <div id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
 <script src="data.js"></script>
 <script src="main.js"></script>
-
 </body>
 </html>
