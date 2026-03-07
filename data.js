@@ -8472,16 +8472,13 @@ const MUSIC = [
     group:'g-mus-evening', groupLabel:'红颜&永远永远',
     fileType:'mp3', fileName:'红颜.mp3',
     file:'https://img.heliar.top/file/1772752066038_红颜.mp3',
-    exportDate:'2025-01-01'
   },
   {
     id:'mus2', type:'music', name:'永远永远', author:'milk',
     group:'g-mus-evening', groupLabel:'红颜&永远永远',
     fileType:'mp3', fileName:'永远永远.mp3',
-    file:'https://files.catbox.moe/2lcm70.mp3",
-    "isCustom', duration:'3:12',
-    exportDate:'2025-01-01'
-  },
+    file:'https://files.catbox.moe/2lcm70.mp3',
+    },
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
