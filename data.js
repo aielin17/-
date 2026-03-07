@@ -8468,17 +8468,36 @@ const THEMES = [
 
 const MUSIC = [
   {
-    id:'mus1', type:'music', name:'红颜', author:'milk',
-    group:'g-mus-evening', groupLabel:'红颜&永远永远',
-    fileType:'mp3', fileName:'红颜.mp3',
-    file:'https://img.heliar.top/file/1772752066038_红颜.mp3',
+    id:'mus1', type:'music', name:'余晖', author:'milk',
+    group:'g-mus-evening', groupLabel:'黄昏系列',
+    artist:'原创', desc:'傍晚时分写的一首小曲，适合安静的聊天界面背景',
+    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'余晖.mp3',
+    file:'https://files.catbox.moe/example1.mp3', duration:'2:34',
+    exportDate:'2025-01-01'
   },
   {
-    id:'mus2', type:'music', name:'永远永远', author:'milk',
-    group:'g-mus-evening', groupLabel:'红颜&永远永远',
-    fileType:'mp3', fileName:'永远永远.mp3',
-    file:'https://files.catbox.moe/2lcm70.mp3',
-    },
+    id:'mus2', type:'music', name:'暮色', author:'milk',
+    group:'g-mus-evening', groupLabel:'黄昏系列',
+    artist:'原创', desc:'黄昏系列第二首，节奏稍快',
+    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'暮色.mp3',
+    file:'https://files.catbox.moe/example2.mp3', duration:'3:12',
+    exportDate:'2025-01-01'
+  },
+  {
+    id:'mus3', type:'music', name:'夜深了', author:'milk',
+    group:'g-mus-evening', groupLabel:'黄昏系列',
+    artist:'原创', desc:'黄昏系列收尾曲',
+    tags:['纯音乐','舒缓','原创'], fileType:'mp3', fileName:'夜深了.mp3',
+    file:'https://files.catbox.moe/example3.mp3', duration:'4:05',
+    exportDate:'2025-01-01'
+  },
+  {
+    id:'mus4', type:'music', name:'第一场雪',  author:'stone',
+    desc:'冬天听的音乐，适合白色系界面',
+    tags:['纯音乐','冬日'], fileType:'mp3', fileName:'first_snow.mp3',
+    file:'https://files.catbox.moe/example4.mp3', duration:'3:45',
+    exportDate:'2025-01-05'
+  }
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
