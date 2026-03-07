@@ -58,7 +58,7 @@ url:'https://files.catbox.moe/sfl1v7.ttf'
   url:'https://image.uglycat.cc/rxqq13.ttf'
 },
 {
-id:'f10',
+id:'f11',
 type:'font',
 name:'Skies',
 author:'颜小雪',
@@ -67,7 +67,7 @@ category:'等宽',
 url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233cb5d652afce72/Everskies%208.ttf'
 },
 {
- id:'f11',
+ id:'f12',
  type:'font',
  name:'寒蝉团圆体',
  author:'石榴',
@@ -76,7 +76,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  url:'https://raw.githubcusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
 },
 {
- id:'f12',
+ id:'f13',
  type:'font',
  name:'Code2003',
  author:'来源网络',
@@ -85,7 +85,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  url:'https://raw.githubcusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
 },
 {
- id:'f13',
+ id:'f14',
  type:'font',
  name:'呆萌手写体',
  author:'来自网络',
@@ -94,7 +94,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf'
 },
 {
- id:'f14',
+ id:'f15',
  type:'font',
  name:'缝合怪像素字体',
  author:'来自网络',
@@ -103,7 +103,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/fusion-pixel-12px-proportional.ttf'
 },
 {
- id:'f15',
+ id:'f16',
  type:'font',
  name:'也字工厂小石头',
  author:'来自网络',
@@ -8468,36 +8468,20 @@ const THEMES = [
 
 const MUSIC = [
   {
-    id:'mus1', type:'music', name:'余晖', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'傍晚时分写的一首小曲，适合安静的聊天界面背景',
-    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'余晖.mp3',
-    file:'https://files.catbox.moe/example1.mp3', duration:'2:34',
+    id:'mus1', type:'music', name:'红颜', author:'milk',
+    group:'g-mus-evening', groupLabel:'红颜&永远永远',
+    fileType:'mp3', fileName:'红颜.mp3',
+    file:'https://img.heliar.top/file/1772752066038_红颜.mp3',
     exportDate:'2025-01-01'
   },
   {
-    id:'mus2', type:'music', name:'暮色', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'黄昏系列第二首，节奏稍快',
-    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'暮色.mp3',
-    file:'https://files.catbox.moe/example2.mp3', duration:'3:12',
+    id:'mus2', type:'music', name:'永远永远', author:'milk',
+    group:'g-mus-evening', groupLabel:'红颜&永远永远',
+    fileType:'mp3', fileName:'永远永远.mp3',
+    file:'https://files.catbox.moe/2lcm70.mp3",
+    "isCustom', duration:'3:12',
     exportDate:'2025-01-01'
   },
-  {
-    id:'mus3', type:'music', name:'夜深了', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'黄昏系列收尾曲',
-    tags:['纯音乐','舒缓','原创'], fileType:'mp3', fileName:'夜深了.mp3',
-    file:'https://files.catbox.moe/example3.mp3', duration:'4:05',
-    exportDate:'2025-01-01'
-  },
-  {
-    id:'mus4', type:'music', name:'第一场雪',  author:'stone',
-    desc:'冬天听的音乐，适合白色系界面',
-    tags:['纯音乐','冬日'], fileType:'mp3', fileName:'first_snow.mp3',
-    file:'https://files.catbox.moe/example4.mp3', duration:'3:45',
-    exportDate:'2025-01-05'
-  }
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
