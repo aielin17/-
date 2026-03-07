@@ -44,7 +44,7 @@ url:'https://files.catbox.moe/sfl1v7.ttf'
   type:'font',
   name:'苹方细体',
   author:'Wind',
-  family:'F8',
+  family:'F9',
   category:'手写',
   url:'https://files.catbox.moe/vgvbzl.ttf'
 },
@@ -71,7 +71,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  type:'font',
  name:'寒蝉团圆体',
  author:'石榴',
- family:'F10',
+ family:'F12',
  category:'其他',
  url:'https://raw.githubcusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
 },
@@ -80,7 +80,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  type:'font',
  name:'Code2003',
  author:'来源网络',
- family:'F10',
+ family:'F13',
  category:'无衬线',
  url:'https://raw.githubcusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
 },
@@ -89,7 +89,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  type:'font',
  name:'呆萌手写体',
  author:'来自网络',
- family:'F10',
+ family:'F14',
  category:'手写',
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf'
 },
@@ -98,7 +98,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  type:'font',
  name:'缝合怪像素字体',
  author:'来自网络',
- family:'F10',
+ family:'F15',
  category:'其他',
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/fusion-pixel-12px-proportional.ttf'
 },
@@ -107,7 +107,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  type:'font',
  name:'也字工厂小石头',
  author:'来自网络',
- family:'F10',
+ family:'F16',
  category:'手写',
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
 }
