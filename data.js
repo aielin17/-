@@ -73,16 +73,16 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  author:'石榴',
  family:'F12',
  category:'其他',
- url:'https://raw.githubcusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
+ url:'https://raw.githubusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
 },
 {
  id:'f13',
  type:'font',
  name:'Code2003',
- author:'来源网络',
+ author:'来自网络',
  family:'F13',
  category:'无衬线',
- url:'https://raw.githubcusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
+ url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
 },
 {
  id:'f14',
