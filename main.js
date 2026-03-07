@@ -815,7 +815,7 @@ document.getElementById('filter-drawer-bg').addEventListener('click', ()=>{
 });
 
 // ── Submit forms ──────────────────────────────────────────────────────────
-const SUBMIT_EMAIL = '3152037224@qq.com';
+const SUBMIT_EMAIL = 'xiaren45@qq.com';
 
 window.switchForm = function(type){
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
