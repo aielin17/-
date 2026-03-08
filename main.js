@@ -856,7 +856,7 @@ function buildMusicCode(name,author,artist,desc,fileUrl,fileType,duration,tags){
 }
 
 window.doSubmit = function(type){
-  const nl='\r\n'; let subject='',body='',code='';
+  const nl='\n'; let subject='',body='',code='';
 
   if(type==='bubble'){
     const name=document.getElementById('bubble-name').value.trim();
@@ -931,7 +931,15 @@ window.doSubmit = function(type){
 
   }
 
-  window.location.href=`mailto:${SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // Bug Fix: 使用 <a>.click() 触发 mailto，避免 iOS Safari 因 window.location.href 引发页面重载
+  try {
+    const _a = document.createElement('a');
+    _a.href = `mailto:${SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    _a.style.display = 'none';
+    document.body.appendChild(_a);
+    _a.click();
+    document.body.removeChild(_a);
+  } catch(e) { /* 忽略，用户可使用下方手动发送 */ }
   setTimeout(()=>toast('🚀 正在唤起邮件客户端，如未弹出请使用下方手动发送'),400);
 };
 
@@ -955,6 +963,13 @@ window.copyEmail    = function(type){ copyText(SUBMIT_EMAIL, '收件地址'); };
 })();
 
 // ── Init ──────────────────────────────────────────────────────────────────
+
+// Bug Fix: Cloudflare のメール難読化を回避し、正しいメールアドレスを表示する
+['fb-email-b','fb-email-f','fb-email-card','fb-email-theme','fb-email-music'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.textContent=SUBMIT_EMAIL;
+});
+
 updateFavCounts();
 renderAuthors();
 renderCards();
