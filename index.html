@@ -93,361 +93,386 @@
 
 <!-- ── Submit view ── -->
 <div class="submit-view" id="submit-view">
-  <div class="submit-card">
-    <div class="s-header">
-      <h2>提交你的创意</h2>
-      <p>选择类型，填写信息，通过邮件发送给我</p>
-    </div>
-    <div class="s-type-row">
-      <button class="s-type-btn active" onclick="switchForm('bubble')">💬 气泡</button>
-      <button class="s-type-btn" onclick="switchForm('font')">✦ 字体</button>
-      <button class="s-type-btn" onclick="switchForm('card')">📋 字卡</button>
-      <button class="s-type-btn" onclick="switchForm('theme')">🎨 主题</button>
-      <button class="s-type-btn" onclick="switchForm('music')">🎵 音乐</button>
+  <div class="submit-wrap">
+
+    <!-- Hero banner -->
+    <div class="sv-hero">
+      <div class="sv-hero-glow"></div>
+      <div class="sv-hero-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div class="sv-hero-text">
+        <h2>分享你的创意</h2>
+        <p>每一份投稿都会被认真看到 ✨</p>
+      </div>
     </div>
 
-    <!-- Bubble form -->
-    <div class="form-panel active" id="form-bubble">
-      <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个名字" id="bubble-name"></div>
-      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="bubble-author"></div>
-      <div class="fg">
-        <label class="fl">所属系列</label>
-        <span class="fl-sub">如果这是某系列的其中一个变体，请填写系列名称，方便归组展示</span>
-        <input type="text" class="fi" placeholder="例如：心脉系列（留空则为独立气泡）" id="bubble-series">
-      </div>
-      <div class="fg">
-        <label class="fl">系列 ID</label>
-        <span class="fl-sub">同系列所有变体必须填写相同 ID，仅限英文字母/数字，例如：xinmai</span>
-        <input type="text" class="fi" placeholder="例如：xinmai" id="bubble-group-id">
-      </div>
-      <div class="fg">
-        <label class="fl">CSS 代码</label>
-        <span class="fl-sub">需包含 .message-sent 和 .message-received 类</span>
-        <textarea class="fta" id="bubble-css" placeholder=" "></textarea>
-      </div>
-      <div class="fg">
-        <label class="fl">预览对话（2～4 条）</label>
-        <span class="fl-sub">留空则跳过该行</span>
-        <div class="preview-inputs">
-          <div class="pi-row"><span class="pi-tag">发</span><input type="text" class="fi" id="p1" placeholder="第一条消息（发送方）"></div>
-          <div class="pi-row"><span class="pi-tag">收</span><input type="text" class="fi" id="p2" placeholder="第二条消息（接收方）"></div>
-          <div class="pi-row"><span class="pi-tag">发</span><input type="text" class="fi" id="p3" placeholder="第三条（可选）"></div>
-          <div class="pi-row"><span class="pi-tag">收</span><input type="text" class="fi" id="p4" placeholder="第四条（可选）"></div>
+    <!-- Type selector -->
+    <div class="sv-type-grid">
+      <button class="sv-type-card active" data-type="bubble" onclick="switchForm('bubble')">
+        <div class="sv-type-icon" style="--tc:#3b82f6;--tcb:rgba(59,130,246,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-      </div>
-      <button class="submit-btn" onclick="doSubmit('bubble')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        唤起邮件客户端发送
+        <span class="sv-type-name">气泡</span>
+        <span class="sv-type-sub">聊天气泡样式</span>
       </button>
-      <div class="fallback-panel" id="fallback-bubble">
-        <div class="fallback-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          没有邮件客户端？手动发送
+      <button class="sv-type-card" data-type="font" onclick="switchForm('font')">
+        <div class="sv-type-icon" style="--tc:#8b5cf6;--tcb:rgba(139,92,246,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
         </div>
-        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
-        <div class="fallback-to">
-          <span>收件地址</span>
-          <strong id="fb-email-b"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="192a282c2b292a2e2b2b2d596868377a7674">[email&#160;protected]</a></strong>
-        </div>
-        <textarea class="fallback-code" id="fb-content-bubble" readonly></textarea>
-        <div class="fallback-btns">
-          <button class="fb-btn" onclick="copyFallback('bubble')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            复制投稿内容
-          </button>
-          <button class="fb-btn" onclick="copyEmail('bubble')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
-            复制收件地址
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Font form -->
-    <div class="form-panel" id="form-font">
-      <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体的中文或英文名称" id="font-name"></div>
-      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="font-author"></div>
-      <div class="fg">
-        <label class="fl">字体分类</label>
-        <select class="fi" id="font-category">
-          <option value="手写">手写</option>
-          <option value="楷体">楷体</option>
-          <option value="无衬线">无衬线</option>
-          <option value="等宽">等宽</option>
-          <option value="其他">其他</option>
-        </select>
-      </div>
-      <div class="link-guide">
-        <div class="link-guide-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          怎么获取文件直链？
-        </div>
-        <div class="link-guide-steps">
-          <div class="link-guide-step"><div class="link-guide-step-num">1</div><span>准备好你的字体文件（TTF / OTF 格式均可）</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">2</div><span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，点击上传，选择你的文件</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">3</div><span>上传完成后，页面会生成一个以 <code style="background:var(--accent-bg);padding:1px 5px;border-radius:4px;font-size:11px">https://</code> 开头的直链，复制它</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">4</div><span>把这个链接粘贴到下方输入框里就好啦 ✨</span></div>
-        </div>
-        <div class="link-guide-hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          还是搞不定？去小红书搜 <strong>milk</strong> 的主页，有专门的视频教程，跟着一步一步来保证会～
-        </div>
-        <div class="link-guide-warn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          注意：请务必提交文件直链！网盘链接、分享链接、下载页面链接等不符合格式的投稿一律不通过。
-        </div>
-      </div>
-      <div class="fg">
-        <label class="fl">字体文件直链</label>
-        <span class="fl-sub">TTF / OTF 文件的直链地址，格式参考上方教程</span>
-        <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.ttf" id="font-url">
-      </div>
-      <button class="submit-btn" onclick="doSubmit('font')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        唤起邮件客户端发送
+        <span class="sv-type-name">字体</span>
+        <span class="sv-type-sub">自定义字体文件</span>
       </button>
-      <div class="fallback-panel" id="fallback-font">
-        <div class="fallback-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          没有邮件客户端？手动发送
+      <button class="sv-type-card" data-type="card" onclick="switchForm('card')">
+        <div class="sv-type-icon" style="--tc:#10b981;--tcb:rgba(16,185,129,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
-        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
-        <div class="fallback-to">
-          <span>收件地址</span>
-          <strong id="fb-email-f"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f2c1c3c7c0c2c1c5c0c0c6b28383dc919d9f">[email&#160;protected]</a></strong>
-        </div>
-        <textarea class="fallback-code" id="fb-content-font" readonly></textarea>
-        <div class="fallback-btns">
-          <button class="fb-btn" onclick="copyFallback('font')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            复制投稿内容
-          </button>
-          <button class="fb-btn" onclick="copyEmail('font')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
-            复制收件地址
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card form -->
-    <div class="form-panel" id="form-card">
-      <div class="fg"><label class="fl">字卡名称</label><input type="text" class="fi" placeholder="例如：情话精选、每日回复包" id="card-name"></div>
-      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="card-author"></div>
-      <div class="fg">
-        <label class="fl">字卡描述</label>
-        <span class="fl-sub">简短介绍这个字卡包含什么内容、适合谁使用</span>
-        <textarea class="fta" id="card-desc" placeholder="例如：适合日常聊天预设，包含回复、表情和状态。" style="height:80px"></textarea>
-      </div>
-      <div class="link-guide">
-        <div class="link-guide-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          怎么获取文件直链？
-        </div>
-        <div class="link-guide-steps">
-          <div class="link-guide-step"><div class="link-guide-step-num">1</div><span>准备好你的字卡文件（JSON / TXT / ZIP 均可）</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">2</div><span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，点击上传，选择你的文件</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">3</div><span>上传完成后，页面会生成一个以 <code style="background:var(--accent-bg);padding:1px 5px;border-radius:4px;font-size:11px">https://</code> 开头的直链，复制它</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">4</div><span>把这个链接粘贴到下方输入框里就好啦 ✨</span></div>
-        </div>
-        <div class="link-guide-hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          还是搞不定？去小红书搜 <strong>milk</strong> 的主页，有专门的视频教程，跟着一步一步来保证会～
-        </div>
-        <div class="link-guide-warn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          注意：请务必提交文件直链！网盘链接、分享链接、下载页面链接等不符合格式的投稿一律不通过。
-        </div>
-      </div>
-      <div class="fg">
-        <label class="fl">文件直链</label>
-        <span class="fl-sub">文件的直链地址，格式参考上方教程</span>
-        <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.json" id="card-file-url">
-      </div>
-      <div class="fg">
-        <label class="fl">文件格式</label>
-        <select class="fi" id="card-file-type">
-          <option value="json">JSON</option>
-          <option value="txt">TXT</option>
-          <option value="zip">ZIP</option>
-          <option value="其他">其他</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">标签</label>
-        <span class="fl-sub">用逗号分隔，例如：回复,表情,状态</span>
-        <input type="text" class="fi" placeholder="回复, 表情, 状态" id="card-tags">
-      </div>
-      <div class="fg">
-        <label class="fl">内容数量（可选）</label>
-        <span class="fl-sub">JSON 格式，例如：{"自定义回复": 80, "表情": 20}</span>
-        <textarea class="fta" id="card-item-counts" placeholder='{"自定义回复": 80, "表情": 20}' style="height:72px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
-      </div>
-      <button class="submit-btn" onclick="doSubmit('card')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        唤起邮件客户端发送
+        <span class="sv-type-name">字卡</span>
+        <span class="sv-type-sub">快捷回复预设包</span>
       </button>
-      <div class="fallback-panel" id="fallback-card">
-        <div class="fallback-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          没有邮件客户端？手动发送
+      <button class="sv-type-card" data-type="theme" onclick="switchForm('theme')">
+        <div class="sv-type-icon" style="--tc:#ec4899;--tcb:rgba(236,72,153,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
-        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
-        <div class="fallback-to">
-          <span>收件地址</span>
-          <strong id="fb-email-card"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88bbb9bdbab8bbbfbababcc8f9f9a6ebe7e5">[email&#160;protected]</a></strong>
-        </div>
-        <textarea class="fallback-code" id="fb-content-card" readonly></textarea>
-        <div class="fallback-btns">
-          <button class="fb-btn" onclick="copyFallback('card')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            复制投稿内容
-          </button>
-          <button class="fb-btn" onclick="copyEmail('card')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
-            复制收件地址
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Theme form -->
-    <div class="form-panel" id="form-theme">
-      <div class="fg"><label class="fl">主题名称</label><input type="text" class="fi" placeholder="例如：樱花粉、暗夜幽蓝" id="theme-name"></div>
-      <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示用的昵称" id="theme-author"></div>
-      <div class="fg">
-        <label class="fl">主题描述</label>
-        <span class="fl-sub">简短介绍主题的风格和适用场景</span>
-        <textarea class="fta" id="theme-desc" placeholder="例如：温柔粉色系，适合浪漫日常。" style="height:72px"></textarea>
-      </div>
-      <div class="fg">
-        <label class="fl">CSS 代码</label>
-        <span class="fl-sub">包含 :root 变量及各元素覆写样式，参考现有主题格式</span>
-        <textarea class="fta" id="theme-css" placeholder=":root {&#10;  --accent-color: #e8749a;&#10;  ...&#10;}" style="height:160px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
-      </div>
-      <div class="fg">
-        <label class="fl">主色调（可选，逗号分隔）</label>
-        <span class="fl-sub">填写主题中几个代表色的 HEX 值，用于展示色卡，例如：#fdf6f8, #e8749a</span>
-        <input type="text" class="fi" placeholder="#fdf6f8, #e8749a, #f4a0bc" id="theme-colors">
-      </div>
-      <div class="fg">
-        <label class="fl">标签</label>
-        <span class="fl-sub">用逗号分隔，例如：粉色,温柔,浪漫</span>
-        <input type="text" class="fi" placeholder="粉色, 温柔, 浪漫" id="theme-tags">
-      </div>
-      <button class="submit-btn" onclick="doSubmit('theme')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        唤起邮件客户端发送
+        <span class="sv-type-name">主题</span>
+        <span class="sv-type-sub">整体配色方案</span>
       </button>
-      <div class="fallback-panel" id="fallback-theme">
-        <div class="fallback-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          没有邮件客户端？手动发送
+      <button class="sv-type-card" data-type="music" onclick="switchForm('music')">
+        <div class="sv-type-icon" style="--tc:#a855f7;--tcb:rgba(168,85,247,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         </div>
-        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
-        <div class="fallback-to">
-          <span>收件地址</span>
-          <strong id="fb-email-theme"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ead9dbdfd8dad9ddd8d8deaa9b9bc4898587">[email&#160;protected]</a></strong>
-        </div>
-        <textarea class="fallback-code" id="fb-content-theme" readonly></textarea>
-        <div class="fallback-btns">
-          <button class="fb-btn" onclick="copyFallback('theme')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            复制投稿内容
-          </button>
-          <button class="fb-btn" onclick="copyEmail('theme')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
-            复制收件地址
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Music form -->
-    <div class="form-panel" id="form-music">
-      <div class="fg"><label class="fl">歌曲名称</label><input type="text" class="fi" placeholder="例如：霓虹甜心、星河夜曲" id="music-name"></div>
-      <div class="fg"><label class="fl">投稿者</label><input type="text" class="fi" placeholder="展示用的昵称" id="music-author"></div>
-      <div class="fg"><label class="fl">原唱 / 艺术家（可选）</label><input type="text" class="fi" placeholder="例如：米津玄師、Yoasobi" id="music-artist"></div>
-      <div class="fg">
-        <label class="fl">描述</label>
-        <span class="fl-sub">简短介绍这首歌的风格、推荐理由</span>
-        <textarea class="fta" id="music-desc" placeholder="例如：适合深夜独处，轻柔电子风格。" style="height:72px"></textarea>
-      </div>
-      <div class="link-guide">
-        <div class="link-guide-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          怎么获取音频直链？
-        </div>
-        <div class="link-guide-steps">
-          <div class="link-guide-step"><div class="link-guide-step-num">1</div><span>准备好你的音频文件（MP3 / FLAC / WAV / M4A 等均可）</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">2</div><span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，点击上传，选择你的音频文件</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">3</div><span>上传完成后，页面会生成一个以 <code style="background:var(--accent-bg);padding:1px 5px;border-radius:4px;font-size:11px">https://</code> 开头的直链，复制它</span></div>
-          <div class="link-guide-step"><div class="link-guide-step-num">4</div><span>把这个链接粘贴到下方输入框里就好啦 ✨</span></div>
-        </div>
-        <div class="link-guide-hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          还是搞不定？去小红书搜 <strong>milk</strong> 的主页，有专门的视频教程，跟着一步一步来保证会～
-        </div>
-        <div class="link-guide-warn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          注意：请务必提交文件直链！网易云 / QQ 音乐分享链接、网盘链接等不符合格式的投稿一律不通过。
-        </div>
-      </div>
-      <div class="fg">
-        <label class="fl">文件直链</label>
-        <span class="fl-sub">音频文件的直链地址，格式参考上方教程</span>
-        <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.mp3" id="music-file-url">
-      </div>
-      <div class="fg">
-        <label class="fl">文件格式</label>
-        <select class="fi" id="music-file-type">
-          <option value="mp3">MP3</option>
-          <option value="flac">FLAC</option>
-          <option value="wav">WAV</option>
-          <option value="m4a">M4A</option>
-          <option value="ogg">OGG</option>
-          <option value="其他">其他</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">时长（可选）</label>
-        <input type="text" class="fi" placeholder="例如：3:45" id="music-duration">
-      </div>
-      <div class="fg">
-        <label class="fl">标签</label>
-        <span class="fl-sub">用逗号分隔，例如：电子,轻音乐,治愈</span>
-        <input type="text" class="fi" placeholder="电子, 轻音乐, 治愈" id="music-tags">
-      </div>
-      <button class="submit-btn" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);box-shadow:0 4px 16px rgba(124,58,237,.35)" onclick="doSubmit('music')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        唤起邮件客户端发送
+        <span class="sv-type-name">音乐</span>
+        <span class="sv-type-sub">背景音乐曲目</span>
       </button>
-      <div class="fallback-panel" id="fallback-music">
-        <div class="fallback-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          没有邮件客户端？手动发送
-        </div>
-        <p class="fallback-desc">将以下内容复制后，通过任意方式（QQ / 微信 / 邮件网页版）发送给我</p>
-        <div class="fallback-to">
-          <span>收件地址</span>
-          <strong id="fb-email-music"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83b0b2b6b1b3b0b4b1b1b7c3f2f2ade0ecee">[email&#160;protected]</a></strong>
-        </div>
-        <textarea class="fallback-code" id="fb-content-music" readonly></textarea>
-        <div class="fallback-btns">
-          <button class="fb-btn" onclick="copyFallback('music')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            复制投稿内容
-          </button>
-          <button class="fb-btn" onclick="copyEmail('music')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
-            复制收件地址
-          </button>
-        </div>
-      </div>
     </div>
 
+    <!-- Form card -->
+    <div class="sv-form-card">
 
-  </div>
+      <!-- ── Bubble ── -->
+      <div class="form-panel active" id="form-bubble">
+        <div class="sv-section">
+          <div class="sv-section-label">基本信息</div>
+          <div class="fg"><label class="fl">气泡名称</label><input type="text" class="fi" placeholder="给你的气泡起个独特的名字" id="bubble-name"></div>
+          <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="bubble-author"></div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">系列归组 <span class="sv-section-opt">可选</span></div>
+          <div class="fg">
+            <label class="fl">所属系列</label>
+            <span class="fl-sub">如果这是某系列的变体之一，填写系列名称可以让它们自动归组显示</span>
+            <input type="text" class="fi" placeholder="例如：心脉系列（独立气泡留空就好）" id="bubble-series">
+          </div>
+          <div class="fg">
+            <label class="fl">系列 ID</label>
+            <span class="fl-sub">同系列的所有变体必须填写<strong>完全相同</strong>的 ID，只能用英文字母和数字</span>
+            <input type="text" class="fi" placeholder="例如：xinmai" id="bubble-group-id">
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">样式代码</div>
+          <div class="fg">
+            <label class="fl">CSS 代码</label>
+            <span class="fl-sub">需包含 <code class="sv-code">.message-sent</code> 和 <code class="sv-code">.message-received</code> 两个类</span>
+            <textarea class="fta" id="bubble-css" placeholder=" "></textarea>
+          </div>
+          <div class="fg">
+            <label class="fl">预览对话</label>
+            <span class="fl-sub">填 2～4 条，让大家看到实际效果，留空的行会自动跳过</span>
+            <div class="preview-inputs">
+              <div class="pi-row"><span class="pi-tag sent-tag">发</span><input type="text" class="fi" id="p1" placeholder="第一条消息（发送方）"></div>
+              <div class="pi-row"><span class="pi-tag recv-tag">收</span><input type="text" class="fi" id="p2" placeholder="第二条消息（接收方）"></div>
+              <div class="pi-row"><span class="pi-tag sent-tag">发</span><input type="text" class="fi" id="p3" placeholder="第三条（可选）"></div>
+              <div class="pi-row"><span class="pi-tag recv-tag">收</span><input type="text" class="fi" id="p4" placeholder="第四条（可选）"></div>
+            </div>
+          </div>
+        </div>
+        <button class="sv-submit-btn" style="--btn-color:#5b5fef;--btn-shadow:rgba(91,95,239,.35)" onclick="doSubmit('bubble')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          发送投稿
+        </button>
+        <div class="fallback-panel" id="fallback-bubble">
+          <div class="fallback-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            没有邮件客户端？手动发送也可以
+          </div>
+          <p class="fallback-desc">把下面的内容复制好，通过 QQ / 微信 / 邮件网页版发给我就行～</p>
+          <div class="fallback-to"><span>收件地址</span><strong id="fb-email-b"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="192a282c2b292a2e2b2b2d596868377a7674">[email&#160;protected]</a></strong></div>
+          <textarea class="fallback-code" id="fb-content-bubble" readonly></textarea>
+          <div class="fallback-btns">
+            <button class="fb-btn" onclick="copyFallback('bubble')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制投稿内容</button>
+            <button class="fb-btn" onclick="copyEmail('bubble')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>复制收件地址</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Font ── -->
+      <div class="form-panel" id="form-font">
+        <div class="sv-section">
+          <div class="sv-section-label">基本信息</div>
+          <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体的中文或英文名称" id="font-name"></div>
+          <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="font-author"></div>
+          <div class="fg">
+            <label class="fl">字体分类</label>
+            <select class="fi" id="font-category">
+              <option value="手写">手写</option>
+              <option value="楷体">楷体</option>
+              <option value="无衬线">无衬线</option>
+              <option value="等宽">等宽</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">文件上传</div>
+          <div class="sv-link-guide">
+            <div class="sv-guide-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              怎么获取文件直链？
+            </div>
+            <div class="sv-guide-steps">
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>准备好字体文件（TTF / OTF 均可）</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，上传文件</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>上传完成后复制那个 <code class="sv-code">https://</code> 开头的链接</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>粘贴到下方输入框，搞定 ✨</div>
+            </div>
+            <div class="sv-guide-tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              还是搞不定？去小红书找 <strong>milk</strong> 主页，有手把手的视频教程～
+            </div>
+            <div class="sv-guide-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              麻烦提交 <code class="sv-code">https://</code> 直链哦，网盘或分享链接我这边没法直接加载，到时候还得麻烦你补一次～
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">字体文件直链</label>
+            <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.ttf" id="font-url">
+          </div>
+        </div>
+        <button class="sv-submit-btn" style="--btn-color:#8b5cf6;--btn-shadow:rgba(139,92,246,.35)" onclick="doSubmit('font')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          发送投稿
+        </button>
+        <div class="fallback-panel" id="fallback-font">
+          <div class="fallback-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>没有邮件客户端？手动发送也可以</div>
+          <p class="fallback-desc">把下面的内容复制好，通过 QQ / 微信 / 邮件网页版发给我就行～</p>
+          <div class="fallback-to"><span>收件地址</span><strong id="fb-email-f"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f2c1c3c7c0c2c1c5c0c0c6b28383dc919d9f">[email&#160;protected]</a></strong></div>
+          <textarea class="fallback-code" id="fb-content-font" readonly></textarea>
+          <div class="fallback-btns">
+            <button class="fb-btn" onclick="copyFallback('font')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制投稿内容</button>
+            <button class="fb-btn" onclick="copyEmail('font')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>复制收件地址</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card ── -->
+      <div class="form-panel" id="form-card">
+        <div class="sv-section">
+          <div class="sv-section-label">基本信息</div>
+          <div class="fg"><label class="fl">字卡名称</label><input type="text" class="fi" placeholder="例如：情话精选、每日回复包" id="card-name"></div>
+          <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="card-author"></div>
+          <div class="fg">
+            <label class="fl">字卡描述</label>
+            <span class="fl-sub">简单介绍一下里面有什么、适合谁用</span>
+            <textarea class="fta" id="card-desc" placeholder="例如：日常聊天预设，包含各种表情和状态回复。" style="height:80px"></textarea>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">文件上传</div>
+          <div class="sv-link-guide">
+            <div class="sv-guide-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              怎么获取文件直链？
+            </div>
+            <div class="sv-guide-steps">
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>准备好字卡文件（JSON / TXT / ZIP 均可）</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，上传文件</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>上传完成后复制那个 <code class="sv-code">https://</code> 开头的链接</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>粘贴到下方输入框，搞定 ✨</div>
+            </div>
+            <div class="sv-guide-tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              还是搞不定？去小红书找 <strong>milk</strong> 主页，有手把手的视频教程～
+            </div>
+            <div class="sv-guide-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              麻烦提交 <code class="sv-code">https://</code> 直链哦，网盘或分享链接我这边没法直接加载，到时候还得麻烦你补一次～
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">文件直链</label>
+            <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.json" id="card-file-url">
+          </div>
+          <div class="fg">
+            <label class="fl">文件格式</label>
+            <select class="fi" id="card-file-type">
+              <option value="json">JSON</option>
+              <option value="txt">TXT</option>
+              <option value="zip">ZIP</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">附加信息 <span class="sv-section-opt">可选</span></div>
+          <div class="fg">
+            <label class="fl">标签</label>
+            <span class="fl-sub">用逗号分隔，例如：回复,表情,状态</span>
+            <input type="text" class="fi" placeholder="回复, 表情, 状态" id="card-tags">
+          </div>
+          <div class="fg">
+            <label class="fl">内容数量</label>
+            <span class="fl-sub">JSON 格式，例如：{"自定义回复": 80, "表情": 20}</span>
+            <textarea class="fta" id="card-item-counts" placeholder='{"自定义回复": 80, "表情": 20}' style="height:72px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
+          </div>
+        </div>
+        <button class="sv-submit-btn" style="--btn-color:#10b981;--btn-shadow:rgba(16,185,129,.35)" onclick="doSubmit('card')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          发送投稿
+        </button>
+        <div class="fallback-panel" id="fallback-card">
+          <div class="fallback-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>没有邮件客户端？手动发送也可以</div>
+          <p class="fallback-desc">把下面的内容复制好，通过 QQ / 微信 / 邮件网页版发给我就行～</p>
+          <div class="fallback-to"><span>收件地址</span><strong id="fb-email-card"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88bbb9bdbab8bbbfbababcc8f9f9a6ebe7e5">[email&#160;protected]</a></strong></div>
+          <textarea class="fallback-code" id="fb-content-card" readonly></textarea>
+          <div class="fallback-btns">
+            <button class="fb-btn" onclick="copyFallback('card')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制投稿内容</button>
+            <button class="fb-btn" onclick="copyEmail('card')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>复制收件地址</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Theme ── -->
+      <div class="form-panel" id="form-theme">
+        <div class="sv-section">
+          <div class="sv-section-label">基本信息</div>
+          <div class="fg"><label class="fl">主题名称</label><input type="text" class="fi" placeholder="例如：樱花粉、暗夜幽蓝" id="theme-name"></div>
+          <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="theme-author"></div>
+          <div class="fg">
+            <label class="fl">主题描述</label>
+            <span class="fl-sub">简单聊聊这个主题的风格和灵感来源</span>
+            <textarea class="fta" id="theme-desc" placeholder="例如：温柔粉色系，灵感来自樱花季的清晨。" style="height:72px"></textarea>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">样式代码</div>
+          <div class="fg">
+            <label class="fl">CSS 代码</label>
+            <span class="fl-sub">包含 <code class="sv-code">:root</code> 变量及各元素覆写样式，参考现有主题格式</span>
+            <textarea class="fta" id="theme-css" placeholder=":root {&#10;  --accent-color: #e8749a;&#10;  ...&#10;}" style="height:160px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">附加信息 <span class="sv-section-opt">可选</span></div>
+          <div class="fg">
+            <label class="fl">主色调</label>
+            <span class="fl-sub">几个代表色的 HEX 值，逗号分隔，用于展示小色卡</span>
+            <input type="text" class="fi" placeholder="#fdf6f8, #e8749a, #f4a0bc" id="theme-colors">
+          </div>
+          <div class="fg">
+            <label class="fl">标签</label>
+            <span class="fl-sub">用逗号分隔，例如：粉色,温柔,浪漫</span>
+            <input type="text" class="fi" placeholder="粉色, 温柔, 浪漫" id="theme-tags">
+          </div>
+        </div>
+        <button class="sv-submit-btn" style="--btn-color:#ec4899;--btn-shadow:rgba(236,72,153,.35)" onclick="doSubmit('theme')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          发送投稿
+        </button>
+        <div class="fallback-panel" id="fallback-theme">
+          <div class="fallback-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>没有邮件客户端？手动发送也可以</div>
+          <p class="fallback-desc">把下面的内容复制好，通过 QQ / 微信 / 邮件网页版发给我就行～</p>
+          <div class="fallback-to"><span>收件地址</span><strong id="fb-email-theme"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ead9dbdfd8dad9ddd8d8deaa9b9bc4898587">[email&#160;protected]</a></strong></div>
+          <textarea class="fallback-code" id="fb-content-theme" readonly></textarea>
+          <div class="fallback-btns">
+            <button class="fb-btn" onclick="copyFallback('theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制投稿内容</button>
+            <button class="fb-btn" onclick="copyEmail('theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>复制收件地址</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Music ── -->
+      <div class="form-panel" id="form-music">
+        <div class="sv-section">
+          <div class="sv-section-label">基本信息</div>
+          <div class="fg"><label class="fl">歌曲名称</label><input type="text" class="fi" placeholder="例如：霓虹甜心、星河夜曲" id="music-name"></div>
+          <div class="fg"><label class="fl">投稿者</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="music-author"></div>
+          <div class="fg"><label class="fl">原唱 / 艺术家 <span class="sv-section-opt">可选</span></label><input type="text" class="fi" placeholder="例如：米津玄師、Yoasobi" id="music-artist"></div>
+          <div class="fg">
+            <label class="fl">推荐理由</label>
+            <span class="fl-sub">聊聊这首歌的风格，或者为什么想分享它</span>
+            <textarea class="fta" id="music-desc" placeholder="例如：适合深夜独处，轻柔电子风格，听了会想起某个人。" style="height:80px"></textarea>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">文件上传</div>
+          <div class="sv-link-guide">
+            <div class="sv-guide-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              怎么获取音频直链？
+            </div>
+            <div class="sv-guide-steps">
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>准备好音频文件（MP3 / FLAC / WAV / M4A 均可）</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，上传文件</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>上传完成后复制那个 <code class="sv-code">https://</code> 开头的链接</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>粘贴到下方输入框，搞定 ✨</div>
+            </div>
+            <div class="sv-guide-tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              还是搞不定？去小红书找 <strong>milk</strong> 主页，有手把手的视频教程～
+            </div>
+            <div class="sv-guide-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              麻烦提交 <code class="sv-code">https://</code> 直链哦，网易云 / QQ 音乐的分享链接我这边没法直接用，到时候还得麻烦你补一次～
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">文件直链</label>
+            <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.mp3" id="music-file-url">
+          </div>
+          <div class="fg">
+            <label class="fl">文件格式</label>
+            <select class="fi" id="music-file-type">
+              <option value="mp3">MP3</option>
+              <option value="flac">FLAC</option>
+              <option value="wav">WAV</option>
+              <option value="m4a">M4A</option>
+              <option value="ogg">OGG</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="sv-section">
+          <div class="sv-section-label">附加信息 <span class="sv-section-opt">可选</span></div>
+          <div class="fg">
+            <label class="fl">时长</label>
+            <input type="text" class="fi" placeholder="例如：3:45" id="music-duration">
+          </div>
+          <div class="fg">
+            <label class="fl">标签</label>
+            <span class="fl-sub">用逗号分隔，例如：电子,轻音乐,治愈</span>
+            <input type="text" class="fi" placeholder="电子, 轻音乐, 治愈" id="music-tags">
+          </div>
+        </div>
+        <button class="sv-submit-btn" style="--btn-color:#a855f7;--btn-shadow:rgba(168,85,247,.35)" onclick="doSubmit('music')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          发送投稿
+        </button>
+        <div class="fallback-panel" id="fallback-music">
+          <div class="fallback-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;color:var(--accent)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>没有邮件客户端？手动发送也可以</div>
+          <p class="fallback-desc">把下面的内容复制好，通过 QQ / 微信 / 邮件网页版发给我就行～</p>
+          <div class="fallback-to"><span>收件地址</span><strong id="fb-email-music"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83b0b2b6b1b3b0b4b1b1b7c3f2f2ade0ecee">[email&#160;protected]</a></strong></div>
+          <textarea class="fallback-code" id="fb-content-music" readonly></textarea>
+          <div class="fallback-btns">
+            <button class="fb-btn" onclick="copyFallback('music')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制投稿内容</button>
+            <button class="fb-btn" onclick="copyEmail('music')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>复制收件地址</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sv-form-card -->
+  </div><!-- /submit-wrap -->
 </div>
 <div class="modal-backdrop" id="modal-backdrop">
   <div class="modal" id="modal" role="dialog" aria-modal="true">

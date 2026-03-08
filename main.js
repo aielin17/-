@@ -819,11 +819,8 @@ const SUBMIT_EMAIL = 'xiaren45@qq.com';
 
 window.switchForm = function(type){
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.s-type-btn').forEach((b,i)=>{
-    b.classList.toggle('active',
-      (type==='bubble'&&i===0)||(type==='font'&&i===1)||(type==='card'&&i===2)||
-      (type==='theme'&&i===3)||(type==='music'&&i===4)
-    );
+  document.querySelectorAll('.sv-type-card').forEach(b=>{
+    b.classList.toggle('active', b.dataset.type === type);
   });
   document.getElementById('form-'+type).classList.add('active');
   ['bubble','font','card','theme','music'].forEach(t=>{
