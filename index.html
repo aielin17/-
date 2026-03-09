@@ -286,14 +286,10 @@
               怎么获取文件直链？
             </div>
             <div class="sv-guide-steps">
-              <div class="sv-guide-step"><span class="sv-step-dot"></span>准备好字卡文件（JSON / TXT / ZIP 均可）</div>
+              <div class="sv-guide-step"><span class="sv-step-dot"></span>准备好字卡文件（JSON 格式）</div>
               <div class="sv-guide-step"><span class="sv-step-dot"></span>打开 <a href="https://img.heliar.top/" target="_blank">img.heliar.top</a> 或 <a href="https://catbox.moe/" target="_blank">Catbox</a>，上传文件</div>
               <div class="sv-guide-step"><span class="sv-step-dot"></span>上传完成后复制那个 <code class="sv-code">https://</code> 开头的链接</div>
               <div class="sv-guide-step"><span class="sv-step-dot"></span>粘贴到下方输入框，搞定 ✨</div>
-            </div>
-            <div class="sv-guide-tip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              还是搞不定？去小红书找 <strong>milk</strong> 主页，有手把手的视频教程～
             </div>
             <div class="sv-guide-note">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -303,28 +299,6 @@
           <div class="fg">
             <label class="fl">文件直链</label>
             <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.json" id="card-file-url">
-          </div>
-          <div class="fg">
-            <label class="fl">文件格式</label>
-            <select class="fi" id="card-file-type">
-              <option value="json">JSON</option>
-              <option value="txt">TXT</option>
-              <option value="zip">ZIP</option>
-              <option value="其他">其他</option>
-            </select>
-          </div>
-        </div>
-        <div class="sv-section">
-          <div class="sv-section-label">附加信息 <span class="sv-section-opt">可选</span></div>
-          <div class="fg">
-            <label class="fl">标签</label>
-            <span class="fl-sub">用逗号分隔，例如：回复,表情,状态</span>
-            <input type="text" class="fi" placeholder="回复, 表情, 状态" id="card-tags">
-          </div>
-          <div class="fg">
-            <label class="fl">内容数量</label>
-            <span class="fl-sub">JSON 格式，例如：{"自定义回复": 80, "表情": 20}</span>
-            <textarea class="fta" id="card-item-counts" placeholder='{"自定义回复": 80, "表情": 20}' style="height:72px;font-family:Menlo,Monaco,monospace;font-size:12px"></textarea>
           </div>
         </div>
         <button class="sv-submit-btn" style="--btn-color:#10b981;--btn-shadow:rgba(16,185,129,.35)" onclick="doSubmit('card')">

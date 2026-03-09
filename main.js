@@ -838,11 +838,10 @@ function buildFontCode(name,author,url,category){
   const nextId='f'+(FONTS.length+1), nextFamily='F'+(FONTS.length+1);
   return `/* === 字体投稿 === */\n/* 1. 在 @font-face 添加: */\n@font-face { font-family:'${nextFamily}'; src:url('${url}') format('truetype'); font-display:swap }\n\n/* 2. 在 FONTS 数组添加: */\n{\n  id:'${nextId}',\n  type:'font',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  family:'${nextFamily}',\n  category:'${category||'其他'}',\n  url:'${url}'\n}`;
 }
-function buildCardCode(name,author,desc,tags,fileUrl,fileType,itemCounts){
+function buildCardCode(name,author,desc,fileUrl){
   const nextId='card'+(CARDS.length+1);
-  const fileName=fileUrl.split('/').pop()||'file.'+fileType;
-  const countsStr=itemCounts?JSON.stringify(itemCounts,null,4):'{}';
-  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  fileType:'${fileType||'json'}',\n  fileName:'${fileName}',\n  file:'${fileUrl}',\n  itemCounts:${countsStr},\n  exportDate:'${new Date().toISOString().slice(0,10)}'\n}`;
+  const fileName=fileUrl.split('/').pop()||'file.json';
+  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  fileType:'json',\n  fileName:'${fileName}',\n  file:'${fileUrl}'\n}`;
 }
 function buildThemeCode(name,author,desc,css,colors,tags){
   const nextId='th'+(THEMES.length+1);
@@ -888,12 +887,9 @@ window.doSubmit = function(type){
     const name=document.getElementById('card-name').value.trim();
     const author=document.getElementById('card-author').value.trim();
     const desc=document.getElementById('card-desc').value.trim();
-    const tags=document.getElementById('card-tags').value.trim();
     const fileUrl=document.getElementById('card-file-url').value.trim();
-    const fileType=document.getElementById('card-file-type').value;
-    const itemCounts=(()=>{try{return JSON.parse(document.getElementById('card-item-counts').value||'null');}catch(e){return null;}})();
     if(!name||!fileUrl){toast('⚠️ 请填写字卡名称和文件链接');return;}
-    code=buildCardCode(name,author,desc,tags,fileUrl,fileType,itemCounts);
+    code=buildCardCode(name,author,desc,fileUrl);
     subject=`【字卡投稿】${name} - ${author||'匿名'}`;
     body=`投稿类型：字卡${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}描述：${desc}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
     document.getElementById('fb-content-card').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
