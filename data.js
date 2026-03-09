@@ -8385,6 +8385,55 @@ itemCounts:{
     "自定义回复": 251
 }
 },
+{
+  id:'card11',
+  type:'card',
+  name:'聊天字卡回复',
+  author:'L',
+  desc:'日常聊天预设，字卡较多较杂',
+  tags:["回复"],
+  fileType:'json',
+  fileName:'聊天.json',
+  file:'https://files.catbox.moe/xivgs7.json',
+},
+{
+  id:'card12',
+  type:'card',
+  name:'塔罗文字版-追加使用',
+  author:'颜荀',
+  desc:'纯文字塔罗牌字卡，有加入两张空白牌——否定与肯定，可根据个人习惯进行删减。适合对基础韦特塔罗牌的画面有一定了解的小宝使用。',
+  tags:["塔罗","字卡"],
+  fileType:'json',
+  fileName:'塔罗.json',
+  file:'https://img.heliar.top/file/1773039920012_塔罗.json',
+  itemCounts:{
+    "自定义回复": 80,
+}
+},
+{
+  id:'card13',
+  type:'card',
+  name:'宝宝',
+  author:'宝宝',
+  desc:'齐司礼',
+  fileType:'json',
+  fileName:'宝宝.json',
+  file:'https://img.heliar.top/file/1773041531708_presets-backup.json',
+},
+{
+  id:'card14',
+  type:'card',
+  name:'秦彻语录台词-追加使用',
+  author:'颜荀',
+  desc:'秦彻台词。游戏内出现过的彻子语录，有简单修改断句。',
+  tags:["秦彻","台词","语录","回复"],
+  fileType:'json',
+  fileName:'秦彻台词字卡.json',
+  file:'https://img.heliar.top/file/1773042404119_秦彻台词字卡.json',
+  itemCounts:{
+    "自定义回复": 122,
+}
+},
 ]; 
 
 const THEMES = [
@@ -8468,36 +8517,54 @@ const THEMES = [
 
 const MUSIC = [
   {
-    id:'mus1', type:'music', name:'余晖', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'傍晚时分写的一首小曲，适合安静的聊天界面背景',
-    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'余晖.mp3',
-    file:'https://files.catbox.moe/example1.mp3', duration:'2:34',
-    exportDate:'2025-01-01'
-  },
-  {
-    id:'mus2', type:'music', name:'暮色', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'黄昏系列第二首，节奏稍快',
-    tags:['纯音乐','治愈','原创'], fileType:'mp3', fileName:'暮色.mp3',
-    file:'https://files.catbox.moe/example2.mp3', duration:'3:12',
-    exportDate:'2025-01-01'
-  },
-  {
-    id:'mus3', type:'music', name:'夜深了', author:'milk',
-    group:'g-mus-evening', groupLabel:'黄昏系列',
-    artist:'原创', desc:'黄昏系列收尾曲',
-    tags:['纯音乐','舒缓','原创'], fileType:'mp3', fileName:'夜深了.mp3',
-    file:'https://files.catbox.moe/example3.mp3', duration:'4:05',
-    exportDate:'2025-01-01'
-  },
-  {
-    id:'mus4', type:'music', name:'第一场雪',  author:'stone',
+    id:'mus1', type:'music', name:'第一场雪',  author:'stone',
     desc:'冬天听的音乐，适合白色系界面',
     tags:['纯音乐','冬日'], fileType:'mp3', fileName:'first_snow.mp3',
     file:'https://files.catbox.moe/example4.mp3', duration:'3:45',
     exportDate:'2025-01-05'
-  }
+  },
+  {
+  id:'mus2',
+  type:'music',
+  name:'MoNo',
+  author:'銮嫣',
+  artist:'花墙FancyWall',
+  desc:'风格轻缓慵懒，像夏日盐汽水，清爽',
+  tags:["电子","氛围感","慵懒"],
+  fileType:'mp3',
+  fileName:'url?id=1845553824.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=1845553824.mp3',
+  duration:'1:46',
+  exportDate:'2026-03-09'
+  },
+  {
+  id:'mus3',
+  type:'music',
+  name:'Half Blood Angel',
+  author:'銮嫣',
+  artist:'Brian Cheng',
+  desc:'比较活泼的音乐，俏皮轻松，适合室外。',
+  tags:["流行","活泼"],
+  fileType:'mp3',
+  fileName:'url?id=2635248857.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=2635248857.mp3',
+  duration:'3:42',
+  exportDate:'2026-03-09'
+  },
+  {
+  id:'mus4',
+  type:'music',
+  name:'A Faint Glow Of Life 生命的微光',
+  author:'銮嫣',
+  artist:'结冰水',
+  desc:'丰富的编曲，适合在夜晚朦胧的灯光下听',
+  tags:["流行","温柔"],
+  fileType:'mp3',
+  fileName:'url?id=2065544118.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=2065544118.mp3',
+  duration:'4:12',
+  exportDate:'2026-03-09'
+  },
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
