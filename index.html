@@ -212,16 +212,6 @@
           <div class="sv-section-label">基本信息</div>
           <div class="fg"><label class="fl">字体名称</label><input type="text" class="fi" placeholder="字体的中文或英文名称" id="font-name"></div>
           <div class="fg"><label class="fl">作者署名</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="font-author"></div>
-          <div class="fg">
-            <label class="fl">字体分类</label>
-            <select class="fi" id="font-category">
-              <option value="手写">手写</option>
-              <option value="楷体">楷体</option>
-              <option value="无衬线">无衬线</option>
-              <option value="等宽">等宽</option>
-              <option value="其他">其他</option>
-            </select>
-          </div>
         </div>
         <div class="sv-section">
           <div class="sv-section-label">文件上传</div>
@@ -373,11 +363,6 @@
           <div class="fg"><label class="fl">歌曲名称</label><input type="text" class="fi" placeholder="例如：霓虹甜心、星河夜曲" id="music-name"></div>
           <div class="fg"><label class="fl">投稿者</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="music-author"></div>
           <div class="fg"><label class="fl">原唱 / 艺术家 <span class="sv-section-opt">可选</span></label><input type="text" class="fi" placeholder="例如：米津玄師、Yoasobi" id="music-artist"></div>
-          <div class="fg">
-            <label class="fl">推荐理由</label>
-            <span class="fl-sub">聊聊这首歌的风格，或者为什么想分享它</span>
-            <textarea class="fta" id="music-desc" placeholder="例如：适合深夜独处，轻柔电子风格，听了会想起某个人。" style="height:80px"></textarea>
-          </div>
         </div>
         <div class="sv-section">
           <div class="sv-section-label">文件上传</div>
@@ -392,10 +377,6 @@
               <div class="sv-guide-step"><span class="sv-step-dot"></span>上传完成后复制那个 <code class="sv-code">https://</code> 开头的链接</div>
               <div class="sv-guide-step"><span class="sv-step-dot"></span>粘贴到下方输入框，搞定 ✨</div>
             </div>
-            <div class="sv-guide-tip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              还是搞不定？去小红书找 <strong>milk</strong> 主页，有手把手的视频教程～
-            </div>
             <div class="sv-guide-note">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
               麻烦提交 <code class="sv-code">https://</code> 直链哦，网易云 / QQ 音乐的分享链接我这边没法直接用，到时候还得麻烦你补一次～
@@ -404,29 +385,6 @@
           <div class="fg">
             <label class="fl">文件直链</label>
             <input type="text" class="fi" placeholder="https://files.catbox.moe/xxxxxx.mp3" id="music-file-url">
-          </div>
-          <div class="fg">
-            <label class="fl">文件格式</label>
-            <select class="fi" id="music-file-type">
-              <option value="mp3">MP3</option>
-              <option value="flac">FLAC</option>
-              <option value="wav">WAV</option>
-              <option value="m4a">M4A</option>
-              <option value="ogg">OGG</option>
-              <option value="其他">其他</option>
-            </select>
-          </div>
-        </div>
-        <div class="sv-section">
-          <div class="sv-section-label">附加信息 <span class="sv-section-opt">可选</span></div>
-          <div class="fg">
-            <label class="fl">时长</label>
-            <input type="text" class="fi" placeholder="例如：3:45" id="music-duration">
-          </div>
-          <div class="fg">
-            <label class="fl">标签</label>
-            <span class="fl-sub">用逗号分隔，例如：电子,轻音乐,治愈</span>
-            <input type="text" class="fi" placeholder="电子, 轻音乐, 治愈" id="music-tags">
           </div>
         </div>
         <button class="sv-submit-btn" style="--btn-color:#a855f7;--btn-shadow:rgba(168,85,247,.35)" onclick="doSubmit('music')">

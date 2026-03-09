@@ -834,9 +834,9 @@ function buildBubbleCode(name,author,css,demos,series,groupId){
   const groupLine = groupId ? `\n  group:'${groupId}',\n  groupLabel:'${series||groupId}',` : (series?`\n  /* 系列：${series} */`:'');
   return `/* === 气泡投稿 === */\n{\n  id:'${nextId}',\n  type:'bubble',\n  name:'${name}',\n  author:'${author||'匿名'}',${groupLine}\n  previews:[\n${prevStr}\n  ],\n  css:\`${css}\`\n}`;
 }
-function buildFontCode(name,author,url,category){
+function buildFontCode(name,author,url){
   const nextId='f'+(FONTS.length+1), nextFamily='F'+(FONTS.length+1);
-  return `/* === 字体投稿 === */\n/* 1. 在 @font-face 添加: */\n@font-face { font-family:'${nextFamily}'; src:url('${url}') format('truetype'); font-display:swap }\n\n/* 2. 在 FONTS 数组添加: */\n{\n  id:'${nextId}',\n  type:'font',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  family:'${nextFamily}',\n  category:'${category||'其他'}',\n  url:'${url}'\n}`;
+  return `/* === 字体投稿 === */\n/* 1. 在 @font-face 添加: */\n@font-face { font-family:'${nextFamily}'; src:url('${url}') format('truetype'); font-display:swap }\n\n/* 2. 在 FONTS 数组添加: */\n{\n  id:'${nextId}',\n  type:'font',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  family:'${nextFamily}',\n  url:'${url}'\n}`;
 }
 function buildCardCode(name,author,desc,fileUrl){
   const nextId='card'+(CARDS.length+1);
@@ -848,10 +848,11 @@ function buildThemeCode(name,author,desc,css,colors,tags){
   const colorsArr=colors.split(/[,\s]+/).filter(s=>s.startsWith('#'));
   return `/* === 主题投稿 === */\n{\n  id:'${nextId}',\n  type:'theme',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  colors:${JSON.stringify(colorsArr)},\n  css:\`${css}\`\n}`;
 }
-function buildMusicCode(name,author,artist,desc,fileUrl,fileType,duration,tags){
+function buildMusicCode(name,author,artist,fileUrl){
   const nextId='mus'+(MUSIC.length+1);
-  const fileName=fileUrl.split('/').pop()||'song.'+fileType;
-  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  ${artist?`artist:'${artist}',\n  `:''}desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  fileType:'${fileType||'mp3'}',\n  fileName:'${fileName}',\n  file:'${fileUrl}',\n  ${duration?`duration:'${duration}',\n  `:''}exportDate:'${new Date().toISOString().slice(0,10)}'\n}`;
+  const fileName=fileUrl.split('/').pop()||'song.mp3';
+  const ext=(fileName.split('.').pop()||'mp3').toLowerCase();
+  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  ${artist?`artist:'${artist}',\n  `:''}fileType:'${ext}',\n  fileName:'${fileName}',\n  file:'${fileUrl}'\n}`;
 }
 
 window.doSubmit = function(type){
@@ -875,11 +876,10 @@ window.doSubmit = function(type){
     const name=document.getElementById('font-name').value.trim();
     const author=document.getElementById('font-author').value.trim();
     const url=document.getElementById('font-url').value.trim();
-    const cat=document.getElementById('font-category').value;
     if(!name||!url){toast('⚠️ 请填写名称和字体链接');return;}
-    code=buildFontCode(name,author,url,cat);
+    code=buildFontCode(name,author,url);
     subject=`【字体投稿】${name} - ${author||'匿名'}`;
-    body=`投稿类型：字体${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}分类：${cat}${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    body=`投稿类型：字体${nl}名称：${name}${nl}作者：${author||'匿名'}${nl}${nl}--- 数据条目 ---${nl}${code}`;
     document.getElementById('fb-content-font').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-font').classList.add('show');
 
@@ -913,15 +913,11 @@ window.doSubmit = function(type){
     const name=document.getElementById('music-name').value.trim();
     const author=document.getElementById('music-author').value.trim();
     const artist=document.getElementById('music-artist').value.trim();
-    const desc=document.getElementById('music-desc').value.trim();
     const fileUrl=document.getElementById('music-file-url').value.trim();
-    const fileType=document.getElementById('music-file-type').value;
-    const duration=document.getElementById('music-duration').value.trim();
-    const tags=document.getElementById('music-tags').value.trim();
     if(!name||!fileUrl){toast('⚠️ 请填写歌曲名称和文件链接');return;}
-    code=buildMusicCode(name,author,artist,desc,fileUrl,fileType,duration,tags);
+    code=buildMusicCode(name,author,artist,fileUrl);
     subject=`【音乐投稿】${name} - ${author||'匿名'}`;
-    body=`投稿类型：音乐${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${nl}描述：${desc}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    body=`投稿类型：音乐${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
     document.getElementById('fb-content-music').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-music').classList.add('show');
 
