@@ -8243,6 +8243,174 @@ position: relative;
   display: none !important;
 }`
 },
+{
+  id:'b116',
+  type:'bubble',
+  name:'半透白',
+  author:'Spring',
+  group:'bantouming',
+  groupLabel:'半透明系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 20px !important;
+  padding: 6px 20px !important;
+  overflow: visible !important;
+  background-color: #ffffff !important;
+  background: 
+    radial-gradient(ellipse 80% 40% at center, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%),
+    #ffffff !important;
+  color: #2d3748 !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 0 18px 6px rgba(255, 255, 255, 0.7) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.message > div {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  background-color: transparent !important;
+}`
+},
+{
+  id:'b116',
+  type:'bubble',
+  name:'半透黑',
+  author:'Spring',
+  group:'bantouming',
+  groupLabel:'半透明系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 20px !important;
+  padding: 6px 20px !important;
+  overflow: visible !important;
+  background-color: #ffffff !important;
+  background: 
+    radial-gradient(ellipse 80% 40% at center, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%),
+    #ffffff !important;
+  color: #2d3748 !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 0 12px 4px rgba(100,100,100,0.25) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.message > div {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.message.message-received,
+.message.message-sent {
+  border: 1px solid rgba(120,120,120,0.2) !important;
+  background-color: transparent !important;
+}`
+},{
+  id:'b117',
+  type:'bubble',
+  name:'水云小兔',
+  author:'Spring',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 15px !important;
+  padding: 4px 12px !important;
+  background: #f2fafd !important;
+  color: #333 !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERm8hpsSMdPgT0nJevmmOVz0rk3ioaJgAChxwAAsVSiFWn82RIoTELwzoE.png') no-repeat center !important;
+  background-size: contain !important;
+  top: -28px !important;
+  left: -8px !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 38px !important;
+  height: 38px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERm89psSQmwu4hwpIP1vxPRnV1j_5-FQACjxwAAsVSiFXyM-xXMZywXDoE.png') no-repeat center !important;
+  background-size: contain !important;
+  bottom: -18px !important;
+  right: -14px !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERm5dpsRs_Wc-89sp0RfwfV87ZAdB-OgACHRwAAsVSiFX1bezD8iFYVToE.png') no-repeat center !important;
+  background-size: contain !important;
+  top: -24px !important;
+  left: -8px !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 35px !important;
+  height: 35px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERm8BpsSHIxXNIbu9vvIyAKrFU0qSMjwACeBwAAsVSiFVplYoRv05UbzoE.png') no-repeat center !important;
+  background-size: contain !important;
+  bottom: -18px !important;
+  right: -14px !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.message.message-received,
+.message.message-sent {
+  border: 4px solid #ffffff !important;
+  background-color: #f2fafd !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -8434,6 +8602,56 @@ itemCounts:{
     "自定义回复": 122,
 }
 },
+{
+  id:'card15',
+  type:'card',
+  name:'日常用',
+  author:'星星',
+  desc:'日常聊天',
+  fileType:'json',
+  fileName:'1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json',
+  file:'https://img.heliar.top/file/1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json'
+},
+{
+  id:'card16',
+  type:'card',
+  name:'880条整理分类版',
+  author:'名字',
+  desc:'整理了其他姐妹分享的部分字卡，应该覆盖面比较全，有小分组可以自行调整ദ്ദിᵔ.˛.ᵔ₎✧',
+  fileType:'json',
+ fileName:'1773073893237_880%E6%9D%A1%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%E7%89%88%E6%9C%AC.json',
+  file:'https://img.heliar.top/file/1773073893237_880%E6%9D%A1%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%E7%89%88%E6%9C%AC.json'
+},
+{
+id:'card15',
+type:'card',
+name:'有关易遇的字卡',
+author:'阿布格',
+desc:'适用于推易遇的夫人，触雷致歉',
+fileType:'json',
+fileName:'1773123521894_回复.json',
+file:'https://img.heliar.top/file/1773123521894_回复.json'
+},
+{
+id:'card16',
+type:'card',
+name:'雷诺曼卡牌',
+author:'阿布格',
+desc:'雷诺曼牌数量较少且牌面元素更直观 更易理解主要看牌的排列组合 可以结合牌面让deepseek 帮助解答',
+fileType:'json',
+fileName:'1773129660823_雷诺曼.json',
+file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
+},
+{
+  id:'card17',
+  type:'card',
+  name:'义勇专属字卡',
+  author:'富冈义勇重度依赖',
+  desc:'我觉得日常聊天应该没问题，后续我会更新更多字卡，目前只有208个，如果你没有重复的话',
+  fileType:'json',
+  fileName:'1773129727431_reply-groups-义勇专属字卡-2026-03-10.json',
+  file:'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
+},
 ]; 
 
 const THEMES = [
@@ -8564,6 +8782,16 @@ const MUSIC = [
   file:'https://music.163.com/song/media/outer/url?id=2065544118.mp3',
   duration:'4:12',
   exportDate:'2026-03-09'
+  },
+  {
+  id:'mus5',
+  type:'music',
+  name:'偏爱',
+  author:'YY～',
+  artist:'等你的依赖， 对你偏爱',
+  fileType:'mp3',
+  fileName:'url?id=5238992.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=5238992.mp3'
   },
 ];
 
