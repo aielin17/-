@@ -252,6 +252,7 @@ body{
 .card-type-card:hover{border-color:color-mix(in srgb,var(--border-strong) 55%,#16a34a) !important}
 
 .card-desc{font-size:11.5px;color:var(--text-sub);line-height:1.55;margin:-2px 0 2px}
+.card-desc{white-space:pre-wrap;word-break:break-word}
 .card-counts{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0}
 .card-count-item{
   font-size:10.5px;color:var(--text-sub);background:#f0faf5;
@@ -414,6 +415,7 @@ body{
 .card-modal-hero svg{width:32px;height:32px;color:#16a34a}
 .modal-hero-section{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 20px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
 .card-modal-desc{font-size:13.5px;color:var(--text-sub);text-align:center;line-height:1.65;padding:0 8px;max-width:380px}
+.card-modal-desc{white-space:pre-wrap;word-break:break-word}
 .card-modal-counts{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));
   gap:8px;padding:16px 18px;background:var(--surface);border-bottom:1px solid var(--border);
@@ -469,6 +471,25 @@ body{
 .music-modal-hero svg{width:32px;height:32px;color:#7c3aed}
 .music-hero-section{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 20px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
 .music-modal-desc{font-size:13.5px;color:var(--text-sub);text-align:center;line-height:1.65;padding:0 8px;max-width:380px}
+.music-modal-desc{white-space:pre-wrap;word-break:break-word}
+
+/* ── Pager ─────────────────────────────────────────────────────────────── */
+.pager{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.pager-btn{
+  height:30px;padding:0 10px;border-radius:9px;
+  border:1.5px solid var(--border);background:var(--surface);
+  font-size:12px;font-weight:700;color:var(--text-sub);
+  cursor:pointer;transition:.15s;font-family:inherit;
+}
+.pager-btn:hover{border-color:var(--border-strong);color:var(--text);background:var(--surface-2)}
+.pager-btn:disabled{opacity:.45;cursor:not-allowed}
+.pager-text{font-size:12px;color:var(--text-muted);font-weight:600;min-width:64px;text-align:center}
+.pager-size{
+  height:30px;border-radius:9px;border:1.5px solid var(--border);
+  background:var(--surface);font-size:12px;font-weight:700;color:var(--text-sub);
+  padding:0 8px;cursor:pointer;font-family:inherit;
+}
+.pager-size:hover{border-color:var(--border-strong);color:var(--text);background:var(--surface-2)}
 .music-modal-meta{background:var(--surface);border-top:1px solid var(--border)}
 .music-modal-tags{justify-content:center;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--border)}
 .music-dl-btn{background:linear-gradient(135deg,#7c3aed,#6d28d9) !important;border-color:transparent !important}

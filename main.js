@@ -11,8 +11,10 @@ function saveFontFavs(arr){ try{ localStorage.setItem(LS_FONT_FAV, JSON.stringif
 
 let favorites    = loadFavs();
 let fontFavorites = loadFontFavs();
-let state = { type:'all', author:'all', query:'', fontFamily: loadFont() };
+let state = { type:'all', author:'all', query:'', fontFamily: loadFont(), page: 1, pageSize: 36 };
 let currentModalItem = null;
+
+function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
 // ── Toast ─────────────────────────────────────────────────────────────────
 function toast(msg, dur=2800){
@@ -37,8 +39,36 @@ function copyText(text, label){
 }
 
 // ── File download (字卡 / 音乐 通用) ──────────────────────────────────────
+function safeFilenamePart(s){
+  const t = String(s || '').trim();
+  if(!t) return 'file';
+  // Windows 不允许的文件名字符：\ / : * ? " < > |
+  return t
+    .replace(/[\\\/:\*\?"<>\|]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 90) || 'file';
+}
+function guessExt(item){
+  const ft = String(item.fileType||'').trim().toLowerCase();
+  if(ft) return ft;
+  const raw = String(item.fileName||'').trim();
+  const m1 = raw.match(/\.([a-z0-9]{1,8})$/i);
+  if(m1) return m1[1].toLowerCase();
+  const url = String(item.file||'').trim();
+  const m2 = url.match(/\.([a-z0-9]{1,8})(?:\?|#|$)/i);
+  return m2 ? m2[1].toLowerCase() : 'bin';
+}
+function getNiceDownloadName(item){
+  const ext = guessExt(item);
+  const base = safeFilenamePart(item.name || item.id);
+  const low = base.toLowerCase();
+  const dotExt = '.' + String(ext || '').toLowerCase();
+  if(dotExt !== '.' && low.endsWith(dotExt)) return base;
+  return `${base}.${ext}`;
+}
 function downloadFile(item){
-  const fileName = item.fileName || (item.id + '.' + (item.fileType || 'bin'));
+  const fileName = getNiceDownloadName(item);
   toast('📥 正在下载…');
   fetch(item.file)
     .then(res => {
@@ -182,7 +212,21 @@ function renderCards(){
   const info = document.getElementById('toolbar-info');
   if(info) info.textContent = filtered.length + ' 个结果';
 
-  if(!filtered.length){
+  const total = filtered.length;
+  const pageSize = clamp(parseInt(state.pageSize, 10) || 36, 6, 240);
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  state.page = clamp(parseInt(state.page, 10) || 1, 1, totalPages);
+  const start = (state.page - 1) * pageSize;
+  const pageItems = filtered.slice(start, start + pageSize);
+
+  const pagerText = document.getElementById('pager-text');
+  const prevBtn = document.getElementById('pager-prev');
+  const nextBtn = document.getElementById('pager-next');
+  if(pagerText) pagerText.textContent = `第 ${state.page} / ${totalPages} 页`;
+  if(prevBtn) prevBtn.disabled = state.page <= 1;
+  if(nextBtn) nextBtn.disabled = state.page >= totalPages;
+
+  if(!pageItems.length){
     grid.innerHTML = `<div class="empty-state">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <p>${state.type==='fav' ? '还没有收藏，点击 ♡ 收藏喜欢的样式' : '没有找到匹配的内容'}</p>
@@ -192,7 +236,7 @@ function renderCards(){
 
   const renderedGroups = new Set();
   let idx = 0;
-  filtered.forEach(item=>{
+  pageItems.forEach(item=>{
     // Group header
     if(item.group){
       if(renderedGroups.has(item.group)) return;
@@ -773,6 +817,7 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 // ── State setters ─────────────────────────────────────────────────────────
 function setType(t){
   state.type = t;
+  state.page = 1;
   ['type-list','m-type-list'].forEach(id=>{
     const list = document.getElementById(id);
     if(!list) return;
@@ -780,7 +825,7 @@ function setType(t){
   });
   renderCards();
 }
-function setAuthor(a){ state.author = a; renderAuthors(); renderCards(); }
+function setAuthor(a){ state.author = a; state.page = 1; renderAuthors(); renderCards(); }
 
 ['type-list','m-type-list'].forEach(id=>{
   const list = document.getElementById(id);
@@ -792,6 +837,7 @@ function setAuthor(a){ state.author = a; renderAuthors(); renderCards(); }
 
 document.getElementById('search-input').addEventListener('input', function(){
   state.query = this.value.trim();
+  state.page = 1;
   renderCards();
 });
 
@@ -814,6 +860,23 @@ document.getElementById('filter-drawer-bg').addEventListener('click', ()=>{
   document.getElementById('filter-drawer').classList.remove('open');
 });
 
+// ── Pager events ───────────────────────────────────────────────────────────
+(function(){
+  const prevBtn = document.getElementById('pager-prev');
+  const nextBtn = document.getElementById('pager-next');
+  const sizeSel = document.getElementById('pager-size');
+  if(prevBtn) prevBtn.addEventListener('click', ()=>{ state.page = Math.max(1, (state.page||1) - 1); renderCards(); });
+  if(nextBtn) nextBtn.addEventListener('click', ()=>{ state.page = (state.page||1) + 1; renderCards(); });
+  if(sizeSel){
+    sizeSel.value = String(state.pageSize || 36);
+    sizeSel.addEventListener('change', ()=>{
+      state.pageSize = parseInt(sizeSel.value, 10) || 36;
+      state.page = 1;
+      renderCards();
+    });
+  }
+})();
+
 // ── Submit forms ──────────────────────────────────────────────────────────
 const SUBMIT_EMAIL = 'xiaren45@qq.com';
 
@@ -828,6 +891,8 @@ window.switchForm = function(type){
   });
 };
 
+function jsString(v){ return JSON.stringify(String(v ?? '')); }
+
 function buildBubbleCode(name,author,css,demos,series,groupId){
   const prevStr = demos.filter(d=>d.v).map(d=>`    {t:'${d.t}',v:'${d.v.replace(/'/g,"\\'")}'}` ).join(',\n');
   const nextId = 'b'+(BUBBLES.length+1);
@@ -841,18 +906,18 @@ function buildFontCode(name,author,url){
 function buildCardCode(name,author,desc,fileUrl){
   const nextId='card'+(CARDS.length+1);
   const fileName=fileUrl.split('/').pop()||'file.json';
-  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  fileType:'json',\n  fileName:'${fileName}',\n  file:'${fileUrl}'\n}`;
+  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  desc:${jsString(desc)},\n  fileType:'json',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`;
 }
 function buildThemeCode(name,author,desc,css,colors,tags){
   const nextId='th'+(THEMES.length+1);
   const colorsArr=colors.split(/[,\s]+/).filter(s=>s.startsWith('#'));
-  return `/* === 主题投稿 === */\n{\n  id:'${nextId}',\n  type:'theme',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  desc:'${desc}',\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  colors:${JSON.stringify(colorsArr)},\n  css:\`${css}\`\n}`;
+  return `/* === 主题投稿 === */\n{\n  id:'${nextId}',\n  type:'theme',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  desc:${jsString(desc)},\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  colors:${JSON.stringify(colorsArr)},\n  css:\`${css}\`\n}`;
 }
-function buildMusicCode(name,author,artist,fileUrl){
+function buildMusicCode(name,author,artist,desc,fileUrl){
   const nextId='mus'+(MUSIC.length+1);
   const fileName=fileUrl.split('/').pop()||'song.mp3';
   const ext=(fileName.split('.').pop()||'mp3').toLowerCase();
-  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:'${name}',\n  author:'${author||'匿名'}',\n  ${artist?`artist:'${artist}',\n  `:''}fileType:'${ext}',\n  fileName:'${fileName}',\n  file:'${fileUrl}'\n}`;
+  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  ${artist?`artist:${jsString(artist)},\n  `:''}${desc?`desc:${jsString(desc)},\n  `:''}fileType:'${ext}',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`;
 }
 
 window.doSubmit = function(type){
@@ -913,11 +978,13 @@ window.doSubmit = function(type){
     const name=document.getElementById('music-name').value.trim();
     const author=document.getElementById('music-author').value.trim();
     const artist=document.getElementById('music-artist').value.trim();
+    const descEl=document.getElementById('music-desc');
+    const desc=descEl ? descEl.value.trim() : '';
     const fileUrl=document.getElementById('music-file-url').value.trim();
     if(!name||!fileUrl){toast('⚠️ 请填写歌曲名称和文件链接');return;}
-    code=buildMusicCode(name,author,artist,fileUrl);
+    code=buildMusicCode(name,author,artist,desc,fileUrl);
     subject=`【音乐投稿】${name} - ${author||'匿名'}`;
-    body=`投稿类型：音乐${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    body=`投稿类型：音乐${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${desc?nl+'简介：'+desc:''}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
     document.getElementById('fb-content-music').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-music').classList.add('show');
 
@@ -962,6 +1029,17 @@ window.copyEmail    = function(type){ copyText(SUBMIT_EMAIL, '收件地址'); };
   if(el) el.textContent=SUBMIT_EMAIL;
 });
 
-updateFavCounts();
-renderAuthors();
-renderCards();
+// 如果 data.js 解析失败或未加载，避免整页“只剩样式”
+if(typeof ALL === 'undefined'){
+  const grid = document.getElementById('card-grid');
+  if(grid){
+    grid.innerHTML = `<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 16h.01"/></svg>
+      <p>数据加载失败：请检查 <code>data.js</code> 是否有语法错误（常见原因：简介里直接回车换行导致单引号字符串断裂）。</p>
+    </div>`;
+  }
+} else {
+  updateFavCounts();
+  renderAuthors();
+  renderCards();
+}

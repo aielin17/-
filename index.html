@@ -83,6 +83,17 @@
         筛选
       </div>
       <span class="toolbar-info" id="toolbar-info">0 个结果</span>
+      <div class="pager" id="pager">
+        <button class="pager-btn" id="pager-prev" type="button" title="上一页">上一页</button>
+        <span class="pager-text" id="pager-text">第 1 页</span>
+        <button class="pager-btn" id="pager-next" type="button" title="下一页">下一页</button>
+        <select class="pager-size" id="pager-size" title="每页数量">
+          <option value="24">24/页</option>
+          <option value="36" selected>36/页</option>
+          <option value="48">48/页</option>
+          <option value="72">72/页</option>
+        </select>
+      </div>
     </div>
     <div class="card-area">
       <div class="card-grid" id="card-grid"></div>
@@ -363,6 +374,11 @@
           <div class="fg"><label class="fl">歌曲名称</label><input type="text" class="fi" placeholder="例如：霓虹甜心、星河夜曲" id="music-name"></div>
           <div class="fg"><label class="fl">投稿者</label><input type="text" class="fi" placeholder="展示在画廊里的昵称" id="music-author"></div>
           <div class="fg"><label class="fl">原唱 / 艺术家 <span class="sv-section-opt">可选</span></label><input type="text" class="fi" placeholder="例如：米津玄師、Yoasobi" id="music-artist"></div>
+          <div class="fg">
+            <label class="fl">音乐简介 <span class="sv-section-opt">可选</span></label>
+            <span class="fl-sub">可以换行，展示在音乐详情里</span>
+            <textarea class="fta" id="music-desc" placeholder="例如：夜晚听会更有氛围感…" style="height:80px"></textarea>
+          </div>
         </div>
         <div class="sv-section">
           <div class="sv-section-label">文件上传</div>
