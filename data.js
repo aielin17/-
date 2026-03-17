@@ -110,7 +110,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  family:'F16',
  category:'手写',
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
-}
+},
 {
   id:'f17',
   type:'font',
@@ -126,7 +126,7 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
   author:'讨厌香菜',
   family:'F18',
   url:'https://image.uglycat.cc/bfdzm8.ttf'
-}
+},
 {
   id:'f19',
   type:'font',
@@ -8855,7 +8855,7 @@ itemCounts:{
   author:'星星',
   desc:'日常聊天',
   fileType:'json',
-  fileName:'1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json',
+  fileName:'星星.json',
   file:'https://img.heliar.top/file/1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json'
 },
 {
@@ -8865,7 +8865,7 @@ itemCounts:{
   author:'名字',
   desc:'整理了其他姐妹分享的部分字卡，应该覆盖面比较全，有小分组可以自行调整ദ്ദിᵔ.˛.ᵔ₎✧',
   fileType:'json',
- fileName:'1773073893237_880%E6%9D%A1%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%E7%89%88%E6%9C%AC.json',
+ fileName:'整理分类.json',
   file:'https://img.heliar.top/file/1773073893237_880%E6%9D%A1%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%E7%89%88%E6%9C%AC.json'
 },
 {
@@ -8875,7 +8875,7 @@ name:'有关易遇的字卡',
 author:'阿布格',
 desc:'适用于推易遇的夫人，触雷致歉',
 fileType:'json',
-fileName:'1773123521894_回复.json',
+fileName:'易遇.json',
 file:'https://img.heliar.top/file/1773123521894_回复.json'
 },
 {
@@ -8885,7 +8885,7 @@ name:'雷诺曼卡牌',
 author:'阿布格',
 desc:'雷诺曼牌数量较少且牌面元素更直观 更易理解主要看牌的排列组合 可以结合牌面让deepseek 帮助解答',
 fileType:'json',
-fileName:'1773129660823_雷诺曼.json',
+fileName:'雷诺曼.json',
 file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
 },
 {
@@ -8895,7 +8895,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'富冈义勇重度依赖',
   desc:'我觉得日常聊天应该没问题，后续我会更新更多字卡，目前只有208个，如果你没有重复的话',
   fileType:'json',
-  fileName:'1773129727431_reply-groups-义勇专属字卡-2026-03-10.json',
+  fileName:'义勇.json',
   file:'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
 },
 {
@@ -8905,7 +8905,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'沈弃云',
   desc:'一些状态补充，吃饭喝水洗澡出行……',
   fileType:'json',
-  fileName:'1773221829605_reply-groups-状态字卡-2026-03-11.json',
+  fileName:'状态.json',
   file:'https://img.heliar.top/file/1773221829605_reply-groups-状态字卡-2026-03-11.json'
 },
 {
@@ -8915,7 +8915,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'贝',
   desc:'适用于二次元角色，灰谷蘭',
   fileType:'json',
-  fileName:'presets-backup.json',
+  fileName:'二次元.json',
   file:'https://test.fukit.cn/autoupload/fr/XJglDafhZUE60wgAGb1KXHtH5Wh6vJkr2c_rKWdz_leyl5f0KlZfm6UsKj-HyTuv/20260312/b6gm/presets-backup.json'
 },
 {
@@ -8925,7 +8925,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'momo',
   desc:'黎深的一些语录',
   fileType:'json',
-  fileName:'1773326106450_黎深语录.json',
+  fileName:'黎深语录.json',
   file:'https://img.heliar.top/file/1773326106450_黎深语录.json'
 },
 {
@@ -8945,9 +8945,9 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'秋砚痕',
   desc:'顾时夜少量语录，大部分可以正常对话，推四哥的可以使用，谢谢使用！（不喜勿喷）',
   fileType:'json',
-  fileName:'1773466807273_test_format1773465797.json',
+  fileName:'黎深.json',
   file:'https://img.heliar.top/file/1773466807273_test_format1773465797.json'
-}
+},
 {
   id:'card23',
   type:'card',
@@ -8955,7 +8955,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'橘子大王&橘夫',
   desc:'对的，为了自己方便把纸质的双生火焰字卡上传了一下，内容是 英文+中文翻译',
   fileType:'json',
-  fileName:'>',
+  fileName:'双生火焰',
   file:'<img src="https://img.heliar.top/file/1773546083342_code_20260315.json"; alt="code_20260315.json" width=100% />'
 },
 {
@@ -8965,9 +8965,9 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
  author:'EpSi_L',
  desc:'重新研究了下json再投一遍，都可以用 但有加括号里面写了点我的一些os，🍠同名，老大们可以先去看看内容大概👉🏻👈🏻 我有发出来展示',
  fileType:'json',
- fileName:'8k7z93.json',
+ fileName:'关心问候.json',
  file:'https://files.catbox.moe/8k7z93.json'
-}
+},
 {
   id:'card25',
   type:'card',
@@ -8975,7 +8975,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   author:'框框',
   desc:'含🍎向，不喜勿下自删。参考小红书一些老师的词句。感恩每位产出的老师，我只是收集。',
   fileType:'json',
-  fileName:'1773566098585_夏以昼相关字卡.json',
+  fileName:'夏以昼相关字卡.json',
   file:'https://img.heliar.top/file/1773566098585_夏以昼相关字卡.json'
 },
 {
@@ -8983,11 +8983,9 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   type:'card',
   name:'歌词精选',
   author:'百叶风笙',
-  desc:'各种歌词，如«春雪»«九万字»«love story»«是风动»«虚拟»
-你在我身畔 听竹林正摇乱
-你是我未曾拥有无法捕捉的亲昵',
+  desc:'各种歌词，如«春雪»«九万字»«love story»«是风动»«虚拟»\n你在我身畔\n听竹林正摇乱\n你是我未曾拥有无法捕捉的亲昵',
   fileType:'json',
-  fileName:'1773749887677_reply-groups-歌词-2026-03-17.json',
+  fileName:'歌词.json',
   file:'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
 },
 ]; 
@@ -9076,7 +9074,7 @@ const THEMES = [
   author:'文夏',
   desc:'浅色蓝',
   tags:["蓝色"],
-  colors:["#f6f9ff，#eaf4ff，#4a90e2，#2a3a52，#7a8ca6"],
+  colors:["#f6f9ff,#eaf4ff,#4a90e2,#2a3a52,#7a8ca6"],
   css:`:root {
   --primary-bg: #f6f9ff;
   --secondary-bg: #eaf4ff;
