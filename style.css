@@ -556,6 +556,139 @@ body{
 .submit-view::-webkit-scrollbar{width:4px}
 .submit-view::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 
+.submit-wrap{width:100%;max-width:720px;display:flex;flex-direction:column;gap:14px}
+
+/* New submit UI (sv-*) */
+.sv-hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(var(--accent-rgb),.10),rgba(168,85,247,.10));
+  border:1.5px solid color-mix(in srgb,var(--border) 75%, rgba(var(--accent-rgb),.20));
+  border-radius:22px;
+  padding:18px 18px;
+  display:flex;align-items:center;gap:14px;
+  box-shadow:var(--shadow-xs);
+}
+.sv-hero-glow{
+  position:absolute;inset:-40%;
+  background:radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb),.18), transparent 55%),
+             radial-gradient(circle at 70% 70%, rgba(168,85,247,.18), transparent 55%);
+  filter:blur(18px);
+  pointer-events:none;
+}
+.sv-hero-icon{
+  width:44px;height:44px;border-radius:16px;
+  background:linear-gradient(135deg,var(--accent),#a855f7);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 26px rgba(var(--accent-rgb),.22);
+  flex-shrink:0;
+}
+.sv-hero-icon svg{width:20px;height:20px}
+.sv-hero-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.sv-hero-text h2{font-size:18px;font-weight:900;letter-spacing:-.4px;color:var(--text)}
+.sv-hero-text p{font-size:12.5px;color:var(--text-sub);line-height:1.55}
+
+.sv-type-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0, 1fr));
+  gap:10px;
+}
+.sv-type-card{
+  border:1.5px solid var(--border);
+  background:var(--surface);
+  border-radius:18px;
+  padding:12px 12px 11px;
+  cursor:pointer;
+  text-align:left;
+  display:flex;flex-direction:column;gap:7px;
+  transition:all .18s;
+  box-shadow:var(--shadow-xs);
+  font-family:inherit;
+  color:var(--text);
+}
+.sv-type-card:hover{border-color:var(--border-strong);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.sv-type-card.active{
+  border-color:rgba(var(--accent-rgb),.55);
+  box-shadow:0 0 0 3px var(--accent-bg),var(--shadow-sm);
+}
+.sv-type-icon{
+  width:34px;height:34px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--tcb, var(--accent-bg));
+  color:var(--tc, var(--accent));
+  border:1px solid color-mix(in srgb,var(--border) 70%, var(--tc, var(--accent)));
+}
+.sv-type-icon svg{width:16px;height:16px}
+.sv-type-name{font-size:13px;font-weight:800;letter-spacing:-.2px;color:var(--text)}
+.sv-type-sub{font-size:11.5px;color:var(--text-muted);line-height:1.35}
+
+.sv-form-card{
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:22px;
+  padding:18px 18px 16px;
+  box-shadow:var(--shadow-sm);
+}
+.sv-section{display:flex;flex-direction:column;gap:10px}
+.sv-section + .sv-section{margin-top:14px}
+.sv-section-label{
+  font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.9px;
+  color:var(--text-muted);
+  display:flex;align-items:center;gap:8px;
+}
+.sv-section-opt{font-size:10px;font-weight:800;color:var(--text-muted)}
+.sv-code{
+  font-family:Menlo,Monaco,"Cascadia Mono",monospace;
+  font-size:11px;
+  padding:1px 6px;
+  border-radius:6px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  color:var(--text-sub);
+}
+
+.sv-link-guide{
+  background:var(--surface-2);
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  padding:14px 14px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.sv-guide-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--text)}
+.sv-guide-head svg{width:16px;height:16px;opacity:.8}
+.sv-guide-steps{display:flex;flex-direction:column;gap:6px}
+.sv-guide-step{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-sub);line-height:1.6}
+.sv-step-dot{width:7px;height:7px;border-radius:50%;background:rgba(var(--accent-rgb),.55);margin-top:6px;flex-shrink:0}
+.sv-guide-tip,.sv-guide-note{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:12px;line-height:1.6;color:var(--text-sub);
+  background:rgba(var(--accent-rgb),.06);
+  border:1px solid rgba(var(--accent-rgb),.14);
+  border-radius:14px;
+  padding:10px 12px;
+}
+.sv-guide-tip svg,.sv-guide-note svg{width:16px;height:16px;opacity:.7;flex-shrink:0;margin-top:1px}
+.sv-guide-note{background:rgba(236,72,153,.06);border-color:rgba(236,72,153,.16)}
+
+.sv-submit-btn{
+  margin-top:12px;
+  width:100%;
+  padding:13px 18px;
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:800;
+  color:#fff;
+  background:linear-gradient(135deg,var(--btn-color,var(--accent)), color-mix(in srgb,var(--btn-color,var(--accent)) 70%, #000));
+  box-shadow:0 10px 30px var(--btn-shadow, rgba(var(--accent-rgb),.35));
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .18s, box-shadow .18s, filter .18s;
+  font-family:inherit;
+}
+.sv-submit-btn:hover{transform:translateY(-1px);filter:saturate(1.05);box-shadow:0 14px 38px var(--btn-shadow, rgba(var(--accent-rgb),.45))}
+.sv-submit-btn:active{transform:translateY(0)}
+.sv-submit-btn svg{width:16px;height:16px}
+
 .submit-card{
   width:100%;max-width:580px;
   background:var(--surface);border-radius:20px;
@@ -616,6 +749,9 @@ select.fi{cursor:pointer}
   font-size:11px;font-weight:700;width:28px;text-align:center;flex-shrink:0;
   padding:2px 0;border-radius:5px;color:var(--text-muted);letter-spacing:.2px;
 }
+
+.sent-tag{background:rgba(var(--accent-rgb),.10);color:var(--accent)}
+.recv-tag{background:rgba(16,185,129,.10);color:#16a34a}
 
 .submit-btn{
   margin-top:4px;padding:13px 20px;
@@ -861,6 +997,8 @@ select.fi{cursor:pointer}
   .sidebar{display:none}
   .mobile-filter-btn{display:flex}
   .card-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+  .sv-type-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+  .sv-form-card{padding:16px 14px 14px;border-radius:18px}
   .submit-card{padding:20px 16px 24px;border-radius:16px}
   .s-type-row{gap:4px}
   .s-type-btn{font-size:11.5px;padding:8px 6px}
