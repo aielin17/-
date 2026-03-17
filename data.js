@@ -111,6 +111,54 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
  category:'手写',
  url:'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
 }
+{
+  id:'f17',
+  type:'font',
+  name:'宝宝日記書-日系',
+  author:'讨厌香菜',
+  family:'F17',
+  url:'https://image.uglycat.cc/xm3n9e.ttf'
+},
+{
+  id:'f18',
+  type:'font',
+  name:'宝宝日記書-猫次鱼（版本一）',
+  author:'讨厌香菜',
+  family:'F18',
+  url:'https://image.uglycat.cc/bfdzm8.ttf'
+}
+{
+  id:'f19',
+  type:'font',
+  name:'宝宝日記書-猫次鱼（版本二）',
+  author:'讨厌香菜',
+  family:'F19',
+  url:'https://image.uglycat.cc/dpl50d.ttf'
+},
+{
+  id:'f20',
+  type:'font',
+  name:'齐司礼',
+  author:'楒祁',
+  family:'F20',
+  url:'https://img.heliar.top/file/1773487050456_reply-library-replies_emojis-2026-03-14.json'
+},
+{
+  id:'f21',
+  type:'font',
+  name:'汇文明朝体',
+  author:'无忧',
+  family:'F21',
+  url:'https://image.uglycat.cc/05hqka.ttf'
+},
+{
+  id:'f22',
+  type:'font',
+  name:'小小小字体',
+  author:'Yuki小月',
+  family:'F22',
+  url:'https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf'
+},
 ];
 const BUBBLES = [
   {
@@ -8411,6 +8459,204 @@ position: relative;
   background-color: #f2fafd !important;
 }`
 },
+{
+id:'b118',
+type:'bubble',
+name:'桃色的梦',
+author:'金色传说',
+previews:[
+{t:'sent',v:'⌯˃ ᵕ ˂⌯ಣ'},
+{t:'received',v:'◟(˶> ᎑ <˶)◞'}
+],
+css:`/* 基础气泡样式 */
+.message {
+position: relative !important;
+line-height: 1.3 !important;
+word-break: break-word !important;
+overflow: visible !important;
+width: fit-content !important;
+max-width: 280px !important;
+color: #000000 !important;
+padding: 12px 20px !important;
+z-index: 1 !important;
+}
+.message.message-received {
+background: rgba(255, 200, 220, 0.35) !important;
+border-radius: 25px !important; /* 钝圆角效果 */
+box-shadow:
+0 0 20px rgba(255, 200, 220, 0.5),
+0 0 40px rgba(255, 200, 220, 0.3) !important; /* 雾蒙蒙的消散光晕 */
+backdrop-filter: blur(5px) !important;
+-webkit-backdrop-filter: blur(5px) !important;
+margin-right: auto !important; /* 靠左显示 */
+}
+.message.message-sent {
+background: rgba(245, 175, 200, 0.4) !important;
+border-radius: 25px !important; /* 钝圆角效果 */
+box-shadow:
+0 0 20px rgba(245, 175, 200, 0.6),
+0 0 40px rgba(245, 175, 200, 0.35) !important; /* 雾蒙蒙的消散光晕 */
+backdrop-filter: blur(5px) !important;
+-webkit-backdrop-filter: blur(5px) !important;
+margin-left: auto !important; /* 靠右显示 */
+}
+.message.message-received::before,
+.message.message-sent::before,
+.message.message-received::after,
+.message.message-sent::after {
+content: '🪽' !important;
+position: absolute !important;
+bottom: -8px !important;
+font-size: 18px !important;
+opacity: 0.7 !important;
+filter: drop-shadow(0 0 8px rgba(255, 200, 220, 0.8)) blur(0.5px) !important;
+z-index: -1 !important;
+}
+.message.message-received::before,
+.message.message-sent::before {
+left: -15px !important;
+transform: scaleX(-1) scale(0.9) !important;
+}
+.message.message-received::after,
+.message.message-sent::after {
+right: -15px !important;
+transform: scale(0.9) !important;
+}
+.message.message-received::after {
+filter: drop-shadow(0 0 8px rgba(255, 200, 220, 0.8)) blur(0.5px) !important;
+}
+.message.message-sent::before {
+filter: drop-shadow(0 0 8px rgba(245, 175, 200, 0.8)) blur(0.5px) !important;
+}`
+},
+{
+  id:'b119',
+  type:'bubble',
+  name:'夏以昼气泡',
+  author:'小优',
+  previews:[
+    {t:'sent',v:'宝宝'},
+    {t:'received',v:'宝宝'},
+    {t:'sent',v:'早上好'},
+    {t:'received',v:'早上好^^'}
+  ],
+  css:`.message {
+  box-shadow: none !important;
+  border-width: 0 !important;
+  position: relative;
+  overflow: visible !important;
+}
+.message-received {
+  border: 1px solid #E8A0A0 !important;
+  color: #8B0000 !important;
+  border-radius: 24px 24px 24px 4px !important;
+  padding: 8px 14px !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+  background: #FFE6E6 !important;
+  z-index: 1;
+  width: fit-content !important;
+  max-width: none !important;
+}
+.message-sent {
+  border: 1px solid #A8D8B9 !important;
+  color: #005000 !important;
+  border-radius: 24px 24px 4px 24px !important;
+  padding: 8px 14px !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 2px 4px rgba(180, 120, 140, 0.15) !important;
+  position: relative !important;
+  background: #F2FBF6 !important;
+  z-index: 1;
+  width: fit-content !important;
+  max-width: none !important;
+  margin-left: auto !important;
+}
+.message-received::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 28px;
+  height: 28px;
+  background-image: url('https://static.eeo.cn/upload/images/20260315/32bf4354210415574177.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+.message-received::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://openfs.oppomobile.com/open/oop/202603/15/8396c66aedf76b96def417d2daa5a614.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+.message-sent::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://oss-chat-bucket.oss-cn-beijing.aliyuncs.com/picture/console/chatres/7fd101e440d84afa8608480893e721801773547994780_vip.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+.message-sent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background-image: url('https://help.hemorn.com/static/upload/2026March/9952eaef7e68614544d02170d2f939a8.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.message-sent > *,
+.message-received > * {
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.message-received-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.message-sent-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+  width: 100%;
+}`
+},
 ];
 const CARDS = [
   {
@@ -8652,6 +8898,98 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   fileName:'1773129727431_reply-groups-义勇专属字卡-2026-03-10.json',
   file:'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
 },
+{
+  id:'card18',
+  type:'card',
+  name:'状态字卡',
+  author:'沈弃云',
+  desc:'一些状态补充，吃饭喝水洗澡出行……',
+  fileType:'json',
+  fileName:'1773221829605_reply-groups-状态字卡-2026-03-11.json',
+  file:'https://img.heliar.top/file/1773221829605_reply-groups-状态字卡-2026-03-11.json'
+},
+{
+  id:'card19',
+  type:'card',
+  name:'还在研究',
+  author:'贝',
+  desc:'适用于二次元角色，灰谷蘭',
+  fileType:'json',
+  fileName:'presets-backup.json',
+  file:'https://test.fukit.cn/autoupload/fr/XJglDafhZUE60wgAGb1KXHtH5Wh6vJkr2c_rKWdz_leyl5f0KlZfm6UsKj-HyTuv/20260312/b6gm/presets-backup.json'
+},
+{
+  id:'card20',
+  type:'card',
+  name:'黎深字卡🩵',
+  author:'momo',
+  desc:'黎深的一些语录',
+  fileType:'json',
+  fileName:'1773326106450_黎深语录.json',
+  file:'https://img.heliar.top/file/1773326106450_黎深语录.json'
+},
+{
+  id:'card21',
+  type:'card',
+  name:'黎深',
+  author:'黎黎哩',
+  desc:'有一些日常的小调侃，安慰，日常聊天之类的，适合黎推使用',
+  fileType:'json',
+  fileName:'黎深暖心文案合集.json',
+  file:'https://lf6-cdn-tos.byteimg.com/obj/ci/38416799146140162/黎深暖心文案合集.json'
+},
+{
+  id:'card22',
+  type:'card',
+  name:'顾时夜少量语录',
+  author:'秋砚痕',
+  desc:'顾时夜少量语录，大部分可以正常对话，推四哥的可以使用，谢谢使用！（不喜勿喷）',
+  fileType:'json',
+  fileName:'1773466807273_test_format1773465797.json',
+  file:'https://img.heliar.top/file/1773466807273_test_format1773465797.json'
+}
+{
+  id:'card23',
+  type:'card',
+  name:'双生火焰字卡',
+  author:'橘子大王&橘夫',
+  desc:'对的，为了自己方便把纸质的双生火焰字卡上传了一下，内容是 英文+中文翻译',
+  fileType:'json',
+  fileName:'>',
+  file:'<img src="https://img.heliar.top/file/1773546083342_code_20260315.json"; alt="code_20260315.json" width=100% />'
+},
+{
+ id:'card24',
+ type:'card',
+ name:'日常关心问候',
+ author:'EpSi_L',
+ desc:'重新研究了下json再投一遍，都可以用 但有加括号里面写了点我的一些os，🍠同名，老大们可以先去看看内容大概👉🏻👈🏻 我有发出来展示',
+ fileType:'json',
+ fileName:'8k7z93.json',
+ file:'https://files.catbox.moe/8k7z93.json'
+}
+{
+  id:'card25',
+  type:'card',
+  name:'夏以昼相关，有些杂乱',
+  author:'框框',
+  desc:'含🍎向，不喜勿下自删。参考小红书一些老师的词句。感恩每位产出的老师，我只是收集。',
+  fileType:'json',
+  fileName:'1773566098585_夏以昼相关字卡.json',
+  file:'https://img.heliar.top/file/1773566098585_夏以昼相关字卡.json'
+},
+{
+  id:'card26',
+  type:'card',
+  name:'歌词精选',
+  author:'百叶风笙',
+  desc:'各种歌词，如«春雪»«九万字»«love story»«是风动»«虚拟»
+你在我身畔 听竹林正摇乱
+你是我未曾拥有无法捕捉的亲昵',
+  fileType:'json',
+  fileName:'1773749887677_reply-groups-歌词-2026-03-17.json',
+  file:'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
+},
 ]; 
 
 const THEMES = [
@@ -8730,7 +9068,188 @@ const THEMES = [
   border-color: #e8749a;
   background: #fff5f8;
 }`
-  }
+  },
+  {
+  id:'th2',
+  type:'theme',
+  name:'蓝',
+  author:'文夏',
+  desc:'浅色蓝',
+  tags:["蓝色"],
+  colors:["#f6f9ff，#eaf4ff，#4a90e2，#2a3a52，#7a8ca6"],
+  css:`:root {
+  --primary-bg: #f6f9ff;
+  --secondary-bg: #eaf4ff;
+  --accent-color: #4a90e2;
+  --accent-color-rgb: 74, 144, 226;
+  --text-primary: #2a3a52;
+  --text-secondary: #7a8ca6;
+  --border-color: rgba(74, 144, 226, 0.15);
+  --chat-bg: #f9fbff;
+}
+
+/* 顶栏 */
+#partner-info {
+  background: linear-gradient(135deg, #eaf4ff 0%, #dcebff 100%);
+  border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+  box-shadow: 0 2px 12px rgba(74, 144, 226, 0.08);
+}
+
+/* 输入区 */
+#input-area {
+  background: #eaf4ff;
+  border-top: 1px solid rgba(74, 144, 226, 0.15);
+}
+
+#message-input {
+  background: #fff;
+  border: 1.5px solid rgba(74, 144, 226, 0.25);
+  border-radius: 20px;
+  color: #2a3a52;
+}
+
+#message-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* 发送按钮 */
+#send-btn {
+  background: linear-gradient(135deg, #7cb0e8, #4a90e2);
+  box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
+  border-radius: 14px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 144, 226, 0.3);
+  border-radius: 4px;
+}
+
+/* 模态框 */
+.modal-content {
+  background: #f9fbff;
+  border: 1px solid rgba(74, 144, 226, 0.15);
+  box-shadow: 0 20px 50px rgba(74, 144, 226, 0.12);
+}
+
+/* 设置卡片 */
+.settings-card {
+  background: #fff;
+  border: 1.5px solid rgba(74, 144, 226, 0.15);
+}
+.settings-card:hover {
+  border-color: #4a90e2;
+  background: #f0f7ff;
+}`
+ },
+ {
+  id:'th3',
+  type:'theme',
+  name:'芝芝桃',
+  author:'Yuki小月',
+  desc:'粉黄色系(◍ ´꒳` ◍)有气泡和按键美化',
+  tags:[],
+  colors:["#FFF9E6，#FFDDE3，#FFF5F6"],
+  css:`@font-face {
+  font-family: 'SweetCustomFont';
+  src: url('https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf') format('truetype');
+  font-weight: normal; font-style: normal;
+}
+
+*, body, button, input, textarea, select,
+.message, .message-input, .username, .status, .timestamp,
+.modal-title, .reply-indicator-text, .reply-indicator-sender,
+.dg-main-title, .dg-note-box, .rank-text, .ann-item-name,
+.stats-card-title, .overview-label, .overview-value,
+.env-letter-preview, .stats-nav-btn, .fortune-desc {
+  font-family: 'SweetCustomFont', 'Noto Serif SC', serif !important;
+}
+
+.fas, .far, .fab, .fa, [class*="fa-"],
+.action-btn i, .input-btn i, .meta-action-btn i, .cs-header-icon i {
+  font-family: "Font Awesome 6 Free" !important;
+}
+
+:root {
+  --primary-bg: #FFF5F6;
+  --text-primary: #6B5B5B;
+  --theme-outline: #c26187;
+  --pink-bubble: #FFDDE2;
+  --yellow-bubble: #FFF9E5;
+  --border-color: #F7EAEB;
+}
+
+#continue-btn, #batch-btn, #send-btn {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 36px !important;
+    height: 44px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    user-select: none !important;
+}
+
+#continue-btn i, #batch-btn i, #send-btn i { display: none !important; }
+
+#continue-btn { background-image: url('https://files.catbox.moe/1vbfzm.png') !important; background-size: 30px !important; transform: translateY(2px) !important; }
+#batch-btn { background-image: url('https://files.catbox.moe/wssj66.png') !important; background-size: 38px !important; transform: translate(4px, -2px) !important; }
+#send-btn { background-image: url('https://files.catbox.moe/e9yuny.png') !important; background-size: 30px !important; transform: translateY(0px) !important; }
+
+#continue-btn:active { transform: translateY(2px) scale(0.9) !important; }
+#batch-btn:active { transform: translate(4px, -2px) scale(0.9) !important; }
+#send-btn:active { transform: translateY(0px) scale(0.9) !important; }
+
+.input-buttons { display: flex !important; align-items: center !important; gap: 2px !important; }
+
+.message {
+  position: relative; overflow: visible !important; opacity: 1 !important;
+  padding: 10px 16px !important; display: flex !important; flex-direction: column !important;
+  border-radius: 20px !important; border: 1.5px solid var(--theme-outline) !important;
+  box-shadow: inset 0 0 0 2.5px #FFFFFF !important; background-image: none !important;
+}
+.message::before { display: none !important; }
+.message-received { background-color: var(--yellow-bubble) !important; color: var(--text-primary) !important; align-items: flex-start !important; }
+.message-sent { background-color: var(--pink-bubble) !important; color: var(--text-primary) !important; align-items: flex-end !important; }
+
+.message:not(:has(img))::before, .message:not(:has(img))::after {
+    content: ''; position: absolute; width: 26px; height: 26px; z-index: 10;
+    pointer-events: none; background-repeat: no-repeat; background-size: contain; background-position: center;
+}
+.message-sent:not(:has(img))::after { top: -12px; left: -12px; background-image: url('https://files.catbox.moe/75ssf4.png'); }
+.message-sent:not(:has(img))::before { bottom: -12px; right: -12px; background-image: url('https://files.catbox.moe/gefisy.png'); display: block !important; }
+.message-received:not(:has(img))::after { top: -12px; right: -12px; background-image: url('https://files.catbox.moe/6wffs9.png'); }
+.message-received:not(:has(img))::before { bottom: -12px; left: -12px; background-image: url('https://files.catbox.moe/dhbgx5.png'); display: block !important; }
+
+.message:has(img), .message:has(.message-image-only) { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.message:has(img)::after, .message:has(img)::before { display: none !important; }
+
+.message-content-wrapper { display: flex !important; flex-direction: row !important; align-items: flex-end !important; gap: 8px !important; max-width: 100% !important; }
+.message-wrapper.sent .message-content-wrapper { flex-direction: row-reverse !important; }
+.message-meta { margin: 0 !important; padding-bottom: 4px !important; opacity: 0.6 !important; flex-shrink: 0 !important; }
+.timestamp { font-size: 10px !important; color: var(--text-secondary) !important; }
+.read-receipt { display: none !important; }
+
+.reply-indicator { width: 100% !important; background-color: rgba(255, 255, 255, 0.5) !important; border-left: 3px solid var(--theme-outline) !important; border-radius: 8px !important; margin-bottom: 6px !important; padding: 6px 10px !important; }
+.message-wrapper.sent .reply-indicator-sender, .message-wrapper.sent .reply-indicator-text { color: var(--text-primary) !important; opacity: 0.9 !important; }
+
+.header { background-color: rgba(255, 255, 255, 0.92) !important; border-bottom: 1px solid var(--border-color); }
+.message-input { background-color: #FFFFFF !important; border: 1.5px solid var(--border-color) !important; border-radius: 20px !important; }
+body.with-background .message-received:not(:has(img)), body.with-background .message-sent:not(:has(img)) { background-image: none !important; backdrop-filter: none !important; opacity: 1 !important; }
+body.with-background .message-received:not(:has(img)) { background-color: var(--yellow-bubble) !important; }
+body.with-background .message-sent:not(:has(img)) { background-color: var(--pink-bubble) !important; }`
+  },
 ];
 
 const MUSIC = [
@@ -8792,6 +9311,106 @@ const MUSIC = [
   fileType:'mp3',
   fileName:'url?id=5238992.mp3',
   file:'https://music.163.com/song/media/outer/url?id=5238992.mp3'
+  },
+  {
+  id:'mus6',
+  type:'music',
+  name:'我走以后',
+  author:'廿一',
+  artist:'水仙LONE',
+  fileType:'mp3',
+  fileName:'url?id=3347121761.mp3',
+  file:'http://music.163.com/song/media/outer/url?id=3347121761.mp3'
+  },
+  {
+  id:'mus7',
+  type:'music',
+  name:'first snow',
+  author:'Yauuiu_',
+  artist:'松下優也',
+  fileType:'m4a',
+  fileName:'1773543103115_first_snow.mp3.m4a',
+  file:'https://img.heliar.top/file/1773543103115_first_snow.mp3.m4a'
+  },
+  {
+  id:'mus8',
+  type:'music',
+  name:'恋人',
+  author:'Yauuiu_',
+  artist:'李荣浩',
+  fileType:'m4a',
+ fileName:'1773544800453_%E6%81%8B%E4%BA%BA.m4a',
+  file:'https://img.heliar.top/file/1773544800453_%E6%81%8B%E4%BA%BA.m4a'
+  },
+  {
+  id:'mus9',
+  type:'music',
+  name:'Try Again',
+  author:'Yauuiu_',
+  artist:'d.ear/在玹',
+  fileType:'m4a',
+  fileName:'1773547908044_Try_Again.m4a',
+  file:'https://img.heliar.top/file/1773547908044_Try_Again.m4a'
+  },
+  {
+  id:'mus10',
+  type:'music',
+  name:'solitude',
+  author:'Yauuiu_',
+  artist:'vietra',
+  fileType:'m4a',
+  fileName:'1773547910130_solitude.m4a',
+  file:'https://img.heliar.top/file/1773547910130_solitude.m4a'
+  },
+  {
+  id:'mus11',
+  type:'music',
+  name:'My Love Mine All Mine',
+  author:'Yauuiu_',
+  artist:'Mitski',
+  fileType:'m4a',
+ fileName:'1773547910084_My_Love_Mine_All_Mine.m4a',
+  file:'https://img.heliar.top/file/1773547910084_My_Love_Mine_All_Mine.m4a'
+  },
+  {
+  id:'mus12',
+  type:'music',
+  name:'还是会寂寞',
+  author:'Yauuiu_',
+  artist:'陈绮贞',
+  fileType:'m4a',
+ fileName:'1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a',
+  file:'https://img.heliar.top/file/1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a'
+  },
+  {
+  id:'mus13',
+  type:'music',
+  name:'첫 눈 (初雪)',
+  author:'Yauuiu_',
+  artist:'EXO',
+  fileType:'m4a',
+ fileName:'1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a',
+  file:'https://img.heliar.top/file/1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a'
+  },
+  {
+  id:'mus14',
+  type:'music',
+  name:'同手同脚',
+  author:'初言',
+  artist:'我会永远在你身边陪着你',
+  fileType:'mp3',
+  fileName:'url?id=2728443982.mp3',
+  file:'http://music.163.com/song/media/outer/url?id=2728443982.mp3'
+  },
+  {
+  id:'mus15',
+  type:'music',
+  name:'天赋',
+  author:'送信员',
+  artist:'唐嫣/罗晋',
+  fileType:'mp3',
+  fileName:'audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3',
+  file:'https://mv.ttaibot.com/down/audio_extract/audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3'
   },
 ];
 
