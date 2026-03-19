@@ -8657,6 +8657,39 @@ filter: drop-shadow(0 0 8px rgba(245, 175, 200, 0.8)) blur(0.5px) !important;
   width: 100%;
 }`
 },
+{
+  id:'b120',
+  type:'bubble',
+  name:'雾蓝',
+  author:'心恋',
+  previews:[
+    {t:'sent',v:'这是一个预览'},
+    {t:'received',v:'实在不知道写啥'}
+  ],
+  css:`.message,
+.message.message-received,
+.message.message-sent {
+  border: none !important;
+  border-radius: 999px !important;
+  background: rgba(170, 210, 245, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 
+    0 1px 3px rgba(0, 60, 100, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px rgba(80, 120, 160, 0.1) !important;
+  outline: none !important;
+  padding: 6px 16px !important;
+  margin: 2px 0 !important;
+  position: relative !important;
+  overflow: visible !important;
+  color: #1a5aaa !important;
+}
+
+.message * {
+  color: #1a5aaa !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -8987,6 +9020,46 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   fileType:'json',
   fileName:'歌词.json',
   file:'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
+},
+{
+  id:'card27',
+  type:'card',
+  name:'陆沉字卡',
+  author:'雁归',
+  desc:'光与夜之恋陆沉包含卡面语录，互动对话，语音对话日常对话（如早上好，晚上好，吃了没，睡了没',
+  fileType:'json',
+  fileName:'1773759253224_陆沉字卡.json',
+  file:'https://img.heliar.top/file/1773759253224_陆沉字卡.json'
+},
+{
+  id:'card28',
+  type:'card',
+  name:"莫弈",
+  author:"本人社恐，无需在意",
+  desc:"一些关于莫弈的字卡",
+  fileType:'json',
+  fileName:"1773818600562__莫弈.json",
+  file:"https://img.heliar.top/file/1773818600562__莫弈.json",
+},
+{
+ id:'card29',
+ type:'card',
+ name:"日常关心问候",
+ author:"EpSi_L",
+ desc:"最后一次试试看 直链还是还有问题我就只能在小🍠直接分享了👉🏻👈🏻真的研究不来欧莫。。🍠同名56158☪︎66559\n如果这条直链还有问题的话老大们直接小🍠去dd我我到时候会给你们发(☆_☆)",
+ fileType:'json',
+ fileName:"1773809415852_customReplies.json.txt",
+ file:"https://img.heliar.top/file/1773809415852_customReplies.json.txt",
+},
+{
+  id:'card30',
+  type:'card',
+  name:"🍎相关",
+  author:"夏念念念",
+  desc:"用魔法ai跑出的一些，没有很大尺度，可以通用",
+  fileType:'json',
+  fileName:"1773844999336_dirytalk字卡.json",
+  file:"https://img.heliar.top/file/1773844999336_dirytalk字卡.json",
 },
 ]; 
 
@@ -9409,6 +9482,157 @@ const MUSIC = [
   fileType:'mp3',
   fileName:'audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3',
   file:'https://mv.ttaibot.com/down/audio_extract/audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3'
+  },
+  {
+  id:'mus16',
+  type:'music',
+  name:'有我呢',
+  author:'言夏',
+  artist:'-别怕 亲爱的 有我呢-',
+  fileType:'mp3',
+  fileName:'1772963476760_郭一凡_-_有我呢.mp3',
+  file:'https://img.heliar.top/file/1772963476760_郭一凡_-_有我呢.mp3'
+  },
+  {
+  id:'mus17',
+  type:'music',
+  name:'Dear D',
+  author:'言夏',
+  artist:'-好想好想在一起-',
+  fileType:'mp3',
+  fileName:'1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3',
+  file:'https://img.heliar.top/file/1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3'
+  },
+  {
+  id:'mus18',
+  type:'music',
+  name:'孤单北半球',
+  author:'言夏',
+  artist:'-想念不会偷懒 我的梦通通给你保管-',
+  fileType:'mp3',
+  fileName:'1772963472128_林依晨_-_孤单北半球.mp3',
+  file:'https://img.heliar.top/file/1772963472128_林依晨_-_孤单北半球.mp3'
+  },
+  {
+  id:'mus19',
+  type:'music',
+  name:'恶作剧',
+  author:'言夏',
+  artist:'-我想我会开始想念你-',
+  fileType:'mp3',
+  fileName:'1772965264360_林依晨_-_恶作剧.mp3',
+  file:'https://img.heliar.top/file/1772965264360_林依晨_-_恶作剧.mp3'
+  },
+  {
+  id:'mus20',
+  type:'music',
+  name:'当你',
+  author:'言夏',
+  artist:'-好喜欢你 知不知道-',
+  fileType:'mp3',
+  fileName:'1772964503074_林俊杰_-_当你.mp3',
+  file:'https://img.heliar.top/file/1772964503074_林俊杰_-_当你.mp3'
+  },
+  {
+  id:'mus21',
+  type:'music',
+  name:'小半',
+  author:'言夏',
+  artist:'-我的心借了你的光是明是暗-',
+  fileType:'mp3',
+  fileName:'1772964128402_陈粒_-_小半.mp3',
+  file:'https://img.heliar.top/file/1772964128402_陈粒_-_小半.mp3'
+  },
+  {
+  id:'mus22',
+  type:'music',
+  name:'虚拟',
+  author:'xiory',
+  artist:'（翻唱）小馨宝宝',
+  fileType:'mp3',
+  fileName:'url?id=2119200940.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=2119200940.mp3'
+  },
+  {
+  id:'mus23',
+  type:'music',
+  name:'有我呢（翻唱）',
+  author:'xiory',
+  artist:'番番',
+  fileType:'mp3',
+  fileName:'url?id=3324365041.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=3324365041.mp3'
+  },
+  {
+  id:'mus24',
+  type:'music',
+  name:'多远都要在一起',
+  author:'xiory',
+  artist:'激情男声版',
+  fileType:'mp3',
+  fileName:'url?id=3356334358.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=3356334358.mp3'
+  },
+  {
+  id:'mus25',
+  type:'music',
+  name:'永不失联的爱',
+  author:'xiory',
+  artist:'男声版',
+  fileType:'mp3',
+  fileName:'url?id=3317929522.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=3317929522.mp3'
+  },
+  {
+  id:'mus26',
+  type:'music',
+  name:'次元恋人',
+  author:'xiory',
+  artist:'印子月',
+  fileType:'mp3',
+  fileName:'url?id=2689771833.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=2689771833.mp3'
+  },
+  {
+  id:'mus27',
+  type:'music',
+  name:'你在 不在（emo版）',
+  author:'xiory',
+  artist:'cici_',
+  fileType:'mp3',
+  fileName:'url?id=2735939731.mp3',
+  file:'https://music.163.com/song/media/outer/url?id=2735939731.mp3'
+  },
+  {
+  id:'mus28',
+  type:'music',
+  name:"第三个吻痕（暧昧版）",
+  author:"巴某人",
+  artist:"何水水",
+  fileType:'mp3',
+  fileName:"1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
+  file:"https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
+  },
+  {
+  id:'mus29',
+  type:'music',
+  name:"有我呢",
+  author:"巴某人",
+  artist:"郭一凡",
+  fileType:'mp3',
+  fileName:"1773904895447_郭一凡-有我呢_20260319_151935.mp3",
+  file:"https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3",
+  },
+  {
+  id:'mus30',
+  type:'music',
+  name:"以你为名的奇遇",
+  author:"翊甜",
+  artist:"池绛不吃姜/祁煜0306生贺企划",
+  desc:"2026祁煜生贺",
+  fileType:'mp3',
+  fileName:"url?id=3354782658.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=3354782658.mp3",
   },
 ];
 
