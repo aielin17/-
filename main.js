@@ -906,7 +906,7 @@ function buildFontCode(name,author,url){
 function buildCardCode(name,author,desc,fileUrl){
   const nextId='card'+(CARDS.length+1);
   const fileName=fileUrl.split('/').pop()||'file.json';
-  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  desc:${jsString(desc)},\n  fileType:'json',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`;
+  return `/* === 字卡投稿 === */\n{\n  id:'${nextId}',\n  type:'card',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  desc:${jsString(desc)},\n  fileType:'json',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`,
 }
 function buildThemeCode(name,author,desc,css,colors,tags){
   const nextId='th'+(THEMES.length+1);
@@ -917,7 +917,7 @@ function buildMusicCode(name,author,artist,desc,fileUrl){
   const nextId='mus'+(MUSIC.length+1);
   const fileName=fileUrl.split('/').pop()||'song.mp3';
   const ext=(fileName.split('.').pop()||'mp3').toLowerCase();
-  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  ${artist?`artist:${jsString(artist)},\n  `:''}${desc?`desc:${jsString(desc)},\n  `:''}fileType:'${ext}',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`;
+  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  ${artist?`artist:${jsString(artist)},\n  `:''}${desc?`desc:${jsString(desc)},\n  `:''}fileType:'${ext}',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`,
 }
 
 window.doSubmit = function(type){
