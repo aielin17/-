@@ -1035,7 +1035,7 @@ if(typeof ALL === 'undefined'){
   if(grid){
     grid.innerHTML = `<div class="empty-state">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 16h.01"/></svg>
-      <p>数据加载失败：请检查 <code>data.js</code> 是否有语法错误（常见原因：简介里直接回车换行导致单引号字符串断裂）。</p>
+      <p>数据加载失败：粗心大意的milk把错误的文件弄上去了，请使劲戳milk</p>
     </div>`;
   }
 } else {

@@ -9039,7 +9039,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   desc:"一些关于莫弈的字卡",
   fileType:'json',
   fileName:"1773818600562__莫弈.json",
-  file:"https://img.heliar.top/file/1773818600562__莫弈.json";
+  file:"https://img.heliar.top/file/1773818600562__莫弈.json",
 },
 {
  id:'card29',
@@ -9049,7 +9049,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
  desc:"最后一次试试看 直链还是还有问题我就只能在小🍠直接分享了👉🏻👈🏻真的研究不来欧莫。。🍠同名56158☪︎66559\n如果这条直链还有问题的话老大们直接小🍠去dd我我到时候会给你们发(☆_☆)",
  fileType:'json',
  fileName:"1773809415852_customReplies.json.txt",
- file:"https://img.heliar.top/file/1773809415852_customReplies.json.txt";
+ file:"https://img.heliar.top/file/1773809415852_customReplies.json.txt",
 },
 {
   id:'card30',
@@ -9059,7 +9059,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   desc:"用魔法ai跑出的一些，没有很大尺度，可以通用",
   fileType:'json',
   fileName:"1773844999336_dirytalk字卡.json",
-  file:"https://img.heliar.top/file/1773844999336_dirytalk字卡.json";
+  file:"https://img.heliar.top/file/1773844999336_dirytalk字卡.json",
 },
 ]; 
 
@@ -9611,7 +9611,7 @@ const MUSIC = [
   artist:"何水水",
   fileType:'mp3',
   fileName:"1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
-  file:"https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3";
+  file:"https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
   },
   {
   id:'mus29',
@@ -9621,7 +9621,7 @@ const MUSIC = [
   artist:"郭一凡",
   fileType:'mp3',
   fileName:"1773904895447_郭一凡-有我呢_20260319_151935.mp3",
-  file:"https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3";
+  file:"https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3",
   },
   {
   id:'mus30',
@@ -9632,7 +9632,7 @@ const MUSIC = [
   desc:"2026祁煜生贺",
   fileType:'mp3',
   fileName:"url?id=3354782658.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=3354782658.mp3";
+  file:"http://music.163.com/song/media/outer/url?id=3354782658.mp3",
   },
 ];
 
