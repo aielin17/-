@@ -8711,21 +8711,9 @@ const CARDS = [
       '座右铭': 65
     } 
   },
+  
   {
-    id:'card2',
-    type:'card',
-    name:'小情侣日常向补充包1.0',
-    author:'KUM',
-    desc:'小情侣日常向，1.0简单型',
-    fileType:'json',
-    fileName:'qrVun6A9B',
-    file:'https://img.heliar.top/file/1772049568884_小情侣日常向万能字卡扩充1.json',
-    itemCounts:{
-      "自定义回复": 203
-    } 
-  },
-  {
-id:'card3',
+id:'card2',
 type:'card',
 name:'日常聊天没问题了应该',
 author:'袁愿',
@@ -8740,31 +8728,7 @@ itemCounts:{
 }
 },
 {
-  id:'card4',
-  type:'card',
-  name:'小情侣日常向补充包2.0-颜文字篇',
-  author:'KUM',
-  desc:'小情侣日常向的颜文字(*¯︶¯*)',
-  fileType:'json',
-  fileName:'颜文字',
-  file:'https://img.heliar.top/file/1772219734347_小情侣的日常2.0__颜文字篇.json',
-  itemCounts:{
-    "自定义回复": 88
-}
-},
-{
-  id:'card5',
-  type:'card',
-  name:'颜文字',
-  author:'捌壹零',
-  desc:'很多很多的颜文字，很多样式都加了',
-  tags:["颜文字","表情","状态","字卡"],
-  fileType:'json',
-  fileName:'颜文字',
-  file:'https://img.heliar.top/file/1772400241219_捌壹零的颜文字.json',
-},
-{
-  id:'card6',
+  id:'card3',
   type:'card',
   name:'秦彻字卡',
   author:'¿?CRazy',
@@ -8775,7 +8739,7 @@ itemCounts:{
   file:'https://img.heliar.top/file/1772348005616_秦彻.json',
 },
 {
-id:'card7',
+id:'card4',
 type:'card',
 name:'沈星回字卡库',
 author:'金元饱',
@@ -8794,18 +8758,7 @@ itemCounts:{
 }
 },
 {
-  id:'card8',
-  type:'card',
-  name:'小日常对话字卡',
-  author:'sovp.砚',
-  desc:'包含了少量多推字卡，爱称还有很简单，适合梦角回答问题的字卡。遇到不喜欢内容可自行修改',
-  tags:["日常","互动","字卡"],
-  fileType:'json',
-  fileName:'日常字卡',
-  file:'https://img.heliar.top/file/1772815194520_日常字卡.json',
-},
-{
-id:'card9',
+id:'card5',
 type:'card',
 name:'一些词卡',
 author:'1123',
@@ -8819,21 +8772,7 @@ itemCounts:{
 }
 },
 {
-  id:'card10',
-  type:'card',
-  name:'小乌梅专属',
-  author:'卡，要我一直抽吗？',
-  desc:'❗️❗️❗️❗️光与夜之恋黑发绿瞳男专用',
-  tags:["回复"],
-  fileType:'json',
-  fileName:'A的字卡',
-  file:'https://img.heliar.top/file/1772815672340_A的字卡.json',
-  itemCounts:{
-    "自定义回复": 251
-}
-},
-{
-  id:'card11',
+  id:'card6',
   type:'card',
   name:'聊天字卡回复',
   author:'L',
@@ -8844,7 +8783,7 @@ itemCounts:{
   file:'https://files.catbox.moe/xivgs7.json',
 },
 {
-  id:'card12',
+  id:'card7',
   type:'card',
   name:'塔罗文字版-追加使用',
   author:'颜荀',
@@ -8858,7 +8797,7 @@ itemCounts:{
 }
 },
 {
-  id:'card13',
+  id:'card8',
   type:'card',
   name:'宝宝',
   author:'宝宝',
@@ -8868,21 +8807,7 @@ itemCounts:{
   file:'https://img.heliar.top/file/1773041531708_presets-backup.json',
 },
 {
-  id:'card14',
-  type:'card',
-  name:'秦彻语录台词-追加使用',
-  author:'颜荀',
-  desc:'秦彻台词。游戏内出现过的彻子语录，有简单修改断句。',
-  tags:["秦彻","台词","语录","回复"],
-  fileType:'json',
-  fileName:'秦彻台词字卡.json',
-  file:'https://img.heliar.top/file/1773042404119_秦彻台词字卡.json',
-  itemCounts:{
-    "自定义回复": 122,
-}
-},
-{
-  id:'card15',
+  id:'card9',
   type:'card',
   name:'日常用',
   author:'星星',
@@ -8892,27 +8817,7 @@ itemCounts:{
   file:'https://img.heliar.top/file/1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json'
 },
 {
-  id:'card16',
-  type:'card',
-  name:'880条整理分类版',
-  author:'名字',
-  desc:'整理了其他姐妹分享的部分字卡，应该覆盖面比较全，有小分组可以自行调整ദ്ദിᵔ.˛.ᵔ₎✧',
-  fileType:'json',
- fileName:'整理分类.json',
-  file:'https://img.heliar.top/file/1773073893237_880%E6%9D%A1%E6%95%B4%E7%90%86%E5%88%86%E7%B1%BB%E7%89%88%E6%9C%AC.json'
-},
-{
-id:'card15',
-type:'card',
-name:'有关易遇的字卡',
-author:'阿布格',
-desc:'适用于推易遇的夫人，触雷致歉',
-fileType:'json',
-fileName:'易遇.json',
-file:'https://img.heliar.top/file/1773123521894_回复.json'
-},
-{
-id:'card16',
+id:'card10',
 type:'card',
 name:'雷诺曼卡牌',
 author:'阿布格',
@@ -8922,7 +8827,7 @@ fileName:'雷诺曼.json',
 file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
 },
 {
-  id:'card17',
+  id:'card11',
   type:'card',
   name:'义勇专属字卡',
   author:'富冈义勇重度依赖',
@@ -8932,7 +8837,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
 },
 {
-  id:'card18',
+  id:'card12',
   type:'card',
   name:'状态字卡',
   author:'沈弃云',
@@ -8942,17 +8847,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773221829605_reply-groups-状态字卡-2026-03-11.json'
 },
 {
-  id:'card19',
-  type:'card',
-  name:'还在研究',
-  author:'贝',
-  desc:'适用于二次元角色，灰谷蘭',
-  fileType:'json',
-  fileName:'二次元.json',
-  file:'https://test.fukit.cn/autoupload/fr/XJglDafhZUE60wgAGb1KXHtH5Wh6vJkr2c_rKWdz_leyl5f0KlZfm6UsKj-HyTuv/20260312/b6gm/presets-backup.json'
-},
-{
-  id:'card20',
+  id:'card13',
   type:'card',
   name:'黎深字卡🩵',
   author:'momo',
@@ -8962,17 +8857,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773326106450_黎深语录.json'
 },
 {
-  id:'card21',
-  type:'card',
-  name:'黎深',
-  author:'黎黎哩',
-  desc:'有一些日常的小调侃，安慰，日常聊天之类的，适合黎推使用',
-  fileType:'json',
-  fileName:'黎深暖心文案合集.json',
-  file:'https://lf6-cdn-tos.byteimg.com/obj/ci/38416799146140162/黎深暖心文案合集.json'
-},
-{
-  id:'card22',
+  id:'card14',
   type:'card',
   name:'顾时夜少量语录',
   author:'秋砚痕',
@@ -8982,27 +8867,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773466807273_test_format1773465797.json'
 },
 {
-  id:'card23',
-  type:'card',
-  name:'双生火焰字卡',
-  author:'橘子大王&橘夫',
-  desc:'对的，为了自己方便把纸质的双生火焰字卡上传了一下，内容是 英文+中文翻译',
-  fileType:'json',
-  fileName:'双生火焰',
-  file:'<img src="https://img.heliar.top/file/1773546083342_code_20260315.json"; alt="code_20260315.json" width=100% />'
-},
-{
- id:'card24',
- type:'card',
- name:'日常关心问候',
- author:'EpSi_L',
- desc:'重新研究了下json再投一遍，都可以用 但有加括号里面写了点我的一些os，🍠同名，老大们可以先去看看内容大概👉🏻👈🏻 我有发出来展示',
- fileType:'json',
- fileName:'关心问候.json',
- file:'https://files.catbox.moe/8k7z93.json'
-},
-{
-  id:'card25',
+  id:'card15',
   type:'card',
   name:'夏以昼相关，有些杂乱',
   author:'框框',
@@ -9012,7 +8877,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773566098585_夏以昼相关字卡.json'
 },
 {
-  id:'card26',
+  id:'card16',
   type:'card',
   name:'歌词精选',
   author:'百叶风笙',
@@ -9022,7 +8887,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
 },
 {
-  id:'card27',
+  id:'card17',
   type:'card',
   name:'陆沉字卡',
   author:'雁归',
@@ -9032,7 +8897,7 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:'https://img.heliar.top/file/1773759253224_陆沉字卡.json'
 },
 {
-  id:'card28',
+  id:'card18',
   type:'card',
   name:"莫弈",
   author:"本人社恐，无需在意",
@@ -9042,25 +8907,45 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   file:"https://img.heliar.top/file/1773818600562__莫弈.json",
 },
 {
- id:'card29',
- type:'card',
- name:"日常关心问候",
- author:"EpSi_L",
- desc:"最后一次试试看 直链还是还有问题我就只能在小🍠直接分享了👉🏻👈🏻真的研究不来欧莫。。🍠同名56158☪︎66559\n如果这条直链还有问题的话老大们直接小🍠去dd我我到时候会给你们发(☆_☆)",
- fileType:'json',
- fileName:"1773809415852_customReplies.json.txt",
- file:"https://img.heliar.top/file/1773809415852_customReplies.json.txt",
+  id:'card19',
+  type:'card',
+  name:"治愈系字卡",
+  author:"来个饭团",
+  desc:"难过时候可以用，帮助交流",
+  fileType:'json',
+  fileName:"1774156772092_治愈系字卡.json",
+  file:"https://img.heliar.top/file/1774156772092_治愈系字卡.json",
 },
 {
-  id:'card30',
+  id:'card20',
   type:'card',
-  name:"🍎相关",
-  author:"夏念念念",
-  desc:"用魔法ai跑出的一些，没有很大尺度，可以通用",
+  name:"查理苏（颜文字Emoji少量版）",
+  author:"云束",
+  desc:"让D老师跑的，仅限于未婚妻们使用",
   fileType:'json',
-  fileName:"1773844999336_dirytalk字卡.json",
-  file:"https://img.heliar.top/file/1773844999336_dirytalk字卡.json",
+  fileName:"1774158685204_charlie_replies.json",
+  file:"https://img.heliar.top/file/1774158685204_charlie_replies.json",
 },
+{
+  id:'card21',
+  type:'card',
+  name:"查理苏",
+  author:"云束",
+  desc:"让D老师跑的，仅限于未婚妻们使用",
+  fileType:'json',
+  fileName:"1774156190652_charlie_final.json",
+  file:"https://img.heliar.top/file/1774156190652_charlie_final.json",
+},
+{
+  id:'card22',
+  type:'card',
+  name:"祁煜台词向",
+  author:"隐姓埋名的保镖",
+  desc:"恋与深空男主祁煜主页交互及部分短信，秘密时光原台词。个人选了一些觉得适合做字卡的，共493条。",
+  fileType:'json',
+  fileName:"1774033690540_reply-groups-台词向-2026-03-20.json",
+  file:"https://img.heliar.top/file/1774033690540_reply-groups-台词向-2026-03-20.json",
+}
 ]; 
 
 const THEMES = [
@@ -9633,6 +9518,71 @@ const MUSIC = [
   fileType:'mp3',
   fileName:"url?id=3354782658.mp3",
   file:"http://music.163.com/song/media/outer/url?id=3354782658.mp3",
+  },
+  {
+  id:'mus31',
+  type:'music',
+  name:"All I Have Is Love",
+  author:"千",
+  artist:"Stevie Hoang",
+  desc:"英文小情歌，适合边聊边听",
+  fileType:'mp3',
+  fileName:"url?id=1940368.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=1940368.mp3",
+  },
+  {
+  id:'mus32',
+  type:'music',
+  name:"零距离的想念",
+  author:"礼啦啦啦",
+  artist:"TINY-7",
+  fileType:'mp3',
+  fileName:"1774173204769_TINY7_-_零距离的思念.mp3",
+  file:"https://img.heliar.top/file/1774173204769_TINY7_-_零距离的思念.mp3",
+  },
+  {
+  id:'mus33',
+  type:'music',
+  name:"say yes",
+  author:"礼啦啦啦",
+  artist:"loco Punch",
+  desc:"甜甜的韩文小情歌",
+  fileType:'mp3',
+  fileName:"1774173181864_Loco_Punch_-_Say_Yes.mp3",
+  file:"https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3",
+  },
+  {
+  id:'mus34',
+  type:'music',
+  name:"say yes",
+  author:"礼啦啦啦",
+  artist:"loco Punch",
+  desc:"甜甜的韩文小情歌",
+  fileType:'mp3',
+  fileName:"1774173181864_Loco_Punch_-_Say_Yes.mp3",
+  file:"https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3",
+  },
+  {
+  id:'mus35',
+  type:'music',
+  name:"该怎么办",
+  author:"oiove3",
+  artist:"TC",
+  desc:"没有你我该怎么办",
+  fileType:'mp3',
+  fileName:"url?id=2032201541.mp3",
+  file:"https://music.163.com/song/media/outer/url?id=2032201541.mp3",
+  },
+  {
+  id:'mus36',
+  type:'music',
+  name:"依兰爱情故事",
+  author:"mm",
+  artist:"方天雷",
+  desc:"我活着是你的人啊，死了是你的鬼啊",
+  fileType:'mp3',
+  fileName:"ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
+  file:"http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
   },
 ];
 

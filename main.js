@@ -208,6 +208,15 @@ function renderCards(){
   grid.innerHTML = '';
   const filtered = getFiltered();
   renderCounts();
+  
+  // Music album grouping: same投稿人 -> 合辑/专辑（仅当该投稿人有多首音乐时才合并）
+  const musicByAuthor = new Map();
+  filtered.forEach(i=>{
+    if(i.type !== 'music') return;
+    const author = i.author || '匿名';
+    if(!musicByAuthor.has(author)) musicByAuthor.set(author, []);
+    musicByAuthor.get(author).push(i);
+  });
 
   const info = document.getElementById('toolbar-info');
   if(info) info.textContent = filtered.length + ' 个结果';
@@ -235,8 +244,28 @@ function renderCards(){
   }
 
   const renderedGroups = new Set();
+  const renderedMusicAlbums = new Set();
   let idx = 0;
   pageItems.forEach(item=>{
+    // Music album card (playlist style)
+    if(item.type === 'music' && !item.group){
+      const author = item.author || '匿名';
+      const variants = musicByAuthor.get(author) || [];
+      if(variants.length > 1){
+        if(renderedMusicAlbums.has(author)) return;
+        renderedMusicAlbums.add(author);
+
+        const variantsWithLabel = variants.map(v=>{
+          if(v.groupLabel) return v;
+          return {...v, groupLabel: author};
+        });
+
+        const card = makeMusicGroupCard(variantsWithLabel, idx++);
+        grid.appendChild(card);
+        return;
+      }
+    }
+
     // Group header
     if(item.group){
       if(renderedGroups.has(item.group)) return;
