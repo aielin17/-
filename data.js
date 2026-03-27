@@ -9900,7 +9900,7 @@ const MUSIC = [
   desc:"-沙漠里的收音机 接收不到你的频率-",
   fileType:'mp3',
   fileName:"1772964119307_陈绮贞_-_台北某个地方.mp3",
-  file:"https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3";
+  file:"https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3",
   },
   {
   id:'mus38',
@@ -9911,7 +9911,7 @@ const MUSIC = [
   desc:"-别让我飞 将我温柔豢养 原谅我飞 曾经眷恋太阳-",
   fileType:'mp3',
   fileName:"1772964135537_陈绮贞_-_鱼.mp3",
-  file:"https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3";
+  file:"https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3",
   },
   {
   id:'mus39',
@@ -9922,7 +9922,7 @@ const MUSIC = [
   desc:"-你是我 小心维护的梦-",
   fileType:'mp3',
   fileName:"1772964130543_陈绮贞_-_太阳.mp3",
-  file:"https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3";
+  file:"https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3",
   },
   {
   id:'mus40',
@@ -9933,7 +9933,7 @@ const MUSIC = [
   desc:"-我的冬天 就要来了-",
   fileType:'mp3',
   fileName:"1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
-  file:"https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3";
+  file:"https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
   },
   {
   id:'mus41',
@@ -9944,7 +9944,7 @@ const MUSIC = [
   desc:"-你靠着车窗 我心脏一旁-",
   fileType:'mp3',
   fileName:"1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
-  file:"https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3";
+  file:"https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
   },
   {
   id:'mus37',
@@ -9954,8 +9954,8 @@ const MUSIC = [
   artist:"余佳运",
   fileType:'mp3',
   fileName:"url?id=420401511.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=420401511.mp3";
-  }，
+  file:"http://music.163.com/song/media/outer/url?id=420401511.mp3",
+  }
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
