@@ -159,6 +159,14 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
   family:'F22',
   url:'https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf'
 },
+{
+  id:'f23',
+  type:'font',
+  name:'低饱和的萌物',
+  author:'蛋挞',
+  family:'F23',
+  url:'https://image.uglycat.cc/4sqqfx.ttf'
+},
 ];
 const BUBBLES = [
   {
@@ -8690,6 +8698,305 @@ filter: drop-shadow(0 0 8px rgba(245, 175, 200, 0.8)) blur(0.5px) !important;
   color: #1a5aaa !important;
 }`
 },
+{
+  id:'b121',
+  type:'bubble',
+  name:'天外来讯',
+  author:'小圆',
+  /* 系列：小满胜万全 */
+  previews:[
+    {t:'sent',v:'42'},
+    {t:'received',v:'生命、宇宙以及世间万物的「终极答案」'}
+  ],
+  css:`.message-sent {
+  position: relative !important;
+  background-color: #0a0f1e !important;
+  background-image: linear-gradient(to right, rgba(80, 160, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(80, 160, 255, 0.15) 1px, transparent 1px) !important;
+  background-size: 8px 8px !important;
+  border: 3px solid #3e6b9e !important;
+  border-radius: 20px !important;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3) !important;
+  padding: 10px 18px !important;
+  margin: 10px 0 10px auto !important;
+  font-family: 'Courier New', 'VT323', 'Press Start 2P', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #b8e2ff !important;
+  display: inline-block !important;
+  max-width: 70% !important;
+  overflow: visible !important;
+  margin-bottom: 52px !important;
+  z-index: 1 !important;
+}
+
+.message-sent * {
+  color: #cceeff !important;
+  font-family: inherit !important;
+}
+
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -44px !important;
+  right: -12px !important;
+  width: 70px !important;
+  height: 70px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 70'%3E%3C!-- 宇航员头盔 --%3E%3Crect x='22' y='22' width='26' height='26' fill='%23c0e0ff' rx='13' /%3E%3Crect x='28' y='28' width='4' height='4' fill='%23333' /%3E%3Crect x='38' y='28' width='4' height='4' fill='%23333' /%3E%3Crect x='33' y='36' width='4' height='3' fill='%23888' /%3E%3C!-- 天线 --%3E%3Crect x='33' y='16' width='4' height='8' fill='%23aaa' /%3E%3Crect x='31' y='14' width='8' height='4' fill='%23aaa' /%3E%3C!-- 火箭 --%3E%3Crect x='48' y='46' width='8' height='14' fill='%23ff6b4a' /%3E%3Cpolygon points='48,46 56,46 52,42' fill='%23ff8c5a' /%3E%3Crect x='50' y='56' width='2' height='6' fill='%23ffcc44' /%3E%3Crect x='54' y='56' width='2' height='6' fill='%23ffcc44' /%3E%3C!-- 星球 --%3E%3Ccircle cx='12' cy='12' r='6' fill='%2388aaff' /%3E%3Ccircle cx='14' cy='10' r='2' fill='%23ffdd88' /%3E%3C!-- 星星 --%3E%3Crect x='4' y='28' width='2' height='5' fill='%23ffdd77' /%3E%3Crect x='2' y='30' width='6' height='2' fill='%23ffdd77' /%3E%3Crect x='58' y='14' width='2' height='5' fill='%23ffdd77' /%3E%3Crect x='56' y='16' width='6' height='2' fill='%23ffdd77' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2)) !important;
+}
+
+.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -34px !important;
+  left: -10px !important;
+  width: 54px !important;
+  height: 54px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 54'%3E%3C!-- 卫星 --%3E%3Crect x='18' y='18' width='16' height='16' fill='%23ccccaa' rx='2' /%3E%3Crect x='14' y='22' width='6' height='8' fill='%23aaaaff' /%3E%3Crect x='32' y='22' width='6' height='8' fill='%23aaaaff' /%3E%3Crect x='22' y='12' width='8' height='6' fill='%23ccccaa' /%3E%3C!-- 流星 --%3E%3Cpolygon points='42,8 48,12 44,16' fill='%23ffaa55' /%3E%3Crect x='44' y='10' width='2' height='4' fill='%23ff8844' /%3E%3C!-- 小行星 --%3E%3Ccircle cx='8' cy='42' r='5' fill='%23997755' /%3E%3Ccircle cx='10' cy='40' r='2' fill='%23ccaa88' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+}
+
+.message-received {
+  position: relative !important;
+  background-color: #1a1e2a !important;
+  background-image: radial-gradient(circle at 3px 3px, rgba(180, 100, 200, 0.2) 1.5px, transparent 1.5px) !important;
+  background-size: 12px 12px !important;
+  border: 3px solid #9b6b9e !important;
+  border-radius: 20px !important;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3) !important;
+  padding: 10px 18px !important;
+  margin: 10px auto 10px 0 !important;
+  font-family: 'Courier New', 'VT323', 'Press Start 2P', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #e5ccff !important;
+  display: inline-block !important;
+  max-width: 70% !important;
+  overflow: visible !important;
+  margin-bottom: 52px !important;
+  z-index: 1 !important;
+}
+
+.message-received * {
+  color: #f2e6ff !important;
+  font-family: inherit !important;
+}
+
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -44px !important;
+  left: -12px !important;
+  width: 70px !important;
+  height: 70px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 70'%3E%3C!-- 魔法帽 --%3E%3Cpolygon points='28,18 42,18 35,42' fill='%233a2a6e' /%3E%3Crect x='32' y='42' width='6' height='12' fill='%235a3e8e' /%3E%3Crect x='34' y='52' width='2' height='6' fill='%23ddcc99' /%3E%3C!-- 药水瓶 --%3E%3Crect x='46' y='40' width='10' height='18' fill='%2377aaff' rx='2' /%3E%3Crect x='48' y='36' width='6' height='6' fill='%2377aaff' /%3E%3Crect x='50' y='44' width='2' height='8' fill='%23ffdd99' /%3E%3C!-- 魔法阵 --%3E%3Crect x='12' y='44' width='8' height='8' fill='%23aa88ff' /%3E%3Crect x='10' y='42' width='12' height='12' fill='none' stroke='%23ffcc88' stroke-width='1' /%3E%3C!-- 星星 --%3E%3Crect x='6' y='12' width='2' height='5' fill='%23ffdd77' /%3E%3Crect x='4' y='14' width='6' height='2' fill='%23ffdd77' /%3E%3Crect x='58' y='20' width='2' height='5' fill='%23ffdd77' /%3E%3Crect x='56' y='22' width='6' height='2' fill='%23ffdd77' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2)) !important;
+}
+
+.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -34px !important;
+  right: -10px !important;
+  width: 54px !important;
+  height: 54px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 54'%3E%3C!-- 水晶球 --%3E%3Ccircle cx='27' cy='23' r='10' fill='%23aaccff' /%3E%3Crect x='23' y='33' width='8' height='8' fill='%236644aa' /%3E%3Ccircle cx='27' cy='27' r='3' fill='%23ffffff' /%3E%3C!-- 魔法书 --%3E%3Crect x='34' y='34' width='12' height='12' fill='%23aa8866' /%3E%3Crect x='36' y='36' width='8' height='2' fill='%23ffccaa' /%3E%3C!-- 小星星 --%3E%3Crect x='8' y='42' width='2' height='4' fill='%23ffdd77' /%3E%3Crect x='6' y='44' width='6' height='2' fill='%23ffdd77' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15)) !important;
+}
+
+.message-sent,
+.message-received {
+  word-break: break-word !important;
+  letter-spacing: 0.4px !important;
+}
+
+.message-sent::before,
+.message-sent::after,
+.message-received::before,
+.message-received::after {
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+}`
+},
+{
+  id:'b122',
+  type:'bubble',
+  name:'🍀',
+  author:'小圆',
+  /* 系列：小满胜万全 */
+  previews:[
+    {t:'sent',v:'秋风带着它的光亮到来'},
+    {t:'received',v:'事物变得清朗 流云更易散'}
+  ],
+  css:`.message-sent {
+  position: relative !important;
+  background: rgba(180, 210, 160, 0.92) !important;
+  border: 2px solid #2c5e2a !important;
+  border-radius: 0px !important;
+  box-shadow: 4px 4px 0 rgba(30, 50, 20, 0.25) !important;
+  padding: 6px 14px !important;
+  margin: 6px 0 6px auto !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-family: 'Courier New', 'VT323', 'Press Start 2P', monospace !important;
+  color: #1e3a1a !important;
+  display: inline-block !important;
+  max-width: 70% !important;
+  overflow: visible !important;
+  margin-bottom: 22px !important;
+  z-index: 1 !important;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 4px) !important;
+}
+.message-sent * {
+  color: #1e3a1a !important;
+  font-family: inherit !important;
+}
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  left: -8px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='none' /%3E%3C!-- 左上叶片 --%3E%3Crect x='5' y='5' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 右上叶片 --%3E%3Crect x='16' y='5' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 左下叶片 --%3E%3Crect x='5' y='16' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 右下叶片 --%3E%3Crect x='16' y='16' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 中心点 (高光) --%3E%3Crect x='12' y='12' width='4' height='4' fill='%236fbf4c' /%3E%3C!-- 叶茎 --%3E%3Crect x='13' y='22' width='3' height='5' fill='%233d8c40' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15)) !important;
+}
+.message-received {
+  position: relative !important;
+  background: rgba(210, 225, 190, 0.9) !important;
+  border: 2px solid #3a6b35 !important;
+  border-radius: 0px !important;
+  box-shadow: 4px 4px 0 rgba(30, 50, 20, 0.2) !important;
+  padding: 6px 14px !important;
+  margin: 6px auto 6px 0 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-family: 'Courier New', 'VT323', 'Press Start 2P', monospace !important;
+  color: #1e3a1a !important;
+  display: inline-block !important;
+  max-width: 70% !important;
+  overflow: visible !important;
+  margin-bottom: 22px !important;
+  z-index: 1 !important;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 4px) !important;
+}
+
+.message-received * {
+  color: #1e3a1a !important;
+  font-family: inherit !important;
+}
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -16px !important;
+  right: -8px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='none' /%3E%3C!-- 左上叶片 --%3E%3Crect x='5' y='5' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 右上叶片 --%3E%3Crect x='16' y='5' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 左下叶片 --%3E%3Crect x='5' y='16' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 右下叶片 --%3E%3Crect x='16' y='16' width='7' height='7' fill='%234caf50' rx='1' /%3E%3C!-- 中心点 --%3E%3Crect x='12' y='12' width='4' height='4' fill='%236fbf4c' /%3E%3C!-- 叶茎 --%3E%3Crect x='13' y='22' width='3' height='5' fill='%233d8c40' /%3E%3C/svg%3E") center / contain no-repeat !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: pixelated !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15)) !important;
+}
+.message-sent, .message-received {
+  word-break: break-word !important;
+  letter-spacing: 0.5px !important;
+}
+.message-sent::after, .message-received::after {
+  -ms-interpolation-mode: nearest-neighbor !important;
+}`
+},
+{
+  id:'b123',
+  type:'bubble',
+  name:'半调香槟',
+  author:'滿枝',
+  group:'pop',
+  groupLabel:'復古波普',
+  previews:[
+    {t:'sent',v:'I\'m always getting your back'},
+    {t:'received',v:'But now you got to grip the trigger'},
+    {t:'sent',v:'翻す深紅'},
+    {t:'received',v:'Come on! Show me how you think!'}
+  ],
+  css:`.message-sent,
+.message-received
+{
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    border: 2px solid #1A1A1D !important;
+    color: #1A1A1D !important;
+   
+    font-weight: 500 !important;
+    position: relative !important;
+    z-index: 1;
+    overflow: hidden !important;    
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+
+.message-sent {
+    background-color: #F1C40F !important;
+    background-image: radial-gradient(rgba(26, 26, 29, 0.15) 20%, transparent 20%) !important;
+    background-size: 8px 8px !important;
+    background-position: 0 0, 4px 4px !important;
+    border-radius: 20px 20px 5px 20px !important;
+        box-shadow: -4px 4px 0px 0px #1A1A1D !important;
+}
+
+.message-received {
+   
+    background-color: #FFF8E7 !important;
+   
+   
+    background-image: radial-gradient(rgba(241, 196, 15, 0.3) 20%, transparent 20%) !important;
+    background-size: 8px 8px !important;
+    background-position: 0 0, 4px 4px !important;
+   
+    border-radius: 20px 20px 20px 5px !important;
+ 
+    box-shadow: 4px 4px 0px 0px #1A1A1D !important;
+}
+
+.message-sent:hover {
+    transform: translate(-2px, 2px) !important;
+    box-shadow: -2px 2px 0px 0px #1A1A1D !important;
+}
+
+.message-received:hover {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 2px 2px 0px 0px #1A1A1D !important;
+}
+
+.message-sent *,
+.message-received * {
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6) !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -9584,6 +9891,71 @@ const MUSIC = [
   fileName:"ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
   file:"http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
   },
+  {
+  id:'mus37',
+  type:'music',
+  name:"台北某个地方",
+  author:"言夏",
+  artist:"陈绮贞",
+  desc:"-沙漠里的收音机 接收不到你的频率-",
+  fileType:'mp3',
+  fileName:"1772964119307_陈绮贞_-_台北某个地方.mp3",
+  file:"https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3";
+  },
+  {
+  id:'mus38',
+  type:'music',
+  name:"鱼",
+  author:"言夏",
+  artist:"陈绮贞",
+  desc:"-别让我飞 将我温柔豢养 原谅我飞 曾经眷恋太阳-",
+  fileType:'mp3',
+  fileName:"1772964135537_陈绮贞_-_鱼.mp3",
+  file:"https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3";
+  },
+  {
+  id:'mus39',
+  type:'music',
+  name:"太阳",
+  author:"言夏",
+  artist:"陈绮贞",
+  desc:"-你是我 小心维护的梦-",
+  fileType:'mp3',
+  fileName:"1772964130543_陈绮贞_-_太阳.mp3",
+  file:"https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3";
+  },
+  {
+  id:'mus40',
+  type:'music',
+  name:"躺在你的衣柜（Piano）",
+  author:"言夏",
+  artist:"陈绮贞",
+  desc:"-我的冬天 就要来了-",
+  fileType:'mp3',
+  fileName:"1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
+  file:"https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3";
+  },
+  {
+  id:'mus41',
+  type:'music',
+  name:"我喜欢上你时的内心活动",
+  author:"言夏",
+  artist:"陈绮贞",
+  desc:"-你靠着车窗 我心脏一旁-",
+  fileType:'mp3',
+  fileName:"1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
+  file:"https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3";
+  },
+  {
+  id:'mus37',
+  type:'music',
+  name:"和你",
+  author:"七七",
+  artist:"余佳运",
+  fileType:'mp3',
+  fileName:"url?id=420401511.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=420401511.mp3";
+  }，
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
