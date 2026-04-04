@@ -919,6 +919,10 @@ window.switchForm = function(type){
     const el=document.getElementById('fallback-'+t); if(el) el.classList.remove('show');
   });
   if(type==='music') ensureMusicTracksInit();
+  const activeNav=document.querySelector('.sv-nav-item.active');
+  if(activeNav && typeof activeNav.scrollIntoView==='function'){
+    try{ activeNav.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); }catch(e){ activeNav.scrollIntoView({inline:'center', block:'nearest'}); }
+  }
 };
 
 function jsString(v){ return JSON.stringify(String(v ?? '')); }

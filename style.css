@@ -672,16 +672,145 @@ body{
 .sv-guide-tip svg,.sv-guide-note svg{width:14px;height:14px;flex-shrink:0;margin-top:2px}
 
 @media(max-width:900px){
-  .sv-shell{grid-template-columns:1fr;gap:16px}
-  .sv-aside{position:relative;top:0}
-  .sv-nav{flex-direction:row;overflow-x:auto;padding-bottom:6px;gap:8px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
-  .sv-nav-item{
-    flex:0 0 auto;min-width:128px;scroll-snap-align:start;
-    flex-direction:column;text-align:center;padding:12px 10px;gap:8px;
+  /* 投稿页：安全区、避免长表单贴边 */
+  .submit-view{
+    padding-top:max(12px, env(safe-area-inset-top, 0px));
+    padding-right:max(12px, env(safe-area-inset-right, 0px));
+    padding-bottom:max(28px, calc(12px + env(safe-area-inset-bottom, 0px)));
+    padding-left:max(12px, env(safe-area-inset-left, 0px));
   }
+  .sv-shell{grid-template-columns:1fr;gap:12px}
+  /* 横滑类型：吸顶 + 弱磨砂，滚动长表单时仍能切换类型 */
+  .sv-aside{
+    position:sticky;
+    top:0;
+    z-index:25;
+    padding:12px 10px 14px;
+    border-radius:16px;
+    background:color-mix(in srgb, var(--surface) 93%, transparent);
+    backdrop-filter:saturate(1.15) blur(14px);
+    -webkit-backdrop-filter:saturate(1.15) blur(14px);
+    box-shadow:0 1px 0 var(--border);
+  }
+  .dark .sv-aside{
+    background:color-mix(in srgb, var(--surface) 90%, transparent);
+    box-shadow:0 1px 0 var(--border);
+  }
+  .sv-aside-head{margin-bottom:10px;padding-bottom:10px}
+  .sv-aside-title{font-size:16px}
+  .sv-aside-sub{font-size:11px;line-height:1.45}
+  .sv-nav{
+    flex-direction:row;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:4px 2px 10px;
+    margin:0 -4px;
+    gap:10px;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;
+    scroll-padding-inline:8px;
+    overscroll-behavior-x:contain;
+    mask-image:linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
+  }
+  .sv-nav::-webkit-scrollbar{height:3px}
+  .sv-nav::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+  .sv-nav-item{
+    flex:0 0 auto;
+    min-width:100px;
+    min-height:44px;
+    scroll-snap-align:start;
+    flex-direction:column;
+    text-align:center;
+    padding:10px 12px;
+    gap:6px;
+    justify-content:center;
+    box-sizing:border-box;
+  }
+  .sv-nav-ic{width:40px;height:40px;border-radius:12px}
+  .sv-nav-ic svg{width:20px;height:20px}
   .sv-nav-txt{align-items:center}
+  .sv-nav-txt b{font-size:12.5px}
+  /* 窄屏隐藏副标题，省高；需要说明时点类型名即可 */
   .sv-nav-txt small{display:none}
-  .sv-form-card{padding:20px 16px 24px;border-radius:16px}
+  .sv-main{min-width:0}
+  .sv-form-card{padding:18px 14px 22px;border-radius:16px}
+  /* iOS：输入框字号 ≥16px 可避免聚焦时整页缩放 */
+  .submit-view .fi,.submit-view .fta{font-size:16px;line-height:1.45}
+  .submit-view .fl{font-size:14px}
+  .submit-view .fl-sub{font-size:12px}
+  /* 合辑 / 单曲切换：占满宽度，易点 */
+  .music-mode-switch{
+    display:flex;width:100%;max-width:100%;
+    padding:5px;border-radius:16px;
+  }
+  .music-mode-btn{
+    flex:1;
+    min-height:46px;
+    padding:10px 12px;
+    font-size:13px;
+  }
+  .sv-panel-intro{
+    padding:12px 14px;
+    font-size:13px;
+    line-height:1.6;
+  }
+  .sv-section{margin-bottom:18px}
+  .sv-section-label-row{
+    flex-wrap:wrap;
+    align-items:stretch;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .sv-section-label-row .sv-section-lbl{
+    flex:1 1 100%;
+    margin-bottom:0;
+  }
+  .sv-section-label-row .sv-mini-btn{
+    flex:1 1 auto;
+    min-height:44px;
+    justify-content:center;
+    width:100%;
+    font-size:12px;
+    padding:10px 14px;
+  }
+  .music-track-card{padding:14px 12px}
+  .music-track-rm{
+    min-width:44px;
+    min-height:44px;
+    font-size:20px;
+    border-radius:11px;
+  }
+  .music-track-num{
+    min-width:32px;
+    height:32px;
+    font-size:13px;
+  }
+  .form-panel .sv-submit-btn{
+    margin-top:16px;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .sv-details summary{
+    min-height:48px;
+    padding:12px 14px;
+    font-size:13px;
+    align-items:center;
+  }
+  .fallback-panel{margin-top:8px}
+  .fallback-btns{flex-direction:column}
+  .fb-btn{min-height:46px;font-size:13px}
+}
+
+@media(max-width:480px){
+  .submit-view{
+    padding-left:max(10px, env(safe-area-inset-left, 0px));
+    padding-right:max(10px, env(safe-area-inset-right, 0px));
+  }
+  .sv-form-card{padding:16px 12px 20px;border-radius:14px}
+  .sv-nav-item{min-width:96px;padding:9px 10px}
+  .preview-inputs .pi-row{flex-wrap:wrap}
+  .preview-inputs .pi-tag{margin-bottom:0}
 }
 
 .submit-card{
