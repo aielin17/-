@@ -8997,6 +8997,337 @@ filter: drop-shadow(0 0 8px rgba(245, 175, 200, 0.8)) blur(0.5px) !important;
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6) !important;
 }`
 },
+{
+  id:'b124',
+  type:'bubble',
+  name:'mini方正透明黄',
+  author:'小渝',
+  previews:[
+    {t:'sent',v:'小小的'},
+    {t:'received',v:'方方正正的'}
+  ],
+  css:`/* 全局消息容器样式 */
+.message {
+  box-shadow: none !important;
+  border-width: 0 !important;
+  font-weight: 500 !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+/* 对方气泡 - 露凝质感，通透温润，点击变淡粉色 */
+.message-received {
+  background: linear-gradient(135deg, rgba(255, 240, 200, 0.5), rgba(255, 225, 220, 0.45)) !important;
+  color: #4a4a4a !important;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.2, 0.64, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  backdrop-filter: blur(4px) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  cursor: pointer !important;
+}
+
+/* 点击态 - 淡粉色 + 缩小弹回 */
+.message-received:active {
+  background: linear-gradient(135deg, rgba(255, 220, 200, 0.65), rgba(255, 200, 210, 0.6)) !important;
+  transform: scale(0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.08s cubic-bezier(0.34, 0.8, 0.64, 1) !important;
+}
+
+/* 悬停超Q弹效果 */
+.message-received:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 顶部高光 - 水润光泽 */
+.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 45% !important;
+  background: radial-gradient(ellipse at 30% 0%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18) 60%, transparent) !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(1.5px) !important;
+}
+
+/* 底部反光 - 水润感 */
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 16px !important;
+  right: 16px !important;
+  height: 22% !important;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), transparent 70%) !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(2.5px) !important;
+}
+
+/* 自己气泡 - 露凝质感，通透温润，点击变淡粉色 */
+.message-sent {
+  background: linear-gradient(135deg, rgba(255, 240, 200, 0.5), rgba(255, 225, 220, 0.45)) !important;
+  color: #4a4a4a !important;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.2, 0.64, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  backdrop-filter: blur(4px) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  cursor: pointer !important;
+}
+
+/* 点击态 - 淡粉色 + 缩小弹回 */
+.message-sent:active {
+  background: linear-gradient(135deg, rgba(255, 220, 200, 0.65), rgba(255, 200, 210, 0.6)) !important;
+  transform: scale(0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.08s cubic-bezier(0.34, 0.8, 0.64, 1) !important;
+}
+
+/* 悬停超Q弹效果 */
+.message-sent:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 顶部高光 - 水润光泽 */
+.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 45% !important;
+  background: radial-gradient(ellipse at 70% 0%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18) 60%, transparent) !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(1.5px) !important;
+}
+
+/* 底部反光 - 水润感 */
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 16px !important;
+  right: 16px !important;
+  height: 22% !important;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), transparent 70%) !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(2.5px) !important;
+}`
+},
+{
+  id:'b125',
+  type:'bubble',
+  name:'mini方正透明黄',
+  author:'小渝',
+  previews:[
+    {t:'sent',v:'小小的'},
+    {t:'received',v:'方方正正的'}
+  ],
+  css:`/* 全局消息容器样式 */
+.message {
+  box-shadow: none !important;
+  border-width: 0 !important;
+  font-weight: 500 !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+/* 对方气泡 - 露凝质感，通透温润，点击变淡粉色 */
+.message-received {
+  background: linear-gradient(135deg, rgba(255, 240, 200, 0.5), rgba(255, 225, 220, 0.45)) !important;
+  color: #4a4a4a !important;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.2, 0.64, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  backdrop-filter: blur(4px) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  cursor: pointer !important;
+}
+
+/* 点击态 - 淡粉色 + 缩小弹回 */
+.message-received:active {
+  background: linear-gradient(135deg, rgba(255, 220, 200, 0.65), rgba(255, 200, 210, 0.6)) !important;
+  transform: scale(0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.08s cubic-bezier(0.34, 0.8, 0.64, 1) !important;
+}
+
+/* 悬停超Q弹效果 */
+.message-received:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 顶部高光 - 水润光泽 */
+.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 45% !important;
+  background: radial-gradient(ellipse at 30% 0%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18) 60%, transparent) !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(1.5px) !important;
+}
+
+/* 底部反光 - 水润感 */
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 16px !important;
+  right: 16px !important;
+  height: 22% !important;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), transparent 70%) !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(2.5px) !important;
+}
+
+/* 自己气泡 - 露凝质感，通透温润，点击变淡粉色 */
+.message-sent {
+  background: linear-gradient(135deg, rgba(255, 240, 200, 0.5), rgba(255, 225, 220, 0.45)) !important;
+  color: #4a4a4a !important;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.2, 0.64, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  backdrop-filter: blur(4px) !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  cursor: pointer !important;
+}
+
+/* 点击态 - 淡粉色 + 缩小弹回 */
+.message-sent:active {
+  background: linear-gradient(135deg, rgba(255, 220, 200, 0.65), rgba(255, 200, 210, 0.6)) !important;
+  transform: scale(0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.08s cubic-bezier(0.34, 0.8, 0.64, 1) !important;
+}
+
+/* 悬停超Q弹效果 */
+.message-sent:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 顶部高光 - 水润光泽 */
+.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 45% !important;
+  background: radial-gradient(ellipse at 70% 0%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18) 60%, transparent) !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(1.5px) !important;
+}
+
+/* 底部反光 - 水润感 */
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 16px !important;
+  right: 16px !important;
+  height: 22% !important;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), transparent 70%) !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  filter: blur(2.5px) !important;
+}`
+},
+{
+id:'b126',
+type:'bubble',
+name:'蓝粉',
+author:'milk',
+group:'weiba',
+groupLabel:'小尾巴',
+previews:[
+{t:'sent',v:'不建议开引用'},
+{t:'received',v:'小尾巴会掉下去'},
+{t:'sent',v:'其他的时候差不多都正常'}
+],
+css:`.message {
+position: relative !important;
+padding: 7px 13px !important;
+line-height: 1.3 !important;
+word-break: break-word !important;
+border-radius: 18px !important;
+box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1) !important;
+overflow: visible !important;
+margin-top: 5px !important;
+}
+
+.message.message-received {
+background-color: #d9e8ff !important;
+color: var(--accent-color) !important;
+}
+
+.message.message-sent {
+background-color: #fef6f6 !important;
+color: #333333 !important;
+}
+
+.message::after {
+content: '' !important;
+position: absolute !important;
+width: 20px !important;
+height: 20px !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+z-index: 0 !important;
+}
+
+.message.message-sent::after {
+bottom: 15px !important;
+right: -6px !important;
+background-image: url('https://image.uglycat.cc/01nd3a.png') !important;
+}
+
+.message.message-received::after {
+bottom: 15px !important;
+left: -6px !important;
+background-image: url('https://image.uglycat.cc/u57bgz.png') !important;
+}`
+},
 ];
 const CARDS = [
   {
@@ -9252,7 +9583,27 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   fileType:'json',
   fileName:"1774033690540_reply-groups-台词向-2026-03-20.json",
   file:"https://img.heliar.top/file/1774033690540_reply-groups-台词向-2026-03-20.json",
-}
+},
+{
+  id:'card23',
+  type:'card',
+  name:"日常聊天",
+  author:"松岛",
+  desc:"刀剑乱舞乙女向",
+  fileType:'json',
+  fileName:"l0wrpd.json",
+  file:"https://files.catbox.moe/l0wrpd.json",
+},
+{
+  id:'card24',
+  type:'card',
+  name:"陆沉语料库（600+字卡）",
+  author:"lulu",
+  desc:"本语料库以陆沉的人格画像、行为性格为基底，参考游戏剧情、官方设定及同人二创中的语言风格，覆盖日常生活、工作学业、情感关系、社交友谊、家庭议题、心理状态、特殊时刻七大类别，共600+条回复。",
+  fileType:'json',
+  fileName:"1y3qvt.json",
+  file:"https://files.catbox.moe/1y3qvt.json",
+},
 ]; 
 
 const THEMES = [

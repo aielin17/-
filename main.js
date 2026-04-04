@@ -911,13 +911,14 @@ const SUBMIT_EMAIL = 'xiaren45@qq.com';
 
 window.switchForm = function(type){
   document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.sv-type-card').forEach(b=>{
+  document.querySelectorAll('.sv-nav-item').forEach(b=>{
     b.classList.toggle('active', b.dataset.type === type);
   });
   document.getElementById('form-'+type).classList.add('active');
   ['bubble','font','card','theme','music'].forEach(t=>{
     const el=document.getElementById('fallback-'+t); if(el) el.classList.remove('show');
   });
+  if(type==='music') ensureMusicTracksInit();
 };
 
 function jsString(v){ return JSON.stringify(String(v ?? '')); }
@@ -942,12 +943,104 @@ function buildThemeCode(name,author,desc,css,colors,tags){
   const colorsArr=colors.split(/[,\s]+/).filter(s=>s.startsWith('#'));
   return `/* === 主题投稿 === */\n{\n  id:'${nextId}',\n  type:'theme',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  desc:${jsString(desc)},\n  tags:${JSON.stringify(tags.split(/[,，\s]+/).filter(Boolean))},\n  colors:${JSON.stringify(colorsArr)},\n  css:\`${css}\`\n}`;
 }
-function buildMusicCode(name,author,artist,desc,fileUrl){
-  const nextId='mus'+(MUSIC.length+1);
+function randomMusicGroupSuffix(){
+  const c='abcdefghijklmnopqrstuvwxyz0123456789';
+  let s='';
+  for(let i=0;i<6;i++) s+=c[Math.floor(Math.random()*c.length)];
+  return s;
+}
+function sanitizeMusicGroupId(raw){
+  let s=String(raw||'').trim().replace(/\s+/g,'').replace(/[^a-zA-Z0-9_-]/g,'');
+  if(!s) return '';
+  if(!/^g-/i.test(s)) s='g-'+s;
+  return s;
+}
+function buildMusicCode(seq,name,author,artist,desc,fileUrl,groupMeta,duration){
+  const nextId='mus'+seq;
   const fileName=fileUrl.split('/').pop()||'song.mp3';
   const ext=(fileName.split('.').pop()||'mp3').toLowerCase();
-  return `/* === 音乐投稿 === */\n{\n  id:'${nextId}',\n  type:'music',\n  name:${jsString(name)},\n  author:${jsString(author||'匿名')},\n  ${artist?`artist:${jsString(artist)},\n  `:''}${desc?`desc:${jsString(desc)},\n  `:''}fileType:'${ext}',\n  fileName:${jsString(fileName)},\n  file:${jsString(fileUrl)}\n}`;
+  const parts=[
+    `  id:'${nextId}'`,
+    `  type:'music'`,
+    `  name:${jsString(name)}`,
+    `  author:${jsString(author||'匿名')}`,
+  ];
+  if(groupMeta && groupMeta.group){
+    const gid=String(groupMeta.group).replace(/'/g,"\\'");
+    parts.push(`  group:'${gid}'`);
+    parts.push(`  groupLabel:${jsString(groupMeta.groupLabel||groupMeta.group)}`);
+  }
+  if(artist) parts.push(`  artist:${jsString(artist)}`);
+  if(desc) parts.push(`  desc:${jsString(desc)}`);
+  if(duration) parts.push(`  duration:${jsString(duration)}`);
+  parts.push(`  fileType:'${ext}'`);
+  parts.push(`  fileName:${jsString(fileName)}`);
+  parts.push(`  file:${jsString(fileUrl)}`);
+  return '/* === 音乐投稿 === */\n{\n'+parts.join(',\n')+'\n}';
 }
+
+function ensureMusicTracksInit(){
+  const box=document.getElementById('music-tracks');
+  if(!box||box.children.length) return;
+  addMusicTrackRow();
+  addMusicTrackRow();
+}
+function renumberMusicTracks(){
+  document.querySelectorAll('#music-tracks .music-track-card').forEach((card,i)=>{
+    const n=card.querySelector('.music-track-num');
+    if(n) n.textContent=String(i+1);
+  });
+}
+window.addMusicTrackRow=function(){
+  const box=document.getElementById('music-tracks');
+  if(!box) return;
+  const card=document.createElement('div');
+  card.className='music-track-card';
+  card.innerHTML=`
+    <div class="music-track-top">
+      <span class="music-track-num">1</span>
+      <button type="button" class="music-track-rm" onclick="removeMusicTrackRow(this)" aria-label="删除此曲">×</button>
+    </div>
+    <div class="music-track-fields">
+      <div class="fg"><label class="fl">曲名</label><input type="text" class="fi music-inp-name" placeholder="歌曲名称" autocomplete="off"></div>
+      <div class="fg"><label class="fl">音频直链</label><input type="text" class="fi music-inp-url" placeholder="https://files.catbox.moe/….mp3" autocomplete="off"></div>
+      <div class="music-track-grid2">
+        <div class="fg"><label class="fl">原唱 <span class="sv-section-opt">可选</span></label><input type="text" class="fi music-inp-artist" placeholder="艺术家" autocomplete="off"></div>
+        <div class="fg"><label class="fl">时长 <span class="sv-section-opt">可选</span></label><input type="text" class="fi music-inp-dur" placeholder="3:45" autocomplete="off"></div>
+      </div>
+      <div class="fg"><label class="fl">单曲简介 <span class="sv-section-opt">可选</span></label><textarea class="fta music-inp-desc" placeholder="这一首的说明…" style="min-height:56px"></textarea></div>
+    </div>`;
+  box.appendChild(card);
+  renumberMusicTracks();
+};
+window.removeMusicTrackRow=function(btn){
+  const box=document.getElementById('music-tracks');
+  const card=btn && btn.closest && btn.closest('.music-track-card');
+  if(!box||!card||box.children.length<=1) return;
+  card.remove();
+  renumberMusicTracks();
+};
+
+window.setMusicMode=function(mode){
+  const album=document.getElementById('music-panel-album');
+  const single=document.getElementById('music-panel-single');
+  const isAlbum=mode==='album';
+  if(album) album.hidden=!isAlbum;
+  if(single) single.hidden=isAlbum;
+  document.querySelectorAll('.music-mode-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.musicMode===mode);
+  });
+  if(isAlbum){
+    ensureMusicTracksInit();
+    const sa=document.getElementById('music-author');
+    const aa=document.getElementById('music-album-author');
+    if(sa&&aa){ const t=sa.value.trim(); if(t&&!aa.value.trim()) aa.value=sa.value; }
+  } else {
+    const sa=document.getElementById('music-author');
+    const aa=document.getElementById('music-album-author');
+    if(sa&&aa){ const t=aa.value.trim(); if(t&&!sa.value.trim()) sa.value=aa.value; }
+  }
+};
 
 window.doSubmit = function(type){
   const nl='\n'; let subject='',body='',code='';
@@ -1004,16 +1097,60 @@ window.doSubmit = function(type){
     document.getElementById('fallback-theme').classList.add('show');
 
   } else if(type==='music'){
-    const name=document.getElementById('music-name').value.trim();
-    const author=document.getElementById('music-author').value.trim();
-    const artist=document.getElementById('music-artist').value.trim();
-    const descEl=document.getElementById('music-desc');
-    const desc=descEl ? descEl.value.trim() : '';
-    const fileUrl=document.getElementById('music-file-url').value.trim();
-    if(!name||!fileUrl){toast('⚠️ 请填写歌曲名称和文件链接');return;}
-    code=buildMusicCode(name,author,artist,desc,fileUrl);
-    subject=`【音乐投稿】${name} - ${author||'匿名'}`;
-    body=`投稿类型：音乐${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${desc?nl+'简介：'+desc:''}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    const albumBtn=document.getElementById('music-mode-album');
+    const albumMode=albumBtn && albumBtn.classList.contains('active');
+    if(albumMode){
+      const title=document.getElementById('music-album-title').value.trim();
+      const author=document.getElementById('music-album-author').value.trim();
+      let groupId=document.getElementById('music-album-group-id').value.trim().replace(/\s+/g,'');
+      const albumDescEl=document.getElementById('music-album-desc');
+      const albumDesc=albumDescEl?albumDescEl.value.trim():'';
+      if(!author){toast('⚠️ 请填写投稿者');return;}
+      if(!title){toast('⚠️ 请填写合辑名称');return;}
+      const rows=[...document.querySelectorAll('#music-tracks .music-track-card')];
+      const filled=[];
+      let rowErr=false;
+      for(const card of rows){
+        const name=(card.querySelector('.music-inp-name')||{}).value?.trim()||'';
+        const url=(card.querySelector('.music-inp-url')||{}).value?.trim()||'';
+        if(!name&&!url) continue;
+        if(!name||!url){toast('⚠️ 每首曲目需同时填写曲名和直链，或清空整行卡片');rowErr=true;break;}
+        filled.push({
+          name,
+          url,
+          artist:(card.querySelector('.music-inp-artist')||{}).value?.trim()||'',
+          desc:(card.querySelector('.music-inp-desc')||{}).value?.trim()||'',
+          duration:(card.querySelector('.music-inp-dur')||{}).value?.trim()||'',
+        });
+      }
+      if(rowErr) return;
+      if(!filled.length){toast('⚠️ 请至少添加一首曲目（曲名 + 直链）');return;}
+      if(!groupId) groupId='g-sub-'+randomMusicGroupSuffix();
+      else groupId=sanitizeMusicGroupId(groupId);
+      const base=(typeof MUSIC!=='undefined'&&MUSIC.length)?MUSIC.length+1:1;
+      const parts=filled.map((t,i)=>{
+        let d=t.desc;
+        if(i===0 && albumDesc && !d) d=albumDesc;
+        return buildMusicCode(base+i,t.name,author,t.artist,d,t.url,{group:groupId,groupLabel:title},t.duration);
+      });
+      code=parts.join('\n\n');
+      subject=`【音乐投稿·合辑】${title} - ${author||'匿名'}（${filled.length}首）`;
+      body=`投稿类型：音乐（合辑）${nl}合辑名称：${title}${nl}合辑ID：${groupId}${nl}投稿者：${author||'匿名'}${albumDesc?nl+'合辑简介：'+albumDesc:''}${nl}${nl}--- 曲目 ---${nl}`+
+        filled.map((t,i)=>`${i+1}. ${t.name}${t.artist?' · '+t.artist:''}${nl}   ${t.url}`).join(nl+nl)+
+        `${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    } else {
+      const name=document.getElementById('music-name').value.trim();
+      const author=document.getElementById('music-author').value.trim();
+      const artist=document.getElementById('music-artist').value.trim();
+      const descEl=document.getElementById('music-desc');
+      const desc=descEl ? descEl.value.trim() : '';
+      const fileUrl=document.getElementById('music-file-url').value.trim();
+      if(!name||!fileUrl){toast('⚠️ 请填写歌曲名称和文件链接');return;}
+      const seq=(typeof MUSIC!=='undefined'&&MUSIC.length)?MUSIC.length+1:1;
+      code=buildMusicCode(seq,name,author,artist,desc,fileUrl,null,'');
+      subject=`【音乐投稿】${name} - ${author||'匿名'}`;
+      body=`投稿类型：音乐（单曲）${nl}名称：${name}${nl}投稿者：${author||'匿名'}${artist?nl+'原唱：'+artist:''}${desc?nl+'简介：'+desc:''}${nl}文件链接：${fileUrl}${nl}${nl}--- 数据条目 ---${nl}${code}`;
+    }
     document.getElementById('fb-content-music').value=`收件人: ${SUBMIT_EMAIL}\n主题: ${subject}\n\n${body}`;
     document.getElementById('fallback-music').classList.add('show');
 
