@@ -167,6 +167,14 @@ url:'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233
   family:'F23',
   url:'https://image.uglycat.cc/4sqqfx.ttf'
 },
+{
+  id:'f24',
+  type:'font',
+  name:'兔啵啵',
+  author:'蛋挞',
+  family:'F24',
+  url:'https://image.uglycat.cc/2cmthx.ttf'
+},
 ];
 const BUBBLES = [
   {
@@ -9328,6 +9336,271 @@ left: -6px !important;
 background-image: url('https://image.uglycat.cc/u57bgz.png') !important;
 }`
 },
+{
+  id:'b127',
+  type:'bubble',
+  name:'涂鸦小曲',
+  author:'Kicoye',
+  group:'LYSK',
+  groupLabel:'深空系列',
+  previews:[
+    {t:'sent',v:'春の気配をガラス越しに'},
+    {t:'received',v:'指尖花瓣微微透明'},
+    {t:'sent',v:'心がふわり浮かぶ'},
+    {t:'received',v:'...serendipity?'}
+  ],
+  css:`.message-received {
+  position: relative !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  padding: 8px 20px !important;
+  border-radius: 20px 20px 20px 5px !important;
+  display: table !important;
+  width: auto !important;
+  max-width: 75% !important;
+  max-width: 500px !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(0deg, rgba(253,232,145,1), rgba(253,232,145,1)) !important;
+  box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.18) !important;
+  color: rgba(140, 104, 52, 1) !important;
+  line-height: 1.1 !important;
+  z-index: 8 !important;
+  border: 1px solid rgba(140, 106, 60, 1) !important;
+  outline: 0 !important;
+  margin-bottom: 8px !important;
+  margin-right: auto !important;
+  padding-left: 8px !important;
+}
+
+.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 25px !important;
+  height: 25px !important;
+  background-image: url('https://i.postimg.cc/vZDX5kGD/tu-ya-ji-jing-xiang.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  right: 0 !important;
+  top: 0 !important;
+  transform: translate(2px, -10px) !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+}
+
+.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-image: url('https://i.postimg.cc/BZch32hZ/hua-bi-(jing-xiang).png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  transform: translate(-5px, 5px) !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.message-sent {
+  position: relative !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  padding: 8px 20px !important;
+  border-radius: 20px 20px 5px 20px !important;
+  display: table !important;
+  width: auto !important;
+  max-width: 75% !important;
+  max-width: 500px !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(0deg, rgba(253,232,145,1), rgba(253,232,145,1)) !important;
+  box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.18) !important;
+  color: rgba(140, 104, 52, 1) !important;
+  line-height: 1.1 !important;
+  z-index: 8 !important;
+  border: 1px solid rgba(140, 106, 60, 1) !important;
+  outline: 0 !important;
+  margin-bottom: 8px !important;
+  margin-left: auto !important;
+  padding-right: 8px !important;
+}
+
+.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 25px !important;
+  height: 25px !important;
+  background-image: url('https://i.postimg.cc/T1kKTkLb/tu-ya-ji.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: translate(-2px, -10px) !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+}
+
+.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-image: url('https://i.postimg.cc/FKj1YFk4/hua-bi.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translate(5px, 5px) !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.message-sent,
+.message-received {
+  max-width: 500px !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}`
+},
+{
+  id:'b128',
+  type:'bubble',
+  name:'qq蓝',
+  author:'蛋挞',
+  /* 系列：简单 */
+  previews:[
+    {t:'sent',v:'我只想在你身边说一些傻傻的笨笨的话'},
+    {t:'received',v:'我说我要拯救世界你说好啊'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 8px 11px;
+  border: none;
+  box-sizing: border-box;
+}
+.message.message-sent,
+.message.message-received {
+  display: inline-block;
+  position: relative;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  width: auto;
+  min-width: 70%;
+  border: none;
+  color: #ffffff;
+}
+.message.message-sent {
+  background-color: #64B5F3;
+  border-radius: 16px 8px 16px 16px;
+}
+.message.message-received {
+  background-color: #4A8FF3;
+  border-radius: 16px 16px 16px 8px;
+}`
+},
+{
+  id:'b129',
+  type:'bubble',
+  name:'粉蓝',
+  author:'蛋挞',
+  /* 系列：简单 */
+  previews:[
+    {t:'sent',v:'我只想在你身边说一些傻傻的笨笨的话'},
+    {t:'received',v:'我说我要拯救世界你说好啊'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 8px 11px;
+  border: none;
+  box-sizing: border-box;
+}
+.message.message-sent,
+.message.message-received {
+  display: inline-block;
+  position: relative;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  width: auto;
+  min-width: 70%;
+  color: #2b2b2b;
+  border: none;
+}
+.message.message-sent {
+  background-color: #FAF2F8;
+  border-radius: 16px 8px 16px 16px;
+}
+.message.message-received {
+  background-color: #F1F4FD;
+  border-radius: 16px 16px 16px 8px;
+}`
+},
+{
+  id:'b130',
+  type:'bubble',
+  name:'蓝紫',
+  author:'蛋挞',
+  /* 系列：简单 */
+  previews:[
+    {t:'sent',v:'我只想在你身边说一些傻傻的笨笨的话'},
+    {t:'received',v:'我说我要拯救世界你说好啊'}
+  ],
+  css:`.message {
+  position: relative !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 8px 11px;
+  border: none;
+  box-sizing: border-box;
+}
+.message.message-sent,
+.message.message-received {
+  display: inline-block;
+  position: relative;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  width: auto;
+  min-width: 70%;
+  color: #2b2b2b;
+  border: none;
+}
+.message.message-sent {
+  background-color: #F1EFFA;
+  border-radius: 16px 8px 16px 16px;
+}
+.message.message-received {
+  background-color: #F1F4FD;
+  border-radius: 16px 16px 16px 8px;
+}`
+},
 ];
 const CARDS = [
   {
@@ -9603,6 +9876,36 @@ file:'https://img.heliar.top/file/1773129660823_雷诺曼.json'
   fileType:'json',
   fileName:"1y3qvt.json",
   file:"https://files.catbox.moe/1y3qvt.json",
+},
+{
+  id:'card25',
+  type:'card',
+  name:"萧逸",
+  author:"帅的被人砍",
+  desc:"日常 状态 心情",
+  fileType:'json',
+  fileName:"spklij.json",
+  file:"https://files.catbox.moe/spklij.json",
+},
+{
+id:'card26',
+type:'card',
+name:"日常吃饭相关",
+author:"Latus",
+desc:"大概是一些日常对话用得上的吃饭相关内容，有点杂",
+fileType:'json',
+fileName:"jk0hdq.json",
+file:"https://files.catbox.moe/jk0hdq.json",
+},
+{
+  id:'card27',
+  type:'card',
+  name:'祁煜字卡分享',
+  author:'小优神',
+  desc:'祁煜日常聊天字卡，日常互动➕语录➕吃🍎➕颜文字➕暗号(暗号我是设置我自己的，你们需要改哦，推荐歌单可以自己加，字卡需要自己分组！)',
+  fileType:'json',
+  fileName:'1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json',
+  file:'https://img.heliar.top/file/1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json'
 },
 ]; 
 
