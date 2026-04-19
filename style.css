@@ -528,42 +528,143 @@ body{
 .dark .tutorial-content-box{background:#1e1e28}
 
 /* ── Submit view ────────────────────────────────────────────────────────── */
-.submit-view{
-  display:none;flex:1;overflow-y:auto;padding:28px 20px;
-  background:var(--bg);animation:fadeIn .3s ease forwards;
+/* 1. 整体容器：全屏高度，柔和背景 */
+.submit-view {
+  display: none;
+  flex: 1;
+  background: var(--bg);
+  animation: fadeIn 0.3s ease forwards;
+  padding: 24px;
+  overflow: hidden; /* 隐藏外层滚动，改由内部滚动 */
 }
-.submit-view.active{display:flex;justify-content:center}
-.submit-view::-webkit-scrollbar{width:4px}
-.submit-view::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-
-.submit-card{
-  width:100%;max-width:580px;
-  background:var(--surface);border-radius:20px;
-  padding:28px 28px 32px;
-  box-shadow:var(--shadow-sm);
-  border:1.5px solid var(--border);
+.submit-view.active {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.s-header{margin-bottom:22px}
-.s-header h2{font-size:20px;font-weight:800;color:var(--text);letter-spacing:-.4px;margin-bottom:5px}
-.s-header p{font-size:13.5px;color:var(--text-sub)}
-
-.s-type-row{
-  display:flex;gap:6px;margin-bottom:24px;
-  background:var(--surface-2);border:1.5px solid var(--border);
-  padding:5px;border-radius:14px;
+/* 2. 核心外壳：左右分栏的高级面板 */
+.sv-shell {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: calc(100vh - var(--hh) - 48px); /* 减去顶部栏和上下内边距 */
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
 }
-.s-type-btn{
-  flex:1;padding:9px 10px;border-radius:10px;
-  border:none;font-size:12.5px;font-weight:700;cursor:pointer;
-  transition:all .18s;background:transparent;color:var(--text-sub);
-  font-family:inherit;white-space:nowrap;
-}
-.s-type-btn:hover{color:var(--text);background:rgba(0,0,0,.04)}
-.s-type-btn.active{background:#fff;color:var(--accent);box-shadow:var(--shadow-sm)}
 
-.form-panel{display:none;flex-direction:column;gap:16px}
-.form-panel.active{display:flex}
+/* 3. 左侧导航栏 */
+.sv-aside {
+  width: 220px;
+  background: var(--surface-2);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.sv-aside-head {
+  padding: 24px 20px 16px;
+}
+.sv-aside-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.4px;
+}
+.sv-aside-sub {
+  font-size: 11.5px;
+  color: var(--text-sub);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* 左侧导航按钮菜单 */
+.sv-nav {
+  padding: 0 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+.sv-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: inherit;
+}
+.sv-nav-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+.sv-nav-item.active {
+  background: #fff;
+  box-shadow: var(--shadow-xs), 0 0 0 1px var(--border);
+  transform: translateX(4px); /* 激活时微微右移，增加动感 */
+}
+/* 导航图标配色（利用你在 HTML 写的 css 变量） */
+.sv-nav-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--tcb);
+  color: var(--tc);
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.sv-nav-ic svg {
+  width: 16px;
+  height: 16px;
+}
+.sv-nav-item.active .sv-nav-ic {
+  background: var(--tc);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--tcb);
+}
+.sv-nav-txt {
+  display: flex;
+  flex-direction: column;
+}
+.sv-nav-txt b {
+  font-size: 13.5px;
+  color: var(--text);
+  font-weight: 700;
+}
+.sv-nav-txt small {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* 4. 右侧表单主区域 */
+.sv-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 40px;
+  scroll-behavior: smooth;
+}
+.sv-main::-webkit-scrollbar { width: 4px; }
+.sv-main::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* 暗黑模式适配左侧菜单 */
+.dark .sv-nav-item.active {
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--border-strong);
+}
+.dark .sv-nav-item:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.03);
+}
 
 .fg{display:flex;flex-direction:column;gap:6px}
 .fl{font-size:13px;font-weight:700;color:var(--text)}

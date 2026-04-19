@@ -9601,6 +9601,153 @@ background-image: url('https://image.uglycat.cc/u57bgz.png') !important;
   border-radius: 16px 16px 16px 8px;
 }`
 },
+{
+  id:'b131',
+  type:'bubble',
+  name:'幽灵小咪',
+  author:'Spring',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 24px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08) !important;
+  overflow: visible !important;
+  border: 1px solid #96707c !important;
+  padding: 6px 14px !important;
+  line-height: 1.4 !important;
+  background: linear-gradient(145deg, #fffcfd, #fffafb) !important;
+  position: relative !important;
+}
+.message.message-received {
+  color: #c8889e !important;
+}
+.message.message-sent {
+  color: #96707c !important;
+}
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 48px !important;
+  height: 48px !important;
+  top: -16px !important;
+  left: -8px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERofZpsinR5ee23nF-pDwf4aNnBh5h8wACJh0AAvpAkVXbheku2OFYtjoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 50px !important;
+  height: 50px !important;
+  right: -8px !important;
+  bottom: -14px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERudJptnUjGMXS2KAdx2UFKk09oKEB5AACUSEAAlpcsFXWRk1rs0kO3DoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 58px !important;
+  height: 58px !important;
+  top: -16px !important;
+  left: -6px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERuYZptmoV_KEFeCtW1kNrx-tU4f3M1AAC1yAAAlpcsFUOulbykLcIljoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 46px !important;
+  height: 46px !important;
+  right: -8px !important;
+  bottom: -10px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERubRptnKnm88RkKUMjdaIRAm89QgwyQACLyEAAlpcsFWjK2NmSEPH8DoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+
+.message * {
+  z-index: 3 !important;
+  position: relative !important;
+}`
+},
+{
+  id:'b132',
+  type:'bubble',
+  name:'灰',
+  author:'蛋挞',
+  /* 系列：淡淡的… */
+  previews:[
+    {t:'sent',v:'请赐我黄粱一梦'},
+    {t:'received',v:'我想允许自己细水长流'}
+  ],
+  css:`灰.message {
+position: relative !important;
+line-height: 1.3 !important;
+word-break: break-word !important;
+overflow: visible !important;
+width: fit-content !important;
+max-width: 280px !important;
+border-radius: 12px;
+box-shadow: none;
+padding: 8px 11px;
+border: none;
+box-sizing: border-box;
+}
+.message.message-sent,
+.message.message-received {
+display: inline-block;
+position: relative;
+backdrop-filter: none;
+-webkit-backdrop-filter: none;
+width: auto;
+min-width: 70%;
+color: #2b2b2b;
+}
+.message.message-sent {
+background-color: #F5F5F5;
+border: 1px solid #E7E7E7;
+}
+.message.message-received {
+background-color: #FEFEFE;
+border: 1px solid #E4E4E4;
+}
+.message::after {
+content: "";
+position: absolute;
+width: 8px;
+height: 8px;
+border-radius: 2px;
+transform: translateY(-50%) rotate(45deg);
+}
+.message.message-sent::after {
+right: calc(-4px - 1px);
+top: 18px;
+background-color: #F5F5F5;
+border-top: 1px solid #E7E7E7;
+border-right: 1px solid #E7E7E7;
+border-left: none;
+border-bottom: none;
+}
+.message.message-received::after {
+left: calc(-4px - 1px);
+top: 18px;
+background-color: #FEFEFE;
+border-left: 1px solid #E4E4E4;
+border-bottom: 1px solid #E4E4E4;
+border-right: none;
+border-top: none;
+}`
+},
 ];
 const CARDS = [
   {
@@ -9906,6 +10053,26 @@ file:"https://files.catbox.moe/jk0hdq.json",
   fileType:'json',
   fileName:'1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json',
   file:'https://img.heliar.top/file/1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json'
+},
+{
+id:'card28',
+type:'card',
+name:"萧逸",
+author:"帅的被人砍",
+desc:"日常 情绪",
+fileType:'json',
+fileName:"g60zbu.json",
+file:"https://files.catbox.moe/g60zbu.json",
+},
+{
+  id:'card29',
+  type:'card',
+  name:"药物、症状（大部分是中药）和其他",
+  author:"銮嫣",
+  desc:"大部分是药材名称，适合在生病时提出建议并改善病情，增加生活感",
+  fileType:'json',
+  fileName:"1774086979191_字卡偏现实.json",
+  file:"https://img.heliar.top/file/1774086979191_字卡偏现实.json",
 },
 ]; 
 
@@ -10609,7 +10776,30 @@ const MUSIC = [
   fileType:'mp3',
   fileName:"url?id=420401511.mp3",
   file:"http://music.163.com/song/media/outer/url?id=420401511.mp3",
-  }
+  },
+  {
+  id:'mus38',
+  type:'music',
+  name:"不渝的爱",
+  author:"亦有归途.",
+  group:'g-sub-68njte',
+  groupLabel:"夏萧因24年与25年的生日主题歌",
+  desc:"世界之外夏萧因的生日主题歌",
+  fileType:'mp3',
+  fileName:"url?id=2623751862.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=2623751862.mp3",
+  },
+  {
+  id:'mus39',
+  type:'music',
+  name:"笑我多情",
+  author:"亦有归途.",
+  group:'g-sub-68njte',
+  groupLabel:"夏萧因24年与25年的生日主题歌",
+  fileType:'mp3',
+  fileName:"url?id=2742741776.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=2742741776.mp3",
+  },
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
