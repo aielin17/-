@@ -528,14 +528,14 @@ body{
 .dark .tutorial-content-box{background:#1e1e28}
 
 /* ── Submit view ────────────────────────────────────────────────────────── */
-/* 1. 整体容器：全屏高度，柔和背景 */
+/* 1. 整体容器：全屏高度，隐藏外层滚动 */
 .submit-view {
   display: none;
   flex: 1;
+  padding: 24px;
   background: var(--bg);
   animation: fadeIn 0.3s ease forwards;
-  padding: 24px;
-  overflow: hidden; /* 隐藏外层滚动，改由内部滚动 */
+  overflow: hidden;
 }
 .submit-view.active {
   display: flex;
@@ -543,30 +543,31 @@ body{
   align-items: flex-start;
 }
 
-/* 2. 核心外壳：左右分栏的高级面板 */
+/* 2. 核心面板：双栏悬浮卡片 */
 .sv-shell {
   display: flex;
   width: 100%;
-  max-width: 900px;
-  height: calc(100vh - var(--hh) - 48px); /* 减去顶部栏和上下内边距 */
+  max-width: 960px;
+  height: calc(100vh - var(--hh) - 48px);
   background: var(--surface);
   border-radius: 20px;
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   overflow: hidden;
 }
 
 /* 3. 左侧导航栏 */
 .sv-aside {
-  width: 220px;
+  width: 230px;
   background: var(--surface-2);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  z-index: 10;
 }
 .sv-aside-head {
-  padding: 24px 20px 16px;
+  padding: 28px 20px 16px;
 }
 .sv-aside-title {
   font-size: 18px;
@@ -578,12 +579,11 @@ body{
   font-size: 11.5px;
   color: var(--text-sub);
   margin-top: 4px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* 左侧导航按钮菜单 */
 .sv-nav {
-  padding: 0 12px 20px;
+  padding: 0 12px 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -599,147 +599,457 @@ body{
   background: transparent;
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-family: inherit;
 }
 .sv-nav-item:hover {
   background: rgba(0, 0, 0, 0.03);
 }
+/* 激活态：微浮雕与右移 */
 .sv-nav-item.active {
   background: #fff;
   box-shadow: var(--shadow-xs), 0 0 0 1px var(--border);
-  transform: translateX(4px); /* 激活时微微右移，增加动感 */
+  transform: translateX(4px);
 }
-/* 导航图标配色（利用你在 HTML 写的 css 变量） */
+
 .sv-nav-ic {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
   background: var(--tcb);
   color: var(--tc);
   flex-shrink: 0;
   transition: all 0.3s;
 }
-.sv-nav-ic svg {
-  width: 16px;
-  height: 16px;
-}
+.sv-nav-ic svg { width: 18px; height: 18px; }
 .sv-nav-item.active .sv-nav-ic {
   background: var(--tc);
   color: #fff;
   box-shadow: 0 4px 12px var(--tcb);
 }
-.sv-nav-txt {
-  display: flex;
-  flex-direction: column;
-}
-.sv-nav-txt b {
-  font-size: 13.5px;
-  color: var(--text);
-  font-weight: 700;
-}
-.sv-nav-txt small {
-  font-size: 10.5px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
 
-/* 4. 右侧表单主区域 */
+.sv-nav-txt { display: flex; flex-direction: column; }
+.sv-nav-txt b { font-size: 13.5px; color: var(--text); font-weight: 700; transition: color 0.2s;}
+.sv-nav-item.active .sv-nav-txt b { color: var(--tc); }
+.sv-nav-txt small { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; }
+
+
+/* 4. 右侧表单主区 */
 .sv-main {
   flex: 1;
   overflow-y: auto;
-  padding: 32px 40px;
+  padding: 36px 48px;
   scroll-behavior: smooth;
-}
-.sv-main::-webkit-scrollbar { width: 4px; }
-.sv-main::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
-
-/* 暗黑模式适配左侧菜单 */
-.dark .sv-nav-item.active {
   background: var(--surface);
-  box-shadow: 0 0 0 1px var(--border-strong);
 }
-.dark .sv-nav-item:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.03);
+.sv-main::-webkit-scrollbar { width: 5px; }
+.sv-main::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 5px; }
+
+.sv-form-card {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.form-panel {
+  display: none;
+  flex-direction: column;
+  gap: 28px;
+  animation: fadeIn 0.4s ease forwards;
+}
+.form-panel.active { display: flex; }
+
+
+/* 5. 表单内部元素精化 */
+.sv-section { display: flex; flex-direction: column; gap: 16px; }
+.sv-section-label {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sv-section-opt {
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--surface-2);
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  vertical-align: middle;
 }
 
-.fg{display:flex;flex-direction:column;gap:6px}
-.fl{font-size:13px;font-weight:700;color:var(--text)}
-.fl-sub{font-size:11.5px;color:var(--text-muted);line-height:1.5;margin-top:-2px}
+.fg { display: flex; flex-direction: column; gap: 8px; }
+.fl { font-size: 13.5px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between;}
+.fl-sub { font-size: 11.5px; color: var(--text-sub); line-height: 1.5; margin-top: -4px; }
 
-.fi{
-  padding:10px 13px;border:1.5px solid var(--border);border-radius:11px;
-  font-size:13.5px;background:var(--surface-2);
-  font-family:inherit;transition:all .18s;color:var(--text);width:100%;
+.fi, .fta {
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 13.5px;
+  background: var(--surface-2);
+  font-family: inherit;
+  transition: all 0.2s;
+  color: var(--text);
+  width: 100%;
 }
-.fi:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-bg);outline:none}
-.fi::placeholder{color:var(--text-muted)}
-select.fi{cursor:pointer}
+.fta { resize: vertical; min-height: 80px; line-height: 1.6; }
+.fi:focus, .fta:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--accent-bg);
+  outline: none;
+}
+.fi::placeholder, .fta::placeholder { color: var(--text-muted); }
 
-.fta{
-  padding:10px 13px;border:1.5px solid var(--border);border-radius:11px;
-  font-size:13px;background:var(--surface-2);font-family:inherit;
-  transition:all .18s;color:var(--text);width:100%;resize:vertical;min-height:100px;
-  line-height:1.6;
-}
-.fta:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-bg);outline:none}
-.fta::placeholder{color:var(--text-muted)}
 
-.preview-inputs{
-  background:var(--surface-2);border:1.5px solid var(--border);
-  border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;
+/* 6. 交互折叠面板 (如何获取链接指南) */
+.sv-details {
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.2s;
 }
-.pi-row{display:flex;align-items:center;gap:8px}
-.pi-tag{
-  font-size:11px;font-weight:700;width:28px;text-align:center;flex-shrink:0;
-  padding:2px 0;border-radius:5px;color:var(--text-muted);letter-spacing:.2px;
+.sv-details[open] {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.sv-details summary {
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sv-details summary::-webkit-details-marker { display: none; }
+.sv-details summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: normal;
+  transition: 0.2s;
+}
+.sv-details[open] summary::after {
+  content: '×';
+  transform: rotate(90deg);
+  color: var(--text);
+}
+.sv-details-inner {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+.sv-guide-steps { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.sv-guide-step { font-size: 12.5px; color: var(--text-sub); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.sv-step-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-top: 6px; flex-shrink: 0; opacity: 0.8; }
+.sv-code { background: var(--border); padding: 2px 6px; border-radius: 6px; font-family: monospace; font-size: 11.5px; color: var(--text); }
+.sv-guide-tip, .sv-guide-note { display: flex; gap: 8px; padding: 12px; border-radius: 10px; font-size: 12px; line-height: 1.5; margin-top: 14px; }
+.sv-guide-tip { background: rgba(59,130,246,.08); color: #2563eb; }
+.sv-guide-note { background: rgba(245,158,11,.08); color: #d97706; }
+.sv-guide-tip svg, .sv-guide-note svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+
+/* 7. 气泡专属预览输入区 */
+.preview-inputs {
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pi-row { display: flex; align-items: center; gap: 10px; }
+.pi-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  width: 30px;
+  text-align: center;
+  flex-shrink: 0;
+  padding: 4px 0;
+  border-radius: 8px;
+  color: #fff;
+}
+.sent-tag { background: var(--accent); }
+.recv-tag { background: var(--text-muted); }
+.pi-row .fi { padding: 10px 14px; background: #fff; }
+
+
+/* 8. 音乐专属：动态合辑与单曲切换 */
+.sv-panel-intro {
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sv-panel-intro strong { color: var(--text); font-size: 14px; }
+
+.music-mode-switch {
+  display: flex;
+  background: var(--surface-2);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+}
+.music-mode-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.music-mode-btn.active {
+  background: #fff;
+  color: var(--accent);
+  box-shadow: var(--shadow-xs);
 }
 
-.submit-btn{
-  margin-top:4px;padding:13px 20px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-hover));
-  color:#fff;border:none;border-radius:13px;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .2s;font-family:inherit;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 4px 16px rgba(var(--accent-rgb),.35);
+.sv-section-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 8px;
 }
-.submit-btn:hover{box-shadow:0 6px 22px rgba(var(--accent-rgb),.48);transform:translateY(-1px)}
-.submit-btn:active{transform:translateY(0)}
-.submit-btn svg{width:16px;height:16px}
+.sv-mini-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.sv-mini-btn:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.sv-mini-btn svg { width: 14px; height: 14px; }
 
-.fallback-panel{
-  margin-top:4px;padding:16px;background:var(--surface-2);
-  border:1.5px solid var(--border);border-radius:13px;
-  display:none;flex-direction:column;gap:10px;
+.music-tracks { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+.music-track-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow-xs);
+  transition: 0.2s;
 }
-.fallback-panel.show{display:flex}
-.fallback-title{font-size:12.5px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px}
-.fallback-desc{font-size:12px;color:var(--text-sub);line-height:1.55}
-.fallback-to{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:9px;padding:9px 13px;font-size:12.5px;
+.music-track-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.music-track-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.music-track-num {
+  background: var(--surface-2);
+  color: var(--text-sub);
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 8px;
 }
-.fallback-to span{color:var(--text-muted)}
-.fallback-to strong{color:var(--text);font-weight:600;font-size:12px}
-.fallback-code{
-  width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;
-  font-size:11px;font-family:Menlo,Monaco,monospace;background:var(--surface);
-  color:var(--text);resize:none;height:120px;line-height:1.55;
+.music-track-rm {
+  width: 30px; height: 30px; border-radius: 8px; border: none;
+  background: rgba(239,68,68,.1); color: var(--fav);
+  font-size: 20px; font-weight: bold; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: 0.2s;
 }
-.fallback-code:focus{outline:none;border-color:var(--accent)}
-.fallback-btns{display:flex;gap:7px;margin-top:2px}
-.fb-btn{
-  flex:1;padding:10px;border:1.5px solid var(--border);background:var(--surface);
-  border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;
-  transition:.15s;font-family:inherit;color:var(--text-sub);
-  display:flex;align-items:center;justify-content:center;gap:5px;
+.music-track-rm:hover { background: var(--fav); color: #fff; }
+.music-track-fields { display: flex; flex-direction: column; gap: 12px; }
+.music-track-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+
+/* 9. 华丽的最终提交大按钮 */
+.sv-submit-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+  background: var(--btn-color);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px var(--btn-shadow);
 }
-.fb-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
-.fb-btn svg{width:12px;height:12px}
+.sv-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--btn-shadow);
+  filter: brightness(1.05);
+}
+.sv-submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px var(--btn-shadow);
+}
+.sv-submit-btn svg { width: 20px; height: 20px; }
+
+
+/* 10. 手动发送面板 (Fallback) */
+.fallback-panel {
+  margin-top: 16px; padding: 20px;
+  background: var(--surface-2);
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 16px;
+  display: none; flex-direction: column; gap: 12px;
+  animation: fadeIn 0.4s ease;
+}
+.fallback-panel.show { display: flex; }
+.fallback-title { font-size: 14.5px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.fallback-desc { font-size: 13px; color: var(--text-sub); line-height: 1.5; }
+.fallback-to {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 12px 16px; font-size: 13.5px;
+}
+.fallback-to span { color: var(--text-muted); font-weight: 700; }
+.fallback-to strong { color: var(--text); font-weight: 800; user-select: all; }
+.fallback-code {
+  width: 100%; padding: 14px;
+  border: 1.5px solid var(--border); border-radius: 12px;
+  font-size: 12px; font-family: Menlo, Monaco, monospace;
+  background: var(--surface); color: var(--text);
+  resize: none; height: 160px; line-height: 1.6;
+}
+.fallback-code:focus { outline: none; border-color: var(--btn-color); box-shadow: 0 0 0 3px var(--btn-shadow); }
+.fallback-btns { display: flex; gap: 10px; margin-top: 6px; }
+.fb-btn {
+  flex: 1; padding: 12px;
+  border: 1.5px solid var(--border); background: var(--surface);
+  border-radius: 12px; font-size: 13px; font-weight: 800;
+  cursor: pointer; transition: 0.2s; color: var(--text-sub);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.fb-btn:hover { border-color: var(--text); color: var(--text); background: var(--surface-2); }
+.fb-btn svg { width: 16px; height: 16px; }
+
+
+/* =========================================================================
+   11. 完美的移动端自适应 (手机上变成原生 App 质感)
+========================================================================= */
+@media (max-width: 768px) {
+  /* 占满屏幕，干掉边距 */
+  .submit-view { padding: 0; }
+  .sv-shell {
+    flex-direction: column;
+    height: 100vh;
+    max-height: calc(100vh - var(--hh));
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* 左侧边栏变成顶部的横向滚动 Tab */
+  .sv-aside {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    z-index: 10;
+  }
+  .sv-aside-head { display: none; } /* 手机端隐藏标题节省垂直空间 */
+  
+  /* 横向滑动条 */
+  .sv-nav {
+    flex-direction: row;
+    padding: 12px 16px;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sv-nav::-webkit-scrollbar { display: none; } /* 隐藏手机滑动条 */
+  
+  /* Tab 按钮重新排版 */
+  .sv-nav-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 8px 14px 8px 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 30px; /* 胶囊形状 */
+  }
+  .sv-nav-item.active {
+    transform: none;
+    background: var(--tcb);
+    border-color: var(--tc);
+    box-shadow: none;
+  }
+  .sv-nav-txt b { font-size: 13.5px; }
+  .sv-nav-txt small { display: none; } /* 手机端只留大标题 */
+  .sv-nav-ic { width: 30px; height: 30px; border-radius: 50%; } /* 图标变圆 */
+  .sv-nav-ic svg { width: 15px; height: 15px; }
+  
+  /* 右侧表单铺满 */
+  .sv-main { padding: 24px 16px 60px; }
+  .sv-form-card { max-width: 100%; }
+  
+  /* 网格与按钮转为垂直排列 */
+  .music-track-grid2 { grid-template-columns: 1fr; gap: 12px; }
+  .fallback-btns { flex-direction: column; }
+}
+
+
+/* =========================================================================
+   12. 暗黑模式适配 (Dark Mode)
+========================================================================= */
+.dark .sv-shell { background: var(--surface); border-color: var(--border); }
+.dark .sv-aside { background: #1a1a24; }
+.dark .sv-nav-item:hover:not(.active) { background: rgba(255,255,255,.03); }
+.dark .sv-nav-item.active { background: var(--surface); box-shadow: 0 0 0 1px var(--border-strong); }
+
+/* 移动端暗黑特例 */
+@media (max-width: 768px) {
+  .dark .sv-nav-item.active { background: var(--tcb); border-color: var(--tc); }
+  .dark .sv-nav-item { background: #1e1e28; }
+}
+
+.dark .sv-panel-intro { background: #1a1a24; border-left-color: var(--accent); }
+.dark .music-mode-switch { background: #1a1a24; }
+.dark .music-mode-btn.active { background: var(--surface); color: #fff; }
+.dark .music-track-card { background: #1a1a24; }
+.dark .music-track-num { background: #242430; color: #fff; }
+
+.dark .sv-details { background: #1a1a24; }
+.dark .sv-details[open] { background: var(--surface); border-color: var(--border-strong); }
+.dark .sv-guide-tip { background: rgba(59,130,246,.15); color: #60a5fa; }
+.dark .sv-guide-note { background: rgba(245,158,11,.15); color: #fbbf24; }
+
+.dark .preview-inputs { background: #1a1a24; }
+.dark .pi-row .fi { background: var(--surface); }
+
+.dark .fallback-panel { background: #1a1a24; border-color: var(--border-strong); }
+.dark .fallback-to { background: var(--surface); }
+.dark .fallback-code { background: var(--surface); color: var(--text); }
+.dark .fb-btn { background: var(--surface); border-color: var(--border); }
+.dark .fb-btn:hover { background: var(--surface-2); border-color: var(--text); }
 
 /* ── Toast ──────────────────────────────────────────────────────────────── */
 #toast{
