@@ -9401,7 +9401,7 @@ display: none !important;
     {t:'sent',v:'请赐我黄粱一梦'},
     {t:'received',v:'我想允许自己细水长流'}
   ],
-  css:`灰.message {
+  css:`.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -9871,7 +9871,7 @@ const THEMES = [
   author:'文夏',
   desc:'浅色蓝',
   tags:["蓝色"],
-  colors:["#f6f9ff,#eaf4ff,#4a90e2,#2a3a52,#7a8ca6"],
+  colors: ["#f6f9ff", "#eaf4ff", "#4a90e2", "#2a3a52", "#7a8ca6"],
   css:`:root {
   --primary-bg: #f6f9ff;
   --secondary-bg: #eaf4ff;
@@ -9947,7 +9947,7 @@ const THEMES = [
   author:'Yuki小月',
   desc:'粉黄色系(◍ ´꒳` ◍)有气泡和按键美化',
   tags:[],
-  colors:["#FFF9E6，#FFDDE3，#FFF5F6"],
+  colors: ["#FFF9E6", "#FFDDE3", "#FFF5F6"],
   css:`@font-face {
   font-family: 'SweetCustomFont';
   src: url('https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf') format('truetype');
