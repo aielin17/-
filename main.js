@@ -876,15 +876,16 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.classList.add('active');
     
     const tab = btn.dataset.tab;
-    const gv = document.getElementById('gallery-view'); // 画廊总容器
-    const sv = document.getElementById('submit-view');  // 投稿总容器
+    const gv = document.getElementById('gallery-view');
+    const sv = document.getElementById('submit-view');
 
     if (tab === 'gallery') {
-      // 关键修复：只显示父容器，内部侧边栏的显示/隐藏让 CSS 媒体查询去决定
-      gv.style.display = 'flex'; 
+      gv.style.display = 'flex';   // 显示画廊
+      sv.style.display = 'none';   // 隐藏投稿
       sv.classList.remove('active');
     } else {
-      gv.style.display = 'none';
+      gv.style.display = 'none';   // 隐藏画廊
+      sv.style.display = 'flex';   // 强制显示投稿界面
       sv.classList.add('active');
     }
   });

@@ -667,12 +667,12 @@ body{
   display: none;
   flex: 1;
   padding: 24px;
-  background: var(--bg);
-  animation: fadeIn 0.3s ease forwards;
+  background: transparent;
   overflow: hidden;
+  width: 100%;
 }
 .submit-view.active {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: flex-start;
 }
@@ -681,7 +681,7 @@ body{
 .sv-shell {
   display: flex;
   width: 100%;
-  max-width: 960px;
+  max-width: 1000px;
   height: calc(100vh - var(--hh) - 48px);
   background: var(--surface);
   border-radius: 20px;
