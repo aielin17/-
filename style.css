@@ -152,19 +152,161 @@ body{
 .author-chip.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
 .author-chip-n{font-size:10px;opacity:.5;font-weight:600}
 
-/* ── Main content ───────────────────────────────────────────────────────── */
-.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+/* =========================================================================
+   大改造：悬浮毛玻璃工具栏 & 华丽分页器
+========================================================================= */
 
-.toolbar{
-  padding:10px 18px;border-bottom:1px solid var(--border);background:var(--surface);
-  display:flex;align-items:center;gap:10px;flex-shrink:0;min-height:44px;
+/* 1. 给主区域增加渐变底色，让卡片和工具栏更有层次感 */
+.main {
+  background: linear-gradient(135deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 80%, var(--accent)) 100%);
 }
-.toolbar-info{font-size:12px;color:var(--text-sub);font-weight:500}
-.mobile-filter-btn{
-  display:none;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--accent);
-  padding:5px 11px;border-radius:8px;background:var(--accent-bg);cursor:pointer;
-  user-select:none;flex-shrink:0;
+
+/* 2. 悬浮岛式工具栏 (Floating Island Toolbar) */
+.toolbar-wrapper {
+  padding: 16px 18px 4px;
+  flex-shrink: 0;
+  z-index: 10;
 }
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.04), 
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+}
+.toolbar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(91, 95, 239, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.toolbar-info {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  font-weight: 700;
+  background: var(--surface);
+  padding: 6px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-xs);
+  border: 1.5px solid var(--border);
+}
+
+/* 3. 华丽分页器组 (Modern Pager) */
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* 分页按钮 */
+.pager-btn {
+  appearance: none;
+  border: none;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-sub);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: inherit;
+}
+.pager-btn svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s;
+}
+
+/* 悬浮与激活状态 - 流光溢彩 */
+.pager-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(91, 95, 239, 0.35);
+  transform: translateY(-2px);
+}
+.pager-btn:hover:not(:disabled) svg {
+  transform: scale(1.1);
+}
+.pager-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* 禁用状态 */
+.pager-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--surface-2);
+}
+
+/* 页码指示器 */
+.pager-indicator {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+}
+.pager-text {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+/* 4. 高级定制原生 Select 下拉框 */
+.pager-size-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pager-size {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 8px 36px 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  font-family: inherit;
+}
+.pager-size:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+.pager-size:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+.select-icon {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: var(--text-muted);
+  display: flex;
+}
+.select-icon svg { width: 14px; height: 14px; }
 .mobile-filter-btn svg{width:13px;height:13px}
 
 .card-area{flex:1;overflow-y:auto;padding:18px}
@@ -1330,3 +1472,36 @@ body{
 .track-link-btn svg,.track-dl-btn svg{width:13px;height:13px}
 .track-link-btn:hover{background:var(--surface-2);color:var(--accent);border-color:var(--accent)}
 .track-dl-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* 暗黑模式下的质感优化 */
+.dark .main {
+  background: linear-gradient(135deg, #0a0a0f 0%, #14141e 100%);
+}
+.dark .toolbar {
+  background: rgba(23, 23, 31, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+.dark .toolbar-info, .dark .pager-btn, .dark .pager-size, .dark .pager-indicator {
+  background: rgba(30, 30, 40, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.dark .pager-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent), #7c3aed); /* 暗黑模式下按钮采用渐变紫 */
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* 移动端自适应折叠布局 */
+@media (max-width: 768px) {
+  .toolbar-wrapper { padding: 12px 14px 4px; }
+  .toolbar {
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+  .toolbar-info { display: none; } /* 手机端隐藏结果数，节省空间 */
+  .pager { width: 100%; justify-content: space-between; }
+  .pager-btn span { display: none; } /* 手机端隐藏“上一页/下一页”文字，只留图标 */
+  .pager-btn { padding: 10px 14px; }
+  .pager-indicator { padding: 10px 16px; flex: 1; text-align: center; }
+  .pager-size-wrap { display: none; } /* 手机端隐藏每页数量选择 */
+}

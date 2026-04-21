@@ -77,30 +77,46 @@
   </div>
 
   <div class="main">
-    <div class="toolbar">
-      <div class="mobile-filter-btn" id="mobile-filter-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-        筛选
-      </div>
-      <span class="toolbar-info" id="toolbar-info">0 个结果</span>
-      <div class="pager" id="pager">
-        <button class="pager-btn" id="pager-prev" type="button" title="上一页">上一页</button>
-        <span class="pager-text" id="pager-text">第 1 页</span>
-        <button class="pager-btn" id="pager-next" type="button" title="下一页">下一页</button>
-        <select class="pager-size" id="pager-size" title="每页数量">
-          <option value="24">24/页</option>
-          <option value="36" selected>36/页</option>
-          <option value="48">48/页</option>
-          <option value="72">72/页</option>
-        </select>
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="mobile-filter-btn" id="mobile-filter-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          筛选
+        </div>
+        
+        <span class="toolbar-info" id="toolbar-info">0 个结果</span>
+        
+        <!-- 全新华丽版分页器 -->
+        <div class="pager" id="pager">
+          <button class="pager-btn" id="pager-prev" type="button" title="上一页">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>上一页</span>
+          </button>
+          
+          <div class="pager-indicator">
+            <span class="pager-text" id="pager-text">第 1 页</span>
+          </div>
+          
+          <button class="pager-btn" id="pager-next" type="button" title="下一页">
+            <span>下一页</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          
+          <!-- 自定义下拉框外壳 -->
+          <div class="pager-size-wrap">
+            <select class="pager-size" id="pager-size" title="每页数量">
+              <option value="24">24/页</option>
+              <option value="36" selected>36/页</option>
+              <option value="48">48/页</option>
+              <option value="72">72/页</option>
+            </select>
+            <div class="select-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card-area">
-      <div class="card-grid" id="card-grid"></div>
-    </div>
-  </div>
-
-</div>
 
 <!-- ── Submit view ── -->
 <div class="submit-view" id="submit-view">
