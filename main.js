@@ -875,10 +875,22 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     const tab = btn.dataset.tab;
-    const gv = document.getElementById('gallery-view');
+    const sidebar = document.getElementById('sidebar');
+    const gridView = document.getElementById('gallery-grid-view');
+    const toolbar = document.querySelector('.toolbar-wrapper');
     const sv = document.getElementById('submit-view');
-    if(tab==='gallery'){ gv.style.display='flex'; sv.classList.remove('active'); }
-    else { gv.style.display='none'; sv.classList.add('active'); }
+    
+    if(tab === 'gallery'){ 
+      sidebar.style.display = 'flex';
+      toolbar.style.display = 'block';
+      gridView.style.display = 'block'; 
+      sv.classList.remove('active'); 
+    } else { 
+      sidebar.style.display = 'none';
+      toolbar.style.display = 'none';
+      gridView.style.display = 'none'; 
+      sv.classList.add('active'); 
+    }
   });
 });
 

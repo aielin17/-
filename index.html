@@ -9,7 +9,14 @@
 </head>
 <body>
 
-<header class="header">
+  <!-- 新增：华丽的极光渐变背景 -->
+  <div class="aurora-bg">
+    <div class="aurora-blob bg-blue"></div>
+    <div class="aurora-blob bg-purple"></div>
+    <div class="aurora-blob bg-pink"></div>
+  </div>
+  
+  <header class="header">
   <div class="brand">
     <div class="brand-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -117,7 +124,9 @@
         </div>
       </div>
     </div>
-
+    <div class="card-grid-wrapper" id="gallery-grid-view">
+      <div class="card-grid" id="card-grid"></div>
+    </div>
 <!-- ── Submit view ── -->
 <div class="submit-view" id="submit-view">
   <div class="sv-shell">

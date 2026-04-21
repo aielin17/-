@@ -1497,3 +1497,132 @@ body{
   .pager-indicator { padding: 10px 16px; flex: 1; text-align: center; }
   .pager-size-wrap { display: none; } /* 手机端隐藏每页数量选择 */
 }
+/* =========================================================================
+   极致华丽升级：极光背景 & 毛玻璃拟态 & 完美响应式网格
+========================================================================= */
+
+/* 1. 动态极光背景 */
+.aurora-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background: var(--bg); overflow: hidden;
+  transition: background 0.5s ease;
+}
+.aurora-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px); opacity: 0.55;
+  animation: float-aurora 15s infinite alternate ease-in-out;
+}
+.bg-blue { width: 50vw; height: 50vw; background: #5b5fef; top: -20%; left: -10%; }
+.bg-purple { width: 40vw; height: 40vw; background: #a855f7; top: 40%; right: -15%; animation-delay: -5s; }
+.bg-pink { width: 45vw; height: 45vw; background: #ec4899; bottom: -20%; left: 10%; animation-delay: -10s; }
+
+@keyframes float-aurora {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(10vw, 5vh) scale(1.1) rotate(180deg); }
+  100% { transform: translate(-5vw, 15vh) scale(0.9) rotate(360deg); }
+}
+
+/* 2. 顶栏与侧边栏毛玻璃化 */
+.header {
+  background: rgba(255, 255, 255, 0.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+.sidebar {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 3. 主区域滚动与完美响应式网格 (解决0结果和没有响应式的问题) */
+.main {
+  flex: 1; overflow-y: auto; overflow-x: hidden;
+  display: flex; flex-direction: column;
+  background: transparent !important; /* 移除原来的纯色底 */
+}
+.main::-webkit-scrollbar { width: 6px; }
+.main::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 10px; }
+
+.card-grid-wrapper { padding: 10px 24px 40px; flex: 1; }
+.card-grid {
+  display: grid;
+  /* 完美的响应式：卡片最小宽度 260px，自动填满可用空间 */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* 4. 极致卡片设计：玻璃拟态 + 发光浮动 */
+.item-card {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 2px 2px rgba(255,255,255,1) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform: translateY(0);
+}
+.item-card:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 20px 40px rgba(91, 95, 239, 0.15), inset 0 2px 2px rgba(255,255,255,1) !important;
+  border-color: rgba(91, 95, 239, 0.3) !important;
+}
+
+/* 针对不同类型的卡片增加专属发光特效 */
+.item-card.card-type-theme:hover { box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2), inset 0 2px 2px rgba(255,255,255,1) !important; border-color: rgba(236, 72, 153, 0.4) !important;}
+.item-card.card-type-music:hover { box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2), inset 0 2px 2px rgba(255,255,255,1) !important; border-color: rgba(124, 58, 237, 0.4) !important;}
+.item-card.card-type-card:hover { box-shadow: 0 20px 40px rgba(22, 163, 74, 0.2), inset 0 2px 2px rgba(255,255,255,1) !important; border-color: rgba(22, 163, 74, 0.4) !important;}
+
+/* 5. 移动端终极适配 */
+@media (max-width: 768px) {
+  .card-grid-wrapper { padding: 10px 16px 30px; }
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 手机上变成双列并排 */
+    gap: 16px;
+  }
+  .item-card { border-radius: 20px !important; }
+  .toolbar-wrapper { padding: 12px 16px; }
+  .toolbar { border-radius: 16px; padding: 12px; }
+}
+@media (max-width: 480px) {
+  /* 超小屏幕手机单列或紧凑双列 */
+  .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+/* =========================================================================
+   赛博朋克深色模式 (暗黑环境的霓虹玻璃效果)
+========================================================================= */
+.dark .aurora-bg { background: #0a0a0f; }
+.dark .aurora-blob { opacity: 0.25; mix-blend-mode: screen; }
+
+.dark .header {
+  background: rgba(15, 15, 20, 0.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+.dark .sidebar {
+  background: rgba(15, 15, 20, 0.4) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 深色毛玻璃卡片 */
+.dark .item-card {
+  background: rgba(30, 30, 40, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+.dark .item-card:hover {
+  background: rgba(40, 40, 55, 0.6) !important;
+  box-shadow: 0 20px 40px rgba(91, 95, 239, 0.3), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+  border-color: rgba(91, 95, 239, 0.6) !important;
+}
+.dark .item-card.card-type-theme:hover { box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3) !important; border-color: rgba(236, 72, 153, 0.6) !important; }
+.dark .item-card.card-type-music:hover { box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3) !important; border-color: rgba(124, 58, 237, 0.6) !important; }
+.dark .item-card.card-type-card:hover { box-shadow: 0 20px 40px rgba(22, 163, 74, 0.3) !important; border-color: rgba(22, 163, 74, 0.6) !important; }
+
+/* 修复投稿区在暗黑模式的背景 */
+.dark .submit-view { background: transparent !important; }
+.dark .sv-shell {
+  background: rgba(20, 20, 28, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.dark .sv-main { background: transparent; }
