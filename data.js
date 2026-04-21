@@ -10393,17 +10393,6 @@ const MUSIC = [
   {
   id:'mus34',
   type:'music',
-  name:"say yes",
-  author:"礼啦啦啦",
-  artist:"loco Punch",
-  desc:"甜甜的韩文小情歌",
-  fileType:'mp3',
-  fileName:"1774173181864_Loco_Punch_-_Say_Yes.mp3",
-  file:"https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3",
-  },
-  {
-  id:'mus35',
-  type:'music',
   name:"该怎么办",
   author:"oiove3",
   artist:"TC",
@@ -10413,7 +10402,7 @@ const MUSIC = [
   file:"https://music.163.com/song/media/outer/url?id=2032201541.mp3",
   },
   {
-  id:'mus36',
+  id:'mus35',
   type:'music',
   name:"依兰爱情故事",
   author:"mm",
@@ -10424,7 +10413,7 @@ const MUSIC = [
   file:"http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
   },
   {
-  id:'mus37',
+  id:'mus36',
   type:'music',
   name:"台北某个地方",
   author:"言夏",
@@ -10435,7 +10424,7 @@ const MUSIC = [
   file:"https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3",
   },
   {
-  id:'mus38',
+  id:'mus37',
   type:'music',
   name:"鱼",
   author:"言夏",
@@ -10446,7 +10435,7 @@ const MUSIC = [
   file:"https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3",
   },
   {
-  id:'mus39',
+  id:'mus38',
   type:'music',
   name:"太阳",
   author:"言夏",
@@ -10457,7 +10446,7 @@ const MUSIC = [
   file:"https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3",
   },
   {
-  id:'mus40',
+  id:'mus39',
   type:'music',
   name:"躺在你的衣柜（Piano）",
   author:"言夏",
@@ -10468,7 +10457,7 @@ const MUSIC = [
   file:"https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
   },
   {
-  id:'mus41',
+  id:'mus40',
   type:'music',
   name:"我喜欢上你时的内心活动",
   author:"言夏",
@@ -10479,7 +10468,7 @@ const MUSIC = [
   file:"https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
   },
   {
-  id:'mus37',
+  id:'mus41',
   type:'music',
   name:"和你",
   author:"七七",
@@ -10489,7 +10478,7 @@ const MUSIC = [
   file:"http://music.163.com/song/media/outer/url?id=420401511.mp3",
   },
   {
-  id:'mus38',
+  id:'mus42',
   type:'music',
   name:"不渝的爱",
   author:"亦有归途.",
@@ -10501,7 +10490,7 @@ const MUSIC = [
   file:"http://music.163.com/song/media/outer/url?id=2623751862.mp3",
   },
   {
-  id:'mus39',
+  id:'mus43',
   type:'music',
   name:"笑我多情",
   author:"亦有归途.",
