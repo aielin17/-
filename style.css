@@ -1626,3 +1626,73 @@ body{
   border: 1px solid rgba(255,255,255,0.08);
 }
 .dark .sv-main { background: transparent; }
+/* 确保画廊视图容器宽度撑满，且不被挤压 */
+#gallery-view {
+  width: 100%;
+  height: calc(100vh - var(--hh)); /* 减去头部高度 */
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 侧边栏基础样式：修复遮挡 Bug */
+.sidebar {
+  width: var(--sidebar);
+  height: 100%;
+  flex-shrink: 0; /* 绝对不允许被主区域挤小 */
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  z-index: 5; /* 确保它在极光背景之上 */
+}
+
+/* 主内容区：确保它占据剩余的所有空间 */
+.main {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0; /* 关键：防止 Flex 子元素撑破父级 */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: transparent !important;
+}
+
+/* 投稿界面：确保也是全屏覆盖且不干扰画廊 */
+#submit-view {
+  position: absolute;
+  top: var(--hh);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--hh));
+  z-index: 20; /* 置于顶层 */
+  background: var(--bg); /* 投稿时使用实色背景，防止看到底部的画廊残留 */
+}
+
+/* 极光背景层级：放在最底层 */
+.aurora-bg {
+  z-index: -1 !important;
+}
+
+/* 移动端适配补丁 */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none !important; /* 手机端必须强制隐藏原生侧边栏，改用筛选抽屉 */
+  }
+  #gallery-view {
+    width: 100vw;
+  }
+}
+/* 视图切换动画 */
+#gallery-view, #submit-view {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 当容器 display:none 时，我们可以通过 JS 配合 class 做更高端的动画 */
+.fade-in-view {
+  animation: view-pop-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes view-pop-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}

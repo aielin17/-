@@ -870,27 +870,33 @@ document.getElementById('search-input').addEventListener('input', function(){
   renderCards();
 });
 
-document.querySelectorAll('.nav-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // 1. 处理按钮激活状态
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
     const tab = btn.dataset.tab;
-    const sidebar = document.getElementById('sidebar');
-    const gridView = document.getElementById('gallery-grid-view');
-    const toolbar = document.querySelector('.toolbar-wrapper');
+    const gv = document.getElementById('gallery-view');
     const sv = document.getElementById('submit-view');
-    
-    if(tab === 'gallery'){ 
-      sidebar.style.display = 'flex';
-      toolbar.style.display = 'block';
-      gridView.style.display = 'block'; 
-      sv.classList.remove('active'); 
-    } else { 
-      sidebar.style.display = 'none';
-      toolbar.style.display = 'none';
-      gridView.style.display = 'none'; 
-      sv.classList.add('active'); 
+
+    // 2. 核心修复：只切换大容器的显示状态
+    if (tab === 'gallery') {
+      gv.classList.add('fade-in-view');
+      gv.style.display = 'flex';     // 画廊容器用 flex 布局（保证内部侧边栏正常）
+      sv.style.display = 'none';     // 隐藏投稿容器
+      sv.classList.remove('active');
+      renderCards();                 // 重新渲染一遍确保网格正常
+    } else {
+      gv.style.display = 'none';     // 隐藏画廊容器（侧边栏会随之消失，不会占位）
+      sv.style.display = 'flex';     // 投稿容器显示
+      sv.classList.add('active');
+      sv.classList.add('fade-in-view');
     }
+    setTimeout(() => {
+      gv.classList.remove('fade-in-view');
+      sv.classList.remove('fade-in-view');
+  }, 400);
   });
 });
 
