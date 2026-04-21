@@ -992,15 +992,18 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.classList.add('active');
 
     const tab = btn.dataset.tab;
-    const gv = document.getElementById('gallery-view');
+    const toolbarWrap = document.querySelector('.toolbar-wrapper');
+    const gridWrap = document.getElementById('gallery-grid-wrap');
     const sv = document.getElementById('submit-view');
 
     if (tab === 'gallery') {
-      gv.style.display = 'flex';
+      if(toolbarWrap) toolbarWrap.style.display = '';
+      if(gridWrap) gridWrap.style.display = '';
       sv.style.display = 'none';
       sv.classList.remove('active');
     } else {
-      gv.style.display = 'none';
+      if(toolbarWrap) toolbarWrap.style.display = 'none';
+      if(gridWrap) gridWrap.style.display = 'none';
       sv.style.display = 'flex';
       sv.classList.add('active');
     }
@@ -1013,7 +1016,9 @@ document.getElementById('mobile-filter-btn').addEventListener('click', () => {
 document.getElementById('filter-drawer-bg').addEventListener('click', () => {
   document.getElementById('filter-drawer').classList.remove('open');
 });
-
+document.getElementById('close-filter-btn').addEventListener('click', () => {
+  document.getElementById('filter-drawer').classList.remove('open');
+});
 (function() {
   const prevBtn = document.getElementById('pager-prev');
   const nextBtn = document.getElementById('pager-next');
