@@ -3881,11 +3881,6 @@ body {
     display: none !important;
   }
 
-  .workspace {
-    display: block;
-    width: 100vw;
-  }
-
   .main {
     width: 100% !important;
     margin-left: 0 !important;
