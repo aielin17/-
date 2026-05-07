@@ -200,18 +200,18 @@ const FONTS = [{
 },
 ];
 const BUBBLES = [{
-  id: 'b1',
-  type: 'bubble',
-  name: '宝贝我无语了',
-  author: '眠眠',
-  previews: [{
-    t: 'sent',
-    v: '我对自己的成功很满意'
-  }, {
-    t: 'received',
-    v: '你没有你想象的那么遭'
-  }],
-  css: `.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative;overflow:visible !important}
+    id: 'b1',
+    type: 'bubble',
+    name: '宝贝我无语了',
+    author: '眠眠',
+    previews: [{
+      t: 'sent',
+      v: '我对自己的成功很满意'
+    }, {
+      t: 'received',
+      v: '你没有你想象的那么遭'
+    }],
+    css: `.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative;overflow:visible !important}
 .message::after{content:'' !important;position:absolute !important;width:0 !important;height:0 !important;border-style:solid !important}
 .message.message-sent::after{bottom:10px !important;right:-5px !important;border-width:4px 0 0 5px !important;border-color:transparent transparent transparent #F8F8F8 !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
 .message.message-received::after{bottom:10px !important;left:-5px !important;border-width:0 0 4px 5px !important;border-color:transparent transparent #fff transparent !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
@@ -219,62 +219,62 @@ const BUBBLES = [{
 .message-received::before{content:"♥︎+520" !important;position:absolute !important;top:-12px !important;right:-35px !important;font-size:7px !important;letter-spacing:.4px !important;color:#F1BFCB !important;background:#fff !important;padding:3px 6px !important;border-radius:6px 10px 10px 6px !important;line-height:1 !important;font-weight:500 !important;text-align:center !important;white-space:nowrap !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 5px rgba(180,180,180,.2),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.02) !important;z-index:3 !important}
 .message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:-3px -3px 6px rgba(255,255,255,.8),4px 4px 8px rgba(180,180,180,.25),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.05) !important;position:relative}
 .message-sent{background:#F8F8F8 !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:-4px -4px 8px rgba(255,255,255,.9),5px 5px 10px rgba(150,150,150,.2),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.03) !important;position:relative;background-image:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#F8F8F8 70%) !important}`
-},
-{
-  id: 'b2',
-  type: 'bubble',
-  name: '小尾巴',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }, {
-    t: 'sent',
-    v: '愿意。'
-  }, {
-    t: 'received',
-    v: '我的荣幸。'
-  }],
-  css: `.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative !important;overflow:visible !important;padding:7px 13px !important;line-height:1.3 !important;word-break:break-word !important;border-radius:18px !important;box-shadow:0 2px 3px rgba(0,0,0,.1) !important}
+  },
+  {
+    id: 'b2',
+    type: 'bubble',
+    name: '小尾巴',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }, {
+      t: 'sent',
+      v: '愿意。'
+    }, {
+      t: 'received',
+      v: '我的荣幸。'
+    }],
+    css: `.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative !important;overflow:visible !important;padding:7px 13px !important;line-height:1.3 !important;word-break:break-word !important;border-radius:18px !important;box-shadow:0 2px 3px rgba(0,0,0,.1) !important}
 .message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(0,0,0,.15) !important}
 .message-sent{background:#ffe8ec !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(180,120,140,.3) !important}
 .message::after{content:'' !important;position:absolute !important;width:30px !important;height:15px !important;background-size:contain !important;background-repeat:no-repeat !important;z-index:0 !important}
 .message.message-sent::after{bottom:-4.1px !important;right:-19px !important;background-image:url('https://files.catbox.moe/pe52nt.png') !important;filter:drop-shadow(5.2px 4.1px 5px rgba(180,120,140,.4)) !important}
 .message.message-received::after{bottom:-3.9px !important;left:-6.6px !important;background-image:url('https://files.catbox.moe/9exvg6.png') !important;filter:drop-shadow(-3px 5px 4px rgba(0,0,0,.2)) !important}`
-},
-{
-  id: 'b3',
-  type: 'bubble',
-  name: '小气泡',
-  author: '家夫是小猫^^',
-  previews: [{
-    t: 'sent',
-    v: '我许愿一个有你的冬天'
-  }, {
-    t: 'received',
-    v: '我四季都在'
-  }],
-  css: `.message-sent{border-radius:16px 16px 0 16px !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px 0 3px auto !important;font-size:14px !important;color:#888 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}
+  },
+  {
+    id: 'b3',
+    type: 'bubble',
+    name: '小气泡',
+    author: '家夫是小猫^^',
+    previews: [{
+      t: 'sent',
+      v: '我许愿一个有你的冬天'
+    }, {
+      t: 'received',
+      v: '我四季都在'
+    }],
+    css: `.message-sent{border-radius:16px 16px 0 16px !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px 0 3px auto !important;font-size:14px !important;color:#888 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}
 .message-received{border-radius:16px 16px 16px 0 !important;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08) !important;background:rgba(255,255,255,.1) !important;border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;padding:8px 12px !important;margin:3px auto 3px 0 !important;font-size:14px !important;color:#555 !important;position:relative !important;z-index:1 !important;display:inline-block !important;max-width:none !important}`
-},
-{
-  id: 'b4',
-  type: 'bubble',
-  name: '无阴影',
-  author: '今天吃什么舟',
-  group: 'g-stereo-gray',
-  groupLabel: '立体灰系列',
-  previews: [{
-    t: 'received',
-    v: '我心可鉴，请你陪我一年再一年。'
-  }, {
-    t: 'sent',
-    v: '好。'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b4',
+    type: 'bubble',
+    name: '无阴影',
+    author: '今天吃什么舟',
+    group: 'g-stereo-gray',
+    groupLabel: '立体灰系列',
+    previews: [{
+      t: 'received',
+      v: '我心可鉴，请你陪我一年再一年。'
+    }, {
+      t: 'sent',
+      v: '好。'
+    }],
+    css: `.message {
 border-radius: 24px !important;
 background: #5A5A5D !important;
 background: linear-gradient(145deg, #626265, #525255) !important;
@@ -321,27 +321,27 @@ color: #ffffff !important;
 position: relative !important;
 z-index: 2 !important;
 }`
-},
-{
-  id: 'b5',
-  type: 'bubble',
-  name: '有阴影',
-  author: '今天吃什么舟',
-  group: 'g-stereo-gray',
-  groupLabel: '立体灰',
-  previews: [{
-    t: 'received',
-    v: '我心可鉴，请你陪我一年再一年。'
-  }, {
-    t: 'sent',
-    v: '好。'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b5',
+    type: 'bubble',
+    name: '有阴影',
+    author: '今天吃什么舟',
+    group: 'g-stereo-gray',
+    groupLabel: '立体灰',
+    previews: [{
+      t: 'received',
+      v: '我心可鉴，请你陪我一年再一年。'
+    }, {
+      t: 'sent',
+      v: '好。'
+    }],
+    css: `.message {
 border-radius: 24px !important;
 background: #5A5A5D !important;
 background: linear-gradient(145deg, #626265, #525255) !important;
 box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.25),
-           -2px -2px 10px rgba(255, 255, 255, 0.03) !important;
+         -2px -2px 10px rgba(255, 255, 255, 0.03) !important;
 overflow: visible !important;
 position: relative !important;
 border: none !important;
@@ -384,20 +384,20 @@ color: #ffffff !important;
 position: relative !important;
 z-index: 2 !important;
 }`
-},
-{
-  id: 'b6',
-  type: 'bubble',
-  name: '细线轮廓',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b6',
+    type: 'bubble',
+    name: '细线轮廓',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 box-shadow: none !important;
 border-width: 2px !important;
 border-style: solid !important;
@@ -415,24 +415,24 @@ border-color: #ccc !important;
 color: var(--text-primary) !important;
 border-radius: 20px !important;
 }`
-},
-{
-  id: 'b7',
-  type: 'bubble',
-  name: '印章方块',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b7',
+    type: 'bubble',
+    name: '印章方块',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 border-radius: 4px !important;
 box-shadow: 
-    2px 2px 0px 0px rgba(0,0,0,0.2),
-    inset 1px 1px 0px 0px rgba(255,255,255,0.5) !important;
+  2px 2px 0px 0px rgba(0,0,0,0.2),
+  inset 1px 1px 0px 0px rgba(255,255,255,0.5) !important;
 }
 .message-sent {
 background-color: var(--accent-color) !important;
@@ -444,49 +444,49 @@ background-color: #fff !important;
 color: #000 !important;
 border: 2px solid #000 !important;
 }`
-},
-{
-  id: 'b8',
-  type: 'bubble',
-  name: '素描投影',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b8',
+    type: 'bubble',
+    name: '素描投影',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 border-radius: 4px !important;
 box-shadow: 5px 5px 0px rgba(0,0,0,0.1) !important;
 }`
-},
-{
-  id: 'b9',
-  type: 'bubble',
-  name: '渐变高光',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b9',
+    type: 'bubble',
+    name: '渐变高光',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 border-radius: 18px !important;
 box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  0 2px 8px rgba(0, 0, 0, 0.08),
+  inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 transition: all 0.2s ease !important;
 }
 .message-sent {
 background: 
-    linear-gradient(135deg, 
-        var(--accent-color) 0%, 
-        color-mix(in srgb, var(--accent-color), #000 15%) 100%
-    ) !important;
+  linear-gradient(135deg, 
+      var(--accent-color) 0%, 
+      color-mix(in srgb, var(--accent-color), #000 15%) 100%
+  ) !important;
 color: #000000 !important;  
 border: none !important;
 border-bottom-right-radius: 4px !important;
@@ -501,8 +501,8 @@ left: 0 !important;
 right: 0 !important;
 height: 30% !important;
 background: linear-gradient(to bottom, 
-    rgba(255, 255, 255, 0.15) 0%, 
-    rgba(255, 255, 255, 0) 100%) !important;
+  rgba(255, 255, 255, 0.15) 0%, 
+  rgba(255, 255, 255, 0) 100%) !important;
 border-radius: 18px 18px 0 0 !important;
 pointer-events: none !important;
 }
@@ -515,35 +515,35 @@ margin-right: auto !important;
 }
 .message-sent:hover {
 box-shadow: 
-    0 4px 12px color-mix(in srgb, var(--accent-color) 20%, transparent),
-    0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  0 4px 12px color-mix(in srgb, var(--accent-color) 20%, transparent),
+  0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 @media (prefers-color-scheme: dark) {
 .message-received {
-    background: color-mix(in srgb, var(--secondary-bg) 90%, #222) !important;
-    color: var(--text-primary, #f0f0f0) !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
+  background: color-mix(in srgb, var(--secondary-bg) 90%, #222) !important;
+  color: var(--text-primary, #f0f0f0) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 .message {
-    box-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 }`
-},
-{
-  id: 'b10',
-  type: 'bubble',
-  name: '橘猫爪印',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b10',
+    type: 'bubble',
+    name: '橘猫爪印',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 position: relative !important;
 overflow: visible !important;
 border-radius: 25px !important; 
@@ -578,20 +578,20 @@ font-size: 16px;
 transform: rotate(-20deg);
 opacity: 0.8;
 }`
-},
-{
-  id: 'b11',
-  type: 'bubble',
-  name: '赛博故障',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b11',
+    type: 'bubble',
+    name: '赛博故障',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 position: relative !important;
 overflow: visible !important;
 letter-spacing: 0.5px;
@@ -631,20 +631,20 @@ color: #ff0055;
 opacity: 0.7;
 font-weight: bold;
 }`
-},
-{
-  id: 'b12',
-  type: 'bubble',
-  name: '彩色便利贴',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b12',
+    type: 'bubble',
+    name: '彩色便利贴',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 position: relative !important;
 overflow: visible !important;
 color: #333 !important;
@@ -678,30 +678,30 @@ font-size: 20px;
 z-index: 10;
 transform: rotate(45deg);
 }`
-},
-{
-  id: 'b13',
-  type: 'bubble',
-  name: '叠纸书页',
-  author: 'milk',
-  previews: [{
-    t: 'sent',
-    v: '可是我不觉得我爱你'
-  }, {
-    t: 'received',
-    v: '那你此刻愿意向我敞开心扉吗？'
-  }],
-  css: `.message {
+  },
+  {
+    id: 'b13',
+    type: 'bubble',
+    name: '叠纸书页',
+    author: 'milk',
+    previews: [{
+      t: 'sent',
+      v: '可是我不觉得我爱你'
+    }, {
+      t: 'received',
+      v: '那你此刻愿意向我敞开心扉吗？'
+    }],
+    css: `.message {
 position: relative !important;
 overflow: visible !important;
 background-color: #fdfbf7 !important;
 color: #4a4a4a !important;
 box-shadow: 
-    0 1px 1px rgba(0,0,0,0.15), 
-    0 10px 0 -5px #eee,
-    0 10px 1px -4px rgba(0,0,0,0.15), 
-    0 20px 0 -10px #e5e5e5,
-    0 20px 1px -9px rgba(0,0,0,0.15) !important;
+  0 1px 1px rgba(0,0,0,0.15), 
+  0 10px 0 -5px #eee,
+  0 10px 1px -4px rgba(0,0,0,0.15), 
+  0 20px 0 -10px #e5e5e5,
+  0 20px 1px -9px rgba(0,0,0,0.15) !important;
 border: 1px solid #e0dcd5 !important;
 border-radius: 2px !important;
 margin-bottom: 20px !important; 
@@ -712,20 +712,20 @@ border-top: 4px solid #c0392b !important;
 .message-received {
 border-top: 4px solid #2980b9 !important;
 }`
-},
-{
-  id: 'b14',
-  type: 'bubble',
-  name: '奶油曲奇',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b14',
+    type: 'bubble',
+    name: '奶油曲奇',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #fffbf0 !important;
 border: 3px dashed #b8c6db !important;
@@ -733,20 +733,20 @@ color: #555555 !important;
 border-radius: 20px !important;
 box-shadow: 0 4px 0px #e0e7ff !important;
 }`
-},
-{
-  id: 'b15',
-  type: 'bubble',
-  name: '橘猫耳',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b15',
+    type: 'bubble',
+    name: '橘猫耳',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%) !important;
 color: #5d4037 !important;
@@ -780,20 +780,20 @@ border-right: 6px solid transparent !important;
 border-bottom: 10px solid #fcb69f !important;
 transform: rotate(15deg) !important;
 }`
-},
-{
-  id: 'b16',
-  type: 'bubble',
-  name: '薄荷',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b16',
+    type: 'bubble',
+    name: '薄荷',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background: rgba(200, 247, 197, 0.6) !important;
 backdrop-filter: blur(8px);
@@ -803,20 +803,20 @@ color: #2e5c38 !important;
 border-radius: 18px !important;
 box-shadow: 0 4px 0 rgba(160, 210, 160, 0.5) !important;
 }`
-},
-{
-  id: 'b17',
-  type: 'bubble',
-  name: '简约透明',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b17',
+    type: 'bubble',
+    name: '简约透明',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1)) !important;
 backdrop-filter: blur(10px);
@@ -834,73 +834,73 @@ border-radius: 20px 20px 5px 20px;
 .message-received {
 border-radius: 20px 20px 20px 5px;
 }`
-},
-{
-  id: 'b18',
-  type: 'bubble',
-  name: '像素游戏框',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b18',
+    type: 'bubble',
+    name: '像素游戏框',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #ffcc00 !important;
 border-radius: 0px !important;
 box-shadow:
-    4px 0 0 #000,
-    -4px 0 0 #000,
-    0 -4px 0 #000,
-    0 4px 0 #000,
-    8px 8px 0 rgba(0,0,0,0.2) !important;
+  4px 0 0 #000,
+  -4px 0 0 #000,
+  0 -4px 0 #000,
+  0 4px 0 #000,
+  8px 8px 0 rgba(0,0,0,0.2) !important;
 color: #000000 !important;
 padding: 12px 15px !important;
 border: none !important;
 }`
-},
-{
-  id: 'b19',
-  type: 'bubble',
-  name: '云朵棉花糖',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b19',
+    type: 'bubble',
+    name: '云朵棉花糖',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(to bottom, #fff0f5, #e6e6fa) !important;
 border-radius: 30px 30px 30px 10px !important;
 box-shadow:
-    0 10px 20px -5px rgba(216, 191, 216, 0.5),
-    inset 0 -3px 10px rgba(255,255,255,0.8) !important;
+  0 10px 20px -5px rgba(216, 191, 216, 0.5),
+  inset 0 -3px 10px rgba(255,255,255,0.8) !important;
 color: #6a5acd !important;
 border: 2px solid #ffffff !important;
 }
 .message-sent {
 border-radius: 30px 30px 10px 30px !important;
 }`
-},
-{
-  id: 'b20',
-  type: 'bubble',
-  name: '暗夜蕾丝',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b20',
+    type: 'bubble',
+    name: '暗夜蕾丝',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #2b2b2b !important;
 border: 2px solid #ff69b4 !important;
@@ -912,20 +912,20 @@ box-shadow: 0 0 15px rgba(255, 105, 180, 0.3) !important;
 font-weight: bold !important;
 margin: 10px !important;
 }`
-},
-{
-  id: 'b21',
-  type: 'bubble',
-  name: '憨憨小熊',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b21',
+    type: 'bubble',
+    name: '憨憨小熊',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #f6d365 !important;
 border: 4px solid #5d4037 !important;
@@ -939,20 +939,20 @@ border-top-right-radius: 5px !important;
 .message-received {
 border-top-left-radius: 5px !important;
 }`
-},
-{
-  id: 'b22',
-  type: 'bubble',
-  name: '蜘蛛',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b22',
+    type: 'bubble',
+    name: '蜘蛛',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #2c3e50 !important;
 color: #ecf0f1 !important;
@@ -960,24 +960,24 @@ border-radius: 30px !important;
 border: 3px solid #e74c3c !important;
 box-shadow: 0 8px 15px rgba(44, 62, 80, 0.4) !important;
 background-image: radial-gradient(circle at 10px 10px, #e74c3c 2px, transparent 3px),
-                  radial-gradient(circle at 25px 10px, #e74c3c 2px, transparent 3px) !important;
+                radial-gradient(circle at 25px 10px, #e74c3c 2px, transparent 3px) !important;
 background-repeat: no-repeat !important;
 padding-top: 15px !important;
 }`
-},
-{
-  id: 'b23',
-  type: 'bubble',
-  name: '系统提示',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b23',
+    type: 'bubble',
+    name: '系统提示',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #000000 !important;
 color: #ffffff !important;
@@ -989,20 +989,20 @@ border-radius: 4px !important;
 box-shadow: 0 0 10px rgba(255, 0, 0, 0.2) !important;
 font-weight: 500 !important;
 }`
-},
-{
-  id: 'b24',
-  type: 'bubble',
-  name: '白骨红痕',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b24',
+    type: 'bubble',
+    name: '白骨红痕',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background-color: #ffffff !important;
 color: #000000 !important;
@@ -1012,20 +1012,20 @@ border-radius: 8px !important;
 padding: 12px 16px !important;
 transform: rotate(-1deg) !important; 
 }`
-},
-{
-  id: 'b25',
-  type: 'bubble',
-  name: '深渊心脏',
-  author: 'T',
-  previews: [{
-    t: 'sent',
-    v: '你是我朝夕相伴触手可及的虚拟。'
-  }, {
-    t: 'received',
-    v: '你是我未曾拥有无法捕捉的亲昵。'
-  }],
-  css: `.message-sent,
+  },
+  {
+    id: 'b25',
+    type: 'bubble',
+    name: '深渊心脏',
+    author: 'T',
+    previews: [{
+      t: 'sent',
+      v: '你是我朝夕相伴触手可及的虚拟。'
+    }, {
+      t: 'received',
+      v: '你是我未曾拥有无法捕捉的亲昵。'
+    }],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(160deg, #1a1a1a 0%, #4a0000 100%) !important;
 color: #ffffff !important;
@@ -1034,26 +1034,26 @@ border-radius: 15px 0 15px 0 !important;
 box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8) !important;
 letter-spacing: 0.5px !important;
 }`
-},
-{
-  id: 'b26',
-  type: 'bubble',
-  name: '苹果🍎',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '有点甜'
-    },
-    {
-      t: 'received',
-      v: '摘一颗苹果'
-    },
-    {
-      t: 'sent',
-      v: '等你从门前经过'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b26',
+    type: 'bubble',
+    name: '苹果🍎',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '有点甜'
+      },
+      {
+        t: 'received',
+        v: '摘一颗苹果'
+      },
+      {
+        t: 'sent',
+        v: '等你从门前经过'
+      }
+    ],
+    css: `
 .message {
 border-radius: 24px !important;
 box-shadow: none !important;
@@ -1121,27 +1121,27 @@ box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
 .message.message-sent {
 background-image:
 radial-gradient(
-  ellipse at 30% 20%,
-  rgba(255,255,255,0.25) 0%,
-  transparent 50%
+ellipse at 30% 20%,
+rgba(255,255,255,0.25) 0%,
+transparent 50%
 ) !important;
 }
 .message.message-received {
 background-image:
 radial-gradient(
-  circle at 20% 30%,
-  rgba(255,215,0,0.15) 2px,
-  transparent 2px
+circle at 20% 30%,
+rgba(255,215,0,0.15) 2px,
+transparent 2px
 ),
 radial-gradient(
-  circle at 80% 70%,
-  rgba(255,215,0,0.12) 1.5px,
-  transparent 1.5px
+circle at 80% 70%,
+rgba(255,215,0,0.12) 1.5px,
+transparent 1.5px
 ),
 radial-gradient(
-  circle at 60% 20%,
-  rgba(255,215,0,0.1) 1px,
-  transparent 1px
+circle at 60% 20%,
+rgba(255,215,0,0.1) 1px,
+transparent 1px
 ) !important;
 background-size: 30px 30px, 25px 25px, 20px 20px !important;
 }
@@ -1155,26 +1155,26 @@ font-weight: 500 !important;
 color: #c0392b !important;
 opacity: 0.8 !important;
 }`
-},
-{
-  id: 'b27',
-  type: 'bubble',
-  name: '薄巧薄巧',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    },
-    {
-      t: 'received',
-      v: '虚拟'
-    },
-    {
-      t: 'sent',
-      v: '过了很久我终于抬头看'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b27',
+    type: 'bubble',
+    name: '薄巧薄巧',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      },
+      {
+        t: 'received',
+        v: '虚拟'
+      },
+      {
+        t: 'sent',
+        v: '过了很久我终于抬头看'
+      }
+    ],
+    css: `
 
 .message {
 border-radius: 24px !important;
@@ -1259,22 +1259,22 @@ color: #a8b5ad !important;
 font-size: 11px !important;
 margin-top: 4px !important;
 }`
-},
-{
-  id: 'b28',
-  type: 'bubble',
-  name: '校园活页',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '下课去小卖部吗？'
-    },
-    {
-      t: 'received',
-      v: '这题你会不会'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b28',
+    type: 'bubble',
+    name: '校园活页',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '下课去小卖部吗？'
+      },
+      {
+        t: 'received',
+        v: '这题你会不会'
+      }
+    ],
+    css: `
 .message {
 border-radius: 4px !important;
 box-shadow: none !important;
@@ -1496,22 +1496,22 @@ text-align: right !important;
 margin-top: 2px !important;
 font-family: "Courier New", monospace !important;
 }`
-},
-{
-  id: 'b29',
-  type: 'bubble',
-  name: '古早聊天框',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '唔西迪西晚安'
-    },
-    {
-      t: 'received',
-      v: '玛卡巴卡晚安'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b29',
+    type: 'bubble',
+    name: '古早聊天框',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '唔西迪西晚安'
+      },
+      {
+        t: 'received',
+        v: '玛卡巴卡晚安'
+      }
+    ],
+    css: `
 .message {
 border-radius: 0 !important;
 box-shadow: none !important;
@@ -1584,22 +1584,22 @@ padding: 2px !important;
 margin: 4px 0 !important;
 font-family: "宋体", "SimSun", monospace !important;
 }`
-},
-{
-  id: 'b30',
-  type: 'bubble',
-  name: '粉色棉花糖',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '测试'
-    },
-    {
-      t: 'received',
-      v: '这个好难编＞𐋣＜'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b30',
+    type: 'bubble',
+    name: '粉色棉花糖',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '测试'
+      },
+      {
+        t: 'received',
+        v: '这个好难编＞𐋣＜'
+      }
+    ],
+    css: `
 .message {
 border-radius: 28px !important;
 box-shadow: 0 12px 24px rgba(255, 170, 200, 0.25), 0 4px 8px rgba(255, 255, 255, 0.8) inset !important;
@@ -1868,20 +1868,20 @@ animation: dreamFloat2 4.5s ease-in-out infinite !important;
 .message.message-received::after {
 animation: dreamFloat2 5.5s ease-in-out infinite !important;
 }`
-},
-{
-  id: 'b31',
-  type: 'bubble',
-  name: '蝴蝶结',
-  author: '歪',
-  previews: [{
-    t: 'received',
-    v: '你是我朝夕相伴触手可及的虚拟'
-  }, {
-    t: 'sent',
-    v: '你是我未曾拥有无法捕捉的亲昵'
-  }],
-  css: `
+  },
+  {
+    id: 'b31',
+    type: 'bubble',
+    name: '蝴蝶结',
+    author: '歪',
+    previews: [{
+      t: 'received',
+      v: '你是我朝夕相伴触手可及的虚拟'
+    }, {
+      t: 'sent',
+      v: '你是我未曾拥有无法捕捉的亲昵'
+    }],
+    css: `
 .message-sent {
 background: linear-gradient(to bottom, #F9E8EE, #FAF5EC);
 border-radius: 13px 13px 13px 13px;
@@ -2009,30 +2009,30 @@ font-weight: 500 !important;
 position: relative;
 overflow: visible !important;
 }`
-},
-{
-  id: 'b32',
-  type: 'bubble',
-  name: '青柠奶泡',
-  author: '眠眠',
-  previews: [{
-      t: 'sent',
-      v: '你好，请问你有空跟我聊天吗，我虽然长的不好看游戏打的也不好但是我是小馋猫，我觉得你有点像我的饭。'
-    },
-    {
-      t: 'received',
-      v: '宝宝你觉得呢'
-    },
-    {
-      t: 'sent',
-      v: '好耶'
-    },
-    {
-      t: 'received',
-      v: '不要去做傻事'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b32',
+    type: 'bubble',
+    name: '青柠奶泡',
+    author: '眠眠',
+    previews: [{
+        t: 'sent',
+        v: '你好，请问你有空跟我聊天吗，我虽然长的不好看游戏打的也不好但是我是小馋猫，我觉得你有点像我的饭。'
+      },
+      {
+        t: 'received',
+        v: '宝宝你觉得呢'
+      },
+      {
+        t: 'sent',
+        v: '好耶'
+      },
+      {
+        t: 'received',
+        v: '不要去做傻事'
+      }
+    ],
+    css: `
 .message {
 box-shadow: none !important;
 border-width: 0 !important;
@@ -2314,24 +2314,24 @@ text-shadow:
 0 0 15px rgba(255, 200, 80, 0.7) !important;
 }
 }`
-},
-{
-  id: 'b33',
-  type: 'bubble',
-  name: '边框',
-  author: '11',
-  group: 'g-xinmai',
-  groupLabel: '心脉系列',
-  previews: [{
-      t: 'sent',
-      v: '多幸运遇见了你'
-    },
-    {
-      t: 'received',
-      v: '多幸运爱上了你'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b33',
+    type: 'bubble',
+    name: '边框',
+    author: '11',
+    group: 'g-xinmai',
+    groupLabel: '心脉系列',
+    previews: [{
+        t: 'sent',
+        v: '多幸运遇见了你'
+      },
+      {
+        t: 'received',
+        v: '多幸运爱上了你'
+      }
+    ],
+    css: `
 .message { box-shadow: none !important; border: none !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
 
 @keyframes glass-shine{ 0% { background-position: -20% 0; } 100% { background-position: 120% 0; } }
@@ -2372,22 +2372,22 @@ transform: scaleX(1);
 .message-sent::before{ content: '' !important; position: absolute !important; left: 0; top: 0; right: 0; bottom: 0; border-radius: inherit !important; pointer-events: none !important; z-index: 2 !important; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%) !important; background-size: 200% 100% !important; animation: glass-shine 9s infinite linear !important; }
 
 .message-sent::after{ content: '♡' !important; color: rgba(255, 255, 255, 0.8) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; right: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important; pointer-events: none !important; }`
-},
-{
-  id: 'b34',
-  type: 'bubble',
-  name: '赛博不朋克',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '自填就是'
-    },
-    {
-      t: 'received',
-      v: '说可以自填啊'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b34',
+    type: 'bubble',
+    name: '赛博不朋克',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '自填就是'
+      },
+      {
+        t: 'received',
+        v: '说可以自填啊'
+      }
+    ],
+    css: `
 .message {
 border-radius: 0 !important;
 box-shadow: none !important;
@@ -2492,22 +2492,22 @@ padding: 2px 12px !important;
 border: 2px solid #ff0055 !important;
 z-index: 10 !important;
 }`
-},
-{
-  id: 'b35',
-  type: 'bubble',
-  name: 'kpop仿bubble',
-  author: '子超兄',
-  previews: [{
-      t: 'sent',
-      v: '哥哥/姐姐我想你惹'
-    },
-    {
-      t: 'received',
-      v: '我也想你们'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b35',
+    type: 'bubble',
+    name: 'kpop仿bubble',
+    author: '子超兄',
+    previews: [{
+        t: 'sent',
+        v: '哥哥/姐姐我想你惹'
+      },
+      {
+        t: 'received',
+        v: '我也想你们'
+      }
+    ],
+    css: `
 .message {
 border-radius: 18px !important;
 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
@@ -2569,46 +2569,46 @@ color: #999999 !important;
 font-size: 12px !important;
 margin-top: 4px !important;
 }`
-},
-{
-  id: 'b36',
-  type: 'bubble',
-  name: '纯白信笺',
-  author: '眠眠',
-  previews: [{
-      t: 'sent',
-      v: '气泡预览*不知道啥名字'
-    },
-    {
-      t: 'received',
-      v: '摸摸小手'
-    },
-    {
-      t: 'received',
-      v: '是代码'
-    }
-  ],
-  css: `.message { box-shadow: none !important; border-width: 0 !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
+  },
+  {
+    id: 'b36',
+    type: 'bubble',
+    name: '纯白信笺',
+    author: '眠眠',
+    previews: [{
+        t: 'sent',
+        v: '气泡预览*不知道啥名字'
+      },
+      {
+        t: 'received',
+        v: '摸摸小手'
+      },
+      {
+        t: 'received',
+        v: '是代码'
+      }
+    ],
+    css: `.message { box-shadow: none !important; border-width: 0 !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
 .message-received { background: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.9) !important; color: #1C261E !important; text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important; border-radius: 24px !important; padding: 8px 16px !important; box-shadow: 0 4px 8px rgba(128, 128, 128, 0.5), 0 0 0 2px rgba(128, 128, 128, 0.3) inset !important; }
 .message-sent { background: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.9) !important; color: #1C261E !important; text-shadow: 0 0 4px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1), 0 0 12px rgba(255, 255, 255, 1) !important; border-radius: 24px !important; padding: 8px 16px !important; box-shadow: 0 4px 8px rgba(128, 128, 128, 0.5), 0 0 0 2px rgba(128, 128, 128, 0.3) inset !important; }`
-},
-{
-  id: 'b37',
-  type: 'bubble',
-  name: '无边框',
-  author: '11',
-  group: 'g-xinmai',
-  groupLabel: '心脉系列',
-  previews: [{
-      t: 'sent',
-      v: '多幸运遇见了你'
-    },
-    {
-      t: 'received',
-      v: '多幸运爱上了你'
-    }
-  ],
-  css: `.message { box-shadow: none !important; border: none !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
+  },
+  {
+    id: 'b37',
+    type: 'bubble',
+    name: '无边框',
+    author: '11',
+    group: 'g-xinmai',
+    groupLabel: '心脉系列',
+    previews: [{
+        t: 'sent',
+        v: '多幸运遇见了你'
+      },
+      {
+        t: 'received',
+        v: '多幸运爱上了你'
+      }
+    ],
+    css: `.message { box-shadow: none !important; border: none !important; font-weight: 500 !important; position: relative; overflow: visible !important; }
 @keyframes floatAndBurst{ 0% { transform: translate(0, 0) scale(0.2); opacity: 0; } 40% { transform: translate(0, -22px) scale(0.8); opacity: 0.8; } 60% { transform: translate(0, -30px) scale(1); opacity: 1; } 100% { transform: translate(0, -35px) scale(0); opacity: 0; } }
 @keyframes ecg-pulse{ 0% { filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); } 50% { filter: drop-shadow(0 0 12px rgba(255,255,255,1)); } 100% { filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); } }
 .message-received{ background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: none !important; color: #fff !important; border-radius: 24px !important; padding: 8px 16px !important; position: relative !important; }
@@ -2617,26 +2617,26 @@ margin-top: 4px !important;
 .message-received::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; right: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }
 .message-sent::after{ content: '' !important; position: absolute !important; right: -16px !important; bottom: -6px !important; width: 70px !important; height: 20px !important; z-index: 3 !important; background: transparent !important; animation: ecg-pulse 2s infinite ease-in-out !important; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50"><path d="M0,25 L15,25 L20,15 L25,35 L30,25 L45,25 L50,8 L55,42 L60,25 L75,25 L80,20 L85,30 L90,25 L105,25 L110,15 L115,35 L120,25" stroke="white" stroke-width="1.5" fill="none"/></svg>') !important; background-size: contain !important; background-repeat: no-repeat !important; background-position: right bottom !important; opacity: 1 !important; pointer-events: none !important; transform: scaleX(-1); }
 .message-sent::before{ content: '♡' !important; color: rgba(255,255,255,1) !important; font-size: 14px !important; position: absolute !important; bottom: 8px !important; left: 12px !important; z-index: 3 !important; animation: floatAndBurst 3.8s infinite ease-out !important; text-shadow: 0 0 12px rgba(255,255,255,0.9) !important; pointer-events: none !important; }`
-},
-{
-  id: 'b38',
-  type: 'bubble',
-  name: '豆沙绿微透',
-  author: '老猫',
-  previews: [{
-      t: 'sent',
-      v: '123456789'
-    },
-    {
-      t: 'received',
-      v: '一二三四五六七八九'
-    },
-    {
-      t: 'sent',
-      v: '三点一四一五九二六'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b38',
+    type: 'bubble',
+    name: '豆沙绿微透',
+    author: '老猫',
+    previews: [{
+        t: 'sent',
+        v: '123456789'
+      },
+      {
+        t: 'received',
+        v: '一二三四五六七八九'
+      },
+      {
+        t: 'sent',
+        v: '三点一四一五九二六'
+      }
+    ],
+    css: `
 .message {
 border-radius: 14px !important;
 box-shadow: none !important;
@@ -2667,24 +2667,24 @@ color: #2d4238 !important;
 background: rgba(166, 196, 170, 0.45) !important;
 color: #fff !important;
 }`
-},
-{
-  id: 'b39',
-  type: 'bubble',
-  name: '粉色',
-  author: '翊甜',
-  group: 'g-xinqing',
-  groupLabel: '心情系列',
-  previews: [{
-      t: 'sent',
-      v: '你好，很高兴认识你～'
-    },
-    {
-      t: 'received',
-      v: '我也是，今天天气不错呀！'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b39',
+    type: 'bubble',
+    name: '粉色',
+    author: '翊甜',
+    group: 'g-xinqing',
+    groupLabel: '心情系列',
+    previews: [{
+        t: 'sent',
+        v: '你好，很高兴认识你～'
+      },
+      {
+        t: 'received',
+        v: '我也是，今天天气不错呀！'
+      }
+    ],
+    css: `
 .message-box {
 max-width: 75%;
 margin: 16px 0;
@@ -2717,24 +2717,24 @@ margin-right: auto !important;
 border-radius: 6px 18px 18px 18px !important;
 }
 `
-},
-{
-  id: 'b40',
-  type: 'bubble',
-  name: '棕色',
-  author: '翊甜',
-  group: 'g-xinqing',
-  groupLabel: '心情系列',
-  previews: [{
-      t: 'sent',
-      v: '你好，很高兴认识你～'
-    },
-    {
-      t: 'received',
-      v: '我也是，今天天气不错呀！'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b40',
+    type: 'bubble',
+    name: '棕色',
+    author: '翊甜',
+    group: 'g-xinqing',
+    groupLabel: '心情系列',
+    previews: [{
+        t: 'sent',
+        v: '你好，很高兴认识你～'
+      },
+      {
+        t: 'received',
+        v: '我也是，今天天气不错呀！'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background: rgba(140, 120, 130, 0.2) !important;
 border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -2759,24 +2759,24 @@ border-radius: 18px 6px 18px 18px !important;
 margin-right: auto !important;
 border-radius: 6px 18px 18px 18px !important;
 }`
-},
-{
-  id: 'b41',
-  type: 'bubble',
-  name: '雾蓝',
-  author: '翊甜',
-  group: 'g-xinqing',
-  groupLabel: '心情系列',
-  previews: [{
-      t: 'sent',
-      v: '你好，很高兴认识你～'
-    },
-    {
-      t: 'received',
-      v: '我也是，今天天气不错呀！'
-    }
-  ],
-  css: `.message-box {
+  },
+  {
+    id: 'b41',
+    type: 'bubble',
+    name: '雾蓝',
+    author: '翊甜',
+    group: 'g-xinqing',
+    groupLabel: '心情系列',
+    previews: [{
+        t: 'sent',
+        v: '你好，很高兴认识你～'
+      },
+      {
+        t: 'received',
+        v: '我也是，今天天气不错呀！'
+      }
+    ],
+    css: `.message-box {
 max-width: 75%;
 margin: 16px 0;
 position: relative;
@@ -2808,24 +2808,24 @@ margin-right: auto !important;
 border-radius: 6px 18px 18px 18px !important;
 }
 `
-},
-{
-  id: 'b42',
-  type: 'bubble',
-  name: '磨砂',
-  author: '翊甜',
-  group: 'g-xiaomao',
-  groupLabel: '玻璃小猫系列',
-  previews: [{
-      t: 'sent',
-      v: '测试'
-    },
-    {
-      t: 'received',
-      v: '你不是孤单一个人在对抗世界'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b42',
+    type: 'bubble',
+    name: '磨砂',
+    author: '翊甜',
+    group: 'g-xiaomao',
+    groupLabel: '玻璃小猫系列',
+    previews: [{
+        t: 'sent',
+        v: '测试'
+      },
+      {
+        t: 'received',
+        v: '你不是孤单一个人在对抗世界'
+      }
+    ],
+    css: `
 .message-sent, .message-received {
 background: linear-gradient(145deg, rgba(137, 207, 240, 0.6), rgba(255, 182, 193, 0.6)) !important;
 color: #333 !important;
@@ -2842,24 +2842,24 @@ box-shadow:
 0 4px 8px rgba(0, 0, 0, 0.1),
 inset 0 1px 4px rgba(255, 255, 255, 0.4) !important;
 }`
-},
-{
-  id: 'b43',
-  type: 'bubble',
-  name: '毛茸茸',
-  author: '翊甜',
-  group: 'g-xiaomao',
-  groupLabel: '玻璃小猫系列',
-  previews: [{
-      t: 'sent',
-      v: '测试'
-    },
-    {
-      t: 'received',
-      v: '你不是孤单一个人在对抗世界'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b43',
+    type: 'bubble',
+    name: '毛茸茸',
+    author: '翊甜',
+    group: 'g-xiaomao',
+    groupLabel: '玻璃小猫系列',
+    previews: [{
+        t: 'sent',
+        v: '测试'
+      },
+      {
+        t: 'received',
+        v: '你不是孤单一个人在对抗世界'
+      }
+    ],
+    css: `
 .message-sent, .message-received {
 position: relative !important;
 background: 
@@ -2916,22 +2916,22 @@ filter: blur(10px) !important;
 z-index: -2 !important;
 opacity: 0.6 !important;
 }`
-},
-{
-  id: 'b44',
-  type: 'bubble',
-  name: '弥冬',
-  author: '11',
-  previews: [{
-      t: 'sent',
-      v: '多幸运遇见了你'
-    },
-    {
-      t: 'received',
-      v: '多幸运爱上了你'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b44',
+    type: 'bubble',
+    name: '弥冬',
+    author: '11',
+    previews: [{
+        t: 'sent',
+        v: '多幸运遇见了你'
+      },
+      {
+        t: 'received',
+        v: '多幸运爱上了你'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -3059,22 +3059,22 @@ transform: scale(1.15) !important;
 filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1)) !important;
 }
 }`
-},
-{
-  id: 'b45',
-  type: 'bubble',
-  name: '胶囊小兔',
-  author: '眠眠',
-  previews: [{
-      t: 'sent',
-      v: '爱没有方向，你就是导航'
-    },
-    {
-      t: 'received',
-      v: '由你'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b45',
+    type: 'bubble',
+    name: '胶囊小兔',
+    author: '眠眠',
+    previews: [{
+        t: 'sent',
+        v: '爱没有方向，你就是导航'
+      },
+      {
+        t: 'received',
+        v: '由你'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -3169,22 +3169,22 @@ background-color: transparent;
 filter: blur(0.6px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 z-index: 10;
 }`
-},
-{
-  id: 'b46',
-  type: 'bubble',
-  name: '轻松熊不轻松',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '(･∞･ﾐэ咕噜噜'
-    },
-    {
-      t: 'received',
-      v: '唉 人类 人累 人泪 ( ‘-ωก )'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b46',
+    type: 'bubble',
+    name: '轻松熊不轻松',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '(･∞･ﾐэ咕噜噜'
+      },
+      {
+        t: 'received',
+        v: '唉 人类 人累 人泪 ( ‘-ωก )'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.1 !important;
 overflow: visible !important;
@@ -3244,22 +3244,22 @@ border-image-slice: 664 1083 147 1182 fill !important;
 border-image-width: 37px 60px 8px 66px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b47',
-  type: 'bubble',
-  name: '您有新的消息来自QQ',
-  author: 'os',
-  previews: [{
-      t: 'sent',
-      v: '你可以和我多说说话吗QwQ'
-    },
-    {
-      t: 'received',
-      v: '当然愿意。'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b47',
+    type: 'bubble',
+    name: '您有新的消息来自QQ',
+    author: 'os',
+    previews: [{
+        t: 'sent',
+        v: '你可以和我多说说话吗QwQ'
+      },
+      {
+        t: 'received',
+        v: '当然愿意。'
+      }
+    ],
+    css: `
 .message-bubble-container {
 max-width: 70%;
 margin: 12px 0;
@@ -3340,22 +3340,22 @@ border-color: #404040;
 border-color: transparent #2B2B2B transparent transparent;
 }
 }`
-},
-{
-  id: 'b48',
-  type: 'bubble',
-  name: '人，猫喜欢你',
-  author: '家夫是小猫^^',
-  previews: [{
-      t: 'sent',
-      v: '人，猫喜欢你。'
-    },
-    {
-      t: 'received',
-      v: '嗯，人也喜欢猫。'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b48',
+    type: 'bubble',
+    name: '人，猫喜欢你',
+    author: '家夫是小猫^^',
+    previews: [{
+        t: 'sent',
+        v: '人，猫喜欢你。'
+      },
+      {
+        t: 'received',
+        v: '嗯，人也喜欢猫。'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background: rgba(245, 245, 245, 0.9) !important;
 border: 2px solid rgba(210, 210, 210, 0.6) !important;
@@ -3424,22 +3424,22 @@ opacity: 1 !important;
 z-index: 99999 !important;
 pointer-events: none !important;
 }`
-},
-{
-  id: 'b49',
-  type: 'bubble',
-  name: '彩色猫猫',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '生活枯燥无味'
-    },
-    {
-      t: 'received',
-      v: '小猫cos人类'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b49',
+    type: 'bubble',
+    name: '彩色猫猫',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '生活枯燥无味'
+      },
+      {
+        t: 'received',
+        v: '小猫cos人类'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3475,22 +3475,22 @@ border-image-slice: 325 691 120 683 fill !important;
 border-image-width: 18px 38px 7px 38px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b50',
-  type: 'bubble',
-  name: '腮红小熊',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '看起来很萌'
-    },
-    {
-      t: 'received',
-      v: '实际上也很萌ᗜ 𖥦 ᗜ'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b50',
+    type: 'bubble',
+    name: '腮红小熊',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '看起来很萌'
+      },
+      {
+        t: 'received',
+        v: '实际上也很萌ᗜ 𖥦 ᗜ'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3541,22 +3541,22 @@ border-image-slice: 206 350 165 346 fill !important;
 border-image-width: 11px 19px 9px 19px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b51',
-  type: 'bubble',
-  name: '小兔耳朵',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '来许个愿吧'
-    },
-    {
-      t: 'received',
-      v: '希望在你身边'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b51',
+    type: 'bubble',
+    name: '小兔耳朵',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '来许个愿吧'
+      },
+      {
+        t: 'received',
+        v: '希望在你身边'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3593,22 +3593,22 @@ border-image-slice: 454 497 246 511 fill !important;
 border-image-width: 23px 25px 12px 26px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b52',
-  type: 'bubble',
-  name: '小天使',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '∗ ˙ . 時空を着て恋をする. ♡ ˙ ∗'
-    },
-    {
-      t: 'received',
-      v: '穿越時空愛戀…'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b52',
+    type: 'bubble',
+    name: '小天使',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '∗ ˙ . 時空を着て恋をする. ♡ ˙ ∗'
+      },
+      {
+        t: 'received',
+        v: '穿越時空愛戀…'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3644,24 +3644,24 @@ border-image-slice: 92 802 312 785 fill !important;
 border-image-width: 6px 45px 17px 44px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b53',
-  type: 'bubble',
-  name: '日',
-  author: '蛋挞',
-  group: 'g-weixin',
-  groupLabel: '仿微信系列',
-  previews: [{
-      t: 'sent',
-      v: '我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'
-    },
-    {
-      t: 'received',
-      v: '我这个小女孩的设定就是一定要你陪つω• )'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b53',
+    type: 'bubble',
+    name: '日',
+    author: '蛋挞',
+    group: 'g-weixin',
+    groupLabel: '仿微信系列',
+    previews: [{
+        t: 'sent',
+        v: '我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'
+      },
+      {
+        t: 'received',
+        v: '我这个小女孩的设定就是一定要你陪つω• )'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3708,22 +3708,22 @@ top: 18px;
 background-color: #ffffff;
 transform: translateY(-50%) rotate(45deg);
 }`
-},
-{
-  id: 'b54',
-  type: 'bubble',
-  name: '透明玻璃',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '永不停歇的雨季'
-    },
-    {
-      t: 'received',
-      v: '是我潮湿的眼底'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b54',
+    type: 'bubble',
+    name: '透明玻璃',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '永不停歇的雨季'
+      },
+      {
+        t: 'received',
+        v: '是我潮湿的眼底'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 display: inline-block !important;
 padding: 7px 10px !important;
@@ -3749,24 +3749,24 @@ background: rgba(255,255,255,0.8);
 border-radius: 8px 8px 0 0;
 z-index: 1;
 }`
-},
-{
-  id: 'b55',
-  type: 'bubble',
-  name: '夜',
-  author: '蛋挞',
-  group: 'g-weixin',
-  groupLabel: '仿微信系列系列',
-  previews: [{
-      t: 'sent',
-      v: '我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'
-    },
-    {
-      t: 'received',
-      v: '我这个小女孩的设定就是一定要你陪つω• )'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b55',
+    type: 'bubble',
+    name: '夜',
+    author: '蛋挞',
+    group: 'g-weixin',
+    groupLabel: '仿微信系列系列',
+    previews: [{
+        t: 'sent',
+        v: '我等了你几分钟的消息了，还没有回我，你让我怎么活?!我将要沉入海底，封闭自己，我是不会原谅你的!你等着吧，我迟早找人弄你!o(一ω一)o'
+      },
+      {
+        t: 'received',
+        v: '我这个小女孩的设定就是一定要你陪つω• )'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -3814,26 +3814,26 @@ top: 18px;
 background-color: #2c2c2c !important;
 transform: translateY(-50%) rotate(45deg);
 }`
-},
-{
-  id: 'b56',
-  type: 'bubble',
-  name: 'emo天使',
-  author: '眠眠',
-  previews: [{
-      t: 'sent',
-      v: '气泡预览*emo天使'
-    },
-    {
-      t: 'received',
-      v: '宝宝'
-    },
-    {
-      t: 'received',
-      v: '等你'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b56',
+    type: 'bubble',
+    name: 'emo天使',
+    author: '眠眠',
+    previews: [{
+        t: 'sent',
+        v: '气泡预览*emo天使'
+      },
+      {
+        t: 'received',
+        v: '宝宝'
+      },
+      {
+        t: 'received',
+        v: '等你'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -3936,22 +3936,22 @@ background-color: transparent;
 filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 z-index: 10;
 }`
-},
-{
-  id: 'b57',
-  type: 'bubble',
-  name: '霜雪半透明',
-  author: '七九',
-  previews: [{
-      t: 'sent',
-      v: '生命给了我多少积雪'
-    },
-    {
-      t: 'received',
-      v: '我就能遇到多少春天'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b57',
+    type: 'bubble',
+    name: '霜雪半透明',
+    author: '七九',
+    previews: [{
+        t: 'sent',
+        v: '生命给了我多少积雪'
+      },
+      {
+        t: 'received',
+        v: '我就能遇到多少春天'
+      }
+    ],
+    css: `
 .message {
 border-radius: 20px !important;
 border: none !important; 
@@ -4002,24 +4002,24 @@ inset 1px 1px 3px rgba(255, 255, 255, 0.4) !important;
 .message::after {
 display: none !important;
 }`
-},
-{
-  id: 'b58',
-  type: 'bubble',
-  name: '动画',
-  author: 'Spring',
-  group: 'g-fenyun',
-  groupLabel: '粉云天使系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b58',
+    type: 'bubble',
+    name: '动画',
+    author: 'Spring',
+    group: 'g-fenyun',
+    groupLabel: '粉云天使系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 12px !important;
 box-shadow: 0 0 15px 2px rgba(255, 220, 230, 0.6) !important;
 background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
@@ -4099,24 +4099,24 @@ bottom: -4px !important;
 left: -4px !important;
 border-radius: 0 0 4px 0 !important;
 }`
-},
-{
-  id: 'b59',
-  type: 'bubble',
-  name: '静态',
-  author: 'Spring',
-  group: 'g-fenyun',
-  groupLabel: '粉云天使系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b59',
+    type: 'bubble',
+    name: '静态',
+    author: 'Spring',
+    group: 'g-fenyun',
+    groupLabel: '粉云天使系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 12px !important;
 box-shadow: 0 0 15px 2px rgba(255, 220, 230, 0.6) !important;
 background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.85)) !important;
@@ -4188,22 +4188,22 @@ bottom: -4px !important;
 left: -4px !important;
 border-radius: 0 0 4px 0 !important;
 }`
-},
-{
-  id: 'b60',
-  type: 'bubble',
-  name: '紫雾坠星',
-  author: 'Spring',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b60',
+    type: 'bubble',
+    name: '紫雾坠星',
+    author: 'Spring',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 18px !important;
 background:
 radial-gradient(ellipse at center, #f3e8ff 0%, transparent 70%),
@@ -4274,31 +4274,31 @@ background-size: contain !important;
 z-index: 2 !important;
 pointer-events: none !important;
 }`
-},
-{
-  id: 'b61',
-  type: 'bubble',
-  name: '果冻',
-  author: '七九',
-  group: 'g-bodian',
-  groupLabel: '粉色波点系列',
-  previews: [{
-      t: 'sent',
-      v: '生命给了我多少积雪'
-    },
-    {
-      t: 'received',
-      v: '我就能遇到多少春天'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b61',
+    type: 'bubble',
+    name: '果冻',
+    author: '七九',
+    group: 'g-bodian',
+    groupLabel: '粉色波点系列',
+    previews: [{
+        t: 'sent',
+        v: '生命给了我多少积雪'
+      },
+      {
+        t: 'received',
+        v: '我就能遇到多少春天'
+      }
+    ],
+    css: `
 .message {
 border-radius: 24px !important;
 border: 1px solid rgba(255, 255, 255, 0.70) !important;
 
 box-shadow:
-  0 4px 10px rgba(255, 122, 173, 0.18),
-  0 1px 3px rgba(255, 122, 173, 0.14) !important;
+0 4px 10px rgba(255, 122, 173, 0.18),
+0 1px 3px rgba(255, 122, 173, 0.14) !important;
 
 position: relative !important;
 overflow: hidden !important;
@@ -4309,51 +4309,51 @@ color: #3b1430 !important;
 background-color: #f7b8d2 !important;
 
 background-image:
-  radial-gradient(circle at 82% 18%, rgba(255,255,255,0.50) 0 20px, rgba(255,255,255,0.00) 62px),
-  radial-gradient(circle at 50% 55%, rgba(255,255,255,0.18) 0 62%, rgba(255,255,255,0.00) 78%),
-  radial-gradient(circle at 7px 7px, rgba(255,255,255,0.22) 0 1.5px, transparent 1.6px),
-  radial-gradient(circle at 13px 12px, rgba(255,255,255,0.16) 0 0.9px, transparent 1px),
-  radial-gradient(circle at 10px 10px, rgba(255,255,255,0.18) 0 2.2px, transparent 2.3px),
-  radial-gradient(circle at 8px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
-  radial-gradient(circle at 12px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
-  radial-gradient(circle at 10px 11px, rgba(255,255,255,0.16) 0 1.2px, transparent 1.3px) !important;
+radial-gradient(circle at 82% 18%, rgba(255,255,255,0.50) 0 20px, rgba(255,255,255,0.00) 62px),
+radial-gradient(circle at 50% 55%, rgba(255,255,255,0.18) 0 62%, rgba(255,255,255,0.00) 78%),
+radial-gradient(circle at 7px 7px, rgba(255,255,255,0.22) 0 1.5px, transparent 1.6px),
+radial-gradient(circle at 13px 12px, rgba(255,255,255,0.16) 0 0.9px, transparent 1px),
+radial-gradient(circle at 10px 10px, rgba(255,255,255,0.18) 0 2.2px, transparent 2.3px),
+radial-gradient(circle at 8px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
+radial-gradient(circle at 12px 8px, rgba(255,255,255,0.18) 0 1.2px, transparent 1.3px),
+radial-gradient(circle at 10px 11px, rgba(255,255,255,0.16) 0 1.2px, transparent 1.3px) !important;
 
 background-size:
-  100% 100%,
-  100% 100%,
-  18px 18px,
-  22px 22px,
-  40px 40px,
-  34px 34px,
-  34px 34px,
-  34px 34px !important;
+100% 100%,
+100% 100%,
+18px 18px,
+22px 22px,
+40px 40px,
+34px 34px,
+34px 34px,
+34px 34px !important;
 
 background-repeat:
-  no-repeat,
-  no-repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat !important;
+no-repeat,
+no-repeat,
+repeat,
+repeat,
+repeat,
+repeat,
+repeat,
+repeat !important;
 
 background-position:
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0 !important;
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0 !important;
 
 box-shadow:
-  0 4px 10px rgba(255, 122, 173, 0.18),
-  0 1px 3px rgba(255, 122, 173, 0.14),
-  inset 0 0 0 1px rgba(255,255,255,0.26),
-  inset 0 0 0 6px rgba(255, 160, 200, 0.08),
-  inset 0 12px 22px rgba(255,255,255,0.18) !important;
+0 4px 10px rgba(255, 122, 173, 0.18),
+0 1px 3px rgba(255, 122, 173, 0.14),
+inset 0 0 0 1px rgba(255,255,255,0.26),
+inset 0 0 0 6px rgba(255, 160, 200, 0.08),
+inset 0 12px 22px rgba(255,255,255,0.18) !important;
 }
 
 .message.message-received {
@@ -4361,53 +4361,53 @@ color: #4a2536 !important;
 background-color: #fff2f8 !important;
 
 background-image:
-  radial-gradient(circle at 82% 18%, rgba(255,255,255,0.60) 0 22px, rgba(255,255,255,0.00) 66px),
-  radial-gradient(circle at 50% 55%, rgba(247,184,210,0.16) 0 62%, rgba(255,255,255,0.00) 78%),
-  radial-gradient(circle at 7px 7px, rgba(247,184,210,0.28) 0 1.4px, transparent 1.5px),
-  radial-gradient(circle at 14px 12px, rgba(247,184,210,0.20) 0 0.9px, transparent 1px),
-  radial-gradient(circle at 10px 10px, rgba(247,184,210,0.18) 0 2px, transparent 2.1px),
-  radial-gradient(circle at 8px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
-  radial-gradient(circle at 12px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
-  radial-gradient(circle at 10px 11px, rgba(247,184,210,0.18) 0 1.1px, transparent 1.2px) !important;
+radial-gradient(circle at 82% 18%, rgba(255,255,255,0.60) 0 22px, rgba(255,255,255,0.00) 66px),
+radial-gradient(circle at 50% 55%, rgba(247,184,210,0.16) 0 62%, rgba(255,255,255,0.00) 78%),
+radial-gradient(circle at 7px 7px, rgba(247,184,210,0.28) 0 1.4px, transparent 1.5px),
+radial-gradient(circle at 14px 12px, rgba(247,184,210,0.20) 0 0.9px, transparent 1px),
+radial-gradient(circle at 10px 10px, rgba(247,184,210,0.18) 0 2px, transparent 2.1px),
+radial-gradient(circle at 8px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
+radial-gradient(circle at 12px 8px, rgba(247,184,210,0.22) 0 1.1px, transparent 1.2px),
+radial-gradient(circle at 10px 11px, rgba(247,184,210,0.18) 0 1.1px, transparent 1.2px) !important;
 
 background-size:
-  100% 100%,
-  100% 100%,
-  20px 20px,
-  24px 24px,
-  44px 44px,
-  36px 36px,
-  36px 36px,
-  36px 36px !important;
+100% 100%,
+100% 100%,
+20px 20px,
+24px 24px,
+44px 44px,
+36px 36px,
+36px 36px,
+36px 36px !important;
 
 background-repeat:
-  no-repeat,
-  no-repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat,
-  repeat !important;
+no-repeat,
+no-repeat,
+repeat,
+repeat,
+repeat,
+repeat,
+repeat,
+repeat !important;
 
 background-position:
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0,
-  0 0 !important;
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0 !important;
 
 border: 1px solid rgba(247, 184, 210, 0.60) !important;
 
 box-shadow:
-  0 4px 10px rgba(255, 122, 173, 0.14),
-  0 1px 3px rgba(255, 122, 173, 0.10),
-  inset 0 0 0 1px rgba(255,255,255,0.30),
-  inset 0 0 0 6px rgba(255, 160, 200, 0.06),
-  inset 0 12px 22px rgba(255,255,255,0.18) !important;
+0 4px 10px rgba(255, 122, 173, 0.14),
+0 1px 3px rgba(255, 122, 173, 0.10),
+inset 0 0 0 1px rgba(255,255,255,0.30),
+inset 0 0 0 6px rgba(255, 160, 200, 0.06),
+inset 0 12px 22px rgba(255,255,255,0.18) !important;
 }
 
 .meta{
@@ -4415,24 +4415,24 @@ color: rgba(255,255,255,0.70);
 font-size: 12px;
 margin: 0 0 10px 2px;
 }`
-},
-{
-  id: 'b62',
-  type: 'bubble',
-  name: '平面',
-  author: '七九',
-  group: 'g-bodian',
-  groupLabel: '粉色波点系列',
-  previews: [{
-      t: 'sent',
-      v: '生命给了我多少积雪'
-    },
-    {
-      t: 'received',
-      v: '我就能遇到多少春天'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b62',
+    type: 'bubble',
+    name: '平面',
+    author: '七九',
+    group: 'g-bodian',
+    groupLabel: '粉色波点系列',
+    previews: [{
+        t: 'sent',
+        v: '生命给了我多少积雪'
+      },
+      {
+        t: 'received',
+        v: '我就能遇到多少春天'
+      }
+    ],
+    css: `
 .message {
 border-radius: 22px !important;
 border: 1px solid rgba(255, 255, 255, 0.70) !important;
@@ -4518,24 +4518,24 @@ box-shadow:
 inset 0 0 0 1px rgba(255,255,255,0.28),
 inset 0 10px 18px rgba(255,255,255,0.18) !important;
 }`
-},
-{
-  id: 'b63',
-  type: 'bubble',
-  name: '小雪人',
-  author: '眠眠',
-  group: 'g-shenkong',
-  groupLabel: '恋与深空系列',
-  previews: [{
-      t: 'sent',
-      v: '你是我朝夕相伴触手可及的虚拟'
-    },
-    {
-      t: 'received',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b63',
+    type: 'bubble',
+    name: '小雪人',
+    author: '眠眠',
+    group: 'g-shenkong',
+    groupLabel: '恋与深空系列',
+    previews: [{
+        t: 'sent',
+        v: '你是我朝夕相伴触手可及的虚拟'
+      },
+      {
+        t: 'received',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -4595,24 +4595,24 @@ background-position: top left;
 z-index: 1;
 pointer-events: none;
 }`
-},
-{
-  id: 'b64',
-  type: 'bubble',
-  name: '鸦式震惊',
-  author: '眠眠',
-  group: 'g-shenkong',
-  groupLabel: '恋与深空系列',
-  previews: [{
-      t: 'sent',
-      v: '你是我朝夕相伴触手可及的虚拟'
-    },
-    {
-      t: 'received',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b64',
+    type: 'bubble',
+    name: '鸦式震惊',
+    author: '眠眠',
+    group: 'g-shenkong',
+    groupLabel: '恋与深空系列',
+    previews: [{
+        t: 'sent',
+        v: '你是我朝夕相伴触手可及的虚拟'
+      },
+      {
+        t: 'received',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -4699,24 +4699,24 @@ top: -10px;
 right: -4px;
 z-index: 10;
 }`
-},
-{
-  id: 'b65',
-  type: 'bubble',
-  name: '两颗苹果',
-  author: '眠眠',
-  group: 'g-shenkong',
-  groupLabel: '恋与深空系列',
-  previews: [{
-      t: 'sent',
-      v: '你是我朝夕相伴触手可及的虚拟'
-    },
-    {
-      t: 'received',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b65',
+    type: 'bubble',
+    name: '两颗苹果',
+    author: '眠眠',
+    group: 'g-shenkong',
+    groupLabel: '恋与深空系列',
+    previews: [{
+        t: 'sent',
+        v: '你是我朝夕相伴触手可及的虚拟'
+      },
+      {
+        t: 'received',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -4785,24 +4785,24 @@ background-position: center;
 pointer-events: none;
 z-index: 2;
 }`
-},
-{
-  id: 'b66',
-  type: 'bubble',
-  name: '兔球球',
-  author: '眠眠',
-  group: 'g-shenkong',
-  groupLabel: '恋与深空系列',
-  previews: [{
-      t: 'sent',
-      v: '你是我朝夕相伴触手可及的虚拟'
-    },
-    {
-      t: 'received',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b66',
+    type: 'bubble',
+    name: '兔球球',
+    author: '眠眠',
+    group: 'g-shenkong',
+    groupLabel: '恋与深空系列',
+    previews: [{
+        t: 'sent',
+        v: '你是我朝夕相伴触手可及的虚拟'
+      },
+      {
+        t: 'received',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -4927,24 +4927,24 @@ background-position: center;
 pointer-events: none;
 z-index: 2;
 }`
-},
-{
-  id: 'b67',
-  type: 'bubble',
-  name: '涂鸦叽',
-  author: '眠眠',
-  group: 'g-shenkong',
-  groupLabel: '恋与深空系列',
-  previews: [{
-      t: 'sent',
-      v: '你是我朝夕相伴触手可及的虚拟'
-    },
-    {
-      t: 'received',
-      v: '你是我未曾拥有无法捕捉的亲昵'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b67',
+    type: 'bubble',
+    name: '涂鸦叽',
+    author: '眠眠',
+    group: 'g-shenkong',
+    groupLabel: '恋与深空系列',
+    previews: [{
+        t: 'sent',
+        v: '你是我朝夕相伴触手可及的虚拟'
+      },
+      {
+        t: 'received',
+        v: '你是我未曾拥有无法捕捉的亲昵'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -5061,24 +5061,24 @@ z-index: 1 !important;
 -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
 mask-image: radial-gradient(circle, black 100%, transparent 100%) !important;
 }`
-},
-{
-  id: 'b68',
-  type: 'bubble',
-  name: '粉蓝',
-  author: '企鹅.com',
-  group: 'xingxing',
-  groupLabel: '小星星系列',
-  previews: [{
-      t: 'sent',
-      v: '"從雲朵上摘下一顆星星'
-    },
-    {
-      t: 'received',
-      v: '是來自夜幕的禮物'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b68',
+    type: 'bubble',
+    name: '粉蓝',
+    author: '企鹅.com',
+    group: 'xingxing',
+    groupLabel: '小星星系列',
+    previews: [{
+        t: 'sent',
+        v: '"從雲朵上摘下一顆星星'
+      },
+      {
+        t: 'received',
+        v: '是來自夜幕的禮物'
+      }
+    ],
+    css: `
 .message-sent {
 font-size: 12.5px !important;
 padding: 5px 10px !important;
@@ -5170,24 +5170,24 @@ display: block !important;
 [class*="ribbon"], [class*="bow"], [class*="tail"] {
 display: none !important;
 }`
-},
-{
-  id: 'b69',
-  type: 'bubble',
-  name: '黄紫',
-  author: '企鹅.com',
-  group: 'xingxing',
-  groupLabel: '小星星系列',
-  previews: [{
-      t: 'sent',
-      v: '"從雲朵上摘下一顆星星'
-    },
-    {
-      t: 'received',
-      v: '是來自夜幕的禮物'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b69',
+    type: 'bubble',
+    name: '黄紫',
+    author: '企鹅.com',
+    group: 'xingxing',
+    groupLabel: '小星星系列',
+    previews: [{
+        t: 'sent',
+        v: '"從雲朵上摘下一顆星星'
+      },
+      {
+        t: 'received',
+        v: '是來自夜幕的禮物'
+      }
+    ],
+    css: `
 .message-sent {
 font-size: 12.5px !important;
 padding: 5px 10px !important;
@@ -5279,24 +5279,24 @@ display: block !important;
 [class*="ribbon"], [class*="bow"], [class*="tail"] {
 display: none !important;
 }`
-},
-{
-  id: 'b70',
-  type: 'bubble',
-  name: '静态',
-  author: 'Spring',
-  group: 'maotaotao',
-  groupLabel: '猫桃桃',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b70',
+    type: 'bubble',
+    name: '静态',
+    author: 'Spring',
+    group: 'maotaotao',
+    groupLabel: '猫桃桃',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -5376,24 +5376,24 @@ background-repeat: no-repeat !important;
 pointer-events: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b71',
-  type: 'bubble',
-  name: '动态',
-  author: 'Spring',
-  group: 'maotaotao',
-  groupLabel: '猫桃桃',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b71',
+    type: 'bubble',
+    name: '动态',
+    author: 'Spring',
+    group: 'maotaotao',
+    groupLabel: '猫桃桃',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -5490,274 +5490,274 @@ z-index: 1 !important;
 -webkit-animation: pulse 2.5s ease-in-out infinite !important;
 animation: pulse 2.5s ease-in-out infinite !important;
 }`
-},
-{
-  id: 'b72',
-  type: 'bubble',
-  name: '青苹果🍏',
-  author: '咕咕咕小瓷',
-  previews: [{
-      t: 'sent',
-      v: '青苹果'
-    },
-    {
-      t: 'received',
-      v: '酸甜'
-    }
-  ],
-  css: `
-    {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  },
+  {
+    id: 'b72',
+    type: 'bubble',
+    name: '青苹果🍏',
+    author: '咕咕咕小瓷',
+    previews: [{
+        t: 'sent',
+        v: '青苹果'
+      },
+      {
+        t: 'received',
+        v: '酸甜'
+      }
+    ],
+    css: `
+  {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
 
-    body {
-        background: #d4e8c5;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-        padding: 1.5rem;
-    }
+  body {
+      background: #d4e8c5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      padding: 1.5rem;
+  }
 
-    .preview-container {
-        max-width: 600px;
-        width: 100%;
-        padding: 1rem;
-    }
+  .preview-container {
+      max-width: 600px;
+      width: 100%;
+      padding: 1rem;
+  }
 
-    .message-received,
-    .message-sent {
-        display: flex;
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
+  .message-received,
+  .message-sent {
+      display: flex;
+      width: 100%;
+      margin-bottom: 1.5rem;
+  }
 
-    .message-received {
-        justify-content: flex-start;
-    }
+  .message-received {
+      justify-content: flex-start;
+  }
 
-    .message-sent {
-        justify-content: flex-end;
-    }
+  .message-sent {
+      justify-content: flex-end;
+  }
 
-    .bubble {
-        max-width: 75%;
-        padding: 16px 22px;
-        font-size: 1.15rem;
-        line-height: 1.5;
-        word-break: break-word;
-        position: relative;
-        color: #1b3c21;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-        box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
-        border: 2px solid #79a55b;
-        transition: all 0.1s ease;
-        z-index: 2;
-    }
+  .bubble {
+      max-width: 75%;
+      padding: 16px 22px;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      word-break: break-word;
+      position: relative;
+      color: #1b3c21;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
+      border: 2px solid #79a55b;
+      transition: all 0.1s ease;
+      z-index: 2;
+  }
 
-    .message-received .bubble {
-        border-radius: 32px 32px 32px 8px;
-        background: #e6f5d4;
-        background: radial-gradient(circle at 10% 20%, #f4ffe4, #d2ecba);
-        background-image: repeating-linear-gradient(-45deg, rgba(180, 215, 140, 0.2) 0px, rgba(180, 215, 140, 0.2) 8px, transparent 8px, transparent 16px);
-        border-color: #79a55b;
-        box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
-    }
+  .message-received .bubble {
+      border-radius: 32px 32px 32px 8px;
+      background: #e6f5d4;
+      background: radial-gradient(circle at 10% 20%, #f4ffe4, #d2ecba);
+      background-image: repeating-linear-gradient(-45deg, rgba(180, 215, 140, 0.2) 0px, rgba(180, 215, 140, 0.2) 8px, transparent 8px, transparent 16px);
+      border-color: #79a55b;
+      box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
+  }
 
-    .message-received .bubble::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 20px;
-        width: 22px;
-        height: 22px;
-        background: #96c280;
-        border-radius: 80% 0 60% 20%;
-        transform: rotate(15deg) skewX(3deg);
-        border-left: 3px solid #628d44;
-        border-bottom: 3px solid #628d44;
-        box-shadow: -2px 4px 0 #3f632b;
-        opacity: 0.9;
-        z-index: 1;
-        pointer-events: none;
-    }
+  .message-received .bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 22px;
+      height: 22px;
+      background: #96c280;
+      border-radius: 80% 0 60% 20%;
+      transform: rotate(15deg) skewX(3deg);
+      border-left: 3px solid #628d44;
+      border-bottom: 3px solid #628d44;
+      box-shadow: -2px 4px 0 #3f632b;
+      opacity: 0.9;
+      z-index: 1;
+      pointer-events: none;
+  }
 
-    .message-sent .bubble {
-        border-radius: 32px 32px 8px 32px;
-        background: #f9fff2;
-        border-color: #6d9e4f;
-        box-shadow: 0 8px 0 #4e7a3c, 0 12px 18px -8px #2e5722;
-        background-color: #f9fff2;
-        position: relative;
-        z-index: 2;
-    }
+  .message-sent .bubble {
+      border-radius: 32px 32px 8px 32px;
+      background: #f9fff2;
+      border-color: #6d9e4f;
+      box-shadow: 0 8px 0 #4e7a3c, 0 12px 18px -8px #2e5722;
+      background-color: #f9fff2;
+      position: relative;
+      z-index: 2;
+  }
 
-    .message-sent .bubble::after {
-        content: '';
-        position: absolute;
-        left: auto;
-        right: 20px;
-        bottom: -10px;
-        width: 22px;
-        height: 22px;
-        background: #8bb46c;
-        border-radius: 80% 0 60% 20%;
-        transform: rotate(95deg) scaleX(-1);
-        border-left: 3px solid #51793b;
-        border-bottom: 3px solid #51793b;
-        box-shadow: 2px 4px 0 #3f632b;
-        opacity: 0.9;
-        z-index: 1;
-        pointer-events: none;
-    }
+  .message-sent .bubble::after {
+      content: '';
+      position: absolute;
+      left: auto;
+      right: 20px;
+      bottom: -10px;
+      width: 22px;
+      height: 22px;
+      background: #8bb46c;
+      border-radius: 80% 0 60% 20%;
+      transform: rotate(95deg) scaleX(-1);
+      border-left: 3px solid #51793b;
+      border-bottom: 3px solid #51793b;
+      box-shadow: 2px 4px 0 #3f632b;
+      opacity: 0.9;
+      z-index: 1;
+      pointer-events: none;
+  }
 
-    .message-sent .bubble .seed-left {
-        position: absolute;
-        top: 45%;
-        left: 30%;
-        width: 14px;
-        height: 20px;
-        background: #5a3e24;
-        border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
-        transform: rotate(-15deg) scale(1.1);
-        box-shadow: 0 3px 0 #3d2b18, inset -1px -1px 2px #8b6a4b;
-        z-index: 5;
-        pointer-events: none;
-    }
+  .message-sent .bubble .seed-left {
+      position: absolute;
+      top: 45%;
+      left: 30%;
+      width: 14px;
+      height: 20px;
+      background: #5a3e24;
+      border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+      transform: rotate(-15deg) scale(1.1);
+      box-shadow: 0 3px 0 #3d2b18, inset -1px -1px 2px #8b6a4b;
+      z-index: 5;
+      pointer-events: none;
+  }
 
-    .message-sent .bubble .seed-left::after {
-        content: '';
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 4px;
-        height: 6px;
-        background: rgba(255, 240, 210, 0.4);
-        border-radius: 50%;
-        transform: rotate(-10deg);
-    }
+  .message-sent .bubble .seed-left::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 4px;
+      height: 6px;
+      background: rgba(255, 240, 210, 0.4);
+      border-radius: 50%;
+      transform: rotate(-10deg);
+  }
 
-    .message-sent .bubble .seed-right {
-        position: absolute;
-        top: 45%;
-        right: 30%;
-        width: 14px;
-        height: 20px;
-        background: #5a3e24;
-        border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
-        transform: rotate(15deg) scale(1.1);
-        box-shadow: 0 3px 0 #3d2b18, inset 1px -1px 2px #8b6a4b;
-        z-index: 5;
-        pointer-events: none;
-    }
+  .message-sent .bubble .seed-right {
+      position: absolute;
+      top: 45%;
+      right: 30%;
+      width: 14px;
+      height: 20px;
+      background: #5a3e24;
+      border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 3px 0 #3d2b18, inset 1px -1px 2px #8b6a4b;
+      z-index: 5;
+      pointer-events: none;
+  }
 
-    .message-sent .bubble .seed-right::after {
-        content: '';
-        position: absolute;
-        top: 3px;
-        right: 3px;
-        width: 4px;
-        height: 6px;
-        background: rgba(255, 240, 210, 0.4);
-        border-radius: 50%;
-        transform: rotate(10deg);
-    }
+  .message-sent .bubble .seed-right::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 4px;
+      height: 6px;
+      background: rgba(255, 240, 210, 0.4);
+      border-radius: 50%;
+      transform: rotate(10deg);
+  }
 
-    .message-received .bubble .apple-cover {
-        position: absolute;
-        top: -12px;
-        right: -10px;
-        font-size: 2.2rem;
-        opacity: 0.8;
-        pointer-events: none;
-        z-index: 20;
-        transform: rotate(12deg);
-        filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
-        text-shadow: 1px 1px 0 #52803a;
-        line-height: 1;
-    }
+  .message-received .bubble .apple-cover {
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      font-size: 2.2rem;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 20;
+      transform: rotate(12deg);
+      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+      text-shadow: 1px 1px 0 #52803a;
+      line-height: 1;
+  }
 
-    .message-sent .bubble .apple-cover {
-        position: absolute;
-        top: -12px;
-        left: -10px;
-        font-size: 2.2rem;
-        opacity: 0.8;
-        pointer-events: none;
-        z-index: 20;
-        transform: rotate(-8deg);
-        filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
-        text-shadow: 1px 1px 0 #52803a;
-        line-height: 1;
-    }
+  .message-sent .bubble .apple-cover {
+      position: absolute;
+      top: -12px;
+      left: -10px;
+      font-size: 2.2rem;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 20;
+      transform: rotate(-8deg);
+      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+      text-shadow: 1px 1px 0 #52803a;
+      line-height: 1;
+  }
 
-    .message-meta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 10px;
-        font-size: 0.8rem;
-        color: #537a41;
-        font-weight: 500;
-        position: relative;
-        z-index: 4;
-    }
+  .message-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #537a41;
+      font-weight: 500;
+      position: relative;
+      z-index: 4;
+  }
 
-    .message-received .message-meta {
-        justify-content: flex-start;
-        padding-left: 8px;
-    }
+  .message-received .message-meta {
+      justify-content: flex-start;
+      padding-left: 8px;
+  }
 
-    .message-sent .message-meta {
-        justify-content: flex-end;
-        padding-right: 8px;
-    }
+  .message-sent .message-meta {
+      justify-content: flex-end;
+      padding-right: 8px;
+  }
 
-    .green-dot {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background: #7fb24f;
-        border-radius: 50%;
-        opacity: 0.6;
-    }
+  .green-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #7fb24f;
+      border-radius: 50%;
+      opacity: 0.6;
+  }
 
-    .bubble p {
-        margin: 0 0 8px 0;
-        position: relative;
-        z-index: 10;
-        padding: 2px 4px;
-        border-radius: 4px;
-        text-shadow: 0 0 2px white;
-    }
+  .bubble p {
+      margin: 0 0 8px 0;
+      position: relative;
+      z-index: 10;
+      padding: 2px 4px;
+      border-radius: 4px;
+      text-shadow: 0 0 2px white;
+  }
 
-    .bubble p:last-child {
-        margin-bottom: 0;
-    }
+  .bubble p:last-child {
+      margin-bottom: 0;
+  }
 
-    .bubble {
-        position: relative;
-        overflow: visible;
-    }`
-},
-{
-  id: 'b73',
-  type: 'bubble',
-  name: '黑灰',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '有多少天长地久'
-    },
-    {
-      t: 'received',
-      v: '有几回细水长流'
-    }
-  ],
-  css: `.message {
+  .bubble {
+      position: relative;
+      overflow: visible;
+  }`
+  },
+  {
+    id: 'b73',
+    type: 'bubble',
+    name: '黑灰',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '有多少天长地久'
+      },
+      {
+        t: 'received',
+        v: '有几回细水长流'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -5818,24 +5818,24 @@ border-image-slice: 391 495 132 523 fill !important;
 border-image-width: 22px 28px 7px 29px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b74',
-  type: 'bubble',
-  name: '灰白',
-  author: '蛋挞',
-  group: 'xiankuang',
-  groupLabel: '线框系列',
-  previews: [{
-      t: 'sent',
-      v: '生命是一场冗长的雨'
-    },
-    {
-      t: 'received',
-      v: '晴天在你出现时降临'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b74',
+    type: 'bubble',
+    name: '灰白',
+    author: '蛋挞',
+    group: 'xiankuang',
+    groupLabel: '线框系列',
+    previews: [{
+        t: 'sent',
+        v: '生命是一场冗长的雨'
+      },
+      {
+        t: 'received',
+        v: '晴天在你出现时降临'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -5896,24 +5896,24 @@ border-image-slice: 435 562 166 457 fill !important;
 border-image-width: 24px 31px 9px 25px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b75',
-  type: 'bubble',
-  name: '蓝白',
-  author: '蛋挞',
-  group: 'xiankuang',
-  groupLabel: '线框系列',
-  previews: [{
-      t: 'sent',
-      v: '生命是一场冗长的雨'
-    },
-    {
-      t: 'received',
-      v: '晴天在你出现时降临'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b75',
+    type: 'bubble',
+    name: '蓝白',
+    author: '蛋挞',
+    group: 'xiankuang',
+    groupLabel: '线框系列',
+    previews: [{
+        t: 'sent',
+        v: '生命是一场冗长的雨'
+      },
+      {
+        t: 'received',
+        v: '晴天在你出现时降临'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -5974,22 +5974,22 @@ border-image-slice: 435 562 166 457 fill !important;
 border-image-width: 24px 31px 9px 25px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b76',
-  type: 'bubble',
-  name: '熊猫熊猫',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '生活给了我一拳'
-    },
-    {
-      t: 'received',
-      v: '我原地睡了一觉૮₍ ˃̶ ꇴ ˂̶ ₎ა'
-    }
-  ],
-  css: `.chat-container {
+  },
+  {
+    id: 'b76',
+    type: 'bubble',
+    name: '熊猫熊猫',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '生活给了我一拳'
+      },
+      {
+        t: 'received',
+        v: '我原地睡了一觉૮₍ ˃̶ ꇴ ˂̶ ₎ა'
+      }
+    ],
+    css: `.chat-container {
 width: 100%;
 max-width: 100%;
 overflow-x: hidden;
@@ -6032,22 +6032,22 @@ border-image-slice: 577 839 522 761 fill !important;
 border-image-width: 13px 19px 12px 17px !important;
 pointer-events: none;
 }`
-},
-{
-  id: 'b77',
-  type: 'bubble',
-  name: '午夜猫蝠',
-  author: '11',
-  previews: [{
-      t: 'sent',
-      v: '多幸运遇见了你'
-    },
-    {
-      t: 'received',
-      v: '多幸运爱上了你'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b77',
+    type: 'bubble',
+    name: '午夜猫蝠',
+    author: '11',
+    previews: [{
+        t: 'sent',
+        v: '多幸运遇见了你'
+      },
+      {
+        t: 'received',
+        v: '多幸运爱上了你'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border: none !important;
 font-weight: 500 !important;
@@ -6173,22 +6173,22 @@ background-color: transparent !important;
 0%,100% { transform: translate(22px, -12px) rotate(-20deg) scaleX(-1); }
 50%     { transform: translate(22px, -17px) rotate(-20deg) scaleX(-1); }
 }`
-},
-{
-  id: 'b78',
-  type: 'bubble',
-  name: '猫眠',
-  author: '11',
-  previews: [{
-      t: 'sent',
-      v: '多幸运遇见了你'
-    },
-    {
-      t: 'received',
-      v: '多形象爱上了你'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b78',
+    type: 'bubble',
+    name: '猫眠',
+    author: '11',
+    previews: [{
+        t: 'sent',
+        v: '多幸运遇见了你'
+      },
+      {
+        t: 'received',
+        v: '多形象爱上了你'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 overflow: visible !important;
 box-sizing: border-box !important;
@@ -6280,22 +6280,22 @@ margin-bottom: 1px !important;
 z-index: 100 !important;
 position: relative;
 }`
-},
-{
-  id: 'b79',
-  type: 'bubble',
-  name: '粉黄-蓝绿',
-  author: '晨鸢',
-  previews: [{
-      t: 'sent',
-      v: '澄澈的天空下是什么？'
-    },
-    {
-      t: 'received',
-      v: '草莓芒果慕斯。'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b79',
+    type: 'bubble',
+    name: '粉黄-蓝绿',
+    author: '晨鸢',
+    previews: [{
+        t: 'sent',
+        v: '澄澈的天空下是什么？'
+      },
+      {
+        t: 'received',
+        v: '草莓芒果慕斯。'
+      }
+    ],
+    css: `
 .message {
 box-shadow: none !important;
 border-width: 0 !important;
@@ -6632,22 +6632,22 @@ color: #e0f0ff !important;
 color: #fff0e0 !important;
 }
 }`
-},
-{
-  id: 'b80',
-  type: 'bubble',
-  name: '黑白灰说是',
-  author: 'gyo',
-  previews: [{
-      t: 'sent',
-      v: '幸福不在别处'
-    },
-    {
-      t: 'received',
-      v: '你就是我的全部'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b80',
+    type: 'bubble',
+    name: '黑白灰说是',
+    author: 'gyo',
+    previews: [{
+        t: 'sent',
+        v: '幸福不在别处'
+      },
+      {
+        t: 'received',
+        v: '你就是我的全部'
+      }
+    ],
+    css: `
 .message {
 position: relative !important;
 overflow: visible !important;
@@ -6709,22 +6709,22 @@ margin-top: 4px !important;
 .message-received + .message-received::after {
 display: none !important;
 }`
-},
-{
-  id: 'b81',
-  type: 'bubble',
-  name: '黑与白小尖角',
-  author: 'yuuuxii',
-  previews: [{
-      t: 'sent',
-      v: '我一个平民老百姓跟你们这些权势滔天的人说不清楚'
-    },
-    {
-      t: 'received',
-      v: '看不懂'
-    }
-  ],
-  css: `.message{
+  },
+  {
+    id: 'b81',
+    type: 'bubble',
+    name: '黑与白小尖角',
+    author: 'yuuuxii',
+    previews: [{
+        t: 'sent',
+        v: '我一个平民老百姓跟你们这些权势滔天的人说不清楚'
+      },
+      {
+        t: 'received',
+        v: '看不懂'
+      }
+    ],
+    css: `.message{
 box-shadow: none !important;
 border-width: 0 !important;
 font-weight: 500 !important;
@@ -6780,22 +6780,22 @@ background-color: #fff !important;
 clip-path: polygon(0 60%, 99990% 0, 900% -999%) !important;
 filter: drop-shadow(0px 0px 0px rgba(180,120,140,.0)) !important;
 }`
-},
-{
-  id: 'b82',
-  type: 'bubble',
-  name: '动态半透明四叶草',
-  author: 'iAci',
-  previews: [{
-      t: 'sent',
-      v: '这个气泡怎么样'
-    },
-    {
-      t: 'received',
-      v: '看起来不错'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b82',
+    type: 'bubble',
+    name: '动态半透明四叶草',
+    author: 'iAci',
+    previews: [{
+        t: 'sent',
+        v: '这个气泡怎么样'
+      },
+      {
+        t: 'received',
+        v: '看起来不错'
+      }
+    ],
+    css: `
 .message-sent {
 background-color: rgba(255, 255, 255, 0.3) !important;
 border: 2px solid rgba(255, 255, 255, 0.6) !important;
@@ -6983,24 +6983,24 @@ pointer-events: none;
 
 @keyframes cloverFall {
 0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
 }
 25% {
-    transform: translateY(20px) rotate(90deg);
-    opacity: 0.9;
+  transform: translateY(20px) rotate(90deg);
+  opacity: 0.9;
 }
 50% {
-    transform: translateY(40px) rotate(180deg);
-    opacity: 0.7;
+  transform: translateY(40px) rotate(180deg);
+  opacity: 0.7;
 }
 75% {
-    transform: translateY(60px) rotate(270deg);
-    opacity: 0.4;
+  transform: translateY(60px) rotate(270deg);
+  opacity: 0.4;
 }
 100% {
-    transform: translateY(80px) rotate(360deg);
-    opacity: 0;
+  transform: translateY(80px) rotate(360deg);
+  opacity: 0;
 }
 }
 
@@ -7035,24 +7035,24 @@ animation: cloverFallRight 3.8s ease-in infinite;
 75% { transform: translate(-5px, 60px) rotate(270deg); opacity: 0.4; }
 100% { transform: translate(0, 80px) rotate(360deg); opacity: 0; }
 }`
-},
-{
-  id: 'b83',
-  type: 'bubble',
-  name: '圆角',
-  author: '蛋挞',
-  group: 'hui',
-  groupLabel: '灰调渐变',
-  previews: [{
-      t: 'sent',
-      v: '拥有一颗细腻的心'
-    },
-    {
-      t: 'received',
-      v: '感受更多的是幸福还是悲伤'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b83',
+    type: 'bubble',
+    name: '圆角',
+    author: '蛋挞',
+    group: 'hui',
+    groupLabel: '灰调渐变',
+    previews: [{
+        t: 'sent',
+        v: '拥有一颗细腻的心'
+      },
+      {
+        t: 'received',
+        v: '感受更多的是幸福还是悲伤'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -7082,24 +7082,24 @@ box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
 box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 }`
-},
-{
-  id: 'b84',
-  type: 'bubble',
-  name: '不对称',
-  author: '蛋挞',
-  group: 'hui',
-  groupLabel: '灰调渐变',
-  previews: [{
-      t: 'sent',
-      v: '拥有一颗细腻的心'
-    },
-    {
-      t: 'received',
-      v: '感受更多的是幸福还是悲伤'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b84',
+    type: 'bubble',
+    name: '不对称',
+    author: '蛋挞',
+    group: 'hui',
+    groupLabel: '灰调渐变',
+    previews: [{
+        t: 'sent',
+        v: '拥有一颗细腻的心'
+      },
+      {
+        t: 'received',
+        v: '感受更多的是幸福还是悲伤'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -7124,39 +7124,39 @@ color: #2b2b2b;
 .message.message-sent {
 border-radius: 20px 20px 4px 20px;
 box-shadow: 
-    0 4px 6px rgba(0,0,0,0.1),
-    inset 0 1px 3px rgba(255,255,255,0.8),
-    0 0 0 1px rgba(0, 0, 0, 0.15);
+  0 4px 6px rgba(0,0,0,0.1),
+  inset 0 1px 3px rgba(255,255,255,0.8),
+  0 0 0 1px rgba(0, 0, 0, 0.15);
 background: linear-gradient(145deg, #e8e8e8, #c0c0c0);
 }
 .message.message-received {
 border-radius: 20px 20px 20px 4px;
 box-shadow: 
-    0 4px 6px rgba(0,0,0,0.1),
-    inset 0 1px 3px rgba(255,255,255,0.8),
-    0 0 0 1px rgba(0, 0, 0, 0.15);
+  0 4px 6px rgba(0,0,0,0.1),
+  inset 0 1px 3px rgba(255,255,255,0.8),
+  0 0 0 1px rgba(0, 0, 0, 0.15);
 background: linear-gradient(145deg, #ffffff, #f0f0f0);
 }`
-},
-{
-  id: 'b85',
-  type: 'bubble',
-  name: '蓝色玻璃',
-  author: '司七',
-  previews: [{
-      t: 'sent',
-      v: '哦亲爱的告诉你'
-    },
-    {
-      t: 'received',
-      v: '我有许多小淘气'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b85',
+    type: 'bubble',
+    name: '蓝色玻璃',
+    author: '司七',
+    previews: [{
+        t: 'sent',
+        v: '哦亲爱的告诉你'
+      },
+      {
+        t: 'received',
+        v: '我有许多小淘气'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(135deg,
-    rgba(219, 234, 254, 0.7),
-    rgba(191, 219, 254, 0.6)
+  rgba(219, 234, 254, 0.7),
+  rgba(191, 219, 254, 0.6)
 ) !important;
 
 box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10) !important;
@@ -7173,8 +7173,8 @@ backdrop-filter: blur(8px) saturate(110%);
 }
 .message-sent {
 background: linear-gradient(135deg,
-    rgba(191, 219, 254, 0.7),
-    rgba(147, 197, 253, 0.5)
+  rgba(191, 219, 254, 0.7),
+  rgba(147, 197, 253, 0.5)
 ) !important;
 border-radius: 20px 20px 6px 20px;
 }
@@ -7182,30 +7182,30 @@ border-radius: 20px 20px 6px 20px;
 .message-received {
 border-radius: 20px 20px 20px 6px;
 }`
-},
-{
-  id: 'b86',
-  type: 'bubble',
-  name: '夜色星闪',
-  author: '司七',
-  previews: [{
-      t: 'sent',
-      v: '夜色正浓，星光洒落'
-    },
-    {
-      t: 'received',
-      v: '你就是我最亮的那颗星'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b86',
+    type: 'bubble',
+    name: '夜色星闪',
+    author: '司七',
+    previews: [{
+        t: 'sent',
+        v: '夜色正浓，星光洒落'
+      },
+      {
+        t: 'received',
+        v: '你就是我最亮的那颗星'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 position: relative;
 overflow: hidden;
 
 background:
-  radial-gradient(140px 100px at 18% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.00) 70%),
-  radial-gradient(220px 160px at 82% 30%, rgba(255,255,255,0.06), rgba(255,255,255,0.00) 75%),
-  linear-gradient(180deg, #162a66 0%, #1d4ed8 100%) !important;
+radial-gradient(140px 100px at 18% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.00) 70%),
+radial-gradient(220px 160px at 82% 30%, rgba(255,255,255,0.06), rgba(255,255,255,0.00) 75%),
+linear-gradient(180deg, #162a66 0%, #1d4ed8 100%) !important;
 
 border: 1px solid rgba(255, 255, 255, 0.12) !important;
 box-shadow: 0 10px 24px rgba(2, 6, 23, 0.24) !important;
@@ -7223,17 +7223,17 @@ inset: 0;
 pointer-events: none;
 
 background:
-  linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/1px 12px no-repeat,
-  linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/12px 1px no-repeat,
+linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/1px 12px no-repeat,
+linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.70), rgba(255,255,255,0.00)) 22% 28%/12px 1px no-repeat,
 
-  linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/1px 10px no-repeat,
-  linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/10px 1px no-repeat,
+linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/1px 10px no-repeat,
+linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.62), rgba(255,255,255,0.00)) 68% 22%/10px 1px no-repeat,
 
-  linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/1px 9px no-repeat,
-  linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/9px 1px no-repeat,
+linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/1px 9px no-repeat,
+linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.58), rgba(255,255,255,0.00)) 84% 56%/9px 1px no-repeat,
 
-  linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/1px 7px no-repeat,
-  linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/7px 1px no-repeat;
+linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/1px 7px no-repeat,
+linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.52), rgba(255,255,255,0.00)) 40% 70%/7px 1px no-repeat;
 
 opacity: 0.55;
 animation: starTwinkleCross 3.8s ease-in-out infinite;
@@ -7247,11 +7247,11 @@ inset: 0;
 pointer-events: none;
 
 background:
-  radial-gradient(1px 1px at 14% 42%, rgba(255,255,255,0.55) 99%, transparent 100%),
-  radial-gradient(1px 1px at 30% 18%, rgba(255,255,255,0.45) 99%, transparent 100%),
-  radial-gradient(1px 1px at 56% 40%, rgba(255,255,255,0.42) 99%, transparent 100%),
-  radial-gradient(1px 1px at 72% 66%, rgba(255,255,255,0.40) 99%, transparent 100%),
-  radial-gradient(1px 1px at 90% 34%, rgba(255,255,255,0.46) 99%, transparent 100%);
+radial-gradient(1px 1px at 14% 42%, rgba(255,255,255,0.55) 99%, transparent 100%),
+radial-gradient(1px 1px at 30% 18%, rgba(255,255,255,0.45) 99%, transparent 100%),
+radial-gradient(1px 1px at 56% 40%, rgba(255,255,255,0.42) 99%, transparent 100%),
+radial-gradient(1px 1px at 72% 66%, rgba(255,255,255,0.40) 99%, transparent 100%),
+radial-gradient(1px 1px at 90% 34%, rgba(255,255,255,0.46) 99%, transparent 100%);
 
 opacity: 0.38;
 animation: starTwinkleDots 5.6s ease-in-out infinite;
@@ -7276,22 +7276,22 @@ animation: starTwinkleDots 5.6s ease-in-out infinite;
 .message-sent::before, .message-received::before,
 .message-sent::after,  .message-received::after { animation: none; }
 }`
-},
-{
-  id: 'b87',
-  type: 'bubble',
-  name: '渐变玻璃',
-  author: '心恋',
-  previews: [{
-      t: 'sent',
-      v: '唯一的奇迹'
-    },
-    {
-      t: 'received',
-      v: '就是与你相遇的瞬间'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b87',
+    type: 'bubble',
+    name: '渐变玻璃',
+    author: '心恋',
+    previews: [{
+        t: 'sent',
+        v: '唯一的奇迹'
+      },
+      {
+        t: 'received',
+        v: '就是与你相遇的瞬间'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background: linear-gradient(0deg, rgba(250, 250, 250, 0.95) 0%, rgba(140, 140, 140, 0.9) 100%) !important;
 border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -7332,30 +7332,30 @@ z-index: 1 !important;
 .message-received * {
 color: #333 !important;
 }`
-},
-{
-  id: 'b88',
-  type: 'bubble',
-  name: '这个气泡好禁欲',
-  author: 'mio',
-  previews: [{
-      t: 'sent',
-      v: '♡小貓成長日記✧ ♡'
-    },
-    {
-      t: 'received',
-      v: '干からびた海からの悲鳴'
-    },
-    {
-      t: 'sent',
-      v: '我們好中二'
-    },
-    {
-      t: 'received',
-      v: '桀桀桀'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b88',
+    type: 'bubble',
+    name: '这个气泡好禁欲',
+    author: 'mio',
+    previews: [{
+        t: 'sent',
+        v: '♡小貓成長日記✧ ♡'
+      },
+      {
+        t: 'received',
+        v: '干からびた海からの悲鳴'
+      },
+      {
+        t: 'sent',
+        v: '我們好中二'
+      },
+      {
+        t: 'received',
+        v: '桀桀桀'
+      }
+    ],
+    css: `
 .message {
 border-radius: 20px !important; 
 box-shadow: none !important;
@@ -7396,24 +7396,24 @@ bottom: 1px !important;
 right: -8px !important;
 background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 V20 H20 C10 20 0 15 0 0 Z' fill='%23E5E5E5'/%3E%3C/svg%3E") !important;
 }`
-},
-{
-  id: 'b89',
-  type: 'bubble',
-  name: '静态',
-  author: '司七',
-  group: 'yudi',
-  groupLabel: '灰蓝雨滴系列',
-  previews: [{
-      t: 'sent',
-      v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
-    },
-    {
-      t: 'received',
-      v: '你还是住在我的回忆里不出来'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b89',
+    type: 'bubble',
+    name: '静态',
+    author: '司七',
+    group: 'yudi',
+    groupLabel: '灰蓝雨滴系列',
+    previews: [{
+        t: 'sent',
+        v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
+      },
+      {
+        t: 'received',
+        v: '你还是住在我的回忆里不出来'
+      }
+    ],
+    css: `.message-sent,
 .message-received{
 position: relative;
 overflow: visible;
@@ -7421,8 +7421,8 @@ overflow: visible;
 background:
 radial-gradient(140% 70% at 50% 55%, rgba(120, 170, 230, 0.06), rgba(120, 170, 230, 0.00) 60%),
 linear-gradient(135deg,
-  rgba(244, 246, 249, 0.92),
-  rgba(226, 231, 239, 0.86)
+rgba(244, 246, 249, 0.92),
+rgba(226, 231, 239, 0.86)
 ) !important;
 
 backdrop-filter: blur(10px) saturate(105%);
@@ -7462,24 +7462,24 @@ background-image: url("data:image/svg+xml;utf8,\
 .message-sent::after,
 .message-received::after{ margin-bottom: -2px; }
 */`
-},
-{
-  id: 'b90',
-  type: 'bubble',
-  name: '动态',
-  author: '司七',
-  group: 'yudi',
-  groupLabel: '灰蓝雨滴系列',
-  previews: [{
-      t: 'sent',
-      v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
-    },
-    {
-      t: 'received',
-      v: '你还是住在我的回忆里不出来'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b90',
+    type: 'bubble',
+    name: '动态',
+    author: '司七',
+    group: 'yudi',
+    groupLabel: '灰蓝雨滴系列',
+    previews: [{
+        t: 'sent',
+        v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
+      },
+      {
+        t: 'received',
+        v: '你还是住在我的回忆里不出来'
+      }
+    ],
+    css: `
 .message-sent,
 .message-received{
 position: relative;
@@ -7487,12 +7487,12 @@ overflow: visible;
 
 background:
 radial-gradient(140% 80% at 50% 60%,
-  rgba(90, 130, 190, 0.08),
-  rgba(90, 130, 190, 0.00) 65%
+rgba(90, 130, 190, 0.08),
+rgba(90, 130, 190, 0.00) 65%
 ),
 linear-gradient(135deg,
-  rgba(40, 48, 58, 0.28),
-  rgba(55, 65, 78, 0.22)
+rgba(40, 48, 58, 0.28),
+rgba(55, 65, 78, 0.22)
 ) !important;
 
 backdrop-filter: blur(14px) saturate(110%);
@@ -7546,24 +7546,24 @@ animation: dropletFloatBottom 4.6s ease-in-out infinite;
 @media (prefers-reduced-motion: reduce){
 .message-sent::after, .message-received::after{ animation: none; }
 }`
-},
-{
-  id: 'b91',
-  type: 'bubble',
-  name: '实心',
-  author: '司七',
-  group: 'yudi',
-  groupLabel: '灰蓝雨滴系列',
-  previews: [{
-      t: 'sent',
-      v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
-    },
-    {
-      t: 'received',
-      v: '你还是住在我的回忆里不出来'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b91',
+    type: 'bubble',
+    name: '实心',
+    author: '司七',
+    group: 'yudi',
+    groupLabel: '灰蓝雨滴系列',
+    previews: [{
+        t: 'sent',
+        v: '雪地里相爱，他们说零下已结晶的誓言不会坏'
+      },
+      {
+        t: 'received',
+        v: '你还是住在我的回忆里不出来'
+      }
+    ],
+    css: `
 .message-sent,
 .message-received{
 position: relative;
@@ -7623,24 +7623,24 @@ animation: dropletFloatBottom 3.8s ease-in-out infinite;
 0%, 100% { bottom: -5%;  opacity: 0.92; }
 50%      { bottom: 15%; opacity: 0.78; }
 }`
-},
-{
-  id: 'b92',
-  type: 'bubble',
-  name: '晨雾雪松',
-  author: 'T',
-  group: 'tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b92',
+    type: 'bubble',
+    name: '晨雾雪松',
+    author: 'T',
+    group: 'tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: #8da399 !important;
 color: #f5f5f0 !important;
@@ -7656,24 +7656,24 @@ background-color: #e6e2d3 !important;
 color: #5c544d !important;
 box-shadow: 0 2px 6px rgba(230, 226, 211, 0.5) !important;
 }`
-},
-{
-  id: 'b93',
-  type: 'bubble',
-  name: '原木手札',
-  author: 'T',
-  group: 'tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b93',
+    type: 'bubble',
+    name: '原木手札',
+    author: 'T',
+    group: 'tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: #dcbfa6 !important;
 color: #4a3728 !important;
@@ -7687,24 +7687,24 @@ background-color: #f4e8d8 !important;
 border: 1.5px dashed #c4a482 !important;
 color: #5c4a3d !important;
 }`
-},
-{
-  id: 'b94',
-  type: 'bubble',
-  name: '藤蔓低语',
-  author: 'T',
-  group: 'tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b94',
+    type: 'bubble',
+    name: '藤蔓低语',
+    author: 'T',
+    group: 'tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: #f0f4f1 !important;
 background-image: url("data:image/svg+xml,%3Csvg width='100' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 Q 25 20, 50 40 T 100 40' fill='none' stroke='%23c5d5cb' stroke-width='2'/%3E%3Ccircle cx='25' cy='30' r='3' fill='%23c5d5cb'/%3E%3Ccircle cx='75' cy='35' r='2' fill='%23c5d5cb'/%3E%3C/svg%3E") !important;
@@ -7721,24 +7721,24 @@ box-shadow: 2px 2px 8px rgba(0,0,0,0.03) !important;
 
 padding-bottom: 20px !important;
 }`
-},
-{
-  id: 'b95',
-  type: 'bubble',
-  name: '暗色微光',
-  author: 'T',
-  group: 'Tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b95',
+    type: 'bubble',
+    name: '暗色微光',
+    author: 'T',
+    group: 'Tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: rgba(15, 15, 15, 0.35) !important;
 backdrop-filter: blur(20px) !important;
@@ -7755,24 +7755,24 @@ letter-spacing: 0.5px !important;
 background-color: rgba(30, 30, 30, 0.3) !important;
 border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
 }`
-},
-{
-  id: 'b96',
-  type: 'bubble',
-  name: '晨间露水',
-  author: 'T',
-  group: 'Tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b96',
+    type: 'bubble',
+    name: '晨间露水',
+    author: 'T',
+    group: 'Tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: rgba(255, 255, 255, 0.1) !important;
 
@@ -7782,10 +7782,10 @@ border-radius: 30px !important;
 
 border: 1px solid rgba(255, 255, 255, 0.4) !important;
 box-shadow:
-    inset 0 8px 10px rgba(255, 255, 255, 0.8),
-    inset 0 -4px 6px rgba(255, 255, 255, 0.3),
-    inset -4px 0 8px rgba(0, 0, 0, 0.05),
-    0 10px 20px rgba(0, 0, 0, 0.15) !important;
+  inset 0 8px 10px rgba(255, 255, 255, 0.8),
+  inset 0 -4px 6px rgba(255, 255, 255, 0.3),
+  inset -4px 0 8px rgba(0, 0, 0, 0.05),
+  0 10px 20px rgba(0, 0, 0, 0.15) !important;
 backdrop-filter: blur(4px) !important;
 -webkit-backdrop-filter: blur(4px) !important;
 padding: 12px 24px !important;
@@ -7794,29 +7794,29 @@ padding: 12px 24px !important;
 .message-received {
 background-color: rgba(240, 248, 255, 0.15) !important; 
 box-shadow:
-    inset 0 8px 10px rgba(255, 255, 255, 0.9),
-    inset 0 -4px 6px rgba(255, 255, 255, 0.4),
-    inset 4px 0 8px rgba(0, 0, 0, 0.05),
-    0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  inset 0 8px 10px rgba(255, 255, 255, 0.9),
+  inset 0 -4px 6px rgba(255, 255, 255, 0.4),
+  inset 4px 0 8px rgba(0, 0, 0, 0.05),
+  0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }`
-},
-{
-  id: 'b97',
-  type: 'bubble',
-  name: '不规则水滴',
-  author: 'T',
-  group: 'tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b97',
+    type: 'bubble',
+    name: '不规则水滴',
+    author: 'T',
+    group: 'tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: rgba(255, 255, 255, 0.15) !important;
 color: #1a1a1a !important;
@@ -7824,9 +7824,9 @@ border-radius: 40% 40% 60% 60% / 30% 30% 70% 70% !important;
 border: none !important;
 
 box-shadow:
-    inset 0 15px 15px -5px rgba(255, 255, 255, 0.9),
-    inset 0 -10px 20px rgba(0, 0, 0, 0.1),
-    0 15px 25px -5px rgba(0, 0, 0, 0.2) !important;
+  inset 0 15px 15px -5px rgba(255, 255, 255, 0.9),
+  inset 0 -10px 20px rgba(0, 0, 0, 0.1),
+  0 15px 25px -5px rgba(0, 0, 0, 0.2) !important;
 
 backdrop-filter: blur(3px) !important;
 -webkit-backdrop-filter: blur(3px) !important;
@@ -7837,24 +7837,24 @@ padding: 15px 25px 20px 25px !important;
 .message-received {
 border-radius: 60% 40% 70% 50% / 50% 30% 80% 60% !important;
 }`
-},
-{
-  id: 'b98',
-  type: 'bubble',
-  name: '深海流体',
-  author: 'T',
-  group: 'tree',
-  groupLabel: '森系',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b98',
+    type: 'bubble',
+    name: '深海流体',
+    author: 'T',
+    group: 'tree',
+    groupLabel: '森系',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background-color: rgba(10, 15, 20, 0.6) !important;
 
@@ -7864,9 +7864,9 @@ text-shadow: 0 0 5px rgba(224, 247, 250, 0.5) !important;
 border-radius: 25px !important;
 
 box-shadow:
-    inset 0 6px 12px rgba(150, 200, 255, 0.4),
-    inset 0 -6px 15px rgba(0, 0, 0, 0.9),
-    0 8px 20px rgba(0, 20, 40, 0.8) !important;
+  inset 0 6px 12px rgba(150, 200, 255, 0.4),
+  inset 0 -6px 15px rgba(0, 0, 0, 0.9),
+  0 8px 20px rgba(0, 20, 40, 0.8) !important;
 
 border-top: 1px solid rgba(150, 200, 255, 0.3) !important;
 border-bottom: 1px solid rgba(0, 0, 0, 0.8) !important;
@@ -7876,22 +7876,22 @@ backdrop-filter: blur(8px) !important;
 
 padding: 12px 22px !important;
 }`
-},
-{
-  id: 'b99',
-  type: 'bubble',
-  name: '流光溢彩',
-  author: 'T',
-  previews: [{
-      t: 'sent',
-      v: '你认为下一步是什么？'
-    },
-    {
-      t: 'received',
-      v: '当然是永远在一起'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b99',
+    type: 'bubble',
+    name: '流光溢彩',
+    author: 'T',
+    previews: [{
+        t: 'sent',
+        v: '你认为下一步是什么？'
+      },
+      {
+        t: 'received',
+        v: '当然是永远在一起'
+      }
+    ],
+    css: `.message-sent,
 .message-received {
 background: linear-gradient(135deg, #ffd1ff 0%, #fac0e1 100%) !important;
 color: #8a4b69 !important;
@@ -7909,33 +7909,33 @@ color: #4a558a !important;
 border-radius: 30px 30px 10px 30px !important;
 box-shadow: 0 8px 15px rgba(142, 197, 252, 0.4) !important;
 }`
-},
-{
-  id: 'b100',
-  type: 'bubble',
-  name: '奇迹小狗',
-  author: '二极管',
-  previews: [{
-      t: 'sent',
-      v: '小狗小狗'
-    },
-    {
-      t: 'received',
-      v: '汪汪汪'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b100',
+    type: 'bubble',
+    name: '奇迹小狗',
+    author: '二极管',
+    previews: [{
+        t: 'sent',
+        v: '小狗小狗'
+      },
+      {
+        t: 'received',
+        v: '汪汪汪'
+      }
+    ],
+    css: `
 @keyframes woof-pop {
 0% {
-    opacity: 0;
-    transform: translate(-10px, 10px) scale(0.5);
+  opacity: 0;
+  transform: translate(-10px, 10px) scale(0.5);
 }
 50% {
-    transform: translate(0, -5px) scale(1.2);
+  transform: translate(0, -5px) scale(1.2);
 }
 100% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
 }
 }
 
@@ -7949,8 +7949,8 @@ position: relative !important;
 background-color: #333333 !important;
 
 background-image: 
-    url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'), 
-    radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px) !important;
+  url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'), 
+  radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px) !important;
 background-repeat: no-repeat, repeat !important;
 background-position: center right 15px, 0 0 !important;
 background-size: 24px, 12px 12px !important;
@@ -8012,8 +8012,8 @@ position: relative !important;
 background-color: #FDF6E3 !important;
 
 background-image: 
-    url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'),
-    radial-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px) !important;
+  url('https://i.postimg.cc/rFn40T3y/wu-biao-ti7-20260221171715.png'),
+  radial-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px) !important;
 background-repeat: no-repeat, repeat !important;
 background-position: center right 15px, 0 0 !important;
 background-size: 24px, 12px 12px !important;
@@ -8095,32 +8095,32 @@ display: none !important;
 border-radius: 15px !important;
 box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
 }`
-},
-{
-  id: 'b101',
-  type: 'bubble',
-  name: '动态版',
-  author: 'Spring',
-  group: 'ziwumaomao',
-  groupLabel: '紫雾猫猫',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b101',
+    type: 'bubble',
+    name: '动态版',
+    author: 'Spring',
+    group: 'ziwumaomao',
+    groupLabel: '紫雾猫猫',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message-received,
 .message-sent {
 border: none !important;
 border-radius: 999px !important;
 background: 
-    radial-gradient(ellipse 80% 50% at center, #e6e6ff 0%, transparent 50%),
-    radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
-    #ffffff !important;
+  radial-gradient(ellipse 80% 50% at center, #e6e6ff 0%, transparent 50%),
+  radial-gradient(ellipse 100% 70% at center, #ffffff 0%, transparent 60%),
+  #ffffff !important;
 box-shadow: none !important;
 outline: none !important;
 border-color: transparent !important;
@@ -8166,8 +8166,8 @@ left: -6px !important;
 width: 22px !important;
 height: 100% !important;
 background-image:
-    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
-    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+  url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+  url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
 background-size: 13px 13px, 16px 14px !important;
 background-position: top left, bottom left !important;
 background-repeat: no-repeat !important;
@@ -8197,32 +8197,32 @@ right: -6px !important;
 width: 22px !important;
 height: 100% !important;
 background-image:
-    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
-    url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
+  url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZM5ppjuC2Hmh00b-oTaWFUWWt4ANTAACoCAAAt7rMVVgFJ37MlYN-ToE.png),
+  url(https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERZJRppi5x-HrxeGIz-HBFzoIZO0-_1gACWSAAAt7rMVU9L0SZeP67yToE.png) !important;
 background-size: 13px 13px, 16px 14px !important;
 background-position: top right, bottom right !important;
 background-repeat: no-repeat !important;
 pointer-events: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b102',
-  type: 'bubble',
-  name: '静态版',
-  author: 'Spring',
-  group: 'ziwumaomao',
-  groupLabel: '紫雾猫猫',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b102',
+    type: 'bubble',
+    name: '静态版',
+    author: 'Spring',
+    group: 'ziwumaomao',
+    groupLabel: '紫雾猫猫',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message-received,
 .message-sent {
 border: none !important;
@@ -8302,22 +8302,22 @@ background-repeat: no-repeat !important;
 pointer-events: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b103',
-  type: 'bubble',
-  name: '甜梦团团',
-  author: 'Spring',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b103',
+    type: 'bubble',
+    name: '甜梦团团',
+    author: 'Spring',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 999px !important;
 padding: 2px 16px !important;
 box-shadow: none !important;
@@ -8394,22 +8394,22 @@ left: -10px !important;
 border: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b104',
-  type: 'bubble',
-  name: '淡紫半透明',
-  author: '心恋',
-  previews: [{
-      t: 'sent',
-      v: '今年的生日愿望是什么？'
-    },
-    {
-      t: 'received',
-      v: '下一次回头的时候可以看见你'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b104',
+    type: 'bubble',
+    name: '淡紫半透明',
+    author: '心恋',
+    previews: [{
+        t: 'sent',
+        v: '今年的生日愿望是什么？'
+      },
+      {
+        t: 'received',
+        v: '下一次回头的时候可以看见你'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background: linear-gradient(145deg, rgba(230, 217, 242, 0.7), rgba(220, 204, 230, 0.7)) !important;
 border: 1px solid rgba(203, 184, 217, 0.6) !important;
@@ -8454,22 +8454,22 @@ z-index: 1 !important;
 .message-received * {
 color: rgba(90, 74, 107, 0.9) !important;
 }`
-},
-{
-  id: 'b105',
-  type: 'bubble',
-  name: '细线黑白',
-  author: '心恋',
-  previews: [{
-      t: 'sent',
-      v: '我们是两个世界的人'
-    },
-    {
-      t: 'received',
-      v: '但我们拥有同频的爱'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b105',
+    type: 'bubble',
+    name: '细线黑白',
+    author: '心恋',
+    previews: [{
+        t: 'sent',
+        v: '我们是两个世界的人'
+      },
+      {
+        t: 'received',
+        v: '但我们拥有同频的爱'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background: #fff !important; 
 border: 2px solid #000 !important;
@@ -8540,24 +8540,24 @@ pointer-events: none !important;
 z-index: 9999 !important;
 text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }`
-},
-{
-  id: 'b106',
-  type: 'bubble',
-  name: '白色',
-  author: 'Spring',
-  group: 'huibaihudiejie',
-  groupLabel: '灰白蝴蝶结系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b106',
+    type: 'bubble',
+    name: '白色',
+    author: 'Spring',
+    group: 'huibaihudiejie',
+    groupLabel: '灰白蝴蝶结系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8631,24 +8631,24 @@ background-repeat: no-repeat !important;
 pointer-events: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b107',
-  type: 'bubble',
-  name: '灰色',
-  author: 'Spring',
-  group: 'huibaihudiejie',
-  groupLabel: '灰白蝴蝶结系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b107',
+    type: 'bubble',
+    name: '灰色',
+    author: 'Spring',
+    group: 'huibaihudiejie',
+    groupLabel: '灰白蝴蝶结系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8722,24 +8722,24 @@ background-repeat: no-repeat !important;
 pointer-events: none !important;
 z-index: 1 !important;
 }`
-},
-{
-  id: 'b108',
-  type: 'bubble',
-  name: '白色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b108',
+    type: 'bubble',
+    name: '白色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8765,24 +8765,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b109',
-  type: 'bubble',
-  name: '粉色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b109',
+    type: 'bubble',
+    name: '粉色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8807,24 +8807,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b110',
-  type: 'bubble',
-  name: '紫色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b110',
+    type: 'bubble',
+    name: '紫色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8849,24 +8849,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b111',
-  type: 'bubble',
-  name: '青绿色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b111',
+    type: 'bubble',
+    name: '青绿色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8891,24 +8891,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b112',
-  type: 'bubble',
-  name: '墨绿色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b112',
+    type: 'bubble',
+    name: '墨绿色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8933,24 +8933,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b113',
-  type: 'bubble',
-  name: '灰色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b113',
+    type: 'bubble',
+    name: '灰色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -8975,24 +8975,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b114',
-  type: 'bubble',
-  name: '浅蓝色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b114',
+    type: 'bubble',
+    name: '浅蓝色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -9017,24 +9017,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b115',
-  type: 'bubble',
-  name: '浅黄色腮红',
-  author: 'Spring',
-  group: 'saihong',
-  groupLabel: '腮红系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b115',
+    type: 'bubble',
+    name: '浅黄色腮红',
+    author: 'Spring',
+    group: 'saihong',
+    groupLabel: '腮红系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -9059,24 +9059,24 @@ color: #333 !important;
 content: none !important;
 display: none !important;
 }`
-},
-{
-  id: 'b116',
-  type: 'bubble',
-  name: '半透白',
-  author: 'Spring',
-  group: 'bantouming',
-  groupLabel: '半透明系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b116',
+    type: 'bubble',
+    name: '半透白',
+    author: 'Spring',
+    group: 'bantouming',
+    groupLabel: '半透明系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 20px !important;
 padding: 6px 20px !important;
 overflow: visible !important;
@@ -9112,24 +9112,24 @@ z-index: 2 !important;
 border: none !important;
 background-color: transparent !important;
 }`
-},
-{
-  id: 'b116',
-  type: 'bubble',
-  name: '半透黑',
-  author: 'Spring',
-  group: 'bantouming',
-  groupLabel: '半透明系列',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b116',
+    type: 'bubble',
+    name: '半透黑',
+    author: 'Spring',
+    group: 'bantouming',
+    groupLabel: '半透明系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 20px !important;
 padding: 6px 20px !important;
 overflow: visible !important;
@@ -9166,21 +9166,21 @@ z-index: 2 !important;
 border: 1px solid rgba(120,120,120,0.2) !important;
 background-color: transparent !important;
 }`
-}, {
-  id: 'b117',
-  type: 'bubble',
-  name: '水云小兔',
-  author: 'Spring',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  }, {
+    id: 'b117',
+    type: 'bubble',
+    name: '水云小兔',
+    author: 'Spring',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 15px !important;
 padding: 4px 12px !important;
 background: #f2fafd !important;
@@ -9242,22 +9242,22 @@ pointer-events: none !important;
 border: 4px solid #ffffff !important;
 background-color: #f2fafd !important;
 }`
-},
-{
-  id: 'b118',
-  type: 'bubble',
-  name: '桃色的梦',
-  author: '金色传说',
-  previews: [{
-      t: 'sent',
-      v: '⌯˃ ᵕ ˂⌯ಣ'
-    },
-    {
-      t: 'received',
-      v: '◟(˶> ᎑ <˶)◞'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b118',
+    type: 'bubble',
+    name: '桃色的梦',
+    author: '金色传说',
+    previews: [{
+        t: 'sent',
+        v: '⌯˃ ᵕ ˂⌯ಣ'
+      },
+      {
+        t: 'received',
+        v: '◟(˶> ᎑ <˶)◞'
+      }
+    ],
+    css: `
 .message {
 position: relative !important;
 line-height: 1.3 !important;
@@ -9317,30 +9317,30 @@ filter: drop-shadow(0 0 8px rgba(255, 200, 220, 0.8)) blur(0.5px) !important;
 .message.message-sent::before {
 filter: drop-shadow(0 0 8px rgba(245, 175, 200, 0.8)) blur(0.5px) !important;
 }`
-},
-{
-  id: 'b119',
-  type: 'bubble',
-  name: '夏以昼气泡',
-  author: '小优',
-  previews: [{
-      t: 'sent',
-      v: '宝宝'
-    },
-    {
-      t: 'received',
-      v: '宝宝'
-    },
-    {
-      t: 'sent',
-      v: '早上好'
-    },
-    {
-      t: 'received',
-      v: '早上好^^'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b119',
+    type: 'bubble',
+    name: '夏以昼气泡',
+    author: '小优',
+    previews: [{
+        t: 'sent',
+        v: '宝宝'
+      },
+      {
+        t: 'received',
+        v: '宝宝'
+      },
+      {
+        t: 'sent',
+        v: '早上好'
+      },
+      {
+        t: 'received',
+        v: '早上好^^'
+      }
+    ],
+    css: `.message {
 box-shadow: none !important;
 border-width: 0 !important;
 position: relative;
@@ -9456,22 +9456,22 @@ justify-content: flex-end;
 margin-bottom: 4px;
 width: 100%;
 }`
-},
-{
-  id: 'b120',
-  type: 'bubble',
-  name: '雾蓝',
-  author: '心恋',
-  previews: [{
-      t: 'sent',
-      v: '这是一个预览'
-    },
-    {
-      t: 'received',
-      v: '实在不知道写啥'
-    }
-  ],
-  css: `.message,
+  },
+  {
+    id: 'b120',
+    type: 'bubble',
+    name: '雾蓝',
+    author: '心恋',
+    previews: [{
+        t: 'sent',
+        v: '这是一个预览'
+      },
+      {
+        t: 'received',
+        v: '实在不知道写啥'
+      }
+    ],
+    css: `.message,
 .message.message-received,
 .message.message-sent {
 border: none !important;
@@ -9494,22 +9494,22 @@ color: #1a5aaa !important;
 .message * {
 color: #1a5aaa !important;
 }`
-},
-{
-  id: 'b121',
-  type: 'bubble',
-  name: '天外来讯',
-  author: '小圆',
-  previews: [{
-      t: 'sent',
-      v: '42'
-    },
-    {
-      t: 'received',
-      v: '生命、宇宙以及世间万物的「终极答案」'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b121',
+    type: 'bubble',
+    name: '天外来讯',
+    author: '小圆',
+    previews: [{
+        t: 'sent',
+        v: '42'
+      },
+      {
+        t: 'received',
+        v: '生命、宇宙以及世间万物的「终极答案」'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background-color: #0a0f1e !important;
 background-image: linear-gradient(to right, rgba(80, 160, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(80, 160, 255, 0.15) 1px, transparent 1px) !important;
@@ -9629,22 +9629,22 @@ image-rendering: crisp-edges !important;
 image-rendering: pixelated !important;
 -ms-interpolation-mode: nearest-neighbor !important;
 }`
-},
-{
-  id: 'b122',
-  type: 'bubble',
-  name: '🍀',
-  author: '小圆',
-  previews: [{
-      t: 'sent',
-      v: '秋风带着它的光亮到来'
-    },
-    {
-      t: 'received',
-      v: '事物变得清朗 流云更易散'
-    }
-  ],
-  css: `.message-sent {
+  },
+  {
+    id: 'b122',
+    type: 'bubble',
+    name: '🍀',
+    author: '小圆',
+    previews: [{
+        t: 'sent',
+        v: '秋风带着它的光亮到来'
+      },
+      {
+        t: 'received',
+        v: '事物变得清朗 流云更易散'
+      }
+    ],
+    css: `.message-sent {
 position: relative !important;
 background: rgba(180, 210, 160, 0.92) !important;
 border: 2px solid #2c5e2a !important;
@@ -9732,32 +9732,32 @@ letter-spacing: 0.5px !important;
 .message-sent::after, .message-received::after {
 -ms-interpolation-mode: nearest-neighbor !important;
 }`
-},
-{
-  id: 'b123',
-  type: 'bubble',
-  name: '半调香槟',
-  author: '滿枝',
-  group: 'pop',
-  groupLabel: '復古波普',
-  previews: [{
-      t: 'sent',
-      v: 'I\'m always getting your back'
-    },
-    {
-      t: 'received',
-      v: 'But now you got to grip the trigger'
-    },
-    {
-      t: 'sent',
-      v: '翻す深紅'
-    },
-    {
-      t: 'received',
-      v: 'Come on! Show me how you think!'
-    }
-  ],
-  css: `.message-sent,
+  },
+  {
+    id: 'b123',
+    type: 'bubble',
+    name: '半调香槟',
+    author: '滿枝',
+    group: 'pop',
+    groupLabel: '復古波普',
+    previews: [{
+        t: 'sent',
+        v: 'I\'m always getting your back'
+      },
+      {
+        t: 'received',
+        v: 'But now you got to grip the trigger'
+      },
+      {
+        t: 'sent',
+        v: '翻す深紅'
+      },
+      {
+        t: 'received',
+        v: 'Come on! Show me how you think!'
+      }
+    ],
+    css: `.message-sent,
 .message-received
 {
 background: transparent !important;
@@ -9781,7 +9781,7 @@ background-image: radial-gradient(rgba(26, 26, 29, 0.15) 20%, transparent 20%) !
 background-size: 8px 8px !important;
 background-position: 0 0, 4px 4px !important;
 border-radius: 20px 20px 5px 20px !important;
-    box-shadow: -4px 4px 0px 0px #1A1A1D !important;
+  box-shadow: -4px 4px 0px 0px #1A1A1D !important;
 }
 
 .message-received {
@@ -9812,22 +9812,22 @@ box-shadow: 2px 2px 0px 0px #1A1A1D !important;
 .message-received * {
 text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6) !important;
 }`
-},
-{
-  id: 'b124',
-  type: 'bubble',
-  name: 'mini方正透明黄',
-  author: '小渝',
-  previews: [{
-      t: 'sent',
-      v: '小小的'
-    },
-    {
-      t: 'received',
-      v: '方方正正的'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b124',
+    type: 'bubble',
+    name: 'mini方正透明黄',
+    author: '小渝',
+    previews: [{
+        t: 'sent',
+        v: '小小的'
+      },
+      {
+        t: 'received',
+        v: '方方正正的'
+      }
+    ],
+    css: `
 .message {
 box-shadow: none !important;
 border-width: 0 !important;
@@ -9945,22 +9945,22 @@ pointer-events: none !important;
 z-index: 1 !important;
 filter: blur(2.5px) !important;
 }`
-},
-{
-  id: 'b125',
-  type: 'bubble',
-  name: 'mini方正透明黄',
-  author: '小渝',
-  previews: [{
-      t: 'sent',
-      v: '小小的'
-    },
-    {
-      t: 'received',
-      v: '方方正正的'
-    }
-  ],
-  css: `
+  },
+  {
+    id: 'b125',
+    type: 'bubble',
+    name: 'mini方正透明黄',
+    author: '小渝',
+    previews: [{
+        t: 'sent',
+        v: '小小的'
+      },
+      {
+        t: 'received',
+        v: '方方正正的'
+      }
+    ],
+    css: `
 .message {
 box-shadow: none !important;
 border-width: 0 !important;
@@ -10078,28 +10078,28 @@ pointer-events: none !important;
 z-index: 1 !important;
 filter: blur(2.5px) !important;
 }`
-},
-{
-  id: 'b126',
-  type: 'bubble',
-  name: '蓝粉',
-  author: 'milk',
-  group: 'weiba',
-  groupLabel: '小尾巴',
-  previews: [{
-      t: 'sent',
-      v: '不建议开引用'
-    },
-    {
-      t: 'received',
-      v: '小尾巴会掉下去'
-    },
-    {
-      t: 'sent',
-      v: '其他的时候差不多都正常'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b126',
+    type: 'bubble',
+    name: '蓝粉',
+    author: 'milk',
+    group: 'weiba',
+    groupLabel: '小尾巴',
+    previews: [{
+        t: 'sent',
+        v: '不建议开引用'
+      },
+      {
+        t: 'received',
+        v: '小尾巴会掉下去'
+      },
+      {
+        t: 'sent',
+        v: '其他的时候差不多都正常'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 padding: 7px 13px !important;
 line-height: 1.3 !important;
@@ -10141,32 +10141,32 @@ bottom: 15px !important;
 left: -6px !important;
 background-image: url('https://image.uglycat.cc/u57bgz.png') !important;
 }`
-},
-{
-  id: 'b127',
-  type: 'bubble',
-  name: '涂鸦小曲',
-  author: 'Kicoye',
-  group: 'LYSK',
-  groupLabel: '深空系列',
-  previews: [{
-      t: 'sent',
-      v: '春の気配をガラス越しに'
-    },
-    {
-      t: 'received',
-      v: '指尖花瓣微微透明'
-    },
-    {
-      t: 'sent',
-      v: '心がふわり浮かぶ'
-    },
-    {
-      t: 'received',
-      v: '...serendipity?'
-    }
-  ],
-  css: `.message-received {
+  },
+  {
+    id: 'b127',
+    type: 'bubble',
+    name: '涂鸦小曲',
+    author: 'Kicoye',
+    group: 'LYSK',
+    groupLabel: '深空系列',
+    previews: [{
+        t: 'sent',
+        v: '春の気配をガラス越しに'
+      },
+      {
+        t: 'received',
+        v: '指尖花瓣微微透明'
+      },
+      {
+        t: 'sent',
+        v: '心がふわり浮かぶ'
+      },
+      {
+        t: 'received',
+        v: '...serendipity?'
+      }
+    ],
+    css: `.message-received {
 position: relative !important;
 overflow: visible !important;
 box-sizing: border-box !important;
@@ -10288,22 +10288,22 @@ max-width: 500px !important;
 word-break: normal !important;
 white-space: normal !important;
 }`
-},
-{
-  id: 'b128',
-  type: 'bubble',
-  name: 'qq蓝',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '我只想在你身边说一些傻傻的笨笨的话'
-    },
-    {
-      t: 'received',
-      v: '我说我要拯救世界你说好啊'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b128',
+    type: 'bubble',
+    name: 'qq蓝',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '我只想在你身边说一些傻傻的笨笨的话'
+      },
+      {
+        t: 'received',
+        v: '我说我要拯救世界你说好啊'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -10335,22 +10335,22 @@ border-radius: 16px 8px 16px 16px;
 background-color: #4A8FF3;
 border-radius: 16px 16px 16px 8px;
 }`
-},
-{
-  id: 'b129',
-  type: 'bubble',
-  name: '粉蓝',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '我只想在你身边说一些傻傻的笨笨的话'
-    },
-    {
-      t: 'received',
-      v: '我说我要拯救世界你说好啊'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b129',
+    type: 'bubble',
+    name: '粉蓝',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '我只想在你身边说一些傻傻的笨笨的话'
+      },
+      {
+        t: 'received',
+        v: '我说我要拯救世界你说好啊'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -10382,22 +10382,22 @@ border-radius: 16px 8px 16px 16px;
 background-color: #F1F4FD;
 border-radius: 16px 16px 16px 8px;
 }`
-},
-{
-  id: 'b130',
-  type: 'bubble',
-  name: '蓝紫',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '我只想在你身边说一些傻傻的笨笨的话'
-    },
-    {
-      t: 'received',
-      v: '我说我要拯救世界你说好啊'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b130',
+    type: 'bubble',
+    name: '蓝紫',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '我只想在你身边说一些傻傻的笨笨的话'
+      },
+      {
+        t: 'received',
+        v: '我说我要拯救世界你说好啊'
+      }
+    ],
+    css: `.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -10429,22 +10429,22 @@ border-radius: 16px 8px 16px 16px;
 background-color: #F1F4FD;
 border-radius: 16px 16px 16px 8px;
 }`
-},
-{
-  id: 'b131',
-  type: 'bubble',
-  name: '幽灵小咪',
-  author: 'Spring',
-  previews: [{
-      t: 'sent',
-      v: '你隐没在梦中'
-    },
-    {
-      t: 'received',
-      v: '宛如雪化在火中'
-    }
-  ],
-  css: `.message {
+  },
+  {
+    id: 'b131',
+    type: 'bubble',
+    name: '幽灵小咪',
+    author: 'Spring',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
 border-radius: 24px !important;
 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08) !important;
 overflow: visible !important;
@@ -10513,22 +10513,22 @@ z-index: 2 !important;
 z-index: 3 !important;
 position: relative !important;
 }`
-},
-{
-  id: 'b132',
-  type: 'bubble',
-  name: '灰',
-  author: '蛋挞',
-  previews: [{
-      t: 'sent',
-      v: '请赐我黄粱一梦'
-    },
-    {
-      t: 'received',
-      v: '我想允许自己细水长流'
-    }
-  ],
-  css: `灰.message {
+  },
+  {
+    id: 'b132',
+    type: 'bubble',
+    name: '灰',
+    author: '蛋挞',
+    previews: [{
+        t: 'sent',
+        v: '请赐我黄粱一梦'
+      },
+      {
+        t: 'received',
+        v: '我想允许自己细水长流'
+      }
+    ],
+    css: `灰.message {
 position: relative !important;
 line-height: 1.3 !important;
 word-break: break-word !important;
@@ -10585,17 +10585,22 @@ border-bottom: 1px solid #E4E4E4;
 border-right: none;
 border-top: none;
 }`
-},
-{
-id:'b133',
-type:'bubble',
-name:'蓝色玻璃雪花',
-author:'过境',
-previews:[
-{t:'sent',v:'老婆老婆！'},
-{t:'received',v:'…我在'}
-],
-css:`/* ===================== 气泡呼吸与装饰（❄玻璃蓝） ===================== */
+  },
+  {
+    id: 'b133',
+    type: 'bubble',
+    name: '蓝色玻璃雪花',
+    author: '过境',
+    previews: [{
+        t: 'sent',
+        v: '老婆老婆！'
+      },
+      {
+        t: 'received',
+        v: '…我在'
+      }
+    ],
+    css: `/* ===================== 气泡呼吸与装饰（❄玻璃蓝） ===================== */
 
 /* 通用气泡样式 */
 .message-sent,
@@ -10737,19 +10742,30 @@ pointer-events: none;
 z-index: 99;
 animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
 }`
-},
-{
-  id:'b134',
-  type:'bubble',
-  name:'kpop仿bubble',
-  author:'喵喵喵',
-  previews:[
-    {t:'sent',v:'社交不是你来我往的嘛'},
-    {t:'received',v:'我一直往往往'},
-    {t:'sent',v:'你当我是狗啊'},
-    {t:'received',v:'那我做你的小狗好不好'}
-  ],
-  css:`.message {
+  },
+  {
+    id: 'b134',
+    type: 'bubble',
+    name: 'kpop仿bubble',
+    author: '喵喵喵',
+    previews: [{
+        t: 'sent',
+        v: '社交不是你来我往的嘛'
+      },
+      {
+        t: 'received',
+        v: '我一直往往往'
+      },
+      {
+        t: 'sent',
+        v: '你当我是狗啊'
+      },
+      {
+        t: 'received',
+        v: '那我做你的小狗好不好'
+      }
+    ],
+    css: `.message {
 border-radius: 18px !important;
 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
 overflow: visible !important;
@@ -10814,909 +10830,939 @@ color: #999999 !important;
 font-size: 12px !important;
 margin-top: 4px !important;
 }`
-},
-{
-  id:'b135',
-  type:'bubble',
-  name:'汪汪布丁（无美化版）',
-  author:'Spring',
-  group:'woofwoofpudding',
-  groupLabel:'汪汪布丁',
-  previews:[
-    {t:'sent',v:'你隐没在梦中'},
-    {t:'received',v:'宛如雪化在火中'}
-  ],
-  css:`.message {
-  border-radius: 16px !important;
-  overflow: visible !important;
-  position: relative !important;
-  padding: 4px 10px !important;
-  margin: 0 !important;
-  font-size: 14px !important;
-  box-shadow: none !important;
+  },
+  {
+    id: 'b135',
+    type: 'bubble',
+    name: '汪汪布丁（无美化版）',
+    author: 'Spring',
+    group: 'woofwoofpudding',
+    groupLabel: '汪汪布丁',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
+border-radius: 16px !important;
+overflow: visible !important;
+position: relative !important;
+padding: 4px 10px !important;
+margin: 0 !important;
+font-size: 14px !important;
+box-shadow: none !important;
 }
 
 .message.message-received {
-  background: #fff8e0 !important;
-  box-shadow: inset 0 0 0 6px #fffbee !important;
-  color: #8b6b3b !important;
-  border: none !important;
-  outline: none !important;
+background: #fff8e0 !important;
+box-shadow: inset 0 0 0 6px #fffbee !important;
+color: #8b6b3b !important;
+border: none !important;
+outline: none !important;
 }
 
 .message.message-sent {
-  background: #fff8e8 !important;
-  box-shadow: inset 0 0 0 6px #ffedb8 !important;
-  color: #7d582d !important;
-  border: none !important;
-  outline: none !important;
+background: #fff8e8 !important;
+box-shadow: inset 0 0 0 6px #ffedb8 !important;
+color: #7d582d !important;
+border: none !important;
+outline: none !important;
 }
 
 .message * {
-  z-index: 1 !important;
-  position: relative !important;
+z-index: 1 !important;
+position: relative !important;
 }`
-},
-{
-  id:'b136',
-  type:'bubble',
-  name:'汪汪布丁（美化版）',
-  author:'Spring',
-  group:'woofwoofpudding',
-  groupLabel:'汪汪布丁',
-  previews:[
-    {t:'sent',v:'你隐没在梦中'},
-    {t:'received',v:'宛如雪化在火中'}
-  ],
-  css:`.message {
-  border-radius: 16px !important;
-  overflow: visible !important;
-  position: relative !important;
-  padding: 4px 10px !important;
-  margin: 0 !important;
-  font-size: 14px !important;
-  box-shadow: none !important;
+  },
+  {
+    id: 'b136',
+    type: 'bubble',
+    name: '汪汪布丁（美化版）',
+    author: 'Spring',
+    group: 'woofwoofpudding',
+    groupLabel: '汪汪布丁',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
+border-radius: 16px !important;
+overflow: visible !important;
+position: relative !important;
+padding: 4px 10px !important;
+margin: 0 !important;
+font-size: 14px !important;
+box-shadow: none !important;
 }
 
 .message.message-received {
-  background: #fff8e0 !important;
-  box-shadow: inset 0 0 0 6px #fffbee !important;
-  color: #8b6b3b !important;
-  border: none !important;
-  outline: none !important;
+background: #fff8e0 !important;
+box-shadow: inset 0 0 0 6px #fffbee !important;
+color: #8b6b3b !important;
+border: none !important;
+outline: none !important;
 }
 
 .message.message-sent {
-  background: #fff8e8 !important;
-  box-shadow: inset 0 0 0 6px #ffedb8 !important;
-  color: #7d582d !important;
-  border: none !important;
-  outline: none !important;
+background: #fff8e8 !important;
+box-shadow: inset 0 0 0 6px #ffedb8 !important;
+color: #7d582d !important;
+border: none !important;
+outline: none !important;
 }
 
 /* 左下角装饰（原有） */
 .message.message-received::before {
-  content: '' !important;
-  position: absolute !important;
-  width: 32px !important;
-  height: 32px !important;
-  bottom: -10px !important;
-  left: -4px !important;
-  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj7Zp6cuqJzozlGWQlbI-7xkB6HMD7AACHCAAAn6SUFfOyUfa-oMdATsE.png') !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  z-index: 9999 !important;
-  pointer-events: none !important;
-  transform: translateZ(10px) !important;
+content: '' !important;
+position: absolute !important;
+width: 32px !important;
+height: 32px !important;
+bottom: -10px !important;
+left: -4px !important;
+background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj7Zp6cuqJzozlGWQlbI-7xkB6HMD7AACHCAAAn6SUFfOyUfa-oMdATsE.png') !important;
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+z-index: 9999 !important;
+pointer-events: none !important;
+transform: translateZ(10px) !important;
 }
 
 /* 右上角装饰（原有） */
 .message.message-received::after {
-  content: '' !important;
-  position: absolute !important;
-  width: 38px !important;
-  height: 38px !important;
-  top: -16px !important;
-  right: 0px !important;
-  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj6Np6csCxKF4GSWLQKteA-dT7Pe1uAACBSAAAn6SUFd8Cl9AFC2N7TsE.png') !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  z-index: 9999 !important;
-  pointer-events: none !important;
+content: '' !important;
+position: absolute !important;
+width: 38px !important;
+height: 38px !important;
+top: -16px !important;
+right: 0px !important;
+background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj6Np6csCxKF4GSWLQKteA-dT7Pe1uAACBSAAAn6SUFd8Cl9AFC2N7TsE.png') !important;
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+z-index: 9999 !important;
+pointer-events: none !important;
 }
 
 /* 我方气泡右上角 */
 .message.message-sent::after {
-  content: '' !important;
-  position: absolute !important;
-  width: 58px !important;
-  height: 58px !important;
-  top: -12px !important;
-  right: -8px !important;
-  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETliBp6xmfcxdCDRaak5igrY9VkyT1twACKh8AAn6SWFfTETl2SB-yfTsE.png') !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  z-index: 9999 !important;
-  pointer-events: none !important;
+content: '' !important;
+position: absolute !important;
+width: 58px !important;
+height: 58px !important;
+top: -12px !important;
+right: -8px !important;
+background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETliBp6xmfcxdCDRaak5igrY9VkyT1twACKh8AAn6SWFfTETl2SB-yfTsE.png') !important;
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+z-index: 9999 !important;
+pointer-events: none !important;
 }
 
 /* 我方气泡左下角 - 下移+右移 */
 .message.message-sent::before {
-  content: '' !important;
-  position: absolute !important;
-  width: 48px !important;
-  height: 48px !important;
-  bottom: -8px !important;
-  left: -4px !important;
-  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETlilp6xoJcllkHYxrqmcrk5N_DGSodAACMx8AAn6SWFeUrzURWpofkDsE.png') !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  z-index: 9999 !important;
-  pointer-events: none !important;
+content: '' !important;
+position: absolute !important;
+width: 48px !important;
+height: 48px !important;
+bottom: -8px !important;
+left: -4px !important;
+background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETlilp6xoJcllkHYxrqmcrk5N_DGSodAACMx8AAn6SWFeUrzURWpofkDsE.png') !important;
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+z-index: 9999 !important;
+pointer-events: none !important;
 }
 
 .message * {
-  z-index: 1 !important;
-  position: relative !important;
+z-index: 1 !important;
+position: relative !important;
 }`
-},
-{
-  id:'b137',
-  type:'bubble',
-  name:'抹茶啵啵',
-  author:'Spring',
-  group:'bobo',
-  groupLabel:'啵啵系列',
-  previews:[
-    {t:'sent',v:'你隐没在梦中'},
-    {t:'received',v:'宛如雪化在火中'}
-  ],
-  css:`.message {
-  border-radius: 20px !important;
-  overflow: visible !important;
-  padding: 4px 10px !important;
-  margin: 4px 0 !important;
-  position: relative !important;
-  font-size: 13px !important;
-  transform: perspective(500px) translateZ(0) !important;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  },
+  {
+    id: 'b137',
+    type: 'bubble',
+    name: '抹茶啵啵',
+    author: 'Spring',
+    group: 'bobo',
+    groupLabel: '啵啵系列',
+    previews: [{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
+border-radius: 20px !important;
+overflow: visible !important;
+padding: 4px 10px !important;
+margin: 4px 0 !important;
+position: relative !important;
+font-size: 13px !important;
+transform: perspective(500px) translateZ(0) !important;
+transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .message-wrapper {
-  margin: 2px 0 !important;
+margin: 2px 0 !important;
 }
 
 .message.message-received,
 .message.char {
-  background: linear-gradient(145deg, #f0f8f2, #eef7f0) !important;
-  color: #203f2c !important;
-  box-shadow: 
-    4px 6px 12px rgba(0, 0, 0, 0.12),
-    2px 3px 6px rgba(0, 0, 0, 0.08),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
-    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+background: linear-gradient(145deg, #f0f8f2, #eef7f0) !important;
+color: #203f2c !important;
+box-shadow: 
+  4px 6px 12px rgba(0, 0, 0, 0.12),
+  2px 3px 6px rgba(0, 0, 0, 0.08),
+  inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+  inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }
 
 .message.message-sent,
 .message.user {
-  background: linear-gradient(145deg, #e6f4ea, #dcf0e2) !important;
-  color: #163022 !important;
-  box-shadow: 
-    -4px 6px 12px rgba(0, 0, 0, 0.12),
-    -2px 3px 6px rgba(0, 0, 0, 0.08),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
-    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+background: linear-gradient(145deg, #e6f4ea, #dcf0e2) !important;
+color: #163022 !important;
+box-shadow: 
+  -4px 6px 12px rgba(0, 0, 0, 0.12),
+  -2px 3px 6px rgba(0, 0, 0, 0.08),
+  inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+  inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }
 
 .message.char::before,
 .message.message-received::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  background: radial-gradient(
-    ellipse at 25% 30%,
-    #dcf0e2 0%,
-    #dcf0e2 15%,
-    rgba(220, 240, 226, 0.5) 35%,
-    rgba(220, 240, 226, 0.2) 55%,
-    transparent 80%
-  ) !important;
-  box-shadow: 
-    inset 0 2px 6px rgba(230, 248, 235, 0.9),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+content: '' !important;
+position: absolute !important;
+inset: 0 !important;
+border-radius: 20px !important;
+pointer-events: none !important;
+z-index: 1 !important;
+background: radial-gradient(
+  ellipse at 25% 30%,
+  #dcf0e2 0%,
+  #dcf0e2 15%,
+  rgba(220, 240, 226, 0.5) 35%,
+  rgba(220, 240, 226, 0.2) 55%,
+  transparent 80%
+) !important;
+box-shadow: 
+  inset 0 2px 6px rgba(230, 248, 235, 0.9),
+  inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 .message.user::before,
 .message.message-sent::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  background: radial-gradient(
-    ellipse at 75% 30%,
-    #eef7f0 0%,
-    #eef7f0 15%,
-    rgba(238, 247, 240, 0.5) 35%,
-    rgba(238, 247, 240, 0.2) 55%,
-    transparent 80%
-  ) !important;
-  box-shadow: 
-    inset 0 2px 6px rgba(245, 252, 248, 0.9),
-    inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+content: '' !important;
+position: absolute !important;
+inset: 0 !important;
+border-radius: 20px !important;
+pointer-events: none !important;
+z-index: 1 !important;
+background: radial-gradient(
+  ellipse at 75% 30%,
+  #eef7f0 0%,
+  #eef7f0 15%,
+  rgba(238, 247, 240, 0.5) 35%,
+  rgba(238, 247, 240, 0.2) 55%,
+  transparent 80%
+) !important;
+box-shadow: 
+  inset 0 2px 6px rgba(245, 252, 248, 0.9),
+  inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 .message:hover {
-  transform: perspective(500px) translateZ(6px) !important;
+transform: perspective(500px) translateZ(6px) !important;
 }
 .message.char:hover,.message.message-received:hover {
-  box-shadow: 
-    5px 8px 16px rgba(0, 0, 0, 0.15),
-    3px 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
-    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
-    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+box-shadow: 
+  5px 8px 16px rgba(0, 0, 0, 0.15),
+  3px 4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+  inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+  inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
 }
 .message.user:hover,.message.message-sent:hover {
-  box-shadow: 
-    -5px 8px 16px rgba(0, 0, 0, 0.15),
-    -3px 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
-    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
-    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+box-shadow: 
+  -5px 8px 16px rgba(0, 0, 0, 0.15),
+  -3px 4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+  inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+  inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
 }
 
 .message > * {
-  position: relative !important;
-  z-index: 10 !important;
+position: relative !important;
+z-index: 10 !important;
 }
 
 .message [class*=quote],
 .message.message-reply,
 .message blockquote,
 .message .refer {
-  display: block !important;
-  background: rgba(235, 246, 239, 0.7) !important;
-  border-radius: 12px !important;
-  padding: 2px 8px !important;
-  margin: 2px 0 !important;
-  font-size: 12px !important;
-  color: #163022 !important;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
+display: block !important;
+background: rgba(235, 246, 239, 0.7) !important;
+border-radius: 12px !important;
+padding: 2px 8px !important;
+margin: 2px 0 !important;
+font-size: 12px !important;
+color: #163022 !important;
+box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
 }
 
 .message::after {
-  content: '' !important;
-  position: absolute !important;
-  width: 14px !important;
-  height: 14px !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  filter: drop-shadow(0,0,0,0.1) !important;
+content: '' !important;
+position: absolute !important;
+width: 14px !important;
+height: 14px !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+filter: drop-shadow(0,0,0,0.1) !important;
 }
 .message.user::after,.message.message-sent::after {
-  bottom: -4px !important;
-  right: -6px !important;
-  background-image: url('') !important;
+bottom: -4px !important;
+right: -6px !important;
+background-image: url('') !important;
 }
 .message.char::after,.message.message-received::after {
-  bottom: -4px !important;
-  left: -6px !important;
-  background-image: url('') !important;
+bottom: -4px !important;
+left: -6px !important;
+background-image: url('') !important;
 }`
-},
-{
-  id:'b138',
-  type:'bubble',
-  name:'海盐啵啵',
-  author:'Spring',
-  group:'bobo',
-  groupLabel:'啵啵系列',
-  previews:[
-    {t:'sent',v:'你隐没在梦中'},
-    {t:'received',v:'宛如雪化在火中'}
-  ],
-  css:`.message {
-  border-radius: 20px !important;
-  overflow: visible !important;
-  padding: 4px 10px !important;
-  margin: 4px 0 !important;
-  position: relative !important;
-  font-size: 13px !important;
-  transform: perspective(500px) translateZ(0) !important;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  },
+  {
+    id: 'b138',
+    type: 'bubble',
+    name: '海盐啵啵',
+    author: 'Spring',
+    group: 'bobo',
+    groupLabel: '啵啵系列',
+    previews:[{
+        t: 'sent',
+        v: '你隐没在梦中'
+      },
+      {
+        t: 'received',
+        v: '宛如雪化在火中'
+      }
+    ],
+    css: `.message {
+border-radius: 20px !important;
+overflow: visible !important;
+padding: 4px 10px !important;
+margin: 4px 0 !important;
+position: relative !important;
+font-size: 13px !important;
+transform: perspective(500px) translateZ(0) !important;
+transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .message-wrapper {
-  margin: 2px 0 !important;
+margin: 2px 0 !important;
 }
 
 .message.message-received,
 .message.char {
-  background: linear-gradient(145deg, #ffffff, #f5f9fd) !important;
-  color: #203a52 !important;
-  box-shadow: 
-    4px 6px 12px rgba(0, 0, 0, 0.12),
-    2px 3px 6px rgba(0, 0, 0, 0.08),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
-    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+background: linear-gradient(145deg, #ffffff, #f5f9fd) !important;
+color: #203a52 !important;
+box-shadow: 
+  4px 6px 12px rgba(0, 0, 0, 0.12),
+  2px 3px 6px rgba(0, 0, 0, 0.08),
+  inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+  inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }
 
 .message.message-sent,
 .message.user {
-  background: linear-gradient(145deg, #f8fbfe, #edf4fb) !important;
-  color: #172d42 !important;
-  box-shadow: 
-    -4px 6px 12px rgba(0, 0, 0, 0.12),
-    -2px 3px 6px rgba(0, 0, 0, 0.08),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
-    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+background: linear-gradient(145deg, #f8fbfe, #edf4fb) !important;
+color: #172d42 !important;
+box-shadow: 
+  -4px 6px 12px rgba(0, 0, 0, 0.12),
+  -2px 3px 6px rgba(0, 0, 0, 0.08),
+  inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+  inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
 }
 
 .message.char::before,
 .message.message-received::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  background: radial-gradient(
-    ellipse at 25% 30%,
-    #edf4fb 0%,
-    #edf4fb 15%,
-    rgba(235, 243, 250, 0.35) 35%,
-    rgba(235, 243, 250, 0.15) 55%,
-    transparent 80%
-  ) !important;
-  box-shadow: 
-    inset 0 2px 6px rgba(248, 252, 255, 0.9),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+content: '' !important;
+position: absolute !important;
+inset: 0 !important;
+border-radius: 20px !important;
+pointer-events: none !important;
+z-index: 1 !important;
+background: radial-gradient(
+  ellipse at 25% 30%,
+  #edf4fb 0%,
+  #edf4fb 15%,
+  rgba(235, 243, 250, 0.35) 35%,
+  rgba(235, 243, 250, 0.15) 55%,
+  transparent 80%
+) !important;
+box-shadow: 
+  inset 0 2px 6px rgba(248, 252, 255, 0.9),
+  inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 .message.user::before,
 .message.message-sent::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 20px !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-  background: radial-gradient(
-    ellipse at 75% 30%,
-    #f5f9fd 0%,
-    #f5f9fd 15%,
-    rgba(245, 249, 253, 0.35) 35%,
-    rgba(245, 249, 253, 0.15) 55%,
-    transparent 80%
-  ) !important;
-  box-shadow: 
-    inset 0 2px 6px rgba(252, 254, 255, 0.9),
-    inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+content: '' !important;
+position: absolute !important;
+inset: 0 !important;
+border-radius: 20px !important;
+pointer-events: none !important;
+z-index: 1 !important;
+background: radial-gradient(
+  ellipse at 75% 30%,
+  #f5f9fd 0%,
+  #f5f9fd 15%,
+  rgba(245, 249, 253, 0.35) 35%,
+  rgba(245, 249, 253, 0.15) 55%,
+  transparent 80%
+) !important;
+box-shadow: 
+  inset 0 2px 6px rgba(252, 254, 255, 0.9),
+  inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 .message:hover {
-  transform: perspective(500px) translateZ(6px) !important;
+transform: perspective(500px) translateZ(6px) !important;
 }
 
 .message.char:hover,
 .message.message-received:hover {
-  box-shadow: 
-    5px 8px 16px rgba(0, 0, 0, 0.15),
-    3px 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
-    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
-    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+box-shadow: 
+  5px 8px 16px rgba(0, 0, 0, 0.15),
+  3px 4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+  inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+  inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
 }
 
 .message.user:hover,
 .message.message-sent:hover {
-  box-shadow: 
-    -5px 8px 16px rgba(0, 0, 0, 0.15),
-    -3px 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
-    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
-    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+box-shadow: 
+  -5px 8px 16px rgba(0, 0, 0, 0.15),
+  -3px 4px 8px rgba(0, 0, 0, 0.1),
+  inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+  inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+  inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
 }
 
 .message > * {
-  position: relative !important;
-  z-index: 10 !important;
-},
+position: relative !important;
+z-index: 10 !important;
+}`
+  }
 ];
 const CARDS = [{
-  id: 'card1',
-  type: 'card',
-  name: '系统预设备份',
-  author: 'milk',
-  desc: '包含自定义回复、表情、戳一戳动作、状态和座右铭的完整预设包，可直接导入使用。',
-  tags: ['回复', '表情', '戳一戳', '状态', '格言'],
-  fileType: 'json',
-  fileName: 'presets-backup.json',
-  file: 'https://img.heliar.top/file/1771878331120_presets-backup.json',
-  size: '约 18 KB',
-  itemCounts: {
-    '自定义回复': 250,
-    '自定义表情': 63,
-    '戳一戳': 20,
-    '状态': 96,
-    '座右铭': 65
-  }
+id: 'card1',
+type: 'card',
+name: '系统预设备份',
+author: 'milk',
+desc: '包含自定义回复、表情、戳一戳动作、状态和座右铭的完整预设包，可直接导入使用。',
+tags: ['回复', '表情', '戳一戳', '状态', '格言'],
+fileType: 'json',
+fileName: 'presets-backup.json',
+file: 'https://img.heliar.top/file/1771878331120_presets-backup.json',
+size: '约 18 KB',
+itemCounts: {
+  '自定义回复': 250,
+  '自定义表情': 63,
+  '戳一戳': 20,
+  '状态': 96,
+  '座右铭': 65
+}
 },
 
 {
-  id: 'card2',
-  type: 'card',
-  name: '日常聊天没问题了应该',
-  author: '袁愿',
-  desc: '‼️有恋与深空、未定事件簿男主微量台词！',
-  fileType: 'json',
-  fileName: '字卡.json',
-  file: 'https://img.heliar.top/file/1772219016098_字卡.json',
-  itemCounts: {
-    "字卡": 854,
-    "状态": 90,
-    "emoji": 108,
+id: 'card2',
+type: 'card',
+name: '日常聊天没问题了应该',
+author: '袁愿',
+desc: '‼️有恋与深空、未定事件簿男主微量台词！',
+fileType: 'json',
+fileName: '字卡.json',
+file: 'https://img.heliar.top/file/1772219016098_字卡.json',
+itemCounts: {
+  "字卡": 854,
+  "状态": 90,
+  "emoji": 108,
+}
+},
+{
+id: 'card3',
+type: 'card',
+name: '秦彻字卡',
+author: '¿?CRazy',
+desc: '包含一些基础字卡+秦彻语录+我编的',
+tags: ["回复"],
+fileType: 'json',
+fileName: '秦彻',
+file: 'https://img.heliar.top/file/1772348005616_秦彻.json',
+},
+{
+id: 'card4',
+type: 'card',
+name: '沈星回字卡库',
+author: '金元饱',
+desc: '适用于恋与深空-沈星回。基础字卡（有参考Milk老师预设）+角色专属的字卡/顶部格言/开场动画（大多取自游戏文本）。部分内容存在个人角度的微微微量改动，请自行斟酌使用。',
+tags: ["回复", "表情", "状态", "开场动画"],
+fileType: 'json',
+fileName: 'SXH.json',
+file: 'https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json',
+itemCounts: {
+  "自定义回复": 449,
+  "戳一戳": 29,
+  "状态": 65,
+  "座右铭": 21,
+  "开场动画": 40,
+  "自定义表情": 57
+}
+},
+{
+id: 'card5',
+type: 'card',
+name: '一些词卡',
+author: '1123',
+desc: '日常聊天',
+tags: ["回复"],
+fileType: 'json',
+fileName: '字卡.json',
+file: 'https://img.heliar.top/file/1772816551108_一些字卡.json',
+itemCounts: {
+  "自定义回复": 200
+}
+},
+{
+id: 'card6',
+type: 'card',
+name: '聊天字卡回复',
+author: 'L',
+desc: '日常聊天预设，字卡较多较杂',
+tags: ["回复"],
+fileType: 'json',
+fileName: '聊天.json',
+file: 'https://files.catbox.moe/xivgs7.json',
+},
+{
+id: 'card7',
+type: 'card',
+name: '塔罗文字版-追加使用',
+author: '颜荀',
+desc: '纯文字塔罗牌字卡，有加入两张空白牌——否定与肯定，可根据个人习惯进行删减。适合对基础韦特塔罗牌的画面有一定了解的小宝使用。',
+tags: ["塔罗", "字卡"],
+fileType: 'json',
+fileName: '塔罗.json',
+file: 'https://img.heliar.top/file/1773039920012_塔罗.json',
+itemCounts: {
+  "自定义回复": 80,
+}
+},
+{
+id: 'card8',
+type: 'card',
+name: '宝宝',
+author: '宝宝',
+desc: '齐司礼',
+fileType: 'json',
+fileName: '宝宝.json',
+file: 'https://img.heliar.top/file/1773041531708_presets-backup.json',
+},
+{
+id: 'card9',
+type: 'card',
+name: '日常用',
+author: '星星',
+desc: '日常聊天',
+fileType: 'json',
+fileName: '星星.json',
+file: 'https://img.heliar.top/file/1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json'
+},
+{
+id: 'card10',
+type: 'card',
+name: '雷诺曼卡牌',
+author: '阿布格',
+desc: '雷诺曼牌数量较少且牌面元素更直观 更易理解主要看牌的排列组合 可以结合牌面让deepseek 帮助解答',
+fileType: 'json',
+fileName: '雷诺曼.json',
+file: 'https://img.heliar.top/file/1773129660823_雷诺曼.json'
+},
+{
+id: 'card11',
+type: 'card',
+name: '义勇专属字卡',
+author: '富冈义勇重度依赖',
+desc: '我觉得日常聊天应该没问题，后续我会更新更多字卡，目前只有208个，如果你没有重复的话',
+fileType: 'json',
+fileName: '义勇.json',
+file: 'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
+},
+{
+id: 'card12',
+type: 'card',
+name: '状态字卡',
+author: '沈弃云',
+desc: '一些状态补充，吃饭喝水洗澡出行……',
+fileType: 'json',
+fileName: '状态.json',
+file: 'https://img.heliar.top/file/1773221829605_reply-groups-状态字卡-2026-03-11.json'
+},
+{
+id: 'card13',
+type: 'card',
+name: '黎深字卡🩵',
+author: 'momo',
+desc: '黎深的一些语录',
+fileType: 'json',
+fileName: '黎深语录.json',
+file: 'https://img.heliar.top/file/1773326106450_黎深语录.json'
+},
+{
+id: 'card14',
+type: 'card',
+name: '顾时夜少量语录',
+author: '秋砚痕',
+desc: '顾时夜少量语录，大部分可以正常对话，推四哥的可以使用，谢谢使用！（不喜勿喷）',
+fileType: 'json',
+fileName: '黎深.json',
+file: 'https://img.heliar.top/file/1773466807273_test_format1773465797.json'
+},
+{
+id: 'card15',
+type: 'card',
+name: '夏以昼相关，有些杂乱',
+author: '框框',
+desc: '含🍎向，不喜勿下自删。参考小红书一些老师的词句。感恩每位产出的老师，我只是收集。',
+fileType: 'json',
+fileName: '夏以昼相关字卡.json',
+file: 'https://img.heliar.top/file/1773566098585_夏以昼相关字卡.json'
+},
+{
+id: 'card16',
+type: 'card',
+name: '歌词精选',
+author: '百叶风笙',
+desc: '各种歌词，如«春雪»«九万字»«love story»«是风动»«虚拟»\n你在我身畔\n听竹林正摇乱\n你是我未曾拥有无法捕捉的亲昵',
+fileType: 'json',
+fileName: '歌词.json',
+file: 'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
+},
+{
+id: 'card17',
+type: 'card',
+name: '陆沉字卡',
+author: '雁归',
+desc: '光与夜之恋陆沉包含卡面语录，互动对话，语音对话日常对话（如早上好，晚上好，吃了没，睡了没',
+fileType: 'json',
+fileName: '1773759253224_陆沉字卡.json',
+file: 'https://img.heliar.top/file/1773759253224_陆沉字卡.json'
+},
+{
+id: 'card18',
+type: 'card',
+name: "莫弈",
+author: "本人社恐，无需在意",
+desc: "一些关于莫弈的字卡",
+fileType: 'json',
+fileName: "1773818600562__莫弈.json",
+file: "https://img.heliar.top/file/1773818600562__莫弈.json",
+},
+{
+id: 'card19',
+type: 'card',
+name: "治愈系字卡",
+author: "来个饭团",
+desc: "难过时候可以用，帮助交流",
+fileType: 'json',
+fileName: "1774156772092_治愈系字卡.json",
+file: "https://img.heliar.top/file/1774156772092_治愈系字卡.json",
+},
+{
+id: 'card20',
+type: 'card',
+name: "查理苏（颜文字Emoji少量版）",
+author: "云束",
+desc: "让D老师跑的，仅限于未婚妻们使用",
+fileType: 'json',
+fileName: "1774158685204_charlie_replies.json",
+file: "https://img.heliar.top/file/1774158685204_charlie_replies.json",
+},
+{
+id: 'card21',
+type: 'card',
+name: "查理苏",
+author: "云束",
+desc: "让D老师跑的，仅限于未婚妻们使用",
+fileType: 'json',
+fileName: "1774156190652_charlie_final.json",
+file: "https://img.heliar.top/file/1774156190652_charlie_final.json",
+},
+{
+id: 'card22',
+type: 'card',
+name: "祁煜台词向",
+author: "隐姓埋名的保镖",
+desc: "恋与深空男主祁煜主页交互及部分短信，秘密时光原台词。个人选了一些觉得适合做字卡的，共493条。",
+fileType: 'json',
+fileName: "1774033690540_reply-groups-台词向-2026-03-20.json",
+file: "https://img.heliar.top/file/1774033690540_reply-groups-台词向-2026-03-20.json",
+},
+{
+id: 'card23',
+type: 'card',
+name: "日常聊天",
+author: "松岛",
+desc: "刀剑乱舞乙女向",
+fileType: 'json',
+fileName: "l0wrpd.json",
+file: "https://files.catbox.moe/l0wrpd.json",
+},
+{
+id: 'card24',
+type: 'card',
+name: "陆沉语料库（600+字卡）",
+author: "lulu",
+desc: "本语料库以陆沉的人格画像、行为性格为基底，参考游戏剧情、官方设定及同人二创中的语言风格，覆盖日常生活、工作学业、情感关系、社交友谊、家庭议题、心理状态、特殊时刻七大类别，共600+条回复。",
+fileType: 'json',
+fileName: "1y3qvt.json",
+file: "https://files.catbox.moe/1y3qvt.json",
+},
+{
+id: 'card25',
+type: 'card',
+name: "萧逸",
+author: "帅的被人砍",
+desc: "日常 状态 心情",
+fileType: 'json',
+fileName: "spklij.json",
+file: "https://files.catbox.moe/spklij.json",
+},
+{
+id: 'card26',
+type: 'card',
+name: "日常吃饭相关",
+author: "Latus",
+desc: "大概是一些日常对话用得上的吃饭相关内容，有点杂",
+fileType: 'json',
+fileName: "jk0hdq.json",
+file: "https://files.catbox.moe/jk0hdq.json",
+},
+{
+id: 'card27',
+type: 'card',
+name: '祁煜字卡分享',
+author: '小优神',
+desc: '祁煜日常聊天字卡，日常互动➕语录➕吃🍎➕颜文字➕暗号(暗号我是设置我自己的，你们需要改哦，推荐歌单可以自己加，字卡需要自己分组！)',
+fileType: 'json',
+fileName: '1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json',
+file: 'https://img.heliar.top/file/1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json'
+},
+{
+id: 'card28',
+type: 'card',
+name: "萧逸",
+author: "帅的被人砍",
+desc: "日常 情绪",
+fileType: 'json',
+fileName: "g60zbu.json",
+file: "https://files.catbox.moe/g60zbu.json",
+},
+{
+id: 'card29',
+type: 'card',
+name: "药物、症状（大部分是中药）和其他",
+author: "銮嫣",
+desc: "大部分是药材名称，适合在生病时提出建议并改善病情，增加生活感",
+fileType: 'json',
+fileName: "1774086979191_字卡偏现实.json",
+file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
+},
+{
+    id: 'card30',
+    type: 'card',
+    name: "日期专用组合包",
+    author: "十六夜",
+    desc: "日期组合用，暗号拓展补充包",
+    fileType: 'json',
+    fileName: "zw0n3d.json",
+    file: "https://files.catbox.moe/zw0n3d.json"
   }
-},
-{
-  id: 'card3',
-  type: 'card',
-  name: '秦彻字卡',
-  author: '¿?CRazy',
-  desc: '包含一些基础字卡+秦彻语录+我编的',
-  tags: ["回复"],
-  fileType: 'json',
-  fileName: '秦彻',
-  file: 'https://img.heliar.top/file/1772348005616_秦彻.json',
-},
-{
-  id: 'card4',
-  type: 'card',
-  name: '沈星回字卡库',
-  author: '金元饱',
-  desc: '适用于恋与深空-沈星回。基础字卡（有参考Milk老师预设）+角色专属的字卡/顶部格言/开场动画（大多取自游戏文本）。部分内容存在个人角度的微微微量改动，请自行斟酌使用。',
-  tags: ["回复", "表情", "状态", "开场动画"],
-  fileType: 'json',
-  fileName: 'SXH.json',
-  file: 'https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json',
-  itemCounts: {
-    "自定义回复": 449,
-    "戳一戳": 29,
-    "状态": 65,
-    "座右铭": 21,
-    "开场动画": 40,
-    "自定义表情": 57
-  }
-},
-{
-  id: 'card5',
-  type: 'card',
-  name: '一些词卡',
-  author: '1123',
-  desc: '日常聊天',
-  tags: ["回复"],
-  fileType: 'json',
-  fileName: '字卡.json',
-  file: 'https://img.heliar.top/file/1772816551108_一些字卡.json',
-  itemCounts: {
-    "自定义回复": 200
-  }
-},
-{
-  id: 'card6',
-  type: 'card',
-  name: '聊天字卡回复',
-  author: 'L',
-  desc: '日常聊天预设，字卡较多较杂',
-  tags: ["回复"],
-  fileType: 'json',
-  fileName: '聊天.json',
-  file: 'https://files.catbox.moe/xivgs7.json',
-},
-{
-  id: 'card7',
-  type: 'card',
-  name: '塔罗文字版-追加使用',
-  author: '颜荀',
-  desc: '纯文字塔罗牌字卡，有加入两张空白牌——否定与肯定，可根据个人习惯进行删减。适合对基础韦特塔罗牌的画面有一定了解的小宝使用。',
-  tags: ["塔罗", "字卡"],
-  fileType: 'json',
-  fileName: '塔罗.json',
-  file: 'https://img.heliar.top/file/1773039920012_塔罗.json',
-  itemCounts: {
-    "自定义回复": 80,
-  }
-},
-{
-  id: 'card8',
-  type: 'card',
-  name: '宝宝',
-  author: '宝宝',
-  desc: '齐司礼',
-  fileType: 'json',
-  fileName: '宝宝.json',
-  file: 'https://img.heliar.top/file/1773041531708_presets-backup.json',
-},
-{
-  id: 'card9',
-  type: 'card',
-  name: '日常用',
-  author: '星星',
-  desc: '日常聊天',
-  fileType: 'json',
-  fileName: '星星.json',
-  file: 'https://img.heliar.top/file/1773065026673_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-09.json'
-},
-{
-  id: 'card10',
-  type: 'card',
-  name: '雷诺曼卡牌',
-  author: '阿布格',
-  desc: '雷诺曼牌数量较少且牌面元素更直观 更易理解主要看牌的排列组合 可以结合牌面让deepseek 帮助解答',
-  fileType: 'json',
-  fileName: '雷诺曼.json',
-  file: 'https://img.heliar.top/file/1773129660823_雷诺曼.json'
-},
-{
-  id: 'card11',
-  type: 'card',
-  name: '义勇专属字卡',
-  author: '富冈义勇重度依赖',
-  desc: '我觉得日常聊天应该没问题，后续我会更新更多字卡，目前只有208个，如果你没有重复的话',
-  fileType: 'json',
-  fileName: '义勇.json',
-  file: 'https://img.heliar.top/file/1773129727431_reply-groups-义勇专属字卡-2026-03-10.json'
-},
-{
-  id: 'card12',
-  type: 'card',
-  name: '状态字卡',
-  author: '沈弃云',
-  desc: '一些状态补充，吃饭喝水洗澡出行……',
-  fileType: 'json',
-  fileName: '状态.json',
-  file: 'https://img.heliar.top/file/1773221829605_reply-groups-状态字卡-2026-03-11.json'
-},
-{
-  id: 'card13',
-  type: 'card',
-  name: '黎深字卡🩵',
-  author: 'momo',
-  desc: '黎深的一些语录',
-  fileType: 'json',
-  fileName: '黎深语录.json',
-  file: 'https://img.heliar.top/file/1773326106450_黎深语录.json'
-},
-{
-  id: 'card14',
-  type: 'card',
-  name: '顾时夜少量语录',
-  author: '秋砚痕',
-  desc: '顾时夜少量语录，大部分可以正常对话，推四哥的可以使用，谢谢使用！（不喜勿喷）',
-  fileType: 'json',
-  fileName: '黎深.json',
-  file: 'https://img.heliar.top/file/1773466807273_test_format1773465797.json'
-},
-{
-  id: 'card15',
-  type: 'card',
-  name: '夏以昼相关，有些杂乱',
-  author: '框框',
-  desc: '含🍎向，不喜勿下自删。参考小红书一些老师的词句。感恩每位产出的老师，我只是收集。',
-  fileType: 'json',
-  fileName: '夏以昼相关字卡.json',
-  file: 'https://img.heliar.top/file/1773566098585_夏以昼相关字卡.json'
-},
-{
-  id: 'card16',
-  type: 'card',
-  name: '歌词精选',
-  author: '百叶风笙',
-  desc: '各种歌词，如«春雪»«九万字»«love story»«是风动»«虚拟»\n你在我身畔\n听竹林正摇乱\n你是我未曾拥有无法捕捉的亲昵',
-  fileType: 'json',
-  fileName: '歌词.json',
-  file: 'https://img.heliar.top/file/1773749856570_reply-groups-歌词-2026-03-17.json https://img.heliar.top/file/1773749887677_reply-groups-歌词-2026-03-17.json'
-},
-{
-  id: 'card17',
-  type: 'card',
-  name: '陆沉字卡',
-  author: '雁归',
-  desc: '光与夜之恋陆沉包含卡面语录，互动对话，语音对话日常对话（如早上好，晚上好，吃了没，睡了没',
-  fileType: 'json',
-  fileName: '1773759253224_陆沉字卡.json',
-  file: 'https://img.heliar.top/file/1773759253224_陆沉字卡.json'
-},
-{
-  id: 'card18',
-  type: 'card',
-  name: "莫弈",
-  author: "本人社恐，无需在意",
-  desc: "一些关于莫弈的字卡",
-  fileType: 'json',
-  fileName: "1773818600562__莫弈.json",
-  file: "https://img.heliar.top/file/1773818600562__莫弈.json",
-},
-{
-  id: 'card19',
-  type: 'card',
-  name: "治愈系字卡",
-  author: "来个饭团",
-  desc: "难过时候可以用，帮助交流",
-  fileType: 'json',
-  fileName: "1774156772092_治愈系字卡.json",
-  file: "https://img.heliar.top/file/1774156772092_治愈系字卡.json",
-},
-{
-  id: 'card20',
-  type: 'card',
-  name: "查理苏（颜文字Emoji少量版）",
-  author: "云束",
-  desc: "让D老师跑的，仅限于未婚妻们使用",
-  fileType: 'json',
-  fileName: "1774158685204_charlie_replies.json",
-  file: "https://img.heliar.top/file/1774158685204_charlie_replies.json",
-},
-{
-  id: 'card21',
-  type: 'card',
-  name: "查理苏",
-  author: "云束",
-  desc: "让D老师跑的，仅限于未婚妻们使用",
-  fileType: 'json',
-  fileName: "1774156190652_charlie_final.json",
-  file: "https://img.heliar.top/file/1774156190652_charlie_final.json",
-},
-{
-  id: 'card22',
-  type: 'card',
-  name: "祁煜台词向",
-  author: "隐姓埋名的保镖",
-  desc: "恋与深空男主祁煜主页交互及部分短信，秘密时光原台词。个人选了一些觉得适合做字卡的，共493条。",
-  fileType: 'json',
-  fileName: "1774033690540_reply-groups-台词向-2026-03-20.json",
-  file: "https://img.heliar.top/file/1774033690540_reply-groups-台词向-2026-03-20.json",
-},
-{
-  id: 'card23',
-  type: 'card',
-  name: "日常聊天",
-  author: "松岛",
-  desc: "刀剑乱舞乙女向",
-  fileType: 'json',
-  fileName: "l0wrpd.json",
-  file: "https://files.catbox.moe/l0wrpd.json",
-},
-{
-  id: 'card24',
-  type: 'card',
-  name: "陆沉语料库（600+字卡）",
-  author: "lulu",
-  desc: "本语料库以陆沉的人格画像、行为性格为基底，参考游戏剧情、官方设定及同人二创中的语言风格，覆盖日常生活、工作学业、情感关系、社交友谊、家庭议题、心理状态、特殊时刻七大类别，共600+条回复。",
-  fileType: 'json',
-  fileName: "1y3qvt.json",
-  file: "https://files.catbox.moe/1y3qvt.json",
-},
-{
-  id: 'card25',
-  type: 'card',
-  name: "萧逸",
-  author: "帅的被人砍",
-  desc: "日常 状态 心情",
-  fileType: 'json',
-  fileName: "spklij.json",
-  file: "https://files.catbox.moe/spklij.json",
-},
-{
-  id: 'card26',
-  type: 'card',
-  name: "日常吃饭相关",
-  author: "Latus",
-  desc: "大概是一些日常对话用得上的吃饭相关内容，有点杂",
-  fileType: 'json',
-  fileName: "jk0hdq.json",
-  file: "https://files.catbox.moe/jk0hdq.json",
-},
-{
-  id: 'card27',
-  type: 'card',
-  name: '祁煜字卡分享',
-  author: '小优神',
-  desc: '祁煜日常聊天字卡，日常互动➕语录➕吃🍎➕颜文字➕暗号(暗号我是设置我自己的，你们需要改哦，推荐歌单可以自己加，字卡需要自己分组！)',
-  fileType: 'json',
-  fileName: '1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json',
-  file: 'https://img.heliar.top/file/1773264519062_reply-library-replies_pokes_statuses_mottos_intros_emojis_groups-2026-03-11__1_.json'
-},
-{
-  id: 'card28',
-  type: 'card',
-  name: "萧逸",
-  author: "帅的被人砍",
-  desc: "日常 情绪",
-  fileType: 'json',
-  fileName: "g60zbu.json",
-  file: "https://files.catbox.moe/g60zbu.json",
-},
-{
-  id: 'card29',
-  type: 'card',
-  name: "药物、症状（大部分是中药）和其他",
-  author: "銮嫣",
-  desc: "大部分是药材名称，适合在生病时提出建议并改善病情，增加生活感",
-  fileType: 'json',
-  fileName: "1774086979191_字卡偏现实.json",
-  file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
-},
-{
-id:'card30',
-type:'card',
-name:"日期专用组合包",
-author:"十六夜",
-desc:"日期组合用，暗号拓展补充包",
-fileType:'json',
-fileName:"zw0n3d.json",
-file:"https://files.catbox.moe/zw0n3d.json";
-},
 ];
 
-const THEMES = [{
-  id: 'th1',
-  type: 'theme',
-  name: 'Milk 粉',
-  author: 'milk',
-  desc: '温柔粉色系主题，渐变顶栏 + 粉色发送按钮，适合浪漫日常风格。',
-  tags: ['粉色', '温柔', '浪漫'],
-  colors: ['#fdf6f8', '#e8749a', '#f4a0bc', '#fff0f4', '#3d2030'],
-  css: `:root {
---primary-bg: #fdf6f8;
---secondary-bg: #fff0f4;
---accent-color: #e8749a;
---accent-color-rgb: 232, 116, 154;
---text-primary: #3d2030;
---text-secondary: #a08090;
---border-color: rgba(232, 116, 154, 0.15);
---chat-bg: #fef8fa;
-}
+const THEMES =[
+  {
+    id: 'th1',
+    type: 'theme',
+    name: 'Milk 粉',
+    author: 'milk',
+    desc: '温柔粉色系主题，渐变顶栏 + 粉色发送按钮，适合浪漫日常风格。',
+    tags: ['粉色', '温柔', '浪漫'],
+    colors:['#fdf6f8', '#e8749a', '#f4a0bc', '#fff0f4', '#3d2030'],
+    css: `:root {
+      --primary-bg: #fdf6f8;
+      --secondary-bg: #fff0f4;
+      --accent-color: #e8749a;
+      --accent-color-rgb: 232, 116, 154;
+      --text-primary: #3d2030;
+      --text-secondary: #a08090;
+      --border-color: rgba(232, 116, 154, 0.15);
+      --chat-bg: #fef8fa;
+    }
 
-#partner-info {
-background: linear-gradient(135deg, #fff0f4 0%, #fde8ef 100%);
-border-bottom: 1px solid rgba(232, 116, 154, 0.2);
-box-shadow: 0 2px 12px rgba(232, 116, 154, 0.08);
-}
+    #partner-info {
+      background: linear-gradient(135deg, #fff0f4 0%, #fde8ef 100%);
+      border-bottom: 1px solid rgba(232, 116, 154, 0.2);
+      box-shadow: 0 2px 12px rgba(232, 116, 154, 0.08);
+    }
 
-#input-area {
-background: #fff0f4;
-border-top: 1px solid rgba(232, 116, 154, 0.15);
-}
+    #input-area {
+      background: #fff0f4;
+      border-top: 1px solid rgba(232, 116, 154, 0.15);
+    }
 
-#message-input {
-background: #fff;
-border: 1.5px solid rgba(232, 116, 154, 0.25);
-border-radius: 20px;
-color: #3d2030;
-}
+    #message-input {
+      background: #fff;
+      border: 1.5px solid rgba(232, 116, 154, 0.25);
+      border-radius: 20px;
+      color: #3d2030;
+    }
 
-#message-input:focus {
-border-color: #e8749a;
-box-shadow: 0 0 0 3px rgba(232, 116, 154, 0.1);
-}
+    #message-input:focus {
+      border-color: #e8749a;
+      box-shadow: 0 0 0 3px rgba(232, 116, 154, 0.1);
+    }
 
-#send-btn {
-background: linear-gradient(135deg, #f4a0bc, #e8749a);
-box-shadow: 0 4px 14px rgba(232, 116, 154, 0.4);
-border-radius: 14px;
-}
+    #send-btn {
+      background: linear-gradient(135deg, #f4a0bc, #e8749a);
+      box-shadow: 0 4px 14px rgba(232, 116, 154, 0.4);
+      border-radius: 14px;
+    }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-background: rgba(232, 116, 154, 0.3);
-border-radius: 4px;
-}
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(232, 116, 154, 0.3);
+      border-radius: 4px;
+    }
 
-.modal-content {
-background: #fff8fa;
-border: 1px solid rgba(232, 116, 154, 0.15);
-box-shadow: 0 20px 50px rgba(232, 116, 154, 0.12);
-}
+    .modal-content {
+      background: #fff8fa;
+      border: 1px solid rgba(232, 116, 154, 0.15);
+      box-shadow: 0 20px 50px rgba(232, 116, 154, 0.12);
+    }
 
-.settings-card {
-background: #fff;
-border: 1.5px solid rgba(232, 116, 154, 0.15);
-}
-.settings-card:hover {
-border-color: #e8749a;
-background: #fff5f8;
-}`
-},
-{
-  id: 'th2',
-  type: 'theme',
-  name: '蓝',
-  author: '文夏',
-  desc: '浅色蓝',
-  tags: ["蓝色"],
-  colors: ["#f6f9ff,#eaf4ff,#4a90e2,#2a3a52,#7a8ca6"],
-  css: `:root {
---primary-bg: #f6f9ff;
---secondary-bg: #eaf4ff;
---accent-color: #4a90e2;
---accent-color-rgb: 74, 144, 226;
---text-primary: #2a3a52;
---text-secondary: #7a8ca6;
---border-color: rgba(74, 144, 226, 0.15);
---chat-bg: #f9fbff;
-}
+    .settings-card {
+      background: #fff;
+      border: 1.5px solid rgba(232, 116, 154, 0.15);
+    }
+    .settings-card:hover {
+      border-color: #e8749a;
+      background: #fff5f8;
+    }`
+  },
+  {
+    id: 'th2',
+    type: 'theme',
+    name: '蓝',
+    author: '文夏',
+    desc: '浅色蓝',
+    tags: ["蓝色"],
+    colors:["#f6f9ff", "#eaf4ff", "#4a90e2", "#2a3a52", "#7a8ca6"],
+    css: `:root {
+      --primary-bg: #f6f9ff;
+      --secondary-bg: #eaf4ff;
+      --accent-color: #4a90e2;
+      --accent-color-rgb: 74, 144, 226;
+      --text-primary: #2a3a52;
+      --text-secondary: #7a8ca6;
+      --border-color: rgba(74, 144, 226, 0.15);
+      --chat-bg: #f9fbff;
+    }
 
-#partner-info {
-background: linear-gradient(135deg, #eaf4ff 0%, #dcebff 100%);
-border-bottom: 1px solid rgba(74, 144, 226, 0.2);
-box-shadow: 0 2px 12px rgba(74, 144, 226, 0.08);
-}
+    #partner-info {
+      background: linear-gradient(135deg, #eaf4ff 0%, #dcebff 100%);
+      border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+      box-shadow: 0 2px 12px rgba(74, 144, 226, 0.08);
+    }
 
-#input-area {
-background: #eaf4ff;
-border-top: 1px solid rgba(74, 144, 226, 0.15);
-}
+    #input-area {
+      background: #eaf4ff;
+      border-top: 1px solid rgba(74, 144, 226, 0.15);
+    }
 
-#message-input {
-background: #fff;
-border: 1.5px solid rgba(74, 144, 226, 0.25);
-border-radius: 20px;
-color: #2a3a52;
-}
+    #message-input {
+      background: #fff;
+      border: 1.5px solid rgba(74, 144, 226, 0.25);
+      border-radius: 20px;
+      color: #2a3a52;
+    }
 
-#message-input:focus {
-border-color: #4a90e2;
-box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-}
+    #message-input:focus {
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
 
-#send-btn {
-background: linear-gradient(135deg, #7cb0e8, #4a90e2);
-box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
-border-radius: 14px;
-}
+    #send-btn {
+      background: linear-gradient(135deg, #7cb0e8, #4a90e2);
+      box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
+      border-radius: 14px;
+    }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-background: rgba(74, 144, 226, 0.3);
-border-radius: 4px;
-}
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(74, 144, 226, 0.3);
+      border-radius: 4px;
+    }
 
-.modal-content {
-background: #f9fbff;
-border: 1px solid rgba(74, 144, 226, 0.15);
-box-shadow: 0 20px 50px rgba(74, 144, 226, 0.12);
-}
+    .modal-content {
+      background: #f9fbff;
+      border: 1px solid rgba(74, 144, 226, 0.15);
+      box-shadow: 0 20px 50px rgba(74, 144, 226, 0.12);
+    }
 
-.settings-card {
-background: #fff;
-border: 1.5px solid rgba(74, 144, 226, 0.15);
-}
-.settings-card:hover {
-border-color: #4a90e2;
-background: #f0f7ff;
-}`
-},
-{
-  id: 'th3',
-  type: 'theme',
-  name: '芝芝桃',
-  author: 'Yuki小月',
-  desc: '粉黄色系(◍ ´꒳` ◍)有气泡和按键美化',
-  tags: [],
-  colors: ["#FFF9E6，#FFDDE3，#FFF5F6"],
-  css: `@font-face {
+    .settings-card {
+      background: #fff;
+      border: 1.5px solid rgba(74, 144, 226, 0.15);
+    }
+    .settings-card:hover {
+      border-color: #4a90e2;
+      background: #f0f7ff;
+    }`
+  },
+  {
+    id: 'th3',
+    type: 'theme',
+    name: '芝芝桃',
+    author: 'Yuki小月',
+    desc: '粉黄色系(◍ ´꒳`◍) 有气泡和按键美化 ',
+    tags:[],
+    colors: ["#FFF9E6", "#FFDDE3", "#FFF5F6"],
+    css: `@font-face {
 font-family: 'SweetCustomFont';
 src: url('https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf') format('truetype');
 font-weight: normal; font-style: normal;
@@ -11812,16 +11858,16 @@ pointer-events: none; background-repeat: no-repeat; background-size: contain; ba
 body.with-background .message-received:not(:has(img)), body.with-background .message-sent:not(:has(img)) { background-image: none !important; backdrop-filter: none !important; opacity: 1 !important; }
 body.with-background .message-received:not(:has(img)) { background-color: var(--yellow-bubble) !important; }
 body.with-background .message-sent:not(:has(img)) { background-color: var(--pink-bubble) !important; }`
-},
-{
-id:'th4',
-type:'theme',
-name:"深蓝主题",
-author:"过境",
-desc:"以深蓝为主 眼睛友好",
-tags:[],
-colors:[],
-css:`/* ===================== 全局变量 ===================== */
+  },
+  {
+    id: 'th4',
+    type: 'theme',
+    name: "深蓝主题",
+    author: "过境",
+    desc: "以深蓝为主 眼睛友好",
+    tags: [],
+    colors:[],
+    css: `/* ===================== 全局变量 ===================== */
 :root {
 --primary-bg: #1a1f2b;
 --secondary-bg: #212837;
@@ -11989,11 +12035,10 @@ box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 /* ===================== 工具栏按钮 ===================== */
-.toolbar-btn,
-[class*="toolbar-btn"],
+.toolbar-btn,[class*="toolbar-btn"],
 #toolbar button,
 .tool-btn {
-background: var(--toolbar-btn-bg); /* ★ 使用变量 */
+background: var(--toolbar-btn-bg);
 backdrop-filter: blur(6px);
 -webkit-backdrop-filter: blur(6px);
 border: 1px solid rgba(212, 175, 55, 0.25);
@@ -12001,8 +12046,7 @@ border-radius: 12px;
 color: #e2e8f0;
 transition: all 0.2s;
 }
-.toolbar-btn:hover,
-[class*="toolbar-btn"]:hover,
+.toolbar-btn:hover,[class*="toolbar-btn"]:hover,
 .tool-btn:hover {
 background: rgba(40, 50, 65, 0.8);
 border-color: #d4af37;
@@ -12047,7 +12091,7 @@ rgba(191, 219, 254, 0.7),
 rgba(147, 197, 253, 0.5)
 );
 border-radius: 20px 20px 6px 20px;
-color: var(--message-sent-text); /* ★ 使用变量 */
+color: var(--message-sent-text);
 }
 
 /* 我方气泡内的图标（确保使用变量） */
@@ -12066,7 +12110,7 @@ rgba(179, 215, 255, 0.75),
 rgba(120, 180, 250, 0.65)
 );
 border-radius: 20px 20px 20px 6px;
-color: #0f172a; /* 对方气泡用深色文字 */
+color: #0f172a;
 }
 
 /* ===================== 悬浮弹动 ===================== */
@@ -12154,634 +12198,635 @@ pointer-events: none;
 z-index: 99;
 animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
 }`
-},
+  }
 ];
 
-const MUSIC = [{
-  id: 'mus1',
-  type: 'music',
-  name: '第一场雪',
-  author: 'stone',
-  desc: '冬天听的音乐，适合白色系界面',
-  tags: ['纯音乐', '冬日'],
-  fileType: 'mp3',
-  fileName: 'first_snow.mp3',
-  file: 'https://files.catbox.moe/example4.mp3',
-  duration: '3:45',
-  exportDate: '2025-01-05'
-},
-{
-  id: 'mus2',
-  type: 'music',
-  name: 'MoNo',
-  author: '銮嫣',
-  artist: '花墙FancyWall',
-  desc: '风格轻缓慵懒，像夏日盐汽水，清爽',
-  tags: ["电子", "氛围感", "慵懒"],
-  fileType: 'mp3',
-  fileName: 'url?id=1845553824.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=1845553824.mp3',
-  duration: '1:46',
-  exportDate: '2026-03-09'
-},
-{
-  id: 'mus3',
-  type: 'music',
-  name: 'Half Blood Angel',
-  author: '銮嫣',
-  artist: 'Brian Cheng',
-  desc: '比较活泼的音乐，俏皮轻松，适合室外。',
-  tags: ["流行", "活泼"],
-  fileType: 'mp3',
-  fileName: 'url?id=2635248857.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=2635248857.mp3',
-  duration: '3:42',
-  exportDate: '2026-03-09'
-},
-{
-  id: 'mus4',
-  type: 'music',
-  name: 'A Faint Glow Of Life 生命的微光',
-  author: '銮嫣',
-  artist: '结冰水',
-  desc: '丰富的编曲，适合在夜晚朦胧的灯光下听',
-  tags: ["流行", "温柔"],
-  fileType: 'mp3',
-  fileName: 'url?id=2065544118.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=2065544118.mp3',
-  duration: '4:12',
-  exportDate: '2026-03-09'
-},
-{
-  id: 'mus5',
-  type: 'music',
-  name: '偏爱',
-  author: 'YY～',
-  artist: '等你的依赖， 对你偏爱',
-  fileType: 'mp3',
-  fileName: 'url?id=5238992.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=5238992.mp3'
-},
-{
-  id: 'mus6',
-  type: 'music',
-  name: '我走以后',
-  author: '廿一',
-  artist: '水仙LONE',
-  fileType: 'mp3',
-  fileName: 'url?id=3347121761.mp3',
-  file: 'http://music.163.com/song/media/outer/url?id=3347121761.mp3'
-},
-{
-  id: 'mus7',
-  type: 'music',
-  name: 'first snow',
-  author: 'Yauuiu_',
-  artist: '松下優也',
-  fileType: 'm4a',
-  fileName: '1773543103115_first_snow.mp3.m4a',
-  file: 'https://img.heliar.top/file/1773543103115_first_snow.mp3.m4a'
-},
-{
-  id: 'mus8',
-  type: 'music',
-  name: '恋人',
-  author: 'Yauuiu_',
-  artist: '李荣浩',
-  fileType: 'm4a',
-  fileName: '1773544800453_%E6%81%8B%E4%BA%BA.m4a',
-  file: 'https://img.heliar.top/file/1773544800453_%E6%81%8B%E4%BA%BA.m4a'
-},
-{
-  id: 'mus9',
-  type: 'music',
-  name: 'Try Again',
-  author: 'Yauuiu_',
-  artist: 'd.ear/在玹',
-  fileType: 'm4a',
-  fileName: '1773547908044_Try_Again.m4a',
-  file: 'https://img.heliar.top/file/1773547908044_Try_Again.m4a'
-},
-{
-  id: 'mus10',
-  type: 'music',
-  name: 'solitude',
-  author: 'Yauuiu_',
-  artist: 'vietra',
-  fileType: 'm4a',
-  fileName: '1773547910130_solitude.m4a',
-  file: 'https://img.heliar.top/file/1773547910130_solitude.m4a'
-},
-{
-  id: 'mus11',
-  type: 'music',
-  name: 'My Love Mine All Mine',
-  author: 'Yauuiu_',
-  artist: 'Mitski',
-  fileType: 'm4a',
-  fileName: '1773547910084_My_Love_Mine_All_Mine.m4a',
-  file: 'https://img.heliar.top/file/1773547910084_My_Love_Mine_All_Mine.m4a'
-},
-{
-  id: 'mus12',
-  type: 'music',
-  name: '还是会寂寞',
-  author: 'Yauuiu_',
-  artist: '陈绮贞',
-  fileType: 'm4a',
-  fileName: '1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a',
-  file: 'https://img.heliar.top/file/1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a'
-},
-{
-  id: 'mus13',
-  type: 'music',
-  name: '첫 눈 (初雪)',
-  author: 'Yauuiu_',
-  artist: 'EXO',
-  fileType: 'm4a',
-  fileName: '1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a',
-  file: 'https://img.heliar.top/file/1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a'
-},
-{
-  id: 'mus14',
-  type: 'music',
-  name: '同手同脚',
-  author: '初言',
-  artist: '我会永远在你身边陪着你',
-  fileType: 'mp3',
-  fileName: 'url?id=2728443982.mp3',
-  file: 'http://music.163.com/song/media/outer/url?id=2728443982.mp3'
-},
-{
-  id: 'mus15',
-  type: 'music',
-  name: '天赋',
-  author: '送信员',
-  artist: '唐嫣/罗晋',
-  fileType: 'mp3',
-  fileName: 'audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3',
-  file: 'https://mv.ttaibot.com/down/audio_extract/audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3'
-},
-{
-  id: 'mus16',
-  type: 'music',
-  name: '有我呢',
-  author: '言夏',
-  artist: '-别怕 亲爱的 有我呢-',
-  fileType: 'mp3',
-  fileName: '1772963476760_郭一凡_-_有我呢.mp3',
-  file: 'https://img.heliar.top/file/1772963476760_郭一凡_-_有我呢.mp3'
-},
-{
-  id: 'mus17',
-  type: 'music',
-  name: 'Dear D',
-  author: '言夏',
-  artist: '-好想好想在一起-',
-  fileType: 'mp3',
-  fileName: '1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3',
-  file: 'https://img.heliar.top/file/1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3'
-},
-{
-  id: 'mus18',
-  type: 'music',
-  name: '孤单北半球',
-  author: '言夏',
-  artist: '-想念不会偷懒 我的梦通通给你保管-',
-  fileType: 'mp3',
-  fileName: '1772963472128_林依晨_-_孤单北半球.mp3',
-  file: 'https://img.heliar.top/file/1772963472128_林依晨_-_孤单北半球.mp3'
-},
-{
-  id: 'mus19',
-  type: 'music',
-  name: '恶作剧',
-  author: '言夏',
-  artist: '-我想我会开始想念你-',
-  fileType: 'mp3',
-  fileName: '1772965264360_林依晨_-_恶作剧.mp3',
-  file: 'https://img.heliar.top/file/1772965264360_林依晨_-_恶作剧.mp3'
-},
-{
-  id: 'mus20',
-  type: 'music',
-  name: '当你',
-  author: '言夏',
-  artist: '-好喜欢你 知不知道-',
-  fileType: 'mp3',
-  fileName: '1772964503074_林俊杰_-_当你.mp3',
-  file: 'https://img.heliar.top/file/1772964503074_林俊杰_-_当你.mp3'
-},
-{
-  id: 'mus21',
-  type: 'music',
-  name: '小半',
-  author: '言夏',
-  artist: '-我的心借了你的光是明是暗-',
-  fileType: 'mp3',
-  fileName: '1772964128402_陈粒_-_小半.mp3',
-  file: 'https://img.heliar.top/file/1772964128402_陈粒_-_小半.mp3'
-},
-{
-  id: 'mus22',
-  type: 'music',
-  name: '虚拟',
-  author: 'xiory',
-  artist: '（翻唱）小馨宝宝',
-  fileType: 'mp3',
-  fileName: 'url?id=2119200940.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=2119200940.mp3'
-},
-{
-  id: 'mus23',
-  type: 'music',
-  name: '有我呢（翻唱）',
-  author: 'xiory',
-  artist: '番番',
-  fileType: 'mp3',
-  fileName: 'url?id=3324365041.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=3324365041.mp3'
-},
-{
-  id: 'mus24',
-  type: 'music',
-  name: '多远都要在一起',
-  author: 'xiory',
-  artist: '激情男声版',
-  fileType: 'mp3',
-  fileName: 'url?id=3356334358.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=3356334358.mp3'
-},
-{
-  id: 'mus25',
-  type: 'music',
-  name: '永不失联的爱',
-  author: 'xiory',
-  artist: '男声版',
-  fileType: 'mp3',
-  fileName: 'url?id=3317929522.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=3317929522.mp3'
-},
-{
-  id: 'mus26',
-  type: 'music',
-  name: '次元恋人',
-  author: 'xiory',
-  artist: '印子月',
-  fileType: 'mp3',
-  fileName: 'url?id=2689771833.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=2689771833.mp3'
-},
-{
-  id: 'mus27',
-  type: 'music',
-  name: '你在 不在（emo版）',
-  author: 'xiory',
-  artist: 'cici_',
-  fileType: 'mp3',
-  fileName: 'url?id=2735939731.mp3',
-  file: 'https://music.163.com/song/media/outer/url?id=2735939731.mp3'
-},
-{
-  id: 'mus28',
-  type: 'music',
-  name: "第三个吻痕（暧昧版）",
-  author: "巴某人",
-  artist: "何水水",
-  fileType: 'mp3',
-  fileName: "1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
-  file: "https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
-},
-{
-  id: 'mus29',
-  type: 'music',
-  name: "有我呢",
-  author: "巴某人",
-  artist: "郭一凡",
-  fileType: 'mp3',
-  fileName: "1773904895447_郭一凡-有我呢_20260319_151935.mp3",
-  file: "https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3",
-},
-{
-  id: 'mus30',
-  type: 'music',
-  name: "以你为名的奇遇",
-  author: "翊甜",
-  artist: "池绛不吃姜/祁煜0306生贺企划",
-  desc: "2026祁煜生贺",
-  fileType: 'mp3',
-  fileName: "url?id=3354782658.mp3",
-  file: "http://music.163.com/song/media/outer/url?id=3354782658.mp3",
-},
-{
-  id: 'mus31',
-  type: 'music',
-  name: "All I Have Is Love",
-  author: "千",
-  artist: "Stevie Hoang",
-  desc: "英文小情歌，适合边聊边听",
-  fileType: 'mp3',
-  fileName: "url?id=1940368.mp3",
-  file: "http://music.163.com/song/media/outer/url?id=1940368.mp3",
-},
-{
-  id: 'mus32',
-  type: 'music',
-  name: "零距离的想念",
-  author: "礼啦啦啦",
-  artist: "TINY-7",
-  fileType: 'mp3',
-  fileName: "1774173204769_TINY7_-_零距离的思念.mp3",
-  file: "https://img.heliar.top/file/1774173204769_TINY7_-_零距离的思念.mp3",
-},
-{
-  id: 'mus33',
-  type: 'music',
-  name: "say yes",
-  author: "礼啦啦啦",
-  artist: "loco Punch",
-  desc: "甜甜的韩文小情歌",
-  fileType: 'mp3',
-  fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
-  file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3",
-},
-{
-  id: 'mus34',
-  type: 'music',
-  name: "say yes",
-  author: "礼啦啦啦",
-  artist: "loco Punch",
-  desc: "甜甜的韩文小情歌",
-  fileType: 'mp3',
-  fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
-  file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3",
-},
-{
-  id: 'mus35',
-  type: 'music',
-  name: "该怎么办",
-  author: "oiove3",
-  artist: "TC",
-  desc: "没有你我该怎么办",
-  fileType: 'mp3',
-  fileName: "url?id=2032201541.mp3",
-  file: "https://music.163.com/song/media/outer/url?id=2032201541.mp3",
-},
-{
-  id: 'mus36',
-  type: 'music',
-  name: "依兰爱情故事",
-  author: "mm",
-  artist: "方天雷",
-  desc: "我活着是你的人啊，死了是你的鬼啊",
-  fileType: 'mp3',
-  fileName: "ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
-  file: "http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
-},
-{
-  id: 'mus37',
-  type: 'music',
-  name: "台北某个地方",
-  author: "言夏",
-  artist: "陈绮贞",
-  desc: "-沙漠里的收音机 接收不到你的频率-",
-  fileType: 'mp3',
-  fileName: "1772964119307_陈绮贞_-_台北某个地方.mp3",
-  file: "https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3",
-},
-{
-  id: 'mus38',
-  type: 'music',
-  name: "鱼",
-  author: "言夏",
-  artist: "陈绮贞",
-  desc: "-别让我飞 将我温柔豢养 原谅我飞 曾经眷恋太阳-",
-  fileType: 'mp3',
-  fileName: "1772964135537_陈绮贞_-_鱼.mp3",
-  file: "https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3",
-},
-{
-  id: 'mus39',
-  type: 'music',
-  name: "太阳",
-  author: "言夏",
-  artist: "陈绮贞",
-  desc: "-你是我 小心维护的梦-",
-  fileType: 'mp3',
-  fileName: "1772964130543_陈绮贞_-_太阳.mp3",
-  file: "https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3",
-},
-{
-  id: 'mus40',
-  type: 'music',
-  name: "躺在你的衣柜（Piano）",
-  author: "言夏",
-  artist: "陈绮贞",
-  desc: "-我的冬天 就要来了-",
-  fileType: 'mp3',
-  fileName: "1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
-  file: "https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
-},
-{
-  id: 'mus41',
-  type: 'music',
-  name: "我喜欢上你时的内心活动",
-  author: "言夏",
-  artist: "陈绮贞",
-  desc: "-你靠着车窗 我心脏一旁-",
-  fileType: 'mp3',
-  fileName: "1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
-  file: "https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
-},
-{
-  id: 'mus42',
-  type: 'music',
-  name: "和你",
-  author: "七七",
-  artist: "余佳运",
-  fileType: 'mp3',
-  fileName: "url?id=420401511.mp3",
-  file: "http://music.163.com/song/media/outer/url?id=420401511.mp3",
-},
-{
-  id: 'mus43',
-  type: 'music',
-  name: "不渝的爱",
-  author: "亦有归途.",
-  group: 'g-sub-68njte',
-  groupLabel: "夏萧因24年与25年的生日主题歌",
-  desc: "世界之外夏萧因的生日主题歌",
-  fileType: 'mp3',
-  fileName: "url?id=2623751862.mp3",
-  file: "http://music.163.com/song/media/outer/url?id=2623751862.mp3",
-},
-{
-  id: 'mus44',
-  type: 'music',
-  name: "笑我多情",
-  author: "亦有归途.",
-  group: 'g-sub-68njte',
-  groupLabel: "夏萧因24年与25年的生日主题歌",
-  fileType: 'mp3',
-  fileName: "url?id=2742741776.mp3",
-  file: "http://music.163.com/song/media/outer/url?id=2742741776.mp3",
-},
-{
-  id:'mus45',
-  type:'music',
-  name:"永远永远",
-  author:"milk",
-  fileType:'mp3',
-  fileName:"永远永远.mp3",
-  file:"https://files.catbox.moe/2lcm70.mp3";
-},
-{
-  id:'mus46',
-  type:'music',
-  name:"红线",
-  author:"white",
-  group:'g-white',
-  groupLabel:"🎧",
-  artist:"邹沛沛/pank",
-  desc:"(＞人＜;)",
-  duration:"3:26",
-  fileType:'mp3',
-  fileName:"url?id=3343519052.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=3343519052.mp3";
-},
-{
-  id:'mus47',
-  type:'music',
-  name:"愿",
-  author:"white",
-  group:'g-white',
-  groupLabel:"🎧",
-  artist:"郑国峰",
-  desc:"(￣▽￣)",
-  duration:"4:00",
-  fileType:'mp3',
-  fileName:"url?id=1924801790.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=1924801790.mp3";
-},
-{
-  id:'mus48',
-  type:'music',
-  name:"月亮与六便士",
-  author:"white",
-  group:'g-white',
-  groupLabel:"🎧",
-  artist:"邹沛沛/sasuke",
-  desc:"(｡ì _ í｡)",
-  duration:"2:45",
-  fileType:'mp3',
-  fileName:"url?id=2099907912.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=2099907912.mp3";
-},
-{
-  id:'mus49',
-  type:'music',
-  name:"唯一",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"邓紫棋",
-  fileType:'mp3',
-  fileName:"1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3",
-  file:"https://videotourl.com/audio/1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3";
-},
-{
-  id:'mus50',
-  type:'music',
-  name:"同花顺",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"林倛玉",
-  fileType:'mp3',
-  fileName:"1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3",
-  file:"https://videotourl.com/audio/1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3";
-},
-{
-  id:'mus51',
-  type:'music',
-  name:"第三个吻痕",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  fileType:'m4a',
-  fileName:"1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a",
-  file:"https://videotourl.com/audio/1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a";
-},
-{
-  id:'mus52',
-  type:'music',
-  name:"富士山下",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"陈奕迅",
-  fileType:'mp3',
-  fileName:"1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3",
-  file:"https://videotourl.com/audio/1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3";
-},
-{
-  id:'mus53',
-  type:'music',
-  name:"处处吻",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"杨千嬅",
-  fileType:'mp3',
-  fileName:"1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3",
-  file:"https://videotourl.com/audio/1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3";
-},
-{
-  id:'mus54',
-  type:'music',
-  name:"孤雏",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  fileType:'mp3',
-  fileName:"1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3",
-  file:"https://videotourl.com/audio/1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3";
-},
-{
-  id:'mus55',
-  type:'music',
-  name:"我怀念的",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"林俊杰",
-  fileType:'mp3',
-  fileName:"1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3",
-  file:"https://videotourl.com/audio/1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3";
-},
-{
-  id:'mus53',
-  type:'music',
-  name:"Wonderful U",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  fileType:'mp3',
-  fileName:"1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3",
-  file:"https://videotourl.com/audio/1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3";
-},
-{
-  id:'mus54',
-  type:'music',
-  name:"锁",
-  author:"SYyy",
-  group:'g-sub-8n26md',
-  groupLabel:"鱼",
-  artist:"张子墨",
-  fileType:'mp3',
-  fileName:"1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3",
-  file:"https://videotourl.com/audio/1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3";
-},
+const MUSIC =[
+  {
+    id: 'mus1',
+    type: 'music',
+    name: '第一场雪',
+    author: 'stone',
+    desc: '冬天听的音乐，适合白色系界面',
+    tags: ['纯音乐', '冬日'],
+    fileType: 'mp3',
+    fileName: 'first_snow.mp3',
+    file: 'https://files.catbox.moe/example4.mp3',
+    duration: '3:45',
+    exportDate: '2025-01-05'
+  },
+  {
+    id: 'mus2',
+    type: 'music',
+    name: 'MoNo',
+    author: '銮嫣',
+    artist: '花墙FancyWall',
+    desc: '风格轻缓慵懒，像夏日盐汽水，清爽',
+    tags: ["电子", "氛围感", "慵懒"],
+    fileType: 'mp3',
+    fileName: 'url?id=1845553824.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=1845553824.mp3',
+    duration: '1:46',
+    exportDate: '2026-03-09'
+  },
+  {
+    id: 'mus3',
+    type: 'music',
+    name: 'Half Blood Angel',
+    author: '銮嫣',
+    artist: 'Brian Cheng',
+    desc: '比较活泼的音乐，俏皮轻松，适合室外。',
+    tags:["流行", "活泼"],
+    fileType: 'mp3',
+    fileName: 'url?id=2635248857.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2635248857.mp3',
+    duration: '3:42',
+    exportDate: '2026-03-09'
+  },
+  {
+    id: 'mus4',
+    type: 'music',
+    name: 'A Faint Glow Of Life 生命的微光',
+    author: '銮嫣',
+    artist: '结冰水',
+    desc: '丰富的编曲，适合在夜晚朦胧的灯光下听',
+    tags: ["流行", "温柔"],
+    fileType: 'mp3',
+    fileName: 'url?id=2065544118.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2065544118.mp3',
+    duration: '4:12',
+    exportDate: '2026-03-09'
+  },
+  {
+    id: 'mus5',
+    type: 'music',
+    name: '偏爱',
+    author: 'YY～',
+    artist: '等你的依赖， 对你偏爱',
+    fileType: 'mp3',
+    fileName: 'url?id=5238992.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=5238992.mp3'
+  },
+  {
+    id: 'mus6',
+    type: 'music',
+    name: '我走以后',
+    author: '廿一',
+    artist: '水仙LONE',
+    fileType: 'mp3',
+    fileName: 'url?id=3347121761.mp3',
+    file: 'http://music.163.com/song/media/outer/url?id=3347121761.mp3'
+  },
+  {
+    id: 'mus7',
+    type: 'music',
+    name: 'first snow',
+    author: 'Yauuiu_',
+    artist: '松下優也',
+    fileType: 'm4a',
+    fileName: '1773543103115_first_snow.mp3.m4a',
+    file: 'https://img.heliar.top/file/1773543103115_first_snow.mp3.m4a'
+  },
+  {
+    id: 'mus8',
+    type: 'music',
+    name: '恋人',
+    author: 'Yauuiu_',
+    artist: '李荣浩',
+    fileType: 'm4a',
+    fileName: '1773544800453_%E6%81%8B%E4%BA%BA.m4a',
+    file: 'https://img.heliar.top/file/1773544800453_%E6%81%8B%E4%BA%BA.m4a'
+  },
+  {
+    id: 'mus9',
+    type: 'music',
+    name: 'Try Again',
+    author: 'Yauuiu_',
+    artist: 'd.ear/在玹',
+    fileType: 'm4a',
+    fileName: '1773547908044_Try_Again.m4a',
+    file: 'https://img.heliar.top/file/1773547908044_Try_Again.m4a'
+  },
+  {
+    id: 'mus10',
+    type: 'music',
+    name: 'solitude',
+    author: 'Yauuiu_',
+    artist: 'vietra',
+    fileType: 'm4a',
+    fileName: '1773547910130_solitude.m4a',
+    file: 'https://img.heliar.top/file/1773547910130_solitude.m4a'
+  },
+  {
+    id: 'mus11',
+    type: 'music',
+    name: 'My Love Mine All Mine',
+    author: 'Yauuiu_',
+    artist: 'Mitski',
+    fileType: 'm4a',
+    fileName: '1773547910084_My_Love_Mine_All_Mine.m4a',
+    file: 'https://img.heliar.top/file/1773547910084_My_Love_Mine_All_Mine.m4a'
+  },
+  {
+    id: 'mus12',
+    type: 'music',
+    name: '还是会寂寞',
+    author: 'Yauuiu_',
+    artist: '陈绮贞',
+    fileType: 'm4a',
+    fileName: '1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a',
+    file: 'https://img.heliar.top/file/1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a'
+  },
+  {
+    id: 'mus13',
+    type: 'music',
+    name: '첫 눈 (初雪)',
+    author: 'Yauuiu_',
+    artist: 'EXO',
+    fileType: 'm4a',
+    fileName: '1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a',
+    file: 'https://img.heliar.top/file/1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a'
+  },
+  {
+    id: 'mus14',
+    type: 'music',
+    name: '同手同脚',
+    author: '初言',
+    artist: '我会永远在你身边陪着你',
+    fileType: 'mp3',
+    fileName: 'url?id=2728443982.mp3',
+    file: 'http://music.163.com/song/media/outer/url?id=2728443982.mp3'
+  },
+  {
+    id: 'mus15',
+    type: 'music',
+    name: '天赋',
+    author: '送信员',
+    artist: '唐嫣/罗晋',
+    fileType: 'mp3',
+    fileName: 'audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3',
+    file: 'https://mv.ttaibot.com/down/audio_extract/audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3'
+  },
+  {
+    id: 'mus16',
+    type: 'music',
+    name: '有我呢',
+    author: '言夏',
+    artist: '-别怕 亲爱的 有我呢-',
+    fileType: 'mp3',
+    fileName: '1772963476760_郭一凡_-_有我呢.mp3',
+    file: 'https://img.heliar.top/file/1772963476760_郭一凡_-_有我呢.mp3'
+  },
+  {
+    id: 'mus17',
+    type: 'music',
+    name: 'Dear D',
+    author: '言夏',
+    artist: '-好想好想在一起-',
+    fileType: 'mp3',
+    fileName: '1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3',
+    file: 'https://img.heliar.top/file/1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3'
+  },
+  {
+    id: 'mus18',
+    type: 'music',
+    name: '孤单北半球',
+    author: '言夏',
+    artist: '-想念不会偷懒 我的梦通通给你保管-',
+    fileType: 'mp3',
+    fileName: '1772963472128_林依晨_-_孤单北半球.mp3',
+    file: 'https://img.heliar.top/file/1772963472128_林依晨_-_孤单北半球.mp3'
+  },
+  {
+    id: 'mus19',
+    type: 'music',
+    name: '恶作剧',
+    author: '言夏',
+    artist: '-我想我会开始想念你-',
+    fileType: 'mp3',
+    fileName: '1772965264360_林依晨_-_恶作剧.mp3',
+    file: 'https://img.heliar.top/file/1772965264360_林依晨_-_恶作剧.mp3'
+  },
+  {
+    id: 'mus20',
+    type: 'music',
+    name: '当你',
+    author: '言夏',
+    artist: '-好喜欢你 知不知道-',
+    fileType: 'mp3',
+    fileName: '1772964503074_林俊杰_-_当你.mp3',
+    file: 'https://img.heliar.top/file/1772964503074_林俊杰_-_当你.mp3'
+  },
+  {
+    id: 'mus21',
+    type: 'music',
+    name: '小半',
+    author: '言夏',
+    artist: '-我的心借了你的光是明是暗-',
+    fileType: 'mp3',
+    fileName: '1772964128402_陈粒_-_小半.mp3',
+    file: 'https://img.heliar.top/file/1772964128402_陈粒_-_小半.mp3'
+  },
+  {
+    id: 'mus22',
+    type: 'music',
+    name: '虚拟',
+    author: 'xiory',
+    artist: '（翻唱）小馨宝宝',
+    fileType: 'mp3',
+    fileName: 'url?id=2119200940.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2119200940.mp3'
+  },
+  {
+    id: 'mus23',
+    type: 'music',
+    name: '有我呢（翻唱）',
+    author: 'xiory',
+    artist: '番番',
+    fileType: 'mp3',
+    fileName: 'url?id=3324365041.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=3324365041.mp3'
+  },
+  {
+    id: 'mus24',
+    type: 'music',
+    name: '多远都要在一起',
+    author: 'xiory',
+    artist: '激情男声版',
+    fileType: 'mp3',
+    fileName: 'url?id=3356334358.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=3356334358.mp3'
+  },
+  {
+    id: 'mus25',
+    type: 'music',
+    name: '永不失联的爱',
+    author: 'xiory',
+    artist: '男声版',
+    fileType: 'mp3',
+    fileName: 'url?id=3317929522.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=3317929522.mp3'
+  },
+  {
+    id: 'mus26',
+    type: 'music',
+    name: '次元恋人',
+    author: 'xiory',
+    artist: '印子月',
+    fileType: 'mp3',
+    fileName: 'url?id=2689771833.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2689771833.mp3'
+  },
+  {
+    id: 'mus27',
+    type: 'music',
+    name: '你在 不在（emo版）',
+    author: 'xiory',
+    artist: 'cici_',
+    fileType: 'mp3',
+    fileName: 'url?id=2735939731.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2735939731.mp3'
+  },
+  {
+    id: 'mus28',
+    type: 'music',
+    name: "第三个吻痕（暧昧版）",
+    author: "巴某人",
+    artist: "何水水",
+    fileType: 'mp3',
+    fileName: "1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
+    file: "https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3"
+  },
+  {
+    id: 'mus29',
+    type: 'music',
+    name: "有我呢",
+    author: "巴某人",
+    artist: "郭一凡",
+    fileType: 'mp3',
+    fileName: "1773904895447_郭一凡-有我呢_20260319_151935.mp3",
+    file: "https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3"
+  },
+  {
+    id: 'mus30',
+    type: 'music',
+    name: "以你为名的奇遇",
+    author: "翊甜",
+    artist: "池绛不吃姜/祁煜0306生贺企划",
+    desc: "2026祁煜生贺",
+    fileType: 'mp3',
+    fileName: "url?id=3354782658.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=3354782658.mp3"
+  },
+  {
+    id: 'mus31',
+    type: 'music',
+    name: "All I Have Is Love",
+    author: "千",
+    artist: "Stevie Hoang",
+    desc: "英文小情歌，适合边聊边听",
+    fileType: 'mp3',
+    fileName: "url?id=1940368.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=1940368.mp3"
+  },
+  {
+    id: 'mus32',
+    type: 'music',
+    name: "零距离的想念",
+    author: "礼啦啦啦",
+    artist: "TINY-7",
+    fileType: 'mp3',
+    fileName: "1774173204769_TINY7_-_零距离的思念.mp3",
+    file: "https://img.heliar.top/file/1774173204769_TINY7_-_零距离的思念.mp3"
+  },
+  {
+    id: 'mus33',
+    type: 'music',
+    name: "say yes",
+    author: "礼啦啦啦",
+    artist: "loco Punch",
+    desc: "甜甜的韩文小情歌",
+    fileType: 'mp3',
+    fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
+    file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3"
+  },
+  {
+    id: 'mus34',
+    type: 'music',
+    name: "say yes (duplicate)",
+    author: "礼啦啦啦",
+    artist: "loco Punch",
+    desc: "甜甜的韩文小情歌",
+    fileType: 'mp3',
+    fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
+    file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3"
+  },
+  {
+    id: 'mus35',
+    type: 'music',
+    name: "该怎么办",
+    author: "oiove3",
+    artist: "TC",
+    desc: "没有你我该怎么办",
+    fileType: 'mp3',
+    fileName: "url?id=2032201541.mp3",
+    file: "https://music.163.com/song/media/outer/url?id=2032201541.mp3"
+  },
+  {
+    id: 'mus36',
+    type: 'music',
+    name: "依兰爱情故事",
+    author: "mm",
+    artist: "方天雷",
+    desc: "我活着是你的人啊，死了是你的鬼啊",
+    fileType: 'mp3',
+    fileName: "ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
+    file: "http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3"
+  },
+  {
+    id: 'mus37',
+    type: 'music',
+    name: "台北某个地方",
+    author: "言夏",
+    artist: "陈绮贞",
+    desc: "-沙漠里的收音机 接收不到你的频率-",
+    fileType: 'mp3',
+    fileName: "1772964119307_陈绮贞_-_台北某个地方.mp3",
+    file: "https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3"
+  },
+  {
+    id: 'mus38',
+    type: 'music',
+    name: "鱼",
+    author: "言夏",
+    artist: "陈绮贞",
+    desc: "-别让我飞 将我温柔豢养 原谅我飞 曾经眷恋太阳-",
+    fileType: 'mp3',
+    fileName: "1772964135537_陈绮贞_-_鱼.mp3",
+    file: "https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3"
+  },
+  {
+    id: 'mus39',
+    type: 'music',
+    name: "太阳",
+    author: "言夏",
+    artist: "陈绮贞",
+    desc: "-你是我 小心维护的梦-",
+    fileType: 'mp3',
+    fileName: "1772964130543_陈绮贞_-_太阳.mp3",
+    file: "https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3"
+  },
+  {
+    id: 'mus40',
+    type: 'music',
+    name: "躺在你的衣柜（Piano）",
+    author: "言夏",
+    artist: "陈绮贞",
+    desc: "-我的冬天 就要来了-",
+    fileType: 'mp3',
+    fileName: "1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3",
+    file: "https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3"
+  },
+  {
+    id: 'mus41',
+    type: 'music',
+    name: "我喜欢上你时的内心活动",
+    author: "言夏",
+    artist: "陈绮贞",
+    desc: "-你靠着车窗 我心脏一旁-",
+    fileType: 'mp3',
+    fileName: "1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
+    file: "https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3"
+  },
+  {
+    id: 'mus42',
+    type: 'music',
+    name: "和你",
+    author: "七七",
+    artist: "余佳运",
+    fileType: 'mp3',
+    fileName: "url?id=420401511.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=420401511.mp3"
+  },
+  {
+    id: 'mus43',
+    type: 'music',
+    name: "不渝的爱",
+    author: "亦有归途.",
+    group: 'g-sub-68njte',
+    groupLabel: "夏萧因24年与25年的生日主题歌",
+    desc: "世界之外夏萧因的生日主题歌",
+    fileType: 'mp3',
+    fileName: "url?id=2623751862.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=2623751862.mp3"
+  },
+  {
+    id: 'mus44',
+    type: 'music',
+    name: "笑我多情",
+    author: "亦有归途.",
+    group: 'g-sub-68njte',
+    groupLabel: "夏萧因24年与25年的生日主题歌",
+    fileType: 'mp3',
+    fileName: "url?id=2742741776.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=2742741776.mp3"
+  },
+  {
+    id: 'mus45',
+    type: 'music',
+    name: "永远永远",
+    author: "milk",
+    fileType: 'mp3',
+    fileName: "永远永远.mp3",
+    file: "https://files.catbox.moe/2lcm70.mp3"
+  },
+  {
+    id: 'mus46',
+    type: 'music',
+    name: "红线",
+    author: "white",
+    group: 'g-white',
+    groupLabel: "🎧",
+    artist: "邹沛沛/pank",
+    desc: "(＞人＜;)",
+    duration: "3:26",
+    fileType: 'mp3',
+    fileName: "url?id=3343519052.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=3343519052.mp3"
+  },
+  {
+    id: 'mus47',
+    type: 'music',
+    name: "愿",
+    author: "white",
+    group: 'g-white',
+    groupLabel: "🎧",
+    artist: "郑国峰",
+    desc: "(￣▽￣)",
+    duration: "4:00",
+    fileType: 'mp3',
+    fileName: "url?id=1924801790.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=1924801790.mp3"
+  },
+  {
+    id: 'mus48',
+    type: 'music',
+    name: "月亮与六便士",
+    author: "white",
+    group: 'g-white',
+    groupLabel: "🎧",
+    artist: "邹沛沛/sasuke",
+    desc: "(｡ì _ í｡)",
+    duration: "2:45",
+    fileType: 'mp3',
+    fileName: "url?id=2099907912.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=2099907912.mp3"
+  },
+  {
+    id: 'mus49',
+    type: 'music',
+    name: "唯一",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "邓紫棋",
+    fileType: 'mp3',
+    fileName: "1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3",
+    file: "https://videotourl.com/audio/1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3"
+  },
+  {
+    id: 'mus50',
+    type: 'music',
+    name: "同花顺",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "林倛玉",
+    fileType: 'mp3',
+    fileName: "1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3",
+    file: "https://videotourl.com/audio/1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3"
+  },
+  {
+    id: 'mus51',
+    type: 'music',
+    name: "第三个吻痕",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    fileType: 'm4a',
+    fileName: "1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a",
+    file: "https://videotourl.com/audio/1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a"
+  },
+  {
+    id: 'mus52',
+    type: 'music',
+    name: "富士山下",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "陈奕迅",
+    fileType: 'mp3',
+    fileName: "1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3",
+    file: "https://videotourl.com/audio/1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3"
+  },
+  {
+    id: 'mus53',
+    type: 'music',
+    name: "处处吻",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "杨千嬅",
+    fileType: 'mp3',
+    fileName: "1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3",
+    file: "https://videotourl.com/audio/1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3"
+  },
+  {
+    id: 'mus54',
+    type: 'music',
+    name: "孤雏",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    fileType: 'mp3',
+    fileName: "1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3",
+    file: "https://videotourl.com/audio/1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3"
+  },
+  {
+    id: 'mus55',
+    type: 'music',
+    name: "我怀念的",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "林俊杰",
+    fileType: 'mp3',
+    fileName: "1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3",
+    file: "https://videotourl.com/audio/1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3"
+  },
+  {
+    id: 'mus56',
+    type: 'music',
+    name: "Wonderful U",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    fileType: 'mp3',
+    fileName: "1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3",
+    file: "https://videotourl.com/audio/1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3"
+  },
+  {
+    id: 'mus57',
+    type: 'music',
+    name: "锁",
+    author: "SYyy",
+    group: 'g-sub-8n26md',
+    groupLabel: "鱼",
+    artist: "张子墨",
+    fileType: 'mp3',
+    fileName: "1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3",
+    file: "https://videotourl.com/audio/1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3"
+  }
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
