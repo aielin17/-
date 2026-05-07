@@ -10586,6 +10586,651 @@ border-right: none;
 border-top: none;
 }`
 },
+{
+id:'b133',
+type:'bubble',
+name:'蓝色玻璃雪花',
+author:'过境',
+previews:[
+{t:'sent',v:'老婆老婆！'},
+{t:'received',v:'…我在'}
+],
+css:`/* ===================== 气泡呼吸与装饰（❄玻璃蓝） ===================== */
+
+/* 通用气泡样式 */
+.message-sent,
+.message-received {
+position: relative;
+background: linear-gradient(135deg,
+rgba(219, 234, 254, 0.7),
+rgba(191, 219, 254, 0.6)
+) !important;
+box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10) !important;
+border: 1px solid rgba(37, 99, 235, 0.20) !important;
+border-top: 1px solid rgba(255, 255, 255, 0.55) !important;
+border-left: 1px solid rgba(255, 255, 255, 0.45) !important;
+color: #0f172a !important;
+backdrop-filter: blur(8px) saturate(110%);
+-webkit-backdrop-filter: blur(8px) saturate(110%);
+overflow: visible;
+transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* 我方气泡（浅蓝） */
+.message-sent {
+background: linear-gradient(135deg,
+rgba(191, 219, 254, 0.7),
+rgba(147, 197, 253, 0.5)
+) !important;
+border-radius: 20px 20px 6px 20px;
+}
+
+/* 对方气泡（饱和度更高） */
+.message-received {
+background: linear-gradient(135deg,
+rgba(179, 215, 255, 0.75),
+rgba(120, 180, 250, 0.65)
+) !important;
+border-radius: 20px 20px 20px 6px;
+}
+
+/* ===================== 悬浮弹动 ===================== */
+@keyframes jellyFloat {
+0% { transform: translateY(0) scale(1); }
+50% { transform: translateY(-5px) scale(1.015); }
+100% { transform: translateY(0) scale(1); }
+}
+.message-sent:hover,
+.message-received:hover {
+animation: jellyFloat 0.6s ease-in-out;
+}
+
+/* ===================== 呼吸变色动画（蓝调） ===================== */
+@keyframes breatheBlue {
+0% {
+color: #b3d9ff;
+text-shadow: 0 0 6px #a0d0ff, 0 0 3px rgba(150, 200, 255, 0.5);
+}
+50% {
+color: #80c0ff;
+text-shadow: 0 0 12px #6ab0ff, 0 0 6px rgba(100, 180, 255, 0.6);
+}
+100% {
+color: #b3d9ff;
+text-shadow: 0 0 6px #a0d0ff, 0 0 3px rgba(150, 200, 255, 0.5);
+}
+}
+@keyframes breatheDeepBlue {
+0% {
+color: #8fc0ff;
+text-shadow: 0 0 8px #70a8ff, 0 0 4px rgba(100, 150, 230, 0.5);
+}
+50% {
+color: #6098ff;
+text-shadow: 0 0 14px #5088ff, 0 0 7px rgba(80, 120, 220, 0.6);
+}
+100% {
+color: #8fc0ff;
+text-shadow: 0 0 8px #70a8ff, 0 0 4px rgba(100, 150, 230, 0.5);
+}
+}
+
+/* 雪花飘移 */
+@keyframes snowDrift {
+0% { transform: translate(0, 0); }
+50% { transform: translate(4px, -3px); }
+100% { transform: translate(0, 0); }
+}
+
+/* ===================== 装饰雪花 ❄ ===================== */
+
+/* 对方气泡左上角大雪花 */
+.message-received::before {
+content: '❄';
+position: absolute;
+font-size: 22px;
+top: -14px;
+left: -22px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+white-space: nowrap;
+animation: breatheBlue 3s ease-in-out infinite, snowDrift 4s ease-in-out infinite;
+}
+
+/* 对方气泡左下角小雪花 */
+.message-received::after {
+content: '❄';
+position: absolute;
+font-size: 16px;
+bottom: -12px;
+left: -10px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
+}
+
+/* 我方气泡右上角大雪花 */
+.message-sent::before {
+content: '❄';
+position: absolute;
+font-size: 22px;
+top: -14px;
+right: -22px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+white-space: nowrap;
+animation: breatheBlue 3s ease-in-out infinite, snowDrift 4s ease-in-out infinite;
+}
+
+/* 我方气泡右下角小雪花 */
+.message-sent::after {
+content: '❄';
+position: absolute;
+font-size: 16px;
+bottom: -12px;
+right: -10px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
+}`
+},
+{
+  id:'b134',
+  type:'bubble',
+  name:'kpop仿bubble',
+  author:'喵喵喵',
+  previews:[
+    {t:'sent',v:'社交不是你来我往的嘛'},
+    {t:'received',v:'我一直往往往'},
+    {t:'sent',v:'你当我是狗啊'},
+    {t:'received',v:'那我做你的小狗好不好'}
+  ],
+  css:`.message {
+border-radius: 18px !important;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+overflow: visible !important;
+padding: 12px 16px !important;
+border: none !important;
+font-size: 15px !important;
+line-height: 1.5 !important;
+}
+
+.message.message-sent,
+.message.message-received {
+display: inline-block !important;
+position: relative !important;
+backdrop-filter: none !important;
+-webkit-backdrop-filter: none !important;
+width: auto !important;
+min-width: 70% !important;
+}
+
+/* ---- 我方消息 (KPOP 黄底黑字) ---- */
+.message.message-sent {
+background-color: #FEE100 !important; /* 亮黄色气泡 */
+color: #000000 !important; /* 黑色文字 */
+border-radius: 18px 18px 4px 18px !important;
+}
+
+/* ---- 对方消息 (白字/浅灰) ---- */
+.message.message-received {
+background-color: #ffffff !important;
+color: #333333 !important;
+border-radius: 4px 18px 18px 18px !important;
+border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.message::after {
+display: none !important;
+}
+
+.message-wrapper.received {
+position: relative !important;
+padding-top: 18px !important;
+}
+
+/* ---- 对方消息上方标签 (改成 KPOP 紫/金色) ---- */
+.message-wrapper.received::before {
+content: "梦角" !important; /* 替换成角色名 */
+position: absolute !important;
+top: 0 !important;
+left: 48px !important;
+background: linear-gradient(90deg, #F9D015 0%, #E6C200 100%) !important; /* 鎏金渐变 */
+color: #000000 !important; /* 黑字 */
+font-size: 9px !important;
+font-weight: 600 !important;
+padding: 2px 8px !important;
+border-radius: 8px !important;
+letter-spacing: 0.5px !important;
+line-height: 1 !important;
+}
+
+.timestamp {
+color: #999999 !important;
+font-size: 12px !important;
+margin-top: 4px !important;
+}`
+},
+{
+  id:'b135',
+  type:'bubble',
+  name:'汪汪布丁（无美化版）',
+  author:'Spring',
+  group:'woofwoofpudding',
+  groupLabel:'汪汪布丁',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 16px !important;
+  overflow: visible !important;
+  position: relative !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+}
+
+.message.message-received {
+  background: #fff8e0 !important;
+  box-shadow: inset 0 0 0 6px #fffbee !important;
+  color: #8b6b3b !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.message.message-sent {
+  background: #fff8e8 !important;
+  box-shadow: inset 0 0 0 6px #ffedb8 !important;
+  color: #7d582d !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.message * {
+  z-index: 1 !important;
+  position: relative !important;
+}`
+},
+{
+  id:'b136',
+  type:'bubble',
+  name:'汪汪布丁（美化版）',
+  author:'Spring',
+  group:'woofwoofpudding',
+  groupLabel:'汪汪布丁',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 16px !important;
+  overflow: visible !important;
+  position: relative !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+}
+
+.message.message-received {
+  background: #fff8e0 !important;
+  box-shadow: inset 0 0 0 6px #fffbee !important;
+  color: #8b6b3b !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.message.message-sent {
+  background: #fff8e8 !important;
+  box-shadow: inset 0 0 0 6px #ffedb8 !important;
+  color: #7d582d !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* 左下角装饰（原有） */
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 32px !important;
+  height: 32px !important;
+  bottom: -10px !important;
+  left: -4px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj7Zp6cuqJzozlGWQlbI-7xkB6HMD7AACHCAAAn6SUFfOyUfa-oMdATsE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  transform: translateZ(10px) !important;
+}
+
+/* 右上角装饰（原有） */
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 38px !important;
+  height: 38px !important;
+  top: -16px !important;
+  right: 0px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETj6Np6csCxKF4GSWLQKteA-dT7Pe1uAACBSAAAn6SUFd8Cl9AFC2N7TsE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* 我方气泡右上角 */
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 58px !important;
+  height: 58px !important;
+  top: -12px !important;
+  right: -8px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETliBp6xmfcxdCDRaak5igrY9VkyT1twACKh8AAn6SWFfTETl2SB-yfTsE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* 我方气泡左下角 - 下移+右移 */
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 48px !important;
+  height: 48px !important;
+  bottom: -8px !important;
+  left: -4px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAETlilp6xoJcllkHYxrqmcrk5N_DGSodAACMx8AAn6SWFeUrzURWpofkDsE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+.message * {
+  z-index: 1 !important;
+  position: relative !important;
+}`
+},
+{
+  id:'b137',
+  type:'bubble',
+  name:'抹茶啵啵',
+  author:'Spring',
+  group:'bobo',
+  groupLabel:'啵啵系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 20px !important;
+  overflow: visible !important;
+  padding: 4px 10px !important;
+  margin: 4px 0 !important;
+  position: relative !important;
+  font-size: 13px !important;
+  transform: perspective(500px) translateZ(0) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.message-wrapper {
+  margin: 2px 0 !important;
+}
+
+.message.message-received,
+.message.char {
+  background: linear-gradient(145deg, #f0f8f2, #eef7f0) !important;
+  color: #203f2c !important;
+  box-shadow: 
+    4px 6px 12px rgba(0, 0, 0, 0.12),
+    2px 3px 6px rgba(0, 0, 0, 0.08),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+.message.message-sent,
+.message.user {
+  background: linear-gradient(145deg, #e6f4ea, #dcf0e2) !important;
+  color: #163022 !important;
+  box-shadow: 
+    -4px 6px 12px rgba(0, 0, 0, 0.12),
+    -2px 3px 6px rgba(0, 0, 0, 0.08),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+.message.char::before,
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 20px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: radial-gradient(
+    ellipse at 25% 30%,
+    #dcf0e2 0%,
+    #dcf0e2 15%,
+    rgba(220, 240, 226, 0.5) 35%,
+    rgba(220, 240, 226, 0.2) 55%,
+    transparent 80%
+  ) !important;
+  box-shadow: 
+    inset 0 2px 6px rgba(230, 248, 235, 0.9),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.message.user::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 20px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: radial-gradient(
+    ellipse at 75% 30%,
+    #eef7f0 0%,
+    #eef7f0 15%,
+    rgba(238, 247, 240, 0.5) 35%,
+    rgba(238, 247, 240, 0.2) 55%,
+    transparent 80%
+  ) !important;
+  box-shadow: 
+    inset 0 2px 6px rgba(245, 252, 248, 0.9),
+    inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.message:hover {
+  transform: perspective(500px) translateZ(6px) !important;
+}
+.message.char:hover,.message.message-received:hover {
+  box-shadow: 
+    5px 8px 16px rgba(0, 0, 0, 0.15),
+    3px 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+.message.user:hover,.message.message-sent:hover {
+  box-shadow: 
+    -5px 8px 16px rgba(0, 0, 0, 0.15),
+    -3px 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+
+.message > * {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.message [class*=quote],
+.message.message-reply,
+.message blockquote,
+.message .refer {
+  display: block !important;
+  background: rgba(235, 246, 239, 0.7) !important;
+  border-radius: 12px !important;
+  padding: 2px 8px !important;
+  margin: 2px 0 !important;
+  font-size: 12px !important;
+  color: #163022 !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+.message::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  filter: drop-shadow(0,0,0,0.1) !important;
+}
+.message.user::after,.message.message-sent::after {
+  bottom: -4px !important;
+  right: -6px !important;
+  background-image: url('') !important;
+}
+.message.char::after,.message.message-received::after {
+  bottom: -4px !important;
+  left: -6px !important;
+  background-image: url('') !important;
+}`
+},
+{
+  id:'b138',
+  type:'bubble',
+  name:'海盐啵啵',
+  author:'Spring',
+  group:'bobo',
+  groupLabel:'啵啵系列',
+  previews:[
+    {t:'sent',v:'你隐没在梦中'},
+    {t:'received',v:'宛如雪化在火中'}
+  ],
+  css:`.message {
+  border-radius: 20px !important;
+  overflow: visible !important;
+  padding: 4px 10px !important;
+  margin: 4px 0 !important;
+  position: relative !important;
+  font-size: 13px !important;
+  transform: perspective(500px) translateZ(0) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.message-wrapper {
+  margin: 2px 0 !important;
+}
+
+.message.message-received,
+.message.char {
+  background: linear-gradient(145deg, #ffffff, #f5f9fd) !important;
+  color: #203a52 !important;
+  box-shadow: 
+    4px 6px 12px rgba(0, 0, 0, 0.12),
+    2px 3px 6px rgba(0, 0, 0, 0.08),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+.message.message-sent,
+.message.user {
+  background: linear-gradient(145deg, #f8fbfe, #edf4fb) !important;
+  color: #172d42 !important;
+  box-shadow: 
+    -4px 6px 12px rgba(0, 0, 0, 0.12),
+    -2px 3px 6px rgba(0, 0, 0, 0.08),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8) !important;
+}
+
+.message.char::before,
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 20px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: radial-gradient(
+    ellipse at 25% 30%,
+    #edf4fb 0%,
+    #edf4fb 15%,
+    rgba(235, 243, 250, 0.35) 35%,
+    rgba(235, 243, 250, 0.15) 55%,
+    transparent 80%
+  ) !important;
+  box-shadow: 
+    inset 0 2px 6px rgba(248, 252, 255, 0.9),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.message.user::before,
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 20px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: radial-gradient(
+    ellipse at 75% 30%,
+    #f5f9fd 0%,
+    #f5f9fd 15%,
+    rgba(245, 249, 253, 0.35) 35%,
+    rgba(245, 249, 253, 0.15) 55%,
+    transparent 80%
+  ) !important;
+  box-shadow: 
+    inset 0 2px 6px rgba(252, 254, 255, 0.9),
+    inset 2px -2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.message:hover {
+  transform: perspective(500px) translateZ(6px) !important;
+}
+
+.message.char:hover,
+.message.message-received:hover {
+  box-shadow: 
+    5px 8px 16px rgba(0, 0, 0, 0.15),
+    3px 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+
+.message.user:hover,
+.message.message-sent:hover {
+  box-shadow: 
+    -5px 8px 16px rgba(0, 0, 0, 0.15),
+    -3px 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.12),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.08),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+
+.message > * {
+  position: relative !important;
+  z-index: 10 !important;
+},
 ];
 const CARDS = [{
   id: 'card1',
@@ -10911,6 +11556,16 @@ const CARDS = [{
   fileName: "1774086979191_字卡偏现实.json",
   file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
 },
+{
+id:'card30',
+type:'card',
+name:"日期专用组合包",
+author:"十六夜",
+desc:"日期组合用，暗号拓展补充包",
+fileType:'json',
+fileName:"zw0n3d.json",
+file:"https://files.catbox.moe/zw0n3d.json";
+},
 ];
 
 const THEMES = [{
@@ -11157,6 +11812,348 @@ pointer-events: none; background-repeat: no-repeat; background-size: contain; ba
 body.with-background .message-received:not(:has(img)), body.with-background .message-sent:not(:has(img)) { background-image: none !important; backdrop-filter: none !important; opacity: 1 !important; }
 body.with-background .message-received:not(:has(img)) { background-color: var(--yellow-bubble) !important; }
 body.with-background .message-sent:not(:has(img)) { background-color: var(--pink-bubble) !important; }`
+},
+{
+id:'th4',
+type:'theme',
+name:"深蓝主题",
+author:"过境",
+desc:"以深蓝为主 眼睛友好",
+tags:[],
+colors:[],
+css:`/* ===================== 全局变量 ===================== */
+:root {
+--primary-bg: #1a1f2b;
+--secondary-bg: #212837;
+--accent-color: #5e81ac;
+--accent-color-rgb: 94, 129, 172;
+--text-primary: #e2e8f0;
+--text-secondary: #8f9bb3;
+--border-color: rgba(212, 175, 55, 0.25);
+--chat-bg: rgba(26, 31, 43, 0.65);
+--header-bg: rgba(15, 20, 30, 0.9);
+--input-area-bg: rgba(33, 40, 55, 0.8);
+/* 工具栏按钮背景 */
+--toolbar-btn-bg: rgba(33, 40, 55, 0.7);
+/* 我方气泡文字 & 图标色（淡金白） */
+--message-sent-text: #f0e6c5;
+}
+
+/* ===================== 基础背景 ===================== */
+body {
+background-color: #12161f;
+margin: 0;
+}
+
+/* ===================== 顶栏 ===================== */
+#partner-info,
+header,
+.header,
+[class*="header"] {
+background: var(--header-bg);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4),
+0 1px 0 rgba(212, 175, 55, 0.15);
+color: #e2e8f0;
+}
+
+/* ===================== 输入区域 ===================== */
+#input-area,
+footer,
+.footer,
+[class*="input-area"] {
+background: var(--input-area-bg);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border-top: 1px solid rgba(212, 175, 55, 0.25);
+box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5),
+inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+#message-input,
+input,
+textarea {
+background: rgba(18, 23, 33, 0.7);
+border: 1px solid rgba(212, 175, 55, 0.25);
+border-radius: 20px;
+color: #e2e8f0;
+backdrop-filter: blur(6px);
+-webkit-backdrop-filter: blur(6px);
+transition: all 0.2s ease;
+}
+#message-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+color: #6e7a8c;
+}
+#message-input:focus,
+input:focus,
+textarea:focus {
+border-color: #d4af37;
+box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+outline: none;
+}
+
+#send-btn {
+background: linear-gradient(135deg, #5e81ac, #3b5998);
+border: 1px solid rgba(212, 175, 55, 0.4);
+box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+border-radius: 14px;
+color: #fff;
+transition: all 0.2s;
+}
+#send-btn:hover {
+border-color: #d4af37;
+box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+}
+
+/* ===================== 滚动条 ===================== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+background: rgba(212, 175, 55, 0.35);
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: rgba(212, 175, 55, 0.6);
+}
+
+/* ===================== 弹窗 ===================== */
+.modal-content {
+background: rgba(33, 40, 55, 0.85);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(212, 175, 55, 0.25);
+box-shadow: 0 20px 50px rgba(0,0,0,0.6),
+0 0 0 1px rgba(212,175,55,0.15);
+border-radius: 16px;
+}
+
+/* ===================== 设置卡片 ===================== */
+.settings-card {
+background: rgba(33, 40, 55, 0.65);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 1px solid rgba(212, 175, 55, 0.15);
+transition: all 0.25s;
+}
+.settings-card:hover {
+border-color: rgba(212, 175, 55, 0.5);
+background: rgba(40, 48, 64, 0.75);
+box-shadow: 0 8px 20px rgba(0,0,0,0.5),
+inset 0 0 0 1px rgba(212,175,55,0.2);
+}
+
+/* ===================== 底部栏 ===================== */
+.bottom-bar {
+background: var(--input-area-bg);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border-top: 1px solid rgba(212, 175, 55, 0.25);
+box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5),
+inset 0 1px 0 rgba(212, 175, 55, 0.1);
+color: #e2e8f0;
+}
+
+/* ===================== 确认按钮 ===================== */
+.confirm-btn,
+button.confirm,
+.ok-btn,
+button[type="submit"] {
+background: linear-gradient(135deg, #5e81ac, #3b5998);
+border: 1px solid rgba(212, 175, 55, 0.4);
+border-radius: 14px;
+color: #fff;
+font-weight: 500;
+padding: 10px 24px;
+box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+transition: all 0.2s ease;
+cursor: pointer;
+}
+.confirm-btn:hover,
+.ok-btn:hover,
+button[type="submit"]:hover {
+border-color: #d4af37;
+box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+transform: translateY(-1px);
+}
+.confirm-btn:active,
+.ok-btn:active,
+button[type="submit"]:active {
+transform: translateY(0);
+box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ===================== 工具栏按钮 ===================== */
+.toolbar-btn,
+[class*="toolbar-btn"],
+#toolbar button,
+.tool-btn {
+background: var(--toolbar-btn-bg); /* ★ 使用变量 */
+backdrop-filter: blur(6px);
+-webkit-backdrop-filter: blur(6px);
+border: 1px solid rgba(212, 175, 55, 0.25);
+border-radius: 12px;
+color: #e2e8f0;
+transition: all 0.2s;
+}
+.toolbar-btn:hover,
+[class*="toolbar-btn"]:hover,
+.tool-btn:hover {
+background: rgba(40, 50, 65, 0.8);
+border-color: #d4af37;
+box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+/* ===================== 底部导航图标 ===================== */
+.bottom-bar .nav-icon {
+background: transparent;
+border: 1px solid transparent;
+border-radius: 10px;
+transition: all 0.2s;
+}
+.bottom-bar .nav-icon:hover {
+background: rgba(94, 129, 172, 0.15);
+border-color: rgba(212, 175, 55, 0.35);
+box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* ===================== 气泡通用样式 ===================== */
+.message-sent,
+.message-received {
+position: relative;
+background: linear-gradient(135deg,
+rgba(219, 234, 254, 0.7),
+rgba(191, 219, 254, 0.6)
+);
+box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10);
+border: 1px solid rgba(37, 99, 235, 0.20);
+border-top: 1px solid rgba(255, 255, 255, 0.55);
+border-left: 1px solid rgba(255, 255, 255, 0.45);
+backdrop-filter: blur(8px) saturate(110%);
+-webkit-backdrop-filter: blur(8px) saturate(110%);
+overflow: visible;
+transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* 我方气泡：浅蓝渐变 + 淡金文字 */
+.message-sent {
+background: linear-gradient(135deg,
+rgba(191, 219, 254, 0.7),
+rgba(147, 197, 253, 0.5)
+);
+border-radius: 20px 20px 6px 20px;
+color: var(--message-sent-text); /* ★ 使用变量 */
+}
+
+/* 我方气泡内的图标（确保使用变量） */
+.message-sent svg,
+.message-sent .icon,
+.message-sent i,
+.message-sent [class*="icon"] {
+fill: var(--message-sent-text);
+color: var(--message-sent-text);
+}
+
+/* 对方气泡：饱和度更高的蓝 */
+.message-received {
+background: linear-gradient(135deg,
+rgba(179, 215, 255, 0.75),
+rgba(120, 180, 250, 0.65)
+);
+border-radius: 20px 20px 20px 6px;
+color: #0f172a; /* 对方气泡用深色文字 */
+}
+
+/* ===================== 悬浮弹动 ===================== */
+@keyframes jellyFloat {
+0% { transform: translateY(0) scale(1); }
+50% { transform: translateY(-5px) scale(1.015); }
+100% { transform: translateY(0) scale(1); }
+}
+.message-sent:hover,
+.message-received:hover {
+animation: jellyFloat 0.6s ease-in-out;
+}
+
+/* ===================== 呼吸变色 ===================== */
+@keyframes breatheBlue {
+0% {
+text-shadow: 0 0 6px #a0d0ff, 0 0 3px rgba(150,200,255,0.5);
+}
+50% {
+text-shadow: 0 0 12px #6ab0ff, 0 0 6px rgba(100,180,255,0.6);
+}
+100% {
+text-shadow: 0 0 6px #a0d0ff, 0 0 3px rgba(150,200,255,0.5);
+}
+}
+@keyframes breatheDeepBlue {
+0% {
+text-shadow: 0 0 8px #70a8ff, 0 0 4px rgba(100,150,230,0.5);
+}
+50% {
+text-shadow: 0 0 14px #5088ff, 0 0 7px rgba(80,120,220,0.6);
+}
+100% {
+text-shadow: 0 0 8px #70a8ff, 0 0 4px rgba(100,150,230,0.5);
+}
+}
+@keyframes snowDrift {
+0% { transform: translate(0, 0); }
+50% { transform: translate(4px, -3px); }
+100% { transform: translate(0, 0); }
+}
+
+/* ===================== 雪花装饰 ❄ ===================== */
+.message-received::before {
+content: '❄';
+position: absolute;
+font-size: 22px;
+top: -14px;
+left: -22px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheBlue 3s ease-in-out infinite, snowDrift 4s ease-in-out infinite;
+}
+.message-received::after {
+content: '❄';
+position: absolute;
+font-size: 16px;
+bottom: -12px;
+left: -10px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
+}
+.message-sent::before {
+content: '❄';
+position: absolute;
+font-size: 22px;
+top: -14px;
+right: -22px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheBlue 3s ease-in-out infinite, snowDrift 4s ease-in-out infinite;
+}
+.message-sent::after {
+content: '❄';
+position: absolute;
+font-size: 16px;
+bottom: -12px;
+right: -10px;
+font-weight: bold;
+pointer-events: none;
+z-index: 99;
+animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
+}`
 },
 ];
 
@@ -11597,7 +12594,7 @@ const MUSIC = [{
   file: "https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
 },
 {
-  id: 'mus37',
+  id: 'mus42',
   type: 'music',
   name: "和你",
   author: "七七",
@@ -11607,7 +12604,7 @@ const MUSIC = [{
   file: "http://music.163.com/song/media/outer/url?id=420401511.mp3",
 },
 {
-  id: 'mus38',
+  id: 'mus43',
   type: 'music',
   name: "不渝的爱",
   author: "亦有归途.",
@@ -11619,7 +12616,7 @@ const MUSIC = [{
   file: "http://music.163.com/song/media/outer/url?id=2623751862.mp3",
 },
 {
-  id: 'mus39',
+  id: 'mus44',
   type: 'music',
   name: "笑我多情",
   author: "亦有归途.",
@@ -11628,6 +12625,162 @@ const MUSIC = [{
   fileType: 'mp3',
   fileName: "url?id=2742741776.mp3",
   file: "http://music.163.com/song/media/outer/url?id=2742741776.mp3",
+},
+{
+  id:'mus45',
+  type:'music',
+  name:"永远永远",
+  author:"milk",
+  fileType:'mp3',
+  fileName:"永远永远.mp3",
+  file:"https://files.catbox.moe/2lcm70.mp3";
+},
+{
+  id:'mus46',
+  type:'music',
+  name:"红线",
+  author:"white",
+  group:'g-white',
+  groupLabel:"🎧",
+  artist:"邹沛沛/pank",
+  desc:"(＞人＜;)",
+  duration:"3:26",
+  fileType:'mp3',
+  fileName:"url?id=3343519052.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=3343519052.mp3";
+},
+{
+  id:'mus47',
+  type:'music',
+  name:"愿",
+  author:"white",
+  group:'g-white',
+  groupLabel:"🎧",
+  artist:"郑国峰",
+  desc:"(￣▽￣)",
+  duration:"4:00",
+  fileType:'mp3',
+  fileName:"url?id=1924801790.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=1924801790.mp3";
+},
+{
+  id:'mus48',
+  type:'music',
+  name:"月亮与六便士",
+  author:"white",
+  group:'g-white',
+  groupLabel:"🎧",
+  artist:"邹沛沛/sasuke",
+  desc:"(｡ì _ í｡)",
+  duration:"2:45",
+  fileType:'mp3',
+  fileName:"url?id=2099907912.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=2099907912.mp3";
+},
+{
+  id:'mus49',
+  type:'music',
+  name:"唯一",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"邓紫棋",
+  fileType:'mp3',
+  fileName:"1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3",
+  file:"https://videotourl.com/audio/1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3";
+},
+{
+  id:'mus50',
+  type:'music',
+  name:"同花顺",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"林倛玉",
+  fileType:'mp3',
+  fileName:"1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3",
+  file:"https://videotourl.com/audio/1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3";
+},
+{
+  id:'mus51',
+  type:'music',
+  name:"第三个吻痕",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  fileType:'m4a',
+  fileName:"1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a",
+  file:"https://videotourl.com/audio/1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a";
+},
+{
+  id:'mus52',
+  type:'music',
+  name:"富士山下",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"陈奕迅",
+  fileType:'mp3',
+  fileName:"1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3",
+  file:"https://videotourl.com/audio/1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3";
+},
+{
+  id:'mus53',
+  type:'music',
+  name:"处处吻",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"杨千嬅",
+  fileType:'mp3',
+  fileName:"1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3",
+  file:"https://videotourl.com/audio/1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3";
+},
+{
+  id:'mus54',
+  type:'music',
+  name:"孤雏",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  fileType:'mp3',
+  fileName:"1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3",
+  file:"https://videotourl.com/audio/1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3";
+},
+{
+  id:'mus55',
+  type:'music',
+  name:"我怀念的",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"林俊杰",
+  fileType:'mp3',
+  fileName:"1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3",
+  file:"https://videotourl.com/audio/1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3";
+},
+{
+  id:'mus53',
+  type:'music',
+  name:"Wonderful U",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  fileType:'mp3',
+  fileName:"1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3",
+  file:"https://videotourl.com/audio/1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3";
+},
+{
+  id:'mus54',
+  type:'music',
+  name:"锁",
+  author:"SYyy",
+  group:'g-sub-8n26md',
+  groupLabel:"鱼",
+  artist:"张子墨",
+  fileType:'mp3',
+  fileName:"1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3",
+  file:"https://videotourl.com/audio/1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3";
 },
 ];
 
