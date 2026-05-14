@@ -11267,7 +11267,355 @@ box-shadow:
 position: relative !important;
 z-index: 10 !important;
 }`
-  }
+  },
+  {
+  id:'b139',
+  type:'bubble',
+  name:'海盐薄荷',
+  author:'Obsidian',
+  group:'JYSSnitai',
+  groupLabel:'简约双色拟态',
+  previews:[
+    {t:'sent',v:'生命给了我数不清的积雪'},
+    {t:'received',v:'而你是我遇到的第一个春天'}
+  ],
+  css:`/* ---------- 发送气泡：马卡龙蓝 ---------- */
+.message.message-sent {
+    color: #2a4a55;
+    border-radius: 20px 12px 20px 20px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(185, 222, 235, 0.3) 35%,
+            rgba(160, 210, 228, 0.18) 70%,
+            rgba(135, 185, 205, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(135, 180, 200, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 接收气泡：马卡龙绿 ---------- */
+.message.message-received {
+    color: #2d4a3e;
+    border-radius: 20px 20px 20px 12px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(185, 230, 200, 0.3) 35%,
+            rgba(160, 220, 185, 0.18) 70%,
+            rgba(135, 190, 155, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(135, 185, 155, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}`
+},
+{
+  id:'b140',
+  type:'bubble',
+  name:'鸢尾晴空',
+  author:'Obsidian',
+  group:'JYSSnitai',
+  groupLabel:'简约双色拟态',
+  previews:[
+    {t:'sent',v:'生命给了我数不清的积雪'},
+    {t:'received',v:'而你是我遇到的第一个春天'}
+  ],
+  css:`/* ---------- 发送气泡：马卡龙紫 ---------- */
+.message.message-sent {
+    color: #3d3050;
+    border-radius: 20px 12px 20px 20px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(210, 195, 235, 0.3) 35%,
+            rgba(195, 175, 225, 0.18) 70%,
+            rgba(165, 150, 200, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(165, 150, 200, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 接收气泡：马卡龙蓝 ---------- */
+.message.message-received {
+    color: #2a4458;
+    border-radius: 20px 20px 20px 12px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(185, 215, 240, 0.3) 35%,
+            rgba(165, 200, 232, 0.18) 70%,
+            rgba(140, 175, 210, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(140, 170, 210, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}`
+},
+{
+  id:'b141',
+  type:'bubble',
+  name:'樱花海雾',
+  author:'Obsidian',
+  group:'JYSSnitai',
+  groupLabel:'简约双色拟态',
+  previews:[
+    {t:'sent',v:'生命给了我数不清的积雪'},
+    {t:'received',v:'而你是我遇到的第一个春天'}
+  ],
+  css:`/* ---------- 发送气泡：马卡龙粉 ---------- */
+.message.message-sent {
+    color: #4a3040;
+    border-radius: 20px 12px 20px 20px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(240, 200, 215, 0.3) 35%,
+            rgba(232, 185, 205, 0.18) 70%,
+            rgba(200, 160, 180, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(195, 155, 175, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 接收气泡：马卡龙蓝 ---------- */
+.message.message-received {
+    color: #2a4458;
+    border-radius: 20px 20px 20px 12px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(185, 215, 240, 0.3) 35%,
+            rgba(165, 200, 232, 0.18) 70%,
+            rgba(140, 175, 210, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(140, 170, 210, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}`
+},
+{
+  id:'b142',
+  type:'bubble',
+  name:'柠檬莓果',
+  author:'Obsidian',
+  group:'JYSSnitai',
+  groupLabel:'简约双色拟态',
+  previews:[
+    {t:'sent',v:'生命给了我数不清的积雪'},
+    {t:'received',v:'而你是我遇到的第一个春天'}
+  ],
+  css:`/* ---------- 发送气泡：马卡龙黄 ---------- */
+.message.message-sent {
+    color: #4a4030;
+    border-radius: 20px 12px 20px 20px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(250, 235, 175, 0.32) 35%,
+            rgba(245, 225, 155, 0.2) 70%,
+            rgba(200, 185, 135, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(195, 180, 130, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 接收气泡：马卡龙红 ---------- */
+.message.message-received {
+    color: #4a3038;
+    border-radius: 20px 20px 20px 12px;
+    background: 
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.15) 42%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.15) 58%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(245, 195, 200, 0.3) 35%,
+            rgba(235, 178, 185, 0.18) 70%,
+            rgba(200, 150, 155, 0.12) 100%
+        );
+    background-size: 250% 100%, auto;
+    animation: waterShine 8s linear infinite;
+    box-shadow:
+        0 3px 10px rgba(150, 150, 160, 0.12),
+        0 1px 3px rgba(150, 150, 160, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 6px rgba(195, 145, 150, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}`
+},
+{
+ id:'b143',
+ type:'bubble',
+ name:'仿iMessage-绿',
+ author:'扮乖邪刘海',
+ group:'iOS26',
+ groupLabel:'仿iMessage',
+ previews:[
+   {t:'sent',v:'哥哥知道喝了9️⃣脸上会出现什么吗'},
+   {t:'received',v:'会脸红'},
+   {t:'sent',v:'不对哦 喝了9️⃣ 脸上会出现口红印'},
+   {t:'received',v:'谁教你的？'}
+ ],
+ css:`/* 通用基础：消息气泡统一圆角 */
+.message-sent,
+.message-received {
+ border-radius: 20px !important;
+ padding: 10px 14px;
+ position: relative;
+ line-height: 1.4;
+ /* 关键：不要加 overflow:hidden 留口子给尾巴伸出 */
+ overflow: visible !important;
+}
+
+/* ========== {{Char}} 左侧气泡 ========== */
+.message-received {
+ background-color: #EEF0F3 !important;
+ color: #000000 !important;
+}
+/* 左侧气泡 左下角小尾巴 可自由调上下左右 */
+.message-received::after {
+ content: "";
+ position: absolute;
+ width: 24px;
+ height: 24px;
+ background-image: url("https://i.postimg.cc/4xBDXTCY/wu-biao-ti56-20260402010840.png";);
+ background-size: contain;
+ background-repeat: no-repeat;
+ /* 这里随便改数值：左右、上下 */
+ left: 5px;     /* 往左改小，往右改大 */
+ bottom: -8px;   /* 负数越往下露得越多，正数往上收 */
+ z-index: 999;   /* 层级最高，不会被盖住 */
+}
+
+/* ========== {{User}} 右侧气泡 ========== */
+.message-sent {
+ background-color: #33CF5A !important;
+ color: #ffffff !important;
+}
+/* 右侧气泡 右下角小尾巴 可自由调上下左右 */
+.message-sent::after {
+ content: "";
+ position: absolute;
+ width: 24px;
+ height: 24px;
+ background-image: url("https://i.postimg.cc/K81TN8s3/wu-biao-ti56-20260401222905.png";);
+ background-size: contain;
+ background-repeat: no-repeat;
+ /* 这里随便改数值：左右、上下 */
+ right: 5px;    /* 往右改小，往左改大 */
+ bottom: -8px;  /* 负数越往下露得越多 */
+ z-index: 999;
+}`
+},
 ];
 const CARDS = [{
 id: 'card1',
@@ -11602,7 +11950,27 @@ file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
     fileType: 'json',
     fileName: "zw0n3d.json",
     file: "https://files.catbox.moe/zw0n3d.json"
-  }
+  },
+  {
+  id:'card31',
+  type:'card',
+  name:"🍐黎深日常+🍎字卡",
+  author:"淇淇",
+  desc:"",
+  fileType:'json',
+  fileName:"86m70p.json",
+  file:"https://files.catbox.moe/86m70p.json"
+},
+{
+id:'card32',
+type:'card',
+name:"撒娇吧我也不知道",
+author:"ocean",
+desc:"撒娇吧",
+fileType:'json',
+fileName:"json",
+file:"https://example.com/api/text/to/json"
+},
 ];
 
 const THEMES =[
