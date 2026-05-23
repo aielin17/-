@@ -173,6 +173,10 @@
   font-display: swap
 }
 
+@font-face { 
+  font-family:'F25'; 
+  src:url('https://files.catbox.moe/rggo1s.ttf') format('truetype'); font-display:swap }
+
 html {
   height: 100%
 }
@@ -3879,6 +3883,11 @@ body {
 @media (max-width: 768px) {
   .sidebar {
     display: none !important;
+  }
+
+  .workspace {
+    display: block;
+    width: 100vw;
   }
 
   .main {

@@ -198,6 +198,14 @@ const FONTS = [{
   family: 'F24',
   url: 'https://image.uglycat.cc/2cmthx.ttf'
 },
+{
+  id:'f25',
+  type:'font',
+  name:'冬日限定',
+  author:'冬眠',
+  family:'F24',
+  url:'https://files.catbox.moe/rggo1s.ttf'
+},
 ];
 const BUBBLES = [{
     id: 'b1',
@@ -11616,6 +11624,157 @@ z-index: 10 !important;
  z-index: 999;
 }`
 },
+{
+id:'b144',
+type:'bubble',
+name:'梦色醇香',
+author:'cuyyyyyy',
+group:'lysk2026',
+groupLabel:'恋与深空',
+previews:[
+{t:'sent',v:'hi'},
+{t:'received',v:'你好'}
+],
+css:`/* 对方的气泡：深棕底色 + 金色描边 */
+.message-received {
+background-color: #4b2e1f;
+color: #f0d9b5;
+border-radius: 18px;
+padding: 12px 16px;
+position: relative;
+border: 2px solid #8b5a2b;
+}
+.message-received::after {
+content: "";
+position: absolute;
+bottom: 8px;
+right: -8px;
+width: 12px;
+height: 12px;
+background-color: #4b2e1f;
+border: 2px solid #8b5a2b;
+border-left: none;
+border-bottom: none;
+transform: rotate(45deg);
+}
+
+/* 自己的气泡：浅米白 + 复古边框 */
+.message-sent {
+background-color: #fff9e6;
+color: #4b2e1f;
+border-radius: 18px;
+padding: 12px 16px;
+position: relative;
+border: 1px solid #d4c2a8;
+}
+.message-sent::after {
+content: "";
+position: absolute;
+bottom: 8px;
+left: -8px;
+width: 12px;
+height: 12px;
+background-color: #fff9e6;
+border: 1px solid #d4c2a8;
+border-right: none;
+border-bottom: none;
+transform: rotate(45deg);
+}`
+},
+{
+  id:'b145',
+  type:'bubble',
+  name:'蓝色小鱼',
+  author:'和春',
+  previews:[
+
+  ],
+  css:`.message {
+  border-radius: 24px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08) !important;
+  overflow: visible !important;
+  border: 1px solid #96707c !important;
+  padding: 6px 14px !important;
+  line-height: 1.4 !important;
+  background: linear-gradient(145deg, #fffcfd, #fffafb) !important;
+  position: relative !important;
+}
+
+.message.message-received,
+.message.message-received span,
+.message.message-received div,
+.message.message-received p,
+.message.message-received a,
+.message.message-received * {
+  color: #c8889e !important;
+}
+
+.message.message-sent,
+.message.message-sent span,
+.message.message-sent div,
+.message.message-sent p,
+.message.message-sent a,
+.message.message-sent * {
+  color: #96707c !important;
+}
+
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 48px !important;
+  height: 48px !important;
+  top: -16px !important;
+  left: -8px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERofZpsinR5ee23nF-pDwf4aNnBh5h8wACJh0AAvpAkVXbheku2OFYtjoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 50px !important;
+  height: 50px !important;
+  right: -8px !important;
+  bottom: -14px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERudJptnUjGMXS2KAdx2UFKk09oKEB5AACUSEAAlpcsFXWRk1rs0kO3DoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 58px !important;
+  height: 58px !important;
+  top: -16px !important;
+  left: -6px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERuYZptmoV_KEFeCtW1kNrx-tU4f3M1AAC1yAAAlpcsFUOulbykLcIljoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 46px !important;
+  height: 46px !important;
+  right: -8px !important;
+  bottom: -10px !important;
+  background: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERubRptnKnm88RkKUMjdaIRAm89QgwyQACLyEAAlpcsFWjK2NmSEPH8DoE.png') !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  z-index: 2 !important;
+}
+
+.message * {
+  z-index: 3 !important;
+  position: relative !important;
+}`
+},
 ];
 const CARDS = [{
 id: 'card1',
@@ -11970,6 +12129,16 @@ desc:"撒娇吧",
 fileType:'json',
 fileName:"json",
 file:"https://example.com/api/text/to/json"
+},
+{
+id:'card33',
+type:'card',
+name:"柏源的字卡！！",
+author:"Y",
+desc:"内含日常生活、柏源网球训练、🔞等等字卡，是用ChatGPT生成的，我改了些，让对话自然贴柏源一些！陛下们自取！！柏源全肯定！！（世界之外柏源）",
+fileType:'json',
+fileName:"dvauog.json",
+file:"https://files.catbox.moe/dvauog.json",
 },
 ];
 
@@ -13194,7 +13363,40 @@ const MUSIC =[
     fileType: 'mp3',
     fileName: "1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3",
     file: "https://videotourl.com/audio/1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3"
-  }
+  },
+  {
+  id:'mus58',
+  type:'music',
+  name:"Moments",
+  author:"Evie",
+  artist:"Leo Stannard/Kidnap",
+  desc:"人与人之间有点Moments就够了",
+  fileType:'mp3',
+  fileName:"url?id=406730731.mp3",
+  file:"http://music.163.com/song/media/outer/url?id=406730731.mp3"
+  },
+  {
+  id:'mus59',
+  type:'music',
+  name:"Alive",
+  author:"小恩",
+  artist:"Blue",
+  desc:"忧郁",
+  fileType:'mp3',
+  fileName:"zqpkaq.mp3",
+  file:"https://files.catbox.moe/zqpkaq.mp3",
+  },
+  {
+  id:'mus60',
+  type:'music',
+  name:"雨天",
+  author:"小恩",
+  artist:"孙燕姿",
+  desc:"忧郁",
+  fileType:'mp3',
+  fileName:"ydqxc8.mp3",
+  file:"https://files.catbox.moe/ydqxc8.mp3"
+  },
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
