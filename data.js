@@ -206,6 +206,22 @@ const FONTS = [{
   family:'F24',
   url:'https://files.catbox.moe/rggo1s.ttf'
 },
+{
+  id:'f26',
+  type:'font',
+  name:'爱点风雅黑长体',
+  author:'y',
+  family:'F24',
+  url:'https://files.catbox.moe/7v1zr4.ttf'
+},
+{
+id:'f27',
+type:'font',
+name:'黄油面包体',
+author:'知芝要努力变强',
+family:'F25',
+url:'https://files.catbox.moe/8kcrh0.ttf'
+},
 ];
 const BUBBLES = [{
     id: 'b1',
@@ -12138,7 +12154,17 @@ author:"Y",
 desc:"内含日常生活、柏源网球训练、🔞等等字卡，是用ChatGPT生成的，我改了些，让对话自然贴柏源一些！陛下们自取！！柏源全肯定！！（世界之外柏源）",
 fileType:'json',
 fileName:"dvauog.json",
-file:"https://files.catbox.moe/dvauog.json",
+file:"https://files.catbox.moe/dvauog.json"
+},
+{
+  id:'card34',
+  type:'card',
+  name:"卡卡西单人向",
+  author:"卡卡找不到西",
+  desc:"日常对话",
+  fileType:'json',
+  fileName:"3gaw0m.json",
+  file:"https://files.catbox.moe/3gaw0m.json"
 },
 ];
 
@@ -13384,7 +13410,7 @@ const MUSIC =[
   desc:"忧郁",
   fileType:'mp3',
   fileName:"zqpkaq.mp3",
-  file:"https://files.catbox.moe/zqpkaq.mp3",
+  file:"https://files.catbox.moe/zqpkaq.mp3"
   },
   {
   id:'mus60',
@@ -13396,6 +13422,15 @@ const MUSIC =[
   fileType:'mp3',
   fileName:"ydqxc8.mp3",
   file:"https://files.catbox.moe/ydqxc8.mp3"
+  },
+  {
+  id:'mus61',
+  type:'music',
+  name:"玻璃",
+  author:"榆木",
+  fileType:'mp3',
+  fileName:"1780140477054_Gareth.T_-_玻璃.mp3",
+  file:"https://img.heliar.top/file/1780140477054_Gareth.T_-_玻璃.mp3"
   },
 ];
 
