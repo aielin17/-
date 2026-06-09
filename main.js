@@ -946,7 +946,9 @@ document.getElementById('modal').addEventListener('touchstart', e => {
   passive: true
 });
 document.getElementById('modal').addEventListener('touchend', e => {
-  if (e.changedTouches[0].clientY - touchStartY > 80) closeModal();
+  const body = document.getElementById('modal-body');
+  // 只有 modal-body 滚动到顶部时，下拉才关闭，避免滚动内容时误触发
+  if (e.changedTouches[0].clientY - touchStartY > 80 && body.scrollTop === 0) closeModal();
 }, {
   passive: true
 });

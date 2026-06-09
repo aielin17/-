@@ -103,7 +103,7 @@
 
 @font-face {
   font-family: 'F12';
-  src: url('https://raw.githubusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf') format('truetype');
+  src: url('https://raw.githubusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf') format('opentype');
   font-display: swap
 }
 
@@ -115,7 +115,7 @@
 
 @font-face {
   font-family: 'F14';
-  src: url('https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf') format('truetype');
+  src: url('https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf') format('opentype');
   font-display: swap
 }
 
@@ -503,6 +503,11 @@ body {
   z-index: 10;
 }
 
+/* 默认桌面端隐藏，仅移动端 media query 中显示 */
+.mobile-filter-btn {
+  display: none;
+}
+
 .toolbar {
   display: flex;
   align-items: center;
@@ -685,7 +690,7 @@ body {
 }
 
 .item-card:hover::after {
-  opacity: 1.5
+  opacity: 1
 }
 
 .item-card.active {
@@ -3399,34 +3404,6 @@ body {
   }
 }
 
-.toast {
-  position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  background: #1a1a2e;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 9px 18px;
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .22s, transform .22s;
-  z-index: 9999;
-  white-space: nowrap;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0)
-}
-
-.dark .toast {
-  background: #2d2d4e
-}
-
 .music-playlist-card {
   margin-top: 8px;
   background: var(--surface-2);
@@ -3894,15 +3871,19 @@ body {
     display: none !important;
   }
 
+  /* fix: 改回 flex+column，保持高度链，让 .main 的 overflow-y:auto 能生效 */
   .workspace {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
   }
 
   .main {
+    flex: 1;
     width: 100% !important;
     margin-left: 0 !important;
     padding: 0;
+    overflow-y: auto;
   }
 
   .toolbar-wrapper {
