@@ -11791,6 +11791,437 @@ transform: rotate(45deg);
   position: relative !important;
 }`
 },
+{
+  id:'b146',
+  type:'bubble',
+  name:'兔熊',
+  author:'匿名',
+  previews:[
+    {t:'sent',v:'不依赖哥哥算长大吗'},
+    {t:'received',v:'算哥哥没用'}
+  ],
+  css:`/* ========== 气泡基础样式 ========== */
+.message {
+  position: relative !important;
+  line-height: 1.5 !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  max-width: 280px !important;
+  word-break: break-word !important;
+}
+
+/* 对方的气泡（熊） */
+.message.message-received {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #4a3728 !important;
+  padding: 18px 18px 16px 22px !important;
+  z-index: 1 !important;
+}
+
+/* 我的气泡（兔） */
+.message.message-sent {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #5c4033 !important;
+  padding: 18px 22px 16px 18px !important;
+  z-index: 1 !important;
+}
+
+/* 对方的气泡背景（熊） */
+.message.message-received::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  background-color: #fef9f0 !important;
+  border: 2px solid #d4a574 !important;
+  border-radius: 6px 20px 20px 20px !important;
+  box-shadow: 
+    2px 2px 0 #e8c9a0,
+    inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  pointer-events: none;
+}
+
+/* 熊耳朵 */
+.message.message-received::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: 6px !important;
+  width: 16px !important;
+  height: 12px !important;
+  background: #d4a574 !important;
+  border-radius: 50% 50% 0 0 !important;
+  z-index: -2 !important;
+  box-shadow: 8px 0 0 #d4a574, 4px -2px 0 #d4a574 !important;
+  pointer-events: none;
+}
+
+/* 我的气泡背景（兔） */
+.message.message-sent::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+  background-color: #fff5f5 !important;
+  border: 2px solid #f0b8b8 !important;
+  border-radius: 20px 6px 20px 20px !important;
+  box-shadow: 
+    2px 2px 0 #fddbdb,
+    inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  pointer-events: none;
+}
+
+/* 兔耳朵 */
+.message.message-sent::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -10px !important;
+  right: 8px !important;
+  width: 14px !important;
+  height: 18px !important;
+  background: #f0b8b8 !important;
+  border-radius: 50% 50% 0 0 !important;
+  z-index: -2 !important;
+  box-shadow: -8px 0 0 #f0b8b8 !important;
+  pointer-events: none;
+}`
+},
+{
+  id:'b147',
+  type:'bubble',
+  name:'微信气泡',
+  author:'凛冬',
+  previews:[
+    {t:'sent',v:'今天心情怎么样'},
+    {t:'received',v:'我的心情很好'},
+    {t:'sent',v:'我想你'},
+    {t:'received',v:'我也想你'}
+  ],
+  css:`/* ========== 微信风格气泡（100%复刻） ========== */
+/* 对方消息气泡（message-received）- 左侧灰色气泡 */
+.message-received {
+    position: relative;
+    display: inline-block;
+    max-width: 80%;
+    padding: 9px 12px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    color: #111111;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 4px;
+    /* 微信经典圆角 */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    /* 轻微阴影让气泡更有质感 */
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.05);
+    /* 字体 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 对方气泡的小三角箭头（左下角） */
+.message-received::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    bottom: 8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: transparent #ffffff transparent transparent;
+    filter: drop-shadow(-1px 0 0 rgba(0, 0, 0, 0.03));
+}
+
+/* ========== 我方发送的气泡（message-sent）- 右侧绿色气泡 ========== */
+.message-sent {
+    position: relative;
+    display: inline-block;
+    max-width: 80%;
+    padding: 9px 12px;
+    margin: 5px 0;
+    background-color: #95ec69;
+    color: #111111;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 4px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.05);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 我方气泡的小三角箭头（右下角） */
+.message-sent::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: 8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-color: transparent transparent transparent #95ec69;
+    filter: drop-shadow(1px 0 0 rgba(0, 0, 0, 0.03));
+}
+
+/* 可选：让头像和气泡对齐更自然（如果网站有头像区域） */
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+/* 确保气泡内文字不换行异常 */
+.message-sent br, .message-received br {
+    display: block;
+}`
+},
+{
+id:'b148',
+type:'bubble',
+name:'秦彻',
+author:'黎泯',
+group:'0418',
+groupLabel:'qq彻',
+previews:[
+{t:'sent',v:'小狸花，久等了'},
+{t:'received',v:'你找到我了'},
+{t:'sent',v:'当然，这是我们的约定不是吗'},
+{t:'received',v:'（笑）'}
+],
+css:`.message {
+position: relative !important;
+line-height: 1.35 !important;
+word-break: break-word !important;
+overflow: visible !important;
+width: fit-content !important;
+max-width: 280px !important;
+border-radius: 12px;
+padding: 9px 12px;
+border: none;
+box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+font-size: 14px;
+}
+
+/* ===== 气泡基础（红色主题） ===== */
+.message.message-sent,
+.message.message-received {
+display: inline-block;
+position: relative;
+min-width: 70%;
+color: #fff;
+background: linear-gradient(135deg, #8b2f3a, #7a2632);
+}
+
+/* ===== 对齐 ===== */
+.message.message-sent {
+margin-left: auto;
+}
+
+.message.message-received {
+margin-right: auto;
+}
+
+/* ===== 气泡尾巴 ===== */
+.message::after {
+content: "";
+position: absolute;
+width: 10px;
+height: 10px;
+background: #8b2f3a;
+transform: rotate(45deg);
+border-radius: 2px;
+}
+
+.message.message-sent::after {
+right: -4px;
+top: 18px;
+}
+
+.message.message-received::after {
+left: -4px;
+top: 18px;
+}
+
+/* ===================================================== */
+/* ✅ 头像（已替换为你提供的链接） */
+/* ===================================================== */
+
+/* 发出方头像（右上角） */
+.message.message-sent::before {
+content: "";
+position: absolute;
+width: 22px;
+height: 22px;
+top: -10px;
+right: 10px;
+border-radius: 50%;
+background-image: url("https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVxExqNVjpFMzQqtV3mY8l42HEBdLLZgACVCYAAmzbqFUMNIP6MAP-6jwE.png");
+background-size: cover;
+background-position: center;
+border: 2px solid #fff;
+box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+/* 接收方头像（左上角） */
+.message.message-received::before {
+content: "";
+position: absolute;
+width: 22px;
+height: 22px;
+top: -10px;
+left: 10px;
+border-radius: 50%;
+background-image: url("https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVxExqNVjpFMzQqtV3mY8l42HEBdLLZgACVCYAAmzbqFUMNIP6MAP-6jwE.png");
+background-size: cover;
+background-position: center;
+border: 2px solid #fff;
+box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}`
+},
+{
+  id:'b149',
+  type:'bubble',
+  name:'宝贝我无语了',
+  author:'眠眠',
+  previews:[
+
+  ],
+  css:`.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative;overflow:visible !important}
+.message::after{content:'' !important;position:absolute !important;width:0 !important;height:0 !important;border-style:solid !important}
+.message.message-sent::after{bottom:10px !important;right:-5px !important;border-width:4px 0 0 5px !important;border-color:transparent transparent transparent #F8F8F8 !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
+.message.message-received::after{bottom:10px !important;left:-5px !important;border-width:0 0 4px 5px !important;border-color:transparent transparent #fff transparent !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
+.message-sent::before{content:"•••" !important;position:absolute !important;top:-18px !important;left:-15px !important;font-size:6px !important;letter-spacing:.8px !important;color:#444 !important;background:#F8F8F8 !important;padding:3px 7px !important;border-radius:12px 8px 8px 12px !important;line-height:1 !important;font-weight:800 !important;text-align:center !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 6px rgba(160,160,160,.3),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.03) !important;z-index:3 !important}
+.message-received::before{content:"♥︎+520" !important;position:absolute !important;top:-12px !important;right:-35px !important;font-size:7px !important;letter-spacing:.4px !important;color:#F1BFCB !important;background:#fff !important;padding:3px 6px !important;border-radius:6px 10px 10px 6px !important;line-height:1 !important;font-weight:500 !important;text-align:center !important;white-space:nowrap !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 5px rgba(180,180,180,.2),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.02) !important;z-index:3 !important}
+.message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:-3px -3px 6px rgba(255,255,255,.8),4px 4px 8px rgba(180,180,180,.25),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.05) !important;position:relative}
+.message-sent{background:#F8F8F8 !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:-4px -4px 8px rgba(255,255,255,.9),5px 5px 10px rgba(150,150,150,.2),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.03) !important;position:relative;background-image:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#F8F8F8 70%) !important}`
+},
+{
+  id:'b150',
+  type:'bubble',
+  name:'朦胧感半透灰白',
+  author:'子午线',
+  previews:[
+    {t:'sent',v:'「一緒に逃げよう、私と。」'},
+    {t:'received',v:'「月明かりが隠してくれる。」'}
+  ],
+  css:`/* ===== 对方气泡 ===== */
+.message-received {
+    /* 雾感渐变 */
+    background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.50) 60%, rgba(255,255,255,0.12) 100%) !important;
+    
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    
+    /* ★ 边框发光更明显 */
+    box-shadow: 
+        0 0 12px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.25),
+        0 0 60px rgba(255, 255, 255, 0.10),
+        0 2px 12px rgba(0, 0, 0, 0.03) !important;
+    
+    border-radius: 24px !important;
+    
+    color: #1f1f2b !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    padding: 8px 18px !important;
+    text-shadow: none !important;
+}
+
+/* ===== 我方气泡===== */
+.message-sent {
+    background: radial-gradient(ellipse at 40% 40%, rgba(160,160,170,0.75) 0%, rgba(160,160,170,0.35) 60%, rgba(160,160,170,0.05) 100%) !important;
+    
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    
+    /* ★ 边框发光更明显 */
+    box-shadow: 
+        0 0 12px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(255, 255, 255, 0.20),
+        0 0 60px rgba(255, 255, 255, 0.08),
+        0 2px 12px rgba(0, 0, 0, 0.03) !important;
+    
+    border-radius: 24px !important;
+    
+    color: #2a2a3a !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    padding: 8px 18px !important;
+    text-shadow: none !important;
+}
+
+/* ===== 回复框 ===== */
+.message-received .reply-content,
+.message-sent .reply-content {
+    background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.30) 80%) !important;
+    border-left: 2px solid rgba(255, 255, 255, 0.6) !important;
+    padding: 6px 14px !important;
+    margin: 4px 0 8px 0 !important;
+    border-radius: 14px !important;
+    font-size: 13px !important;
+    color: #3a3a4a !important;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
+}`
+},
+{
+id:'b151',
+type:'bubble',
+name:'仿iMessage蓝',
+author:'pink',
+previews:[
+{t:'sent',v:'生活没有一点甜头 好减脂'},
+{t:'received',v:'人生处处是低谷，我全部好价吃掉'}
+],
+css:`.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative !important;overflow:visible !important;padding:7px 13px !important;line-height:1.3 !important;word-break:break-word !important;border-radius:18px !important;box-shadow:0 2px 3px rgba(0,0,0,.1) !important}
+.message-received{background:#D4D4D4 !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(0,0,0,.15) !important}
+.message-sent{background:#1e97f3 !important;border-color:transparent !important;color:#fff !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:0 4px 8px rgba(30,151,243,.3) !important}
+.message::after{content:'' !important;position:absolute !important;width:30px !important;height:15px !important;background-size:contain !important;background-repeat:no-repeat !important;z-index:0 !important}
+.message.message-sent::after{
+bottom:-3.9px !important;
+right:-19.4px !important;
+background-image:url('https://files.catbox.moe/z6big3.png') !important;
+filter:drop-shadow(5.2px 4.1px 5px rgba(30,151,243,.4)) !important;
+}
+.message.message-received::after{
+bottom:-3.9px !important;
+left:-6.6px !important;
+background-image:url('https://files.catbox.moe/qzxtjm.png') !important; /* 已替换 */
+filter:drop-shadow(-3px 5px 4px rgba(0,0,0,.2)) !important;
+}`
+},
 ];
 const CARDS = [{
 id: 'card1',
@@ -12165,6 +12596,16 @@ file:"https://files.catbox.moe/dvauog.json"
   fileType:'json',
   fileName:"3gaw0m.json",
   file:"https://files.catbox.moe/3gaw0m.json"
+},
+{
+id:'card35',
+type:'card',
+name:"沈星回",
+author:"匿名",
+desc:"",
+fileType:'json',
+fileName:"SXH-reply-2026-03-03.json",
+file:"https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json"
 },
 ];
 
@@ -12761,7 +13202,173 @@ pointer-events: none;
 z-index: 99;
 animation: breatheDeepBlue 2.8s ease-in-out infinite, snowDrift 3.5s ease-in-out infinite;
 }`
-  }
+  },
+  {
+  id:'th5',
+  type:'theme',
+  name:"全半透磨砂",
+  author:"子午线",
+  desc:"透明磨砂风格，包括顶部栏，输入框以及按键的各种美化\n菜单设置内部分按键因为大小改变字体会显示的超出范围。不影响使用和辨别",
+  tags:["透明","磨砂","ios"],
+  colors:[],
+  css:`/* ===== 全局主题 CSS（背景清晰 + 按钮磨砂） ===== */
+
+/* ===== 根变量 ===== */
+:root {
+    --accent-color: #ffffff;
+    --primary-bg: rgba(255, 255, 255, 0.06);
+    --border-color: rgba(255, 255, 255, 0.5);
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-blur: 10px;
+    --text-color: #1f1f2b;
+    --text-light: #6a6a7a;
+}
+
+/* ===== 整体背景（清晰无模糊） ===== */
+body, .app-container, #app, .chat-container {
+    background: #f8f9fa !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ===== 顶部导航栏（清晰无模糊） ===== */
+#header, .header, .nav-bar, .top-bar {
+    background: rgba(255, 255, 255, 0.20) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: #1f1f2b !important;
+    padding: 12px 18px !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ===== 伙伴信息（清晰无模糊） ===== */
+#partner-info, .partner-info {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 20px !important;
+    padding: 14px 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ===== 输入框（圆润胶囊，清透磨砂） ===== */
+#message-input, .input-box, textarea, .chat-input {
+    background: rgba(255, 255, 255, 0.30) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 30px !important;
+    color: #1f1f2b !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* ===== ★ 输入框旁边所有按钮（磨砂玻璃质感） ===== */
+button[class*="tool"],
+button[class*="btn"],
+.toolbar-btn,
+.chat-footer button,
+.send-btn,
+button[class*="send"],
+button[class*="arrow"],
+.attach-btn,
+.emoji-btn,
+.more-btn {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 50% !important;
+    color: #3a3a4a !important;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ===== 按钮悬浮 ===== */
+button[class*="tool"]:hover,
+button[class*="btn"]:hover,
+.toolbar-btn:hover,
+.chat-footer button:hover,
+.send-btn:hover {
+    background: rgba(255, 255, 255, 0.40) !important;
+    transform: scale(1.05) !important;
+}
+
+/* ===== 输入框 placeholder 文字 ===== */
+#message-input::placeholder, .input-box::placeholder {
+    color: rgba(90, 90, 106, 0.5) !important;
+}
+
+/* ===== 时间戳（清淡柔和） ===== */
+.timestamp, .time, .message-time {
+    color: rgba(90, 90, 106, 0.5) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* ===== 滚动条（极细，半透） ===== */
+::-webkit-scrollbar {
+    width: 3px !important;
+    height: 3px !important;
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 10px !important;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(200, 200, 210, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+/* ===== 所有图标（柔和灰色） ===== */
+.icon, svg, .btn-icon {
+    color: #4a4a5a !important;
+    opacity: 0.6 !important;
+    transition: opacity 0.2s ease !important;
+}
+.icon:hover, svg:hover, .btn-icon:hover {
+    opacity: 0.9 !important;
+}
+
+/* ===== 整体容器内边距 ===== */
+.chat-container, .main-container {
+    background: transparent !important;
+    padding: 0 16px !important;
+}
+
+/* ===== 分割线/细线 ===== */
+.divider, hr {
+    border: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    margin: 8px 0 !important;
+}
+
+/* ===== 底部/菜单栏（清晰无模糊） ===== */
+.footer, .bottom-bar, .menu-bar, .chat-footer, .input-container {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-top: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}`
+},
 ];
 
 const MUSIC =[
@@ -13432,6 +14039,43 @@ const MUSIC =[
   fileName:"1780140477054_Gareth.T_-_玻璃.mp3",
   file:"https://img.heliar.top/file/1780140477054_Gareth.T_-_玻璃.mp3"
   },
+  {
+  id:'mus62',
+  type:'music',
+  name:"如愿以偿",
+  author:"11",
+  group:'g-sub-u35xgz',
+  groupLabel:"柏源24-26年生日主题曲",
+  artist:"世界之外",
+  desc:"世界之外柏源24-26年生日主题曲",
+  fileType:'mp3',
+  fileName:"url?id=2145135009.mp3",
+  file:"https://music.163.com/song/media/outer/url?id=2145135009.mp3"
+},
+{
+  id:'mus63',
+  type:'music',
+  name:"作茧",
+  author:"11",
+  group:'g-sub-u35xgz',
+  groupLabel:"柏源24-26年生日主题曲",
+  artist:"世界之外",
+  fileType:'mp3',
+  fileName:"url?id=2693006707.mp3",
+  file:"https://music.163.com/song/media/outer/url?id=2693006707.mp3"
+},
+{
+  id:'mus64',
+  type:'music',
+  name:"潮汐引力",
+  author:"11",
+  group:'g-sub-u35xgz',
+  groupLabel:"柏源24-26年生日主题曲",
+  artist:"世界之外",
+  fileType:'mp3',
+  fileName:"url?id=3368780055.mp3",
+  file:"https://music.163.com/song/media/outer/url?id=3368780055.mp3"
+},
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
