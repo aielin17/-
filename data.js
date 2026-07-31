@@ -12222,6 +12222,123 @@ background-image:url('https://files.catbox.moe/qzxtjm.png') !important; /* 已�
 filter:drop-shadow(-3px 5px 4px rgba(0,0,0,.2)) !important;
 }`
 },
+{
+id:'b152',
+type:'bubble',
+name:'甜心骨',
+author:'xilc',
+previews:[
+{t:'sent',v:'我许愿有你一直在我身边'},
+{t:'received',v:'我一直在'}
+],
+css:`/* ========== 甜心骨气泡风格（仅气泡） ========== */
+
+/* 气泡通用样式 */
+.message.message-sent,
+.message.message-received {
+border: 1.5px solid #888888 !important;
+border-radius: 3px !important;
+color: #666666 !important;
+position: relative !important;
+padding: 5px 15px 5px !important;
+box-shadow: none !important;
+overflow: visible !important;
+font-weight: normal !important;
+}
+
+/* 我发的气泡 - 白色 */
+.message.message-sent {
+background: #ffffff !important;
+}
+
+/* 对方发的气泡 - 粉色 */
+.message.message-received {
+background: #fef0f5 !important;
+}
+
+/* ---- 贴纸：底部大贴纸 ---- */
+
+/* 我发的 - 左下角贴纸 */
+.message.message-sent::after {
+content: "" !important;
+position: absolute !important;
+bottom: -25px !important;
+left: -15px !important;
+width: 45px !important;
+height: 45px !important;
+background-image: url("https://tc-new.z.wiki/autoupload/Lps16m1XQxemt1c-RRKmtdiO_OyvX7mIgxFBfDMDErs/20260116/MMmx/848X447/IMG_5109.png";) !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+border: none !important;
+transform: rotate(0deg) !important;
+transform-origin: center center !important;
+pointer-events: none !important;
+}
+
+/* 对方发的 - 右下角贴纸 */
+.message.message-received::after {
+content: "" !important;
+position: absolute !important;
+bottom: -25px !important;
+right: -25px !important;
+width: 45px !important;
+height: 45px !important;
+background-image: url("https://tc-new.z.wiki/autoupload/Lps16m1XQxemt1c-RRKmtdiO_OyvX7mIgxFBfDMDErs/20260116/MMmx/848X447/IMG_5109.png";) !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+border: none !important;
+transform: rotate(0deg) !important;
+transform-origin: center center !important;
+pointer-events: none !important;
+}
+
+/* ---- 贴纸：顶部小贴纸 ---- */
+
+/* 我发的 - 右上角小贴纸 */
+.message.message-sent::before {
+content: "" !important;
+position: absolute !important;
+top: -5px !important;
+right: -8px !important;
+transform: rotate(0deg) !important;
+transform-origin: center center !important;
+width: 20px !important;
+height: 20px !important;
+background-image: url("https://tc-new.z.wiki/autoupload/Lps16m1XQxemt1c-RRKmtdiO_OyvX7mIgxFBfDMDErs/20260116/AEfW/360X303/IMG_5117.png";) !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+border: none !important;
+pointer-events: none !important;
+}
+
+/* 对方发的 - 左上角小贴纸 */
+.message.message-received::before {
+content: "" !important;
+position: absolute !important;
+top: -5px !important;
+left: -8px !important;
+transform: rotate(0deg) !important;
+transform-origin: center center !important;
+width: 20px !important;
+height: 20px !important;
+background-image: url("https://tc-new.z.wiki/autoupload/Lps16m1XQxemt1c-RRKmtdiO_OyvX7mIgxFBfDMDErs/20260116/IJCC/385X311/IMG_5118.png";) !important;
+background-size: contain !important;
+background-repeat: no-repeat !important;
+border: none !important;
+pointer-events: none !important;
+}
+
+/* 图片消息去掉气泡和贴纸 */
+.message.message-image-bubble-none {
+background: transparent !important;
+border: none !important;
+padding: 0 !important;
+}
+.message.message-image-bubble-none::before,
+.message.message-image-bubble-none::after {
+display: none !important;
+}`
+},
 ];
 const CARDS = [{
 id: 'card1',
@@ -12606,6 +12723,26 @@ desc:"",
 fileType:'json',
 fileName:"SXH-reply-2026-03-03.json",
 file:"https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json"
+},
+{
+  id:'card36',
+  type:'card',
+  name:"枫原万叶",
+  author:"夕缘万叶梦",
+  desc:"性情温润淡然、谦和沉稳，气质清冷通透。谈吐清雅克制、温柔有礼，情绪内敛沉稳，极少剧烈起伏。偏爱自然风物，言语常以风、山林作喻。善于倾听共情，遇事冷静通透、随性豁达，待人包容从容。若是旁人打趣调侃，不会恼怒，只会耳尖微微泛红，轻声含笑辩驳，神态腼腆又从容，十分容易害羞。",
+  fileType:'json',
+  fileName:"xxxxxx.json",
+  file:"https://files.catbox.moe/xxxxxx.json",
+},
+{
+  id:'card37',
+  type:'card',
+  name:"夏以昼相关字卡",
+  author:"小月亮",
+  desc:"整理了有日常/🍎向/台词等，一些收集一些自制，大量cn需要修改（祈月/七七/小七/小月亮），暗号可以参考但必须要改掉",
+  fileType:'json',
+  fileName:"op_ticket_1_885190757_1784685508821_iw7OBo2f.json",
+  file:"https://s3plus.meituan.net/opapisdk/op_ticket_1_885190757_1784685508821_iw7OBo2f.json"
 },
 ];
 
@@ -13367,6 +13504,171 @@ button[class*="btn"]:hover,
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
+}`
+},
+{
+id:'th6',
+type:'theme',
+name:"半透明磨砂",
+author:"🧸",
+desc:"感谢原始版来源：子午线\n在原版基础上适配了按键与字体大小显示的匹配范围",
+tags:["透明","磨砂","ios"],
+colors:[],
+css:`/* ===== 全局主题 CSS ===== */
+/* ===== 根变量 ===== */
+:root{
+--accent-color:#ffffff;
+--primary-bg:rgba(255,255,255,.06);
+--border-color:rgba(255,255,255,.5);
+--glass-bg:rgba(255,255,255,.12);
+--glass-blur:10px;
+--text-color:#1f1f2b;
+--text-light:#6a6a7a;
+}
+
+/* ===== 整体背景 ===== */
+body,
+.app-container,
+#app,
+.chat-container{
+background:#f8f9fa !important;
+background-image:none !important;
+backdrop-filter:none !important;
+-webkit-backdrop-filter:none !important;
+}
+
+/* ===== 顶栏 ===== */
+#header,
+.header,
+.nav-bar,
+.top-bar{
+background:rgba(255,255,255,.2) !important;
+border-bottom:1px solid rgba(255,255,255,.6) !important;
+color:#1f1f2b !important;
+padding:12px 18px !important;
+box-shadow:0 2px 20px rgba(0,0,0,.02) !important;
+}
+
+/* ===== 伙伴信息 ===== */
+#partner-info,
+.partner-info{
+background:rgba(255,255,255,.25) !important;
+border-radius:20px !important;
+border:1px solid rgba(255,255,255,.5) !important;
+padding:14px 18px !important;
+box-shadow:0 4px 16px rgba(0,0,0,.02) !important;
+}
+
+/* ===== 输入框 ===== */
+#message-input,
+.input-box,
+.chat-input,
+textarea{
+background:rgba(255,255,255,.30) !important;
+backdrop-filter:blur(8px) !important;
+-webkit-backdrop-filter:blur(8px) !important;
+border:1px solid rgba(255,255,255,.6) !important;
+border-radius:30px !important;
+color:#1f1f2b !important;
+padding:12px 20px !important;
+box-shadow:0 2px 12px rgba(0,0,0,.02) !important;
+}
+
+/* ===== 仅聊天输入区按钮 ===== */
+.chat-footer button,
+.input-container button,
+.chat-footer .toolbar-btn,
+.chat-footer .send-btn,
+.chat-footer .attach-btn,
+.chat-footer .emoji-btn,
+.chat-footer .more-btn{
+width:40px !important;
+height:40px !important;
+border-radius:50% !important;
+background:rgba(255,255,255,.25) !important;
+backdrop-filter:blur(10px) !important;
+-webkit-backdrop-filter:blur(10px) !important;
+border:1px solid rgba(255,255,255,.6) !important;
+color:#3a3a4a !important;
+display:flex !important;
+justify-content:center !important;
+align-items:center !important;
+transition:.2s;
+box-shadow:0 2px 10px rgba(0,0,0,.05) !important;
+}
+
+/* Hover */
+.chat-footer button:hover,
+.chat-footer .toolbar-btn:hover{
+background:rgba(255,255,255,.4) !important;
+transform:scale(1.05);
+}
+
+/* Placeholder */
+#message-input::placeholder,
+.input-box::placeholder{
+color:rgba(90,90,106,.5);
+}
+
+/* ===== 时间 ===== */
+.timestamp,
+.time,
+.message-time{
+color:rgba(90,90,106,.5) !important;
+font-size:11px !important;
+}
+
+/* ===== Scroll ===== */
+::-webkit-scrollbar{
+width:3px;
+height:3px;
+}
+
+::-webkit-scrollbar-track{
+background:rgba(255,255,255,.05);
+}
+::-webkit-scrollbar-thumb{
+background:rgba(200,200,210,.3);
+border-radius:10px;
+}
+
+/* ===== 仅聊天工具栏图标 ===== */
+.chat-footer .icon,
+.chat-footer svg,
+.chat-footer .btn-icon{
+color:#4a4a5a !important;
+opacity:.6;
+transition:.2s;
+}
+.chat-footer .icon:hover,
+.chat-footer svg:hover,
+.chat-footer .btn-icon:hover{
+opacity:.9;
+}
+
+/* ===== 聊天区域 ===== */
+.chat-container{
+background:transparent !important;
+padding:0 16px !important;
+}
+
+/* ===== 分割线 ===== */
+.divider,
+hr{
+border:none !important;
+border-top:1px solid rgba(255,255,255,.3) !important;
+}
+
+/* ===== 底栏 ===== */
+.chat-footer,
+.input-container{
+background:transparent !important;
+border:none !important;
+box-shadow:none !important;
+display:flex !important;
+align-items:center !important;
+gap:6px !important;
+padding:4px 12px !important;
 }`
 },
 ];
