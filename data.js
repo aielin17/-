@@ -1,227 +1,204 @@
-const FONTS = [{
-  id: 'f1',
-  type: 'font',
-  name: '京华体',
-  author: 'milk',
-  family: 'F1',
-  category: '手写',
-  url: 'https://files.catbox.moe/kmyipl.TTF'
-},
-{
-  id: 'f2',
-  type: 'font',
-  name: '旧款冬',
-  author: '讨厌香菜',
-  family: 'F2',
-  category: '手写',
-  url: 'https://image.uglycat.cc/6wapca.ttf'
-},
-{
-  id: 'f3',
-  type: 'font',
-  name: '我有一点想你',
-  author: '老猫',
-  family: 'F3',
-  category: '手写',
-  url: 'https://files.catbox.moe/3bm8wp.ttf'
-},
-{
-  id: 'f4',
-  type: 'font',
-  name: '方正楷体',
-  author: 'milk',
-  family: 'F4',
-  category: '楷体',
-  url: 'https://files.catbox.moe/caatu4.TTF'
-},
-{
-  id: 'f5',
-  type: 'font',
-  name: '白开水宋体',
-  author: '老猫',
-  family: 'F5',
-  category: '其他',
-  url: 'https://files.catbox.moe/sshsu7.ttf'
-},
-{
-  id: 'f6',
-  type: 'font',
-  name: '惠の呆熊',
-  author: '来源网络',
-  family: 'F6',
-  category: '其他',
-  url: 'https://image.uglycat.cc/1ma2ld.ttf'
-},
-{
-  id: 'f7',
-  type: 'font',
-  name: '真爱降临',
-  author: '小鼠比尼',
-  family: 'F7',
-  category: '手写',
-  url: 'https://files.catbox.moe/sfl1v7.ttf'
-},
-{
-  id: 'f8',
-  type: 'font',
-  name: '苹方黑体',
-  author: 'Wind',
-  family: 'F8',
-  category: '手写',
-  url: 'https://files.catbox.moe/t0ivgi.ttf'
-},
-{
-  id: 'f9',
-  type: 'font',
-  name: '苹方细体',
-  author: 'Wind',
-  family: 'F9',
-  category: '手写',
-  url: 'https://files.catbox.moe/vgvbzl.ttf'
-},
-{
-  id: 'f10',
-  type: 'font',
-  name: '汉稚体',
-  author: 'momo',
-  family: 'F10',
-  category: '手写',
-  url: 'https://image.uglycat.cc/rxqq13.ttf'
-},
-{
-  id: 'f11',
-  type: 'font',
-  name: 'Skies',
-  author: '颜小雪',
-  family: 'F11',
-  category: '等宽',
-  url: 'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233cb5d652afce72/Everskies%208.ttf'
-},
-{
-  id: 'f12',
-  type: 'font',
-  name: '寒蝉团圆体',
-  author: '石榴',
-  family: 'F12',
-  category: '其他',
-  url: 'https://raw.githubusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
-},
-{
-  id: 'f13',
-  type: 'font',
-  name: 'Code2003',
-  author: '来自网络',
-  family: 'F13',
-  category: '无衬线',
-  url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
-},
-{
-  id: 'f14',
-  type: 'font',
-  name: '呆萌手写体',
-  author: '来自网络',
-  family: 'F14',
-  category: '手写',
-  url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf'
-},
-{
-  id: 'f15',
-  type: 'font',
-  name: '缝合怪像素字体',
-  author: '来自网络',
-  family: 'F15',
-  category: '其他',
-  url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/fusion-pixel-12px-proportional.ttf'
-},
-{
-  id: 'f16',
-  type: 'font',
-  name: '也字工厂小石头',
-  author: '来自网络',
-  family: 'F16',
-  category: '手写',
-  url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
-},
-{
-  id: 'f17',
-  type: 'font',
-  name: '宝宝日記書-日系',
-  author: '讨厌香菜',
-  family: 'F17',
-  url: 'https://image.uglycat.cc/xm3n9e.ttf'
-},
-{
-  id: 'f18',
-  type: 'font',
-  name: '宝宝日記書-猫次鱼（版本一）',
-  author: '讨厌香菜',
-  family: 'F18',
-  url: 'https://image.uglycat.cc/bfdzm8.ttf'
-},
-{
-  id: 'f19',
-  type: 'font',
-  name: '宝宝日記書-猫次鱼（版本二）',
-  author: '讨厌香菜',
-  family: 'F19',
-  url: 'https://image.uglycat.cc/dpl50d.ttf'
-},
-{
-  id: 'f21',
-  type: 'font',
-  name: '汇文明朝体',
-  author: '无忧',
-  family: 'F21',
-  url: 'https://image.uglycat.cc/05hqka.ttf'
-},
-{
-  id: 'f22',
-  type: 'font',
-  name: '小小小字体',
-  author: 'Yuki小月',
-  family: 'F22',
-  url: 'https://file.icve.com.cn/file_doc/qdqqd/9911773238105469.ttf'
-},
-{
-  id: 'f23',
-  type: 'font',
-  name: '低饱和的萌物',
-  author: '蛋挞',
-  family: 'F23',
-  url: 'https://image.uglycat.cc/4sqqfx.ttf'
-},
-{
-  id: 'f24',
-  type: 'font',
-  name: '兔啵啵',
-  author: '蛋挞',
-  family: 'F24',
-  url: 'https://image.uglycat.cc/2cmthx.ttf'
-},
-{
-  id:'f25',
-  type:'font',
-  name:'冬日限定',
-  author:'冬眠',
-  family:'F24',
-  url:'https://files.catbox.moe/rggo1s.ttf'
-},
-{
-  id:'f26',
-  type:'font',
-  name:'爱点风雅黑长体',
-  author:'y',
-  family:'F24',
-  url:'https://files.catbox.moe/7v1zr4.ttf'
-},
-{
-id:'f27',
-type:'font',
-name:'黄油面包体',
-author:'知芝要努力变强',
-family:'F25',
-url:'https://files.catbox.moe/8kcrh0.ttf'
-},
+const FONTS = [
+  {
+    id: 'f1',
+    type: 'font',
+    name: '京华体',
+    author: 'milk',
+    family: 'F1',
+    category: '手写',
+    url: 'https://files.catbox.moe/kmyipl.TTF'
+  },
+  {
+    id: 'f2',
+    type: 'font',
+    name: '旧款冬',
+    author: '讨厌香菜',
+    family: 'F2',
+    category: '手写',
+    url: 'https://image.uglycat.cc/6wapca.ttf'
+  },
+  {
+    id: 'f3',
+    type: 'font',
+    name: '我有一点想你',
+    author: '老猫',
+    family: 'F3',
+    category: '手写',
+    url: 'https://files.catbox.moe/3bm8wp.ttf'
+  },
+  {
+    id: 'f4',
+    type: 'font',
+    name: '方正楷体',
+    author: 'milk',
+    family: 'F4',
+    category: '楷体',
+    url: 'https://files.catbox.moe/caatu4.TTF'
+  },
+  {
+    id: 'f5',
+    type: 'font',
+    name: '白开水宋体',
+    author: '老猫',
+    family: 'F5',
+    category: '其他',
+    url: 'https://files.catbox.moe/sshsu7.ttf'
+  },
+  {
+    id: 'f6',
+    type: 'font',
+    name: '惠の呆熊',
+    author: '来源网络',
+    family: 'F6',
+    category: '其他',
+    url: 'https://image.uglycat.cc/1ma2ld.ttf'
+  },
+  {
+    id: 'f7',
+    type: 'font',
+    name: '真爱降临',
+    author: '小鼠比尼',
+    family: 'F7',
+    category: '手写',
+    url: 'https://files.catbox.moe/sfl1v7.ttf'
+  },
+  {
+    id: 'f8',
+    type: 'font',
+    name: '苹方黑体',
+    author: 'Wind',
+    family: 'F8',
+    category: '手写',
+    url: 'https://files.catbox.moe/t0ivgi.ttf'
+  },
+  {
+    id: 'f9',
+    type: 'font',
+    name: '苹方细体',
+    author: 'Wind',
+    family: 'F9',
+    category: '手写',
+    url: 'https://files.catbox.moe/vgvbzl.ttf'
+  },
+  {
+    id: 'f10',
+    type: 'font',
+    name: '汉稚体',
+    author: 'momo',
+    family: 'F10',
+    category: '手写',
+    url: 'https://image.uglycat.cc/rxqq13.ttf'
+  },
+  {
+    id: 'f11',
+    type: 'font',
+    name: 'Skies',
+    author: '颜小雪',
+    family: 'F11',
+    category: '等宽',
+    url: 'https://github.com/chutray0410-netizen/font/raw/2ef077d876da7b77da82f301233cb5d652afce72/Everskies%208.ttf'
+  },
+  {
+    id: 'f12',
+    type: 'font',
+    name: '寒蝉团圆体',
+    author: '石榴',
+    family: 'F12',
+    category: '其他',
+    url: 'https://raw.githubusercontent.com/whitneysun016/Font/3fe9030d3efaf58c8f8905a7b216444a7661a9b8/ChillReunion_Round.otf'
+  },
+  {
+    id: 'f13',
+    type: 'font',
+    name: 'Code2003',
+    author: '来自网络',
+    family: 'F13',
+    category: '无衬线',
+    url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Code2003.ttf'
+  },
+  {
+    id: 'f14',
+    type: 'font',
+    name: '呆萌手写体',
+    author: '来自网络',
+    family: 'F14',
+    category: '手写',
+    url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/Dymon-ShouXieTi.otf'
+  },
+  {
+    id: 'f15',
+    type: 'font',
+    name: '缝合怪像素字体',
+    author: '来自网络',
+    family: 'F15',
+    category: '其他',
+    url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/fusion-pixel-12px-proportional.ttf'
+  },
+  {
+    id: 'f16',
+    type: 'font',
+    name: '也字工厂小石头',
+    author: '来自网络',
+    family: 'F16',
+    category: '手写',
+    url: 'https://raw.githubusercontent.com/whitneysun016/Font/214c4fe1a3852b140c75985a8dd4ff3c8e8cfdb8/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4.ttf'
+  },
+  {
+    id: 'f17',
+    type: 'font',
+    name: '宝宝日記書-日系',
+    author: '讨厌香菜',
+    family: 'F17',
+    url: 'https://image.uglycat.cc/xm3n9e.ttf'
+  },
+  {
+    id: 'f18',
+    type: 'font',
+    name: '宝宝日記書-猫次鱼（版本一）',
+    author: '讨厌香菜',
+    family: 'F18',
+    url: 'https://image.uglycat.cc/bfdzm8.ttf'
+  },
+  {
+    id: 'f19',
+    type: 'font',
+    name: '宝宝日記書-猫次鱼（版本二）',
+    author: '讨厌香菜',
+    family: 'F19',
+    url: 'https://image.uglycat.cc/dpl50d.ttf'
+  },
+  {
+    id: 'f20',
+    type: 'font',
+    name: '低饱和的萌物',
+    author: '蛋挞',
+    family: 'F20',
+    url: 'https://image.uglycat.cc/4sqqfx.ttf'
+  },
+  {
+    id: 'f21',
+    type: 'font',
+    name: '兔啵啵',
+    author: '蛋挞',
+    family: 'F21',
+    url: 'https://image.uglycat.cc/2cmthx.ttf'
+  },
+  {
+    id: 'f22',
+    type: 'font',
+    name: '冬日限定',
+    author: '冬眠',
+    family: 'F22',
+    url: 'https://files.catbox.moe/rggo1s.ttf'
+  },
+  {
+    id: 'f23',
+    type: 'font',
+    name: '爱点风雅黑长体',
+    author: 'y',
+    family: 'F23',
+    url: 'https://files.catbox.moe/7v1zr4.ttf'
+  }
 ];
 const BUBBLES = [{
     id: 'b1',
@@ -5514,258 +5491,6 @@ z-index: 1 !important;
 -webkit-animation: pulse 2.5s ease-in-out infinite !important;
 animation: pulse 2.5s ease-in-out infinite !important;
 }`
-  },
-  {
-    id: 'b72',
-    type: 'bubble',
-    name: '青苹果🍏',
-    author: '咕咕咕小瓷',
-    previews: [{
-        t: 'sent',
-        v: '青苹果'
-      },
-      {
-        t: 'received',
-        v: '酸甜'
-      }
-    ],
-    css: `
-  {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
-
-  body {
-      background: #d4e8c5;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      padding: 1.5rem;
-  }
-
-  .preview-container {
-      max-width: 600px;
-      width: 100%;
-      padding: 1rem;
-  }
-
-  .message-received,
-  .message-sent {
-      display: flex;
-      width: 100%;
-      margin-bottom: 1.5rem;
-  }
-
-  .message-received {
-      justify-content: flex-start;
-  }
-
-  .message-sent {
-      justify-content: flex-end;
-  }
-
-  .bubble {
-      max-width: 75%;
-      padding: 16px 22px;
-      font-size: 1.15rem;
-      line-height: 1.5;
-      word-break: break-word;
-      position: relative;
-      color: #1b3c21;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
-      border: 2px solid #79a55b;
-      transition: all 0.1s ease;
-      z-index: 2;
-  }
-
-  .message-received .bubble {
-      border-radius: 32px 32px 32px 8px;
-      background: #e6f5d4;
-      background: radial-gradient(circle at 10% 20%, #f4ffe4, #d2ecba);
-      background-image: repeating-linear-gradient(-45deg, rgba(180, 215, 140, 0.2) 0px, rgba(180, 215, 140, 0.2) 8px, transparent 8px, transparent 16px);
-      border-color: #79a55b;
-      box-shadow: 0 8px 0 #5f8b4b, 0 12px 18px -8px rgba(40, 80, 20, 0.3);
-  }
-
-  .message-received .bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 20px;
-      width: 22px;
-      height: 22px;
-      background: #96c280;
-      border-radius: 80% 0 60% 20%;
-      transform: rotate(15deg) skewX(3deg);
-      border-left: 3px solid #628d44;
-      border-bottom: 3px solid #628d44;
-      box-shadow: -2px 4px 0 #3f632b;
-      opacity: 0.9;
-      z-index: 1;
-      pointer-events: none;
-  }
-
-  .message-sent .bubble {
-      border-radius: 32px 32px 8px 32px;
-      background: #f9fff2;
-      border-color: #6d9e4f;
-      box-shadow: 0 8px 0 #4e7a3c, 0 12px 18px -8px #2e5722;
-      background-color: #f9fff2;
-      position: relative;
-      z-index: 2;
-  }
-
-  .message-sent .bubble::after {
-      content: '';
-      position: absolute;
-      left: auto;
-      right: 20px;
-      bottom: -10px;
-      width: 22px;
-      height: 22px;
-      background: #8bb46c;
-      border-radius: 80% 0 60% 20%;
-      transform: rotate(95deg) scaleX(-1);
-      border-left: 3px solid #51793b;
-      border-bottom: 3px solid #51793b;
-      box-shadow: 2px 4px 0 #3f632b;
-      opacity: 0.9;
-      z-index: 1;
-      pointer-events: none;
-  }
-
-  .message-sent .bubble .seed-left {
-      position: absolute;
-      top: 45%;
-      left: 30%;
-      width: 14px;
-      height: 20px;
-      background: #5a3e24;
-      border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
-      transform: rotate(-15deg) scale(1.1);
-      box-shadow: 0 3px 0 #3d2b18, inset -1px -1px 2px #8b6a4b;
-      z-index: 5;
-      pointer-events: none;
-  }
-
-  .message-sent .bubble .seed-left::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 4px;
-      height: 6px;
-      background: rgba(255, 240, 210, 0.4);
-      border-radius: 50%;
-      transform: rotate(-10deg);
-  }
-
-  .message-sent .bubble .seed-right {
-      position: absolute;
-      top: 45%;
-      right: 30%;
-      width: 14px;
-      height: 20px;
-      background: #5a3e24;
-      border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
-      transform: rotate(15deg) scale(1.1);
-      box-shadow: 0 3px 0 #3d2b18, inset 1px -1px 2px #8b6a4b;
-      z-index: 5;
-      pointer-events: none;
-  }
-
-  .message-sent .bubble .seed-right::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      right: 3px;
-      width: 4px;
-      height: 6px;
-      background: rgba(255, 240, 210, 0.4);
-      border-radius: 50%;
-      transform: rotate(10deg);
-  }
-
-  .message-received .bubble .apple-cover {
-      position: absolute;
-      top: -12px;
-      right: -10px;
-      font-size: 2.2rem;
-      opacity: 0.8;
-      pointer-events: none;
-      z-index: 20;
-      transform: rotate(12deg);
-      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
-      text-shadow: 1px 1px 0 #52803a;
-      line-height: 1;
-  }
-
-  .message-sent .bubble .apple-cover {
-      position: absolute;
-      top: -12px;
-      left: -10px;
-      font-size: 2.2rem;
-      opacity: 0.8;
-      pointer-events: none;
-      z-index: 20;
-      transform: rotate(-8deg);
-      filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
-      text-shadow: 1px 1px 0 #52803a;
-      line-height: 1;
-  }
-
-  .message-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #537a41;
-      font-weight: 500;
-      position: relative;
-      z-index: 4;
-  }
-
-  .message-received .message-meta {
-      justify-content: flex-start;
-      padding-left: 8px;
-  }
-
-  .message-sent .message-meta {
-      justify-content: flex-end;
-      padding-right: 8px;
-  }
-
-  .green-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: #7fb24f;
-      border-radius: 50%;
-      opacity: 0.6;
-  }
-
-  .bubble p {
-      margin: 0 0 8px 0;
-      position: relative;
-      z-index: 10;
-      padding: 2px 4px;
-      border-radius: 4px;
-      text-shadow: 0 0 2px white;
-  }
-
-  .bubble p:last-child {
-      margin-bottom: 0;
-  }
-
-  .bubble {
-      position: relative;
-      overflow: visible;
-  }`
   },
   {
     id: 'b73',
@@ -12107,23 +11832,6 @@ box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }`
 },
 {
-  id:'b149',
-  type:'bubble',
-  name:'宝贝我无语了',
-  author:'眠眠',
-  previews:[
-
-  ],
-  css:`.message{box-shadow:none !important;border-width:0 !important;font-weight:500 !important;position:relative;overflow:visible !important}
-.message::after{content:'' !important;position:absolute !important;width:0 !important;height:0 !important;border-style:solid !important}
-.message.message-sent::after{bottom:10px !important;right:-5px !important;border-width:4px 0 0 5px !important;border-color:transparent transparent transparent #F8F8F8 !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
-.message.message-received::after{bottom:10px !important;left:-5px !important;border-width:0 0 4px 5px !important;border-color:transparent transparent #fff transparent !important;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.1))}
-.message-sent::before{content:"•••" !important;position:absolute !important;top:-18px !important;left:-15px !important;font-size:6px !important;letter-spacing:.8px !important;color:#444 !important;background:#F8F8F8 !important;padding:3px 7px !important;border-radius:12px 8px 8px 12px !important;line-height:1 !important;font-weight:800 !important;text-align:center !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 6px rgba(160,160,160,.3),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.03) !important;z-index:3 !important}
-.message-received::before{content:"♥︎+520" !important;position:absolute !important;top:-12px !important;right:-35px !important;font-size:7px !important;letter-spacing:.4px !important;color:#F1BFCB !important;background:#fff !important;padding:3px 6px !important;border-radius:6px 10px 10px 6px !important;line-height:1 !important;font-weight:500 !important;text-align:center !important;white-space:nowrap !important;box-shadow:-2px -2px 4px rgba(255,255,255,.9),3px 3px 5px rgba(180,180,180,.2),inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(0,0,0,.02) !important;z-index:3 !important}
-.message-received{background:#fff !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 24px 4px !important;padding:8px 16px !important;box-shadow:-3px -3px 6px rgba(255,255,255,.8),4px 4px 8px rgba(180,180,180,.25),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.05) !important;position:relative}
-.message-sent{background:#F8F8F8 !important;border-color:transparent !important;color:#000 !important;border-radius:24px 24px 4px 24px !important;padding:8px 16px !important;box-shadow:-4px -4px 8px rgba(255,255,255,.9),5px 5px 10px rgba(150,150,150,.2),inset 2px 2px 4px rgba(255,255,255,.9),inset -2px -2px 4px rgba(0,0,0,.03) !important;position:relative;background-image:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#F8F8F8 70%) !important}`
-},
-{
   id:'b150',
   type:'bubble',
   name:'朦胧感半透灰白',
@@ -12197,7 +11905,7 @@ box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }`
 },
 {
-id:'b151',
+id:'b72',
 type:'bubble',
 name:'仿iMessage蓝',
 author:'pink',
@@ -12223,7 +11931,7 @@ filter:drop-shadow(-3px 5px 4px rgba(0,0,0,.2)) !important;
 }`
 },
 {
-id:'b152',
+id:'b149',
 type:'bubble',
 name:'甜心骨',
 author:'xilc',
@@ -12339,6 +12047,7 @@ padding: 0 !important;
 display: none !important;
 }`
 },
+// 可诺！整理了一下气泡所以顺序有些乱，就接着b150的顺序可以！
 ];
 const CARDS = [{
 id: 'card1',
@@ -12647,16 +12356,6 @@ file: 'https://img.heliar.top/file/1773264519062_reply-library-replies_pokes_sta
 {
 id: 'card28',
 type: 'card',
-name: "萧逸",
-author: "帅的被人砍",
-desc: "日常 情绪",
-fileType: 'json',
-fileName: "g60zbu.json",
-file: "https://files.catbox.moe/g60zbu.json",
-},
-{
-id: 'card29',
-type: 'card',
 name: "药物、症状（大部分是中药）和其他",
 author: "銮嫣",
 desc: "大部分是药材名称，适合在生病时提出建议并改善病情，增加生活感",
@@ -12665,7 +12364,7 @@ fileName: "1774086979191_字卡偏现实.json",
 file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
 },
 {
-    id: 'card30',
+    id: 'card29',
     type: 'card',
     name: "日期专用组合包",
     author: "十六夜",
@@ -12675,7 +12374,7 @@ file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
     file: "https://files.catbox.moe/zw0n3d.json"
   },
   {
-  id:'card31',
+  id:'card30',
   type:'card',
   name:"🍐黎深日常+🍎字卡",
   author:"淇淇",
@@ -12685,17 +12384,7 @@ file: "https://img.heliar.top/file/1774086979191_字卡偏现实.json",
   file:"https://files.catbox.moe/86m70p.json"
 },
 {
-id:'card32',
-type:'card',
-name:"撒娇吧我也不知道",
-author:"ocean",
-desc:"撒娇吧",
-fileType:'json',
-fileName:"json",
-file:"https://example.com/api/text/to/json"
-},
-{
-id:'card33',
+id:'card31',
 type:'card',
 name:"柏源的字卡！！",
 author:"Y",
@@ -12705,7 +12394,7 @@ fileName:"dvauog.json",
 file:"https://files.catbox.moe/dvauog.json"
 },
 {
-  id:'card34',
+  id:'card32',
   type:'card',
   name:"卡卡西单人向",
   author:"卡卡找不到西",
@@ -12715,7 +12404,7 @@ file:"https://files.catbox.moe/dvauog.json"
   file:"https://files.catbox.moe/3gaw0m.json"
 },
 {
-id:'card35',
+id:'card33',
 type:'card',
 name:"沈星回",
 author:"匿名",
@@ -12725,17 +12414,7 @@ fileName:"SXH-reply-2026-03-03.json",
 file:"https://raw.githubusercontent.com/MiraiisFantasea/game/refs/heads/main/SXH-reply-2026-03-03.json"
 },
 {
-  id:'card36',
-  type:'card',
-  name:"枫原万叶",
-  author:"夕缘万叶梦",
-  desc:"性情温润淡然、谦和沉稳，气质清冷通透。谈吐清雅克制、温柔有礼，情绪内敛沉稳，极少剧烈起伏。偏爱自然风物，言语常以风、山林作喻。善于倾听共情，遇事冷静通透、随性豁达，待人包容从容。若是旁人打趣调侃，不会恼怒，只会耳尖微微泛红，轻声含笑辩驳，神态腼腆又从容，十分容易害羞。",
-  fileType:'json',
-  fileName:"xxxxxx.json",
-  file:"https://files.catbox.moe/xxxxxx.json",
-},
-{
-  id:'card37',
+  id:'card34',
   type:'card',
   name:"夏以昼相关字卡",
   author:"小月亮",
@@ -13673,22 +13352,10 @@ padding:4px 12px !important;
 },
 ];
 
-const MUSIC =[
+const MUSIC = [
+  // 作者：銮嫣
   {
     id: 'mus1',
-    type: 'music',
-    name: '第一场雪',
-    author: 'stone',
-    desc: '冬天听的音乐，适合白色系界面',
-    tags: ['纯音乐', '冬日'],
-    fileType: 'mp3',
-    fileName: 'first_snow.mp3',
-    file: 'https://files.catbox.moe/example4.mp3',
-    duration: '3:45',
-    exportDate: '2025-01-05'
-  },
-  {
-    id: 'mus2',
     type: 'music',
     name: 'MoNo',
     author: '銮嫣',
@@ -13702,13 +13369,13 @@ const MUSIC =[
     exportDate: '2026-03-09'
   },
   {
-    id: 'mus3',
+    id: 'mus2',
     type: 'music',
     name: 'Half Blood Angel',
     author: '銮嫣',
     artist: 'Brian Cheng',
     desc: '比较活泼的音乐，俏皮轻松，适合室外。',
-    tags:["流行", "活泼"],
+    tags: ["流行", "活泼"],
     fileType: 'mp3',
     fileName: 'url?id=2635248857.mp3',
     file: 'https://music.163.com/song/media/outer/url?id=2635248857.mp3',
@@ -13716,7 +13383,7 @@ const MUSIC =[
     exportDate: '2026-03-09'
   },
   {
-    id: 'mus4',
+    id: 'mus3',
     type: 'music',
     name: 'A Faint Glow Of Life 生命的微光',
     author: '銮嫣',
@@ -13729,8 +13396,10 @@ const MUSIC =[
     duration: '4:12',
     exportDate: '2026-03-09'
   },
+
+  // 作者：YY～
   {
-    id: 'mus5',
+    id: 'mus4',
     type: 'music',
     name: '偏爱',
     author: 'YY～',
@@ -13739,8 +13408,10 @@ const MUSIC =[
     fileName: 'url?id=5238992.mp3',
     file: 'https://music.163.com/song/media/outer/url?id=5238992.mp3'
   },
+
+  // 作者：廿一
   {
-    id: 'mus6',
+    id: 'mus5',
     type: 'music',
     name: '我走以后',
     author: '廿一',
@@ -13749,8 +13420,10 @@ const MUSIC =[
     fileName: 'url?id=3347121761.mp3',
     file: 'http://music.163.com/song/media/outer/url?id=3347121761.mp3'
   },
+
+  // 作者：Yauuiu_
   {
-    id: 'mus7',
+    id: 'mus6',
     type: 'music',
     name: 'first snow',
     author: 'Yauuiu_',
@@ -13760,7 +13433,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773543103115_first_snow.mp3.m4a'
   },
   {
-    id: 'mus8',
+    id: 'mus7',
     type: 'music',
     name: '恋人',
     author: 'Yauuiu_',
@@ -13770,7 +13443,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773544800453_%E6%81%8B%E4%BA%BA.m4a'
   },
   {
-    id: 'mus9',
+    id: 'mus8',
     type: 'music',
     name: 'Try Again',
     author: 'Yauuiu_',
@@ -13780,7 +13453,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773547908044_Try_Again.m4a'
   },
   {
-    id: 'mus10',
+    id: 'mus9',
     type: 'music',
     name: 'solitude',
     author: 'Yauuiu_',
@@ -13790,7 +13463,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773547910130_solitude.m4a'
   },
   {
-    id: 'mus11',
+    id: 'mus10',
     type: 'music',
     name: 'My Love Mine All Mine',
     author: 'Yauuiu_',
@@ -13800,7 +13473,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773547910084_My_Love_Mine_All_Mine.m4a'
   },
   {
-    id: 'mus12',
+    id: 'mus11',
     type: 'music',
     name: '还是会寂寞',
     author: 'Yauuiu_',
@@ -13810,7 +13483,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1773547901622_%E8%BF%98%E6%98%AF%E4%BC%9A%E5%AF%82%E5%AF%9E.m4a'
   },
   {
-    id: 'mus13',
+    id: 'mus12',
     type: 'music',
     name: '첫 눈 (初雪)',
     author: 'Yauuiu_',
@@ -13819,8 +13492,10 @@ const MUSIC =[
     fileName: '1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a',
     file: 'https://img.heliar.top/file/1773547905373_%EC%B2%AB_%EB%88%88__%E5%88%9D%E9%9B%AA_.m4a'
   },
+
+  // 作者：初言
   {
-    id: 'mus14',
+    id: 'mus13',
     type: 'music',
     name: '同手同脚',
     author: '初言',
@@ -13829,18 +13504,10 @@ const MUSIC =[
     fileName: 'url?id=2728443982.mp3',
     file: 'http://music.163.com/song/media/outer/url?id=2728443982.mp3'
   },
+
+  // 作者：言夏
   {
-    id: 'mus15',
-    type: 'music',
-    name: '天赋',
-    author: '送信员',
-    artist: '唐嫣/罗晋',
-    fileType: 'mp3',
-    fileName: 'audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3',
-    file: 'https://mv.ttaibot.com/down/audio_extract/audio_c039f37624207c5b00b07637e6dc329d_1773652792.mp3'
-  },
-  {
-    id: 'mus16',
+    id: 'mus14',
     type: 'music',
     name: '有我呢',
     author: '言夏',
@@ -13850,7 +13517,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772963476760_郭一凡_-_有我呢.mp3'
   },
   {
-    id: 'mus17',
+    id: 'mus15',
     type: 'music',
     name: 'Dear D',
     author: '言夏',
@@ -13860,7 +13527,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772970137585_项睿娴_-_Dear_D__亲爱的告诉你_.mp3'
   },
   {
-    id: 'mus18',
+    id: 'mus16',
     type: 'music',
     name: '孤单北半球',
     author: '言夏',
@@ -13870,7 +13537,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772963472128_林依晨_-_孤单北半球.mp3'
   },
   {
-    id: 'mus19',
+    id: 'mus17',
     type: 'music',
     name: '恶作剧',
     author: '言夏',
@@ -13880,7 +13547,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772965264360_林依晨_-_恶作剧.mp3'
   },
   {
-    id: 'mus20',
+    id: 'mus18',
     type: 'music',
     name: '当你',
     author: '言夏',
@@ -13890,7 +13557,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772964503074_林俊杰_-_当你.mp3'
   },
   {
-    id: 'mus21',
+    id: 'mus19',
     type: 'music',
     name: '小半',
     author: '言夏',
@@ -13900,163 +13567,7 @@ const MUSIC =[
     file: 'https://img.heliar.top/file/1772964128402_陈粒_-_小半.mp3'
   },
   {
-    id: 'mus22',
-    type: 'music',
-    name: '虚拟',
-    author: 'xiory',
-    artist: '（翻唱）小馨宝宝',
-    fileType: 'mp3',
-    fileName: 'url?id=2119200940.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=2119200940.mp3'
-  },
-  {
-    id: 'mus23',
-    type: 'music',
-    name: '有我呢（翻唱）',
-    author: 'xiory',
-    artist: '番番',
-    fileType: 'mp3',
-    fileName: 'url?id=3324365041.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=3324365041.mp3'
-  },
-  {
-    id: 'mus24',
-    type: 'music',
-    name: '多远都要在一起',
-    author: 'xiory',
-    artist: '激情男声版',
-    fileType: 'mp3',
-    fileName: 'url?id=3356334358.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=3356334358.mp3'
-  },
-  {
-    id: 'mus25',
-    type: 'music',
-    name: '永不失联的爱',
-    author: 'xiory',
-    artist: '男声版',
-    fileType: 'mp3',
-    fileName: 'url?id=3317929522.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=3317929522.mp3'
-  },
-  {
-    id: 'mus26',
-    type: 'music',
-    name: '次元恋人',
-    author: 'xiory',
-    artist: '印子月',
-    fileType: 'mp3',
-    fileName: 'url?id=2689771833.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=2689771833.mp3'
-  },
-  {
-    id: 'mus27',
-    type: 'music',
-    name: '你在 不在（emo版）',
-    author: 'xiory',
-    artist: 'cici_',
-    fileType: 'mp3',
-    fileName: 'url?id=2735939731.mp3',
-    file: 'https://music.163.com/song/media/outer/url?id=2735939731.mp3'
-  },
-  {
-    id: 'mus28',
-    type: 'music',
-    name: "第三个吻痕（暧昧版）",
-    author: "巴某人",
-    artist: "何水水",
-    fileType: 'mp3',
-    fileName: "1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
-    file: "https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3"
-  },
-  {
-    id: 'mus29',
-    type: 'music',
-    name: "有我呢",
-    author: "巴某人",
-    artist: "郭一凡",
-    fileType: 'mp3',
-    fileName: "1773904895447_郭一凡-有我呢_20260319_151935.mp3",
-    file: "https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3"
-  },
-  {
-    id: 'mus30',
-    type: 'music',
-    name: "以你为名的奇遇",
-    author: "翊甜",
-    artist: "池绛不吃姜/祁煜0306生贺企划",
-    desc: "2026祁煜生贺",
-    fileType: 'mp3',
-    fileName: "url?id=3354782658.mp3",
-    file: "http://music.163.com/song/media/outer/url?id=3354782658.mp3"
-  },
-  {
-    id: 'mus31',
-    type: 'music',
-    name: "All I Have Is Love",
-    author: "千",
-    artist: "Stevie Hoang",
-    desc: "英文小情歌，适合边聊边听",
-    fileType: 'mp3',
-    fileName: "url?id=1940368.mp3",
-    file: "http://music.163.com/song/media/outer/url?id=1940368.mp3"
-  },
-  {
-    id: 'mus32',
-    type: 'music',
-    name: "零距离的想念",
-    author: "礼啦啦啦",
-    artist: "TINY-7",
-    fileType: 'mp3',
-    fileName: "1774173204769_TINY7_-_零距离的思念.mp3",
-    file: "https://img.heliar.top/file/1774173204769_TINY7_-_零距离的思念.mp3"
-  },
-  {
-    id: 'mus33',
-    type: 'music',
-    name: "say yes",
-    author: "礼啦啦啦",
-    artist: "loco Punch",
-    desc: "甜甜的韩文小情歌",
-    fileType: 'mp3',
-    fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
-    file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3"
-  },
-  {
-    id: 'mus34',
-    type: 'music',
-    name: "say yes (duplicate)",
-    author: "礼啦啦啦",
-    artist: "loco Punch",
-    desc: "甜甜的韩文小情歌",
-    fileType: 'mp3',
-    fileName: "1774173181864_Loco_Punch_-_Say_Yes.mp3",
-    file: "https://img.heliar.top/file/1774173181864_Loco_Punch_-_Say_Yes.mp3"
-  },
-  {
-    id: 'mus35',
-    type: 'music',
-    name: "该怎么办",
-    author: "oiove3",
-    artist: "TC",
-    desc: "没有你我该怎么办",
-    fileType: 'mp3',
-    fileName: "url?id=2032201541.mp3",
-    file: "https://music.163.com/song/media/outer/url?id=2032201541.mp3"
-  },
-  {
-    id: 'mus36',
-    type: 'music',
-    name: "依兰爱情故事",
-    author: "mm",
-    artist: "方天雷",
-    desc: "我活着是你的人啊，死了是你的鬼啊",
-    fileType: 'mp3',
-    fileName: "ca7e363f81f50e1f6fffaf2172fd8d8e.mp3",
-    file: "http://c3.cloud887325.com/1773994955098/185214/ca7e363f81f50e1f6fffaf2172fd8d8e.mp3"
-  },
-  {
-    id: 'mus37',
+    id: 'mus20',
     type: 'music',
     name: "台北某个地方",
     author: "言夏",
@@ -14067,7 +13578,7 @@ const MUSIC =[
     file: "https://img.heliar.top/file/1772964119307_陈绮贞_-_台北某个地方.mp3"
   },
   {
-    id: 'mus38',
+    id: 'mus21',
     type: 'music',
     name: "鱼",
     author: "言夏",
@@ -14078,7 +13589,7 @@ const MUSIC =[
     file: "https://img.heliar.top/file/1772964135537_陈绮贞_-_鱼.mp3"
   },
   {
-    id: 'mus39',
+    id: 'mus22',
     type: 'music',
     name: "太阳",
     author: "言夏",
@@ -14089,7 +13600,7 @@ const MUSIC =[
     file: "https://img.heliar.top/file/1772964130543_陈绮贞_-_太阳.mp3"
   },
   {
-    id: 'mus40',
+    id: 'mus23',
     type: 'music',
     name: "躺在你的衣柜（Piano）",
     author: "言夏",
@@ -14100,7 +13611,7 @@ const MUSIC =[
     file: "https://img.heliar.top/file/1772964148643_陈绮贞_-_躺在你的衣柜__Piano_.mp3"
   },
   {
-    id: 'mus41',
+    id: 'mus24',
     type: 'music',
     name: "我喜欢上你时的内心活动",
     author: "言夏",
@@ -14110,8 +13621,123 @@ const MUSIC =[
     fileName: "1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3",
     file: "https://img.heliar.top/file/1772909079264_陈绮贞_-_我喜欢上你时的内心活动.mp3"
   },
+
+  // 作者：xiory
   {
-    id: 'mus42',
+    id: 'mus25',
+    type: 'music',
+    name: '虚拟',
+    author: 'xiory',
+    artist: '（翻唱）小馨宝宝',
+    fileType: 'mp3',
+    fileName: 'url?id=2119200940.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2119200940.mp3'
+  },
+  {
+    id: 'mus26',
+    type: 'music',
+    name: '有我呢（翻唱）',
+    author: 'xiory',
+    artist: '番番',
+    fileType: 'mp3',
+    fileName: 'url?id=3324365041.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=3324365041.mp3'
+  },
+  {
+    id: 'mus27',
+    type: 'music',
+    name: '永不失联的爱',
+    author: 'xiory',
+    artist: '男声版',
+    fileType: 'mp3',
+    fileName: 'url?id=3317929522.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=3317929522.mp3'
+  },
+  {
+    id: 'mus28',
+    type: 'music',
+    name: '次元恋人',
+    author: 'xiory',
+    artist: '印子月',
+    fileType: 'mp3',
+    fileName: 'url?id=2689771833.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2689771833.mp3'
+  },
+  {
+    id: 'mus29',
+    type: 'music',
+    name: '你在 不在（emo版）',
+    author: 'xiory',
+    artist: 'cici_',
+    fileType: 'mp3',
+    fileName: 'url?id=2735939731.mp3',
+    file: 'https://music.163.com/song/media/outer/url?id=2735939731.mp3'
+  },
+
+  // 作者：巴某人
+  {
+    id: 'mus30',
+    type: 'music',
+    name: "第三个吻痕（暧昧版）",
+    author: "巴某人",
+    artist: "何水水",
+    fileType: 'mp3',
+    fileName: "1773902740144_下载您的文件_—_Convertio_1425997963.mp3",
+    file: "https://img.heliar.top/file/1773902740144_下载您的文件_—_Convertio_1425997963.mp3"
+  },
+  {
+    id: 'mus31',
+    type: 'music',
+    name: "有我呢",
+    author: "巴某人",
+    artist: "郭一凡",
+    fileType: 'mp3',
+    fileName: "1773904895447_郭一凡-有我呢_20260319_151935.mp3",
+    file: "https://img.heliar.top/file/1773904895447_郭一凡-有我呢_20260319_151935.mp3"
+  },
+
+  // 作者：翊甜
+  {
+    id: 'mus32',
+    type: 'music',
+    name: "以你为名的奇遇",
+    author: "翊甜",
+    artist: "池绛不吃姜/祁煜0306生贺企划",
+    desc: "2026祁煜生贺",
+    fileType: 'mp3',
+    fileName: "url?id=3354782658.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=3354782658.mp3"
+  },
+
+  // 作者：千
+  {
+    id: 'mus33',
+    type: 'music',
+    name: "All I Have Is Love",
+    author: "千",
+    artist: "Stevie Hoang",
+    desc: "英文小情歌，适合边聊边听",
+    fileType: 'mp3',
+    fileName: "url?id=1940368.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=1940368.mp3"
+  },
+
+  // 作者：oiove3
+  {
+    id: 'mus34',
+    type: 'music',
+    name: "该怎么办",
+    author: "oiove3",
+    artist: "TC",
+    desc: "没有你我该怎么办",
+    fileType: 'mp3',
+    fileName: "url?id=2032201541.mp3",
+    file: "https://music.163.com/song/media/outer/url?id=2032201541.mp3"
+  },
+
+  // 作者：七七
+  {
+    id: 'mus35',
     type: 'music',
     name: "和你",
     author: "七七",
@@ -14120,8 +13746,10 @@ const MUSIC =[
     fileName: "url?id=420401511.mp3",
     file: "http://music.163.com/song/media/outer/url?id=420401511.mp3"
   },
+
+  // 作者：亦有归途.
   {
-    id: 'mus43',
+    id: 'mus36',
     type: 'music',
     name: "不渝的爱",
     author: "亦有归途.",
@@ -14133,7 +13761,7 @@ const MUSIC =[
     file: "http://music.163.com/song/media/outer/url?id=2623751862.mp3"
   },
   {
-    id: 'mus44',
+    id: 'mus37',
     type: 'music',
     name: "笑我多情",
     author: "亦有归途.",
@@ -14143,8 +13771,10 @@ const MUSIC =[
     fileName: "url?id=2742741776.mp3",
     file: "http://music.163.com/song/media/outer/url?id=2742741776.mp3"
   },
+
+  // 作者：milk
   {
-    id: 'mus45',
+    id: 'mus38',
     type: 'music',
     name: "永远永远",
     author: "milk",
@@ -14152,8 +13782,10 @@ const MUSIC =[
     fileName: "永远永远.mp3",
     file: "https://files.catbox.moe/2lcm70.mp3"
   },
+
+  // 作者：white
   {
-    id: 'mus46',
+    id: 'mus39',
     type: 'music',
     name: "红线",
     author: "white",
@@ -14167,7 +13799,7 @@ const MUSIC =[
     file: "http://music.163.com/song/media/outer/url?id=3343519052.mp3"
   },
   {
-    id: 'mus47',
+    id: 'mus40',
     type: 'music',
     name: "愿",
     author: "white",
@@ -14181,7 +13813,7 @@ const MUSIC =[
     file: "http://music.163.com/song/media/outer/url?id=1924801790.mp3"
   },
   {
-    id: 'mus48',
+    id: 'mus41',
     type: 'music',
     name: "月亮与六便士",
     author: "white",
@@ -14194,8 +13826,10 @@ const MUSIC =[
     fileName: "url?id=2099907912.mp3",
     file: "http://music.163.com/song/media/outer/url?id=2099907912.mp3"
   },
+
+  // 作者：SYyy
   {
-    id: 'mus49',
+    id: 'mus42',
     type: 'music',
     name: "唯一",
     author: "SYyy",
@@ -14207,7 +13841,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777389325919-23461037-de23-48f2-b8e8-6c04d98ec8b8.mp3"
   },
   {
-    id: 'mus50',
+    id: 'mus43',
     type: 'music',
     name: "同花顺",
     author: "SYyy",
@@ -14219,7 +13853,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777386792937-9fe5eb6c-e0b1-422b-9b59-534c9b19801d.mp3"
   },
   {
-    id: 'mus51',
+    id: 'mus44',
     type: 'music',
     name: "第三个吻痕",
     author: "SYyy",
@@ -14230,7 +13864,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777387821975-5186b16c-089b-4d53-b637-06eeab25efaf.m4a"
   },
   {
-    id: 'mus52',
+    id: 'mus45',
     type: 'music',
     name: "富士山下",
     author: "SYyy",
@@ -14242,7 +13876,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777389440189-457d1eab-c9a8-4004-826c-215355bd4b65.mp3"
   },
   {
-    id: 'mus53',
+    id: 'mus46',
     type: 'music',
     name: "处处吻",
     author: "SYyy",
@@ -14254,7 +13888,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777387182071-2ce04df8-3a83-4223-8a83-c4882c1b4928.mp3"
   },
   {
-    id: 'mus54',
+    id: 'mus47',
     type: 'music',
     name: "孤雏",
     author: "SYyy",
@@ -14265,7 +13899,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777386240005-0263912c-4fe6-4c34-b616-1aaf54f49050.mp3"
   },
   {
-    id: 'mus55',
+    id: 'mus48',
     type: 'music',
     name: "我怀念的",
     author: "SYyy",
@@ -14277,7 +13911,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777386544973-1aeebf5f-467e-4e98-87cd-af25d90ac8f7.mp3"
   },
   {
-    id: 'mus56',
+    id: 'mus49',
     type: 'music',
     name: "Wonderful U",
     author: "SYyy",
@@ -14288,7 +13922,7 @@ const MUSIC =[
     file: "https://videotourl.com/audio/1777386632772-49ccaaa4-76bb-4832-a43c-52c391468b8a.mp3"
   },
   {
-    id: 'mus57',
+    id: 'mus50',
     type: 'music',
     name: "锁",
     author: "SYyy",
@@ -14299,85 +13933,93 @@ const MUSIC =[
     fileName: "1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3",
     file: "https://videotourl.com/audio/1777388400413-7ca9e5df-8415-4426-8a49-06d91ab75911.mp3"
   },
+
+  // 作者：Evie
   {
-  id:'mus58',
-  type:'music',
-  name:"Moments",
-  author:"Evie",
-  artist:"Leo Stannard/Kidnap",
-  desc:"人与人之间有点Moments就够了",
-  fileType:'mp3',
-  fileName:"url?id=406730731.mp3",
-  file:"http://music.163.com/song/media/outer/url?id=406730731.mp3"
+    id: 'mus51',
+    type: 'music',
+    name: "Moments",
+    author: "Evie",
+    artist: "Leo Stannard/Kidnap",
+    desc: "人与人之间有点Moments就够了",
+    fileType: 'mp3',
+    fileName: "url?id=406730731.mp3",
+    file: "http://music.163.com/song/media/outer/url?id=406730731.mp3"
+  },
+
+  // 作者：小恩
+  {
+    id: 'mus52',
+    type: 'music',
+    name: "Alive",
+    author: "小恩",
+    artist: "Blue",
+    desc: "忧郁",
+    fileType: 'mp3',
+    fileName: "zqpkaq.mp3",
+    file: "https://files.catbox.moe/zqpkaq.mp3"
   },
   {
-  id:'mus59',
-  type:'music',
-  name:"Alive",
-  author:"小恩",
-  artist:"Blue",
-  desc:"忧郁",
-  fileType:'mp3',
-  fileName:"zqpkaq.mp3",
-  file:"https://files.catbox.moe/zqpkaq.mp3"
+    id: 'mus53',
+    type: 'music',
+    name: "雨天",
+    author: "小恩",
+    artist: "孙燕姿",
+    desc: "忧郁",
+    fileType: 'mp3',
+    fileName: "ydqxc8.mp3",
+    file: "https://files.catbox.moe/ydqxc8.mp3"
+  },
+
+  // 作者：榆木
+  {
+    id: 'mus54',
+    type: 'music',
+    name: "玻璃",
+    author: "榆木",
+    fileType: 'mp3',
+    fileName: "1780140477054_Gareth.T_-_玻璃.mp3",
+    file: "https://img.heliar.top/file/1780140477054_Gareth.T_-_玻璃.mp3"
+  },
+
+  // 作者：11
+  {
+    id: 'mus55',
+    type: 'music',
+    name: "如愿以偿",
+    author: "11",
+    group: 'g-sub-u35xgz',
+    groupLabel: "柏源24-26年生日主题曲",
+    artist: "世界之外",
+    desc: "世界之外柏源24-26年生日主题曲",
+    fileType: 'mp3',
+    fileName: "url?id=2145135009.mp3",
+    file: "https://music.163.com/song/media/outer/url?id=2145135009.mp3"
   },
   {
-  id:'mus60',
-  type:'music',
-  name:"雨天",
-  author:"小恩",
-  artist:"孙燕姿",
-  desc:"忧郁",
-  fileType:'mp3',
-  fileName:"ydqxc8.mp3",
-  file:"https://files.catbox.moe/ydqxc8.mp3"
+    id: 'mus56',
+    type: 'music',
+    name: "作茧",
+    author: "11",
+    group: 'g-sub-u35xgz',
+    groupLabel: "柏源24-26年生日主题曲",
+    artist: "世界之外",
+    fileType: 'mp3',
+    fileName: "url?id=2693006707.mp3",
+    file: "https://music.163.com/song/media/outer/url?id=2693006707.mp3"
   },
   {
-  id:'mus61',
-  type:'music',
-  name:"玻璃",
-  author:"榆木",
-  fileType:'mp3',
-  fileName:"1780140477054_Gareth.T_-_玻璃.mp3",
-  file:"https://img.heliar.top/file/1780140477054_Gareth.T_-_玻璃.mp3"
-  },
-  {
-  id:'mus62',
-  type:'music',
-  name:"如愿以偿",
-  author:"11",
-  group:'g-sub-u35xgz',
-  groupLabel:"柏源24-26年生日主题曲",
-  artist:"世界之外",
-  desc:"世界之外柏源24-26年生日主题曲",
-  fileType:'mp3',
-  fileName:"url?id=2145135009.mp3",
-  file:"https://music.163.com/song/media/outer/url?id=2145135009.mp3"
-},
-{
-  id:'mus63',
-  type:'music',
-  name:"作茧",
-  author:"11",
-  group:'g-sub-u35xgz',
-  groupLabel:"柏源24-26年生日主题曲",
-  artist:"世界之外",
-  fileType:'mp3',
-  fileName:"url?id=2693006707.mp3",
-  file:"https://music.163.com/song/media/outer/url?id=2693006707.mp3"
-},
-{
-  id:'mus64',
-  type:'music',
-  name:"潮汐引力",
-  author:"11",
-  group:'g-sub-u35xgz',
-  groupLabel:"柏源24-26年生日主题曲",
-  artist:"世界之外",
-  fileType:'mp3',
-  fileName:"url?id=3368780055.mp3",
-  file:"https://music.163.com/song/media/outer/url?id=3368780055.mp3"
-},
+    id: 'mus57',
+    type: 'music',
+    name: "潮汐引力",
+    author: "11",
+    group: 'g-sub-u35xgz',
+    groupLabel: "柏源24-26年生日主题曲",
+    artist: "世界之外",
+    fileType: 'mp3',
+    fileName: "url?id=3368780055.mp3",
+    file: "https://music.163.com/song/media/outer/url?id=3368780055.mp3"
+  }
 ];
 
 const ALL = [...BUBBLES, ...FONTS, ...CARDS, ...THEMES, ...MUSIC];
