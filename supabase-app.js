@@ -57,9 +57,88 @@
     ];
   }
 
+  /* 列表不拉 css（气泡/主题按页懒加载），显著减少 egress */
+  const GALLERY_LIST_SELECT = [
+    'id',
+    'type',
+    'name',
+    'author_name',
+    'description',
+    'warnings',
+    'submitter_id',
+    'legacy_id',
+    'like_count',
+    'created_at',
+    'status',
+    'deleted_at',
+    'previews',
+    'group_id',
+    'series',
+    'font_url',
+    'font_family',
+    'font_category',
+    'file_url',
+    'file_name',
+    'file_type',
+    'tags',
+    'colors',
+    'artist',
+    'is_album',
+    'album_title',
+    'track_list'
+  ].join(',');
+
+  const GALLERY_DETAIL_SELECT = 'id,css,reviewer_id,reviewed_at';
+
+  const PENDING_SELECT = [
+    GALLERY_LIST_SELECT,
+    'css',
+    'reject_reason',
+    'reviewer_id',
+    'reviewed_at'
+  ].join(',');
+
+  const MINE_SELECT = [
+    'id',
+    'type',
+    'name',
+    'author_name',
+    'description',
+    'warnings',
+    'status',
+    'reject_reason',
+    'like_count',
+    'created_at',
+    'deleted_at',
+    'reviewer_id',
+    'reviewed_at',
+    'file_url',
+    'artist',
+    'is_album',
+    'album_title'
+  ].join(',');
+
+  const RECYCLE_SELECT = [
+    'id',
+    'type',
+    'name',
+    'author_name',
+    'deleted_at',
+    'deleted_by',
+    'reviewer_id',
+    'status',
+    'reject_reason'
+  ].join(',');
+
+  let galleryCacheAt = 0;
+  let galleryLoadPromise = null;
+  const GALLERY_CACHE_MS = 5 * 60 * 1000;
+  const itemDetailCache = new Map();
+
   function mapDbItemToGallery(row) {
     if (!row) return null;
     const id = 'remote-' + row.id;
+    const hasCss = Object.prototype.hasOwnProperty.call(row, 'css');
     const base = {
       id,
       remoteId: row.id,
@@ -74,7 +153,8 @@
       reviewedAt: row.reviewed_at || null,
       likeCount: row.like_count || 0,
       createdAt: row.created_at ? Date.parse(row.created_at) || 0 : 0,
-      fromRemote: true
+      fromRemote: true,
+      _cssLoaded: hasCss
     };
     if (row.type === 'bubble') {
       return Object.assign(base, {
@@ -134,30 +214,6 @@
     return base;
   }
 
-  async function loadApprovedIntoGallery() {
-    if (!client) return;
-    const { data, error } = await client
-      .from('items')
-      .select('*')
-      .eq('status', 'approved')
-      .is('deleted_at', null)
-      .order('created_at', { ascending: false });
-    if (error) {
-      const fallback = await client
-        .from('items')
-        .select('*')
-        .eq('status', 'approved')
-        .order('created_at', { ascending: false });
-      if (fallback.error) {
-        console.warn('[SG] 拉取已通过作品失败', fallback.error);
-        return;
-      }
-      applyMapped(fallback.data || []);
-      return;
-    }
-    applyMapped(data || []);
-  }
-
   function applyMapped(rows) {
     const mapped = [];
     (rows || []).forEach((row) => {
@@ -175,6 +231,154 @@
       if (row && row.reviewer_id) reviewerIds.push(row.reviewer_id);
     });
     if (reviewerIds.length) fetchProfilesByIds(reviewerIds).catch(() => {});
+  }
+
+  function mergeDetailsIntoLocalItems(rows) {
+    (rows || []).forEach((row) => {
+      if (!row || !row.id) return;
+      itemDetailCache.set(String(row.id), {
+        css: row.css || '',
+        reviewer_id: row.reviewer_id || null,
+        reviewed_at: row.reviewed_at || null
+      });
+      const rid = String(row.id);
+      const patch = (it) => {
+        if (!it || String(it.remoteId) !== rid) return;
+        if (row.css != null) it.css = row.css || '';
+        if (row.reviewer_id !== undefined) it.reviewerId = row.reviewer_id || null;
+        if (row.reviewed_at !== undefined) it.reviewedAt = row.reviewed_at || null;
+        it._cssLoaded = true;
+      };
+      (window.ALL || []).forEach(patch);
+      (window.SG_LAST_REMOTE_ITEMS || []).forEach(patch);
+    });
+  }
+
+  async function ensureGalleryDetails(items) {
+    if (!client) return;
+    const list = Array.isArray(items) ? items : [items];
+    const need = [];
+    list.forEach((it) => {
+      if (!it || !it.remoteId) return;
+      const rid = String(it.remoteId);
+      if (itemDetailCache.has(rid)) {
+        const cached = itemDetailCache.get(rid);
+        it.css = cached.css || it.css || '';
+        it.reviewerId = cached.reviewer_id;
+        it.reviewedAt = cached.reviewed_at;
+        it._cssLoaded = true;
+        return;
+      }
+      const wantsCss = it.type === 'bubble' || it.type === 'theme';
+      if (wantsCss) {
+        if (it._cssLoaded && it.css) return;
+        need.push(rid);
+        return;
+      }
+      if (isStaff() && !it._cssLoaded) need.push(rid);
+    });
+    const uniq = [...new Set(need)];
+    if (!uniq.length) return;
+
+    const chunkSize = 40;
+    for (let i = 0; i < uniq.length; i += chunkSize) {
+      const chunk = uniq.slice(i, i + chunkSize);
+      const { data, error } = await client.from('items').select(GALLERY_DETAIL_SELECT).in('id', chunk);
+      if (error) {
+        console.warn('[SG] 详情懒加载失败', error.message);
+        continue;
+      }
+      mergeDetailsIntoLocalItems(data || []);
+    }
+  }
+
+  function removeRemoteFromGallery(remoteId) {
+    if (!remoteId) return;
+    const rid = String(remoteId);
+    const extras = (window.SG_LAST_REMOTE_ITEMS || []).filter((it) => String(it.remoteId) !== rid);
+    if (typeof window.SG_applyGalleryItems === 'function') {
+      window.SG_applyGalleryItems(extras);
+    }
+    itemDetailCache.delete(rid);
+    galleryCacheAt = Date.now();
+  }
+
+  function mergeMappedIntoGallery(mapped) {
+    const list = Array.isArray(mapped) ? mapped : mapped ? [mapped] : [];
+    if (!list.length) return;
+    const rid = String(list[0].remoteId);
+    const rest = (window.SG_LAST_REMOTE_ITEMS || []).filter((it) => String(it.remoteId) !== rid);
+    if (typeof window.SG_applyGalleryItems === 'function') {
+      window.SG_applyGalleryItems(list.concat(rest));
+    }
+    galleryCacheAt = Date.now();
+  }
+
+  async function upsertApprovedItemById(id) {
+    if (!client || !id) {
+      await loadApprovedIntoGallery({ force: true });
+      return;
+    }
+    const { data, error } = await client
+      .from('items')
+      .select(GALLERY_LIST_SELECT + ',css,reviewer_id,reviewed_at')
+      .eq('id', id)
+      .maybeSingle();
+    if (error || !data) {
+      await loadApprovedIntoGallery({ force: true });
+      return;
+    }
+    if (data.status !== 'approved' || data.deleted_at) {
+      removeRemoteFromGallery(id);
+      return;
+    }
+    const mapped = mapDbItemToGallery(data);
+    if (Array.isArray(mapped)) mapped.forEach((it) => (it._cssLoaded = true));
+    else if (mapped) mapped._cssLoaded = true;
+    mergeDetailsIntoLocalItems([data]);
+    mergeMappedIntoGallery(mapped);
+  }
+
+  async function loadApprovedIntoGallery(opts) {
+    if (!client) return;
+    const force = !!(opts && opts.force);
+    const hasCache =
+      Array.isArray(window.SG_LAST_REMOTE_ITEMS) &&
+      window.SG_LAST_REMOTE_ITEMS.length > 0 &&
+      Date.now() - galleryCacheAt < GALLERY_CACHE_MS;
+    if (!force && hasCache) return;
+    if (galleryLoadPromise) return galleryLoadPromise;
+
+    galleryLoadPromise = (async () => {
+      const { data, error } = await client
+        .from('items')
+        .select(GALLERY_LIST_SELECT)
+        .eq('status', 'approved')
+        .is('deleted_at', null)
+        .order('created_at', { ascending: false });
+      if (error) {
+        const fallback = await client
+          .from('items')
+          .select(GALLERY_LIST_SELECT)
+          .eq('status', 'approved')
+          .order('created_at', { ascending: false });
+        if (fallback.error) {
+          console.warn('[SG] 拉取已通过作品失败', fallback.error);
+          return;
+        }
+        applyMapped((fallback.data || []).filter((row) => !row.deleted_at));
+        galleryCacheAt = Date.now();
+        return;
+      }
+      applyMapped(data || []);
+      galleryCacheAt = Date.now();
+    })();
+
+    try {
+      await galleryLoadPromise;
+    } finally {
+      galleryLoadPromise = null;
+    }
   }
 
   function getDisplayName(p, u) {
@@ -816,10 +1020,16 @@
   function setAuthMode(mode) {
     const isSignup = mode === 'signup';
     const title = document.getElementById('auth-modal-title');
+    const hint = document.getElementById('auth-modal-hint');
     const submit = document.getElementById('auth-submit-btn');
     const switchBtn = document.getElementById('auth-switch-btn');
     const nameWrap = document.getElementById('auth-name-wrap');
     if (title) title.textContent = isSignup ? '注册账号' : '登录';
+    if (hint) {
+      hint.textContent = isSignup
+        ? '用邮箱注册账号即可，注册后可直接登录；投稿会归到你的账号下。'
+        : '登录后可直接投稿到站内，审核通过后会出现在画廊。';
+    }
     if (submit) {
       submit.textContent = isSignup ? '注册' : '登录';
       submit.dataset.mode = isSignup ? 'signup' : 'login';
@@ -829,6 +1039,23 @@
       switchBtn.dataset.mode = isSignup ? 'login' : 'signup';
     }
     if (nameWrap) nameWrap.hidden = !isSignup;
+  }
+
+  function friendlyAuthError(raw) {
+    const msg = String(raw || '');
+    if (/rate.?limit|email.?rate|over_email_send_rate|too many requests|429/i.test(msg)) {
+      return '操作过于频繁，请稍后再试。';
+    }
+    if (/user already registered|already been registered|already exists/i.test(msg)) {
+      return '该邮箱已注册，请直接登录。';
+    }
+    if (/invalid login credentials|invalid credentials/i.test(msg)) {
+      return '邮箱或密码不正确。';
+    }
+    if (/email not confirmed|not confirmed/i.test(msg)) {
+      return '邮箱尚未确认。若你已在后台关闭确认，请到 Supabase 用户列表手动 Confirm 该账号。';
+    }
+    return msg || '登录失败';
   }
 
   function showAuthError(msg) {
@@ -877,7 +1104,7 @@
           toast('✅ 注册成功，已登录');
           closeAuth();
         } else {
-          toast('📧 注册成功，请去邮箱点确认链接后再登录', 5000);
+          toast('注册成功，请直接登录', 4000);
           setAuthMode('login');
         }
       } else {
@@ -887,7 +1114,7 @@
         closeAuth();
       }
     } catch (e) {
-      showAuthError(e.message || '登录失败');
+      showAuthError(friendlyAuthError(e.message || e.error_description || '登录失败'));
     } finally {
       if (btn) btn.disabled = false;
     }
@@ -920,7 +1147,7 @@
     if (!isConfigured() || !isStaff()) return { error: '无权限', data: [] };
     const { data, error } = await client
       .from('items')
-      .select('*')
+      .select(PENDING_SELECT)
       .eq('status', 'pending')
       .order('created_at', { ascending: false });
     if (error) return { error: error.message, data: [] };
@@ -935,7 +1162,7 @@
     const st = status || mineTab || 'pending';
     let query = client
       .from('items')
-      .select('*')
+      .select(MINE_SELECT)
       .eq('submitter_id', user.id)
       .eq('status', st)
       .order('created_at', { ascending: false });
@@ -947,7 +1174,7 @@
       if (st === 'approved') {
         const fallback = await client
           .from('items')
-          .select('*')
+          .select(MINE_SELECT)
           .eq('submitter_id', user.id)
           .eq('status', 'approved')
           .order('created_at', { ascending: false });
@@ -1112,8 +1339,10 @@
     const { error } = await client.from('items').update(patch).eq('id', id);
     if (error) return { error: error.message };
     const skipGallery = opts && opts.skipGalleryReload;
-    if (!skipGallery && (status === 'approved' || status === 'removed')) {
-      await loadApprovedIntoGallery();
+    if (!skipGallery && status === 'approved') {
+      await upsertApprovedItemById(id);
+    } else if (!skipGallery && status === 'removed') {
+      removeRemoteFromGallery(id);
     }
     return {};
   }
@@ -1123,6 +1352,7 @@
     let ok = 0;
     let fail = 0;
     const errors = [];
+    const succeeded = [];
     for (let i = 0; i < entries.length; i++) {
       const entry = entries[i];
       const { error } = await setItemStatus(
@@ -1137,10 +1367,19 @@
         errors.push(error);
       } else {
         ok += 1;
+        succeeded.push(entry.id);
       }
     }
-    if (status === 'approved' || status === 'removed') {
-      await loadApprovedIntoGallery();
+    if (status === 'approved') {
+      if (succeeded.length > 8) {
+        await loadApprovedIntoGallery({ force: true });
+      } else {
+        for (let i = 0; i < succeeded.length; i++) {
+          await upsertApprovedItemById(succeeded[i]);
+        }
+      }
+    } else if (status === 'removed') {
+      succeeded.forEach((id) => removeRemoteFromGallery(id));
     }
     return { ok, fail, error: fail ? errors[0] : null };
   }
@@ -1158,7 +1397,15 @@
     };
     const { error } = await client.from('items').update(patch).eq('id', id);
     if (error) return { error: error.message };
-    await loadApprovedIntoGallery();
+    const local = (window.SG_LAST_REMOTE_ITEMS || []).filter((it) => String(it.remoteId) === String(id));
+    if (local.length) {
+      local.forEach((it) => {
+        it.warnings = patch.warnings;
+      });
+      if (typeof window.SG_remergeGallery === 'function') window.SG_remergeGallery();
+    } else {
+      await upsertApprovedItemById(id);
+    }
     return {};
   }
 
@@ -1170,7 +1417,7 @@
     if (!isStaff()) return { error: '无权限', data: [] };
     const { data, error } = await client
       .from('items')
-      .select('*')
+      .select(RECYCLE_SELECT)
       .eq('status', 'removed')
       .order('deleted_at', { ascending: false });
     if (error) return { error: error.message, data: [] };
@@ -1621,7 +1868,7 @@
     if (!targetUserId) return { error: '无效用户' };
     const { data, error } = await client.rpc('admin_delete_user', { target_id: targetUserId });
     if (error) return { error: error.message };
-    await loadApprovedIntoGallery();
+    await loadApprovedIntoGallery({ force: true });
     return { data };
   }
 
@@ -1959,14 +2206,26 @@
   }
 
   async function loadRecentUsers() {
-    if (!isStaff()) return { error: '无权限', data: [] };
+    if (!isStaff()) return { error: '无权限', data: [], total: 0 };
+    const countRes = await client
+      .from('profiles')
+      .select('id', { count: 'exact', head: true });
     const { data, error } = await client
       .from('profiles')
       .select('id, display_name, username, role, is_banned, ban_reason, created_at')
       .order('created_at', { ascending: false })
       .limit(80);
-    if (error) return { error: error.message, data: [] };
-    return { data: data || [] };
+    if (error) return { error: error.message, data: [], total: 0 };
+    const total =
+      typeof countRes.count === 'number' ? countRes.count : (data || []).length;
+    return { data: data || [], total };
+  }
+
+  function updateUsersTabCount(total) {
+    const btn = document.querySelector('[data-admin-tab="users"]');
+    if (!btn) return;
+    const n = typeof total === 'number' ? total : null;
+    btn.textContent = n == null ? '用户' : '用户 · ' + n;
   }
 
   function updateAdminHead() {
@@ -1979,7 +2238,7 @@
       messages: ['站长私信', '用户私信汇总；点开会话可回复（仅站长可回）。'],
       recycle: ['回收站', '已下架作品约保留 7 天，可恢复；过期可彻底清除。'],
       reports: ['举报处理', '处理作品或评论举报：忽略、下架、删评或封禁。'],
-      users: ['用户管理', '可封禁，或彻底删除账号（作品进回收站）。'],
+      users: ['用户管理', '可封禁，或彻底删除账号（作品进回收站）。列表会显示注册用户总数。'],
       invites: ['管理员邀请', '仅站长可生成邀请码；对方登录后在「兑换邀请」填写。']
     };
     const t = map[adminTab] || map.pending;
@@ -2061,6 +2320,11 @@
     if (!box) return;
     const quiet = !!(opts && opts.quiet);
     updateAdminHead();
+    if (adminTab !== 'users') {
+      loadRecentUsers().then((res) => {
+        if (!res.error) updateUsersTabCount(res.total);
+      });
+    }
     if (!quiet) box.innerHTML = deskEmptyHTML('加载中…');
 
     if (adminTab === 'pending') {
@@ -2501,57 +2765,71 @@
     }
 
     if (adminTab === 'users') {
-      const { data, error } = await loadRecentUsers();
+      const { data, error, total } = await loadRecentUsers();
       if (error) {
         box.innerHTML = deskEmptyHTML('加载失败：' + error);
+        updateUsersTabCount(null);
         return;
       }
+      updateUsersTabCount(total);
       if (!data.length) {
         box.innerHTML = deskEmptyHTML('暂无用户');
         return;
       }
-      box.innerHTML = data
-        .map((u) => {
-          const name = u.display_name || u.username || u.id;
-          const initial = String(name).trim().slice(0, 1) || '?';
-          const metaBits = [
-            u.role === 'owner' ? '站长' : u.role === 'moderator' ? '管理' : '用户',
-            u.is_banned ? '已封禁' : '',
-            u.created_at ? new Date(u.created_at).toLocaleDateString('zh-CN') : ''
-          ].filter(Boolean);
-          return (
-            '<article class="admin-card desk-card desk-user-card" data-user-id="' +
-            escapeHtml(u.id) +
-            '" data-user-role="' +
-            escapeHtml(u.role || 'user') +
-            '">' +
-            '<div class="desk-user-avatar" aria-hidden="true">' +
-            escapeHtml(initial) +
-            '</div>' +
-            '<div class="desk-card-body">' +
-            '<div class="desk-card-top">' +
-            '<div class="desk-card-heading">' +
-            '<h3>' +
-            escapeHtml(name) +
-            '</h3>' +
-            '<div class="desk-card-meta">' +
-            metaBits.map((m) => '<span>' + escapeHtml(m) + '</span>').join('') +
-            '</div></div>' +
-            (u.is_banned ? '<span class="desk-badge desk-badge-rejected">封禁</span>' : '') +
-            '</div>' +
-            '<div class="admin-actions desk-actions">' +
-            (u.role === 'owner'
-              ? '<span class="admin-meta desk-locked">站长不可操作</span>'
-              : u.role === 'moderator' && !isOwner()
-                ? '<span class="admin-meta desk-locked">仅站长可管理其他管理员</span>'
-                : (u.is_banned
-                    ? '<button type="button" class="admin-btn ok" data-act="unban-user">解除封禁</button>'
-                    : '<button type="button" class="admin-btn no" data-act="ban-user">封禁</button>') +
-                  '<button type="button" class="admin-btn no" data-act="delete-user">删除用户</button>') +
-            '</div></div></article>'
-          );
-        })
-        .join('');
+      const head =
+        '<div class="admin-card desk-toolbar">' +
+        '<div class="desk-toolbar-copy">' +
+        '<p class="desk-kicker">USERS</p>' +
+        '<p class="admin-desc">当前共有 <strong>' +
+        total +
+        '</strong> 位注册用户' +
+        (data.length < total ? '（下列展示最近 ' + data.length + ' 位）' : '') +
+        '。</p>' +
+        '</div></div>';
+      box.innerHTML =
+        head +
+        data
+          .map((u) => {
+            const name = u.display_name || u.username || u.id;
+            const initial = String(name).trim().slice(0, 1) || '?';
+            const metaBits = [
+              u.role === 'owner' ? '站长' : u.role === 'moderator' ? '管理' : '用户',
+              u.is_banned ? '已封禁' : '',
+              u.created_at ? new Date(u.created_at).toLocaleDateString('zh-CN') : ''
+            ].filter(Boolean);
+            return (
+              '<article class="admin-card desk-card desk-user-card" data-user-id="' +
+              escapeHtml(u.id) +
+              '" data-user-role="' +
+              escapeHtml(u.role || 'user') +
+              '">' +
+              '<div class="desk-user-avatar" aria-hidden="true">' +
+              escapeHtml(initial) +
+              '</div>' +
+              '<div class="desk-card-body">' +
+              '<div class="desk-card-top">' +
+              '<div class="desk-card-heading">' +
+              '<h3>' +
+              escapeHtml(name) +
+              '</h3>' +
+              '<div class="desk-card-meta">' +
+              metaBits.map((m) => '<span>' + escapeHtml(m) + '</span>').join('') +
+              '</div></div>' +
+              (u.is_banned ? '<span class="desk-badge desk-badge-rejected">封禁</span>' : '') +
+              '</div>' +
+              '<div class="admin-actions desk-actions">' +
+              (u.role === 'owner'
+                ? '<span class="admin-meta desk-locked">站长不可操作</span>'
+                : u.role === 'moderator' && !isOwner()
+                  ? '<span class="admin-meta desk-locked">仅站长可管理其他管理员</span>'
+                  : (u.is_banned
+                      ? '<button type="button" class="admin-btn ok" data-act="unban-user">解除封禁</button>'
+                      : '<button type="button" class="admin-btn no" data-act="ban-user">封禁</button>') +
+                    '<button type="button" class="admin-btn no" data-act="delete-user">删除用户</button>') +
+              '</div></div></article>'
+            );
+          })
+          .join('');
       return;
     }
 
@@ -3124,7 +3402,7 @@
       return;
     }
 
-    client.auth.onAuthStateChange(async (_event, session) => {
+    client.auth.onAuthStateChange(async (event, session) => {
       user = session && session.user ? session.user : null;
       await refreshProfile();
       updateAuthUI();
@@ -3134,15 +3412,17 @@
         if (isStaff()) renderAdminList();
         else switchMainTab('gallery');
       }
-      // 登录态变化后重新拉画廊，避免停在空列表
-      if (isConfigured()) await loadApprovedIntoGallery();
+      // TOKEN_REFRESHED / INITIAL_SESSION 不整表重拉，避免 egress 暴涨
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+        await loadApprovedIntoGallery({ force: true });
+      }
     });
 
     const { data } = await client.auth.getSession();
     user = data.session && data.session.user ? data.session.user : null;
     await refreshProfile();
     updateAuthUI();
-    await loadApprovedIntoGallery();
+    await loadApprovedIntoGallery({ force: true });
     await onSessionReady();
   }
 
@@ -3158,6 +3438,7 @@
     renderAdminList,
     refreshProfile,
     loadApprovedIntoGallery,
+    ensureGalleryDetails,
     likeItem,
     unlikeItem,
     syncLikesFromCloud,

@@ -346,7 +346,7 @@ function mountWarningFields() {
   });
 }
 
-function renderCards() {
+async function renderCards() {
   const grid = document.getElementById('card-grid');
   grid.innerHTML = '';
   const filtered = getFiltered();
@@ -375,6 +375,25 @@ function renderCards() {
       <p>${state.type==='fav' ? '还没有收藏，点击 ♡ 收藏喜欢的样式' : '没有找到匹配的内容'}</p>
     </div>`;
     return;
+  }
+
+  const detailItems = [];
+  const seenGroups = new Set();
+  pageItems.forEach((item) => {
+    if (item.group) {
+      if (seenGroups.has(item.group)) return;
+      seenGroups.add(item.group);
+      filtered.filter((i) => i.group === item.group).forEach((v) => detailItems.push(v));
+      return;
+    }
+    detailItems.push(item);
+  });
+  if (window.SG && typeof SG.ensureGalleryDetails === 'function') {
+    try {
+      await SG.ensureGalleryDetails(detailItems);
+    } catch (e) {
+      console.warn('[SG] ensureGalleryDetails', e);
+    }
   }
 
   const renderedGroups = new Set();
@@ -825,7 +844,16 @@ function finishModalExtras(item) {
   }
 }
 
-function openModal(item) {
+async function openModal(item) {
+  if (window.SG && typeof SG.ensureGalleryDetails === 'function' && item) {
+    try {
+      await SG.ensureGalleryDetails([item]);
+      const fresh = (window.ALL || []).find((it) => it && it.id === item.id);
+      if (fresh) item = fresh;
+    } catch (e) {
+      console.warn('[SG] modal details', e);
+    }
+  }
   currentModalItem = item;
   window.currentModalItem = item;
   const modalEl = document.getElementById('modal');
@@ -1234,6 +1262,8 @@ function switchAppTab(tab) {
   if (sidebar) sidebar.style.display = tab === 'gallery' ? '' : 'none';
   const searchWrap = document.querySelector('.search-wrap');
   if (searchWrap) searchWrap.style.display = tab === 'gallery' ? '' : 'none';
+  const galleryTools = document.getElementById('header-gallery-tools');
+  if (galleryTools) galleryTools.style.display = tab === 'gallery' ? '' : 'none';
   document.body.dataset.appTab = tab;
 
   if (sv) {

@@ -15,11 +15,6 @@
 
   <header class="header">
     <div class="brand">
-      <div class="brand-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 7h16M4 12h10M4 17h14" />
-        </svg>
-      </div>
       <div class="brand-text">
         <span class="brand-name">画廊</span>
         <span class="brand-sub">GALLERY</span>
@@ -32,12 +27,33 @@
       <div class="nav-btn" data-tab="admin" id="nav-admin" hidden>管理</div>
     </nav>
     <div class="header-tools">
-      <div class="search-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-          <circle cx="11" cy="11" r="8" />
-          <path d="M21 21l-4.35-4.35" />
-        </svg>
-        <input type="text" class="search-input" placeholder="搜索名称或作者" id="search-input" autocomplete="off" spellcheck="false">
+      <div class="header-gallery-tools" id="header-gallery-tools">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input type="text" class="search-input" placeholder="搜索名称或作者" id="search-input" autocomplete="off" spellcheck="false">
+        </div>
+        <button type="button" class="header-tool-btn mobile-filter-btn" id="mobile-filter-btn" aria-haspopup="dialog" aria-expanded="false" title="筛选" aria-label="筛选">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M4 6h16M7 12h10M10 18h4" />
+          </svg>
+          <span class="mf-label">筛选</span>
+          <span class="mf-badge" id="mobile-filter-badge" hidden>0</span>
+        </button>
+        <div class="sg-menu header-sort-menu" data-menu="sort">
+          <button type="button" class="sg-menu-trigger header-tool-btn" id="gallery-sort-btn" aria-haspopup="listbox" aria-expanded="false" title="排序">
+            <span class="sg-menu-kicker">排序</span>
+            <span class="sg-menu-value" id="gallery-sort-value">默认</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="sg-menu-panel" id="gallery-sort-menu" role="listbox" hidden>
+            <button type="button" class="sg-menu-option active" role="option" data-value="default" aria-selected="true">默认</button>
+            <button type="button" class="sg-menu-option" role="option" data-value="newest" aria-selected="false">最新</button>
+            <button type="button" class="sg-menu-option" role="option" data-value="hot" aria-selected="false">最热</button>
+          </div>
+        </div>
       </div>
       <button class="theme-toggle" id="theme-toggle" title="切换日夜模式" aria-label="切换日夜模式">
         <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
@@ -152,28 +168,7 @@
 
       <div class="toolbar-wrapper">
         <div class="toolbar">
-          <div class="mobile-filter-btn" id="mobile-filter-btn" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-              <path d="M4 6h16M7 12h10M10 18h4" />
-            </svg>
-            <span class="mf-label">筛选</span>
-            <span class="mf-badge" id="mobile-filter-badge" hidden>0</span>
-          </div>
-
           <span class="toolbar-info" id="toolbar-info">0 个结果</span>
-
-          <div class="sg-menu" data-menu="sort">
-            <button type="button" class="sg-menu-trigger" id="gallery-sort-btn" aria-haspopup="listbox" aria-expanded="false">
-              <span class="sg-menu-kicker">排序</span>
-              <span class="sg-menu-value" id="gallery-sort-value">默认</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="sg-menu-panel" id="gallery-sort-menu" role="listbox" hidden>
-              <button type="button" class="sg-menu-option active" role="option" data-value="default" aria-selected="true">默认</button>
-              <button type="button" class="sg-menu-option" role="option" data-value="newest" aria-selected="false">最新</button>
-              <button type="button" class="sg-menu-option" role="option" data-value="hot" aria-selected="false">最热</button>
-            </div>
-          </div>
 
           <div class="pager" id="pager">
             <button class="pager-btn" id="pager-prev" type="button" title="上一页">
@@ -841,7 +836,7 @@
         <div class="auth-modal-card" role="dialog" aria-labelledby="auth-modal-title">
           <button type="button" class="auth-modal-close" id="auth-modal-close" aria-label="关闭">×</button>
           <h2 id="auth-modal-title">登录</h2>
-          <p class="auth-modal-hint">登录后可直接投稿到站内，审核通过后会出现在画廊。</p>
+          <p class="auth-modal-hint" id="auth-modal-hint">登录后可直接投稿到站内，审核通过后会出现在画廊。</p>
           <div class="auth-error" id="auth-error" hidden></div>
           <div class="fg" id="auth-name-wrap" hidden>
             <label class="fl" for="auth-display-name-input">昵称</label>

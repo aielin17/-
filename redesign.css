@@ -109,7 +109,7 @@ body {
   min-height: 100dvh;
 }
 
-body[data-app-tab]:not([data-app-tab="gallery"]) .search-wrap {
+body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
   display: none !important;
 }
 
@@ -160,15 +160,6 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .search-wrap {
 }
 
 .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
-
-.brand-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 0 !important;
-  background: var(--ink) !important;
-  box-shadow: none !important;
-}
-.brand-icon svg { width: 13px; height: 13px; color: var(--paper); }
 
 .brand-text { display: flex; flex-direction: column; gap: 0; min-width: 0; }
 
@@ -230,6 +221,41 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .search-wrap {
   justify-content: flex-end;
   gap: 8px;
   min-width: 0;
+}
+
+.header-gallery-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  max-width: min(420px, 52vw);
+}
+
+.header-gallery-tools .search-wrap {
+  flex: 1 1 auto;
+  max-width: 200px;
+}
+
+.header-tool-btn.mobile-filter-btn,
+.header-gallery-tools .mobile-filter-btn {
+  display: inline-flex !important;
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 10px !important;
+}
+
+.header-sort-menu {
+  flex-shrink: 0;
+}
+
+.header-sort-menu .sg-menu-trigger {
+  height: 34px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
 }
 
 .search-wrap {
@@ -361,19 +387,10 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .search-wrap {
 /* 删除横幅 */
 .gallery-intro { display: none !important; }
 
-/* ========== 筛选 ========== */
+/* 筛选改为顶栏按钮 + 抽屉，隐藏常驻筛选条 */
 .filter-rail.sidebar,
 .sidebar.filter-rail {
-  width: 100% !important;
-  flex-shrink: 0;
-  background: var(--surface) !important;
-  border-right: none !important;
-  border-bottom: 1px solid var(--border);
-  overflow: visible !important;
-  display: block !important;
-  position: sticky;
-  top: 0;
-  z-index: 20;
+  display: none !important;
 }
 
 .filter-rail .sidebar-inner {
@@ -497,7 +514,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .search-wrap {
 }
 
 .mobile-filter-btn {
-  display: none;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   border-radius: 0 !important;
@@ -4440,8 +4457,18 @@ button.card-dl-btn {
     display: inline-flex !important;
     align-items: center;
     gap: 6px;
-    min-height: 36px;
-    padding: 0 12px !important;
+    min-height: 34px;
+    padding: 0 10px !important;
+  }
+
+  .header-gallery-tools {
+    max-width: none;
+    flex: 1 1 auto;
+  }
+
+  .header-gallery-tools .mf-label,
+  .header-sort-menu .sg-menu-kicker {
+    display: none;
   }
 
   .brand-sub { display: none; }
