@@ -136,6 +136,19 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
     position: relative;
     z-index: 1;
   }
+  /* 弹窗在 workspace 内：抬高 stacking，避免标题被顶栏挡住 */
+  body:has(.modal-backdrop.open) > .header,
+  body:has(.announce-modal.open) > .header,
+  body:has(.filter-drawer.open) > .header,
+  body:has(.auth-modal.open) > .header {
+    z-index: 1 !important;
+  }
+  body:has(.modal-backdrop.open) > .workspace,
+  body:has(.announce-modal.open) > .workspace,
+  body:has(.filter-drawer.open) > .workspace,
+  body:has(.auth-modal.open) > .workspace {
+    z-index: 600 !important;
+  }
   body > .sg-setup-banner {
     flex: 0 0 auto;
   }
@@ -147,9 +160,10 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
   max-height: 64px;
   padding: 0 var(--page-x);
   display: grid !important;
-  grid-template-columns: minmax(140px, 1fr) auto minmax(200px, 1.1fr);
+  grid-template-columns: minmax(100px, auto) auto minmax(220px, 1.2fr) auto;
+  grid-template-areas: "brand nav gallery tools";
   align-items: center;
-  gap: 16px;
+  gap: 12px 14px;
   background: var(--surface) !important;
   border-bottom: 1px solid var(--border) !important;
   backdrop-filter: none !important;
@@ -159,7 +173,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
   animation: none !important;
 }
 
-.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand { grid-area: brand; display: flex; align-items: center; gap: 10px; min-width: 0; }
 
 .brand-text { display: flex; flex-direction: column; gap: 0; min-width: 0; }
 
@@ -186,6 +200,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 }
 
 .header-nav {
+  grid-area: nav;
   margin: 0 !important;
   justify-self: center;
   display: flex;
@@ -216,6 +231,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 }
 
 .header-tools {
+  grid-area: tools;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -224,18 +240,19 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 }
 
 .header-gallery-tools {
+  grid-area: gallery;
   display: flex;
   align-items: center;
   gap: 6px;
   min-width: 0;
-  flex: 1 1 auto;
   justify-content: flex-end;
-  max-width: min(420px, 52vw);
+  width: 100%;
+  max-width: none;
 }
 
 .header-gallery-tools .search-wrap {
   flex: 1 1 auto;
-  max-width: 200px;
+  max-width: 240px;
 }
 
 .header-tool-btn.mobile-filter-btn,
@@ -514,6 +531,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 }
 
 .mobile-filter-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1466,10 +1484,14 @@ select.pager-size,
   font-size: 16px !important;
   font-weight: 700 !important;
   letter-spacing: -.02em;
-  line-height: 1.25 !important;
+  line-height: 1.3 !important;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: none;
 }
 
 .modal-sub {
@@ -1844,24 +1866,45 @@ button.card-dl-btn {
   font-weight: 600;
 }
 
-/* 评论 */
+/* 评论（可折叠，移动端默认收起） */
 .sg-comments {
   margin: 0 !important;
-  padding: 16px !important;
+  padding: 0 !important;
   border: none !important;
+  border-top: 1px solid var(--border) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   background: var(--surface) !important;
 }
 
+.sg-comments-summary,
 .sg-comments-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+  margin: 0;
+  padding: 10px 16px;
+  border-bottom: none;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.sg-comments-summary::-webkit-details-marker { display: none; }
+.sg-comments-summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--text-muted);
+  border-bottom: 1.5px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform .15s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.sg-comments[open] .sg-comments-summary::after {
+  transform: rotate(-135deg);
+  margin-top: 4px;
 }
 
 .sg-comments-title {
@@ -1877,14 +1920,25 @@ button.card-dl-btn {
   font-size: 11px;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+.sg-comments-panel {
+  padding: 0 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sg-comments-list {
-  min-height: 36px;
-  margin-bottom: 12px;
+  min-height: 0;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: 200px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sg-comments-compose {
@@ -1892,13 +1946,13 @@ button.card-dl-btn {
   grid-template-columns: 1fr auto;
   gap: 8px;
   align-items: stretch;
-  padding: 10px;
+  padding: 8px 10px;
   border: 1px solid var(--border);
   background: var(--surface-2);
 }
 
 .sg-comment-input {
-  min-height: 44px !important;
+  min-height: 40px !important;
   resize: vertical;
   font-size: 13px !important;
   border: none !important;
@@ -2148,8 +2202,8 @@ button.card-dl-btn {
 }
 .card-modal-desc {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--text);
   font-weight: 500;
 }
@@ -4274,13 +4328,14 @@ button.card-dl-btn {
   .header {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       "brand tools"
+      "gallery gallery"
       "nav nav";
     height: auto !important;
     max-height: none !important;
-    padding: 10px 14px;
+    padding: 10px 14px 8px;
     gap: 8px 10px;
     overflow: visible !important;
     width: 100%;
@@ -4299,6 +4354,16 @@ button.card-dl-btn {
     position: relative;
     z-index: 2;
   }
+  .header-gallery-tools {
+    grid-area: gallery;
+    width: 100%;
+    max-width: none;
+    justify-content: stretch;
+  }
+  .header-gallery-tools .search-wrap {
+    flex: 1 1 auto;
+    max-width: none;
+  }
   .header-nav {
     grid-area: nav;
     justify-self: stretch;
@@ -4306,6 +4371,13 @@ button.card-dl-btn {
     overflow-x: auto;
     max-width: 100%;
     overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 2px;
+    padding-bottom: 2px !important;
+  }
+  .nav-btn {
+    padding: 8px 12px !important;
+    flex-shrink: 0;
   }
   .auth-account {
     position: relative;
@@ -4329,14 +4401,16 @@ button.card-dl-btn {
   .modal {
     width: 100% !important;
     max-width: none !important;
-    max-height: min(92dvh, 920px) !important;
+    max-height: min(90dvh, 920px) !important;
     height: auto !important;
     border-left: none !important;
     border-right: none !important;
     border-bottom: none !important;
-    border-radius: 14px 14px 0 0 !important;
+    border-radius: 16px 16px 0 0 !important;
     transform: translateY(24px) !important;
     box-shadow: var(--shadow-pop) !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .modal[data-type] {
@@ -4353,10 +4427,63 @@ button.card-dl-btn {
   }
 
   .modal-header {
-    padding: 8px 12px 12px !important;
+    padding: 10px 14px 12px !important;
+    gap: 8px !important;
+    overflow: visible !important;
   }
 
-  .modal-name { font-size: 15px !important; }
+  .modal-name {
+    font-size: 16px !important;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+  }
+  .modal-sub { font-size: 11px; }
+
+  .modal-body-card .card-modal-desc,
+  .modal-body .card-modal-desc,
+  .modal-body .card-desc,
+  .modal-body p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  .sg-comments-summary {
+    padding: 10px 14px !important;
+  }
+  .sg-comments-panel {
+    padding: 0 14px 12px !important;
+    gap: 8px !important;
+  }
+  .sg-comments-list {
+    max-height: 140px;
+  }
+  .sg-comments-compose {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .sg-comment-input,
+  #sg-comment-input {
+    min-height: 56px !important;
+    font-size: 14px !important;
+  }
+  .sg-comment-send,
+  #sg-comment-send {
+    height: 40px;
+    width: 100%;
+  }
+  .sg-comments-empty {
+    padding: 12px 8px !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+  }
+
+  .modal-fav-btn,
+  .modal-close,
+  .modal-more-btn {
+    height: 36px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+  }
 
   .modal-action-desk {
     display: none !important;
@@ -4364,45 +4491,61 @@ button.card-dl-btn {
 
   .modal-more { display: inline-flex !important; }
 
-  .modal-preview-stage {
-    min-height: 160px;
-    padding: 20px 14px;
-  }
-
-  .modal-tools {
-    padding: 12px 14px 4px;
+  .modal-stage {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
   }
 
   .modal-body {
     padding: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+  }
+
+  .modal-preview-stage {
+    min-height: 140px;
+    padding: 16px 14px;
+  }
+
+  .modal-tools {
+    padding: 10px 14px 2px;
   }
 
   .modal-body:not(.modal-body-bubble):not(.modal-body-music):not(.modal-body-card) {
-    padding: 14px 14px 18px !important;
+    padding: 12px 14px 8px !important;
   }
 
   .modal-body-music {
     padding: 0 !important;
   }
 
-  .sg-comments {
-    padding: 12px 14px 16px !important;
+  .modal-body-card .card-modal-desc,
+  .modal-body .card-desc,
+  .modal-body p {
+    line-height: 1.55;
   }
 
-  .sg-comments-compose {
-    grid-template-columns: 1fr;
+  .sg-staff-panel {
+    margin: 0 0 4px !important;
   }
-
-  .sg-comment-send,
-  #sg-comment-send {
-    height: 40px;
+  .sg-staff-summary {
+    padding: 10px 14px !important;
+  }
+  .sg-staff-body {
+    padding: 10px 14px 12px !important;
+    gap: 10px !important;
   }
 
   .card-modal-stage {
     grid-template-columns: 1fr;
     justify-items: start;
-    gap: 16px;
-    padding: 22px 16px;
+    gap: 12px;
+    padding: 16px 14px 8px;
     min-height: 0;
   }
 
@@ -4410,21 +4553,30 @@ button.card-dl-btn {
     display: flex !important;
     flex-direction: row !important;
     gap: 12px !important;
-    padding: 14px !important;
+    padding: 12px 14px !important;
   }
 
   .music-track-item {
     display: flex !important;
-    padding: 12px 14px !important;
+    padding: 10px 14px !important;
   }
   .music-track-item .track-dur { display: none !important; }
 
-  .modal-footer-row-btns {
-    grid-template-columns: 1fr;
+  .modal-footer {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom)) !important;
+    border-top: 1px solid var(--border) !important;
+    background: var(--surface) !important;
   }
 
-  .modal-footer {
-    gap: 6px;
+  .modal-footer-row-btns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .modal-footer .card-dl-btn,
@@ -4432,11 +4584,22 @@ button.card-dl-btn {
   .modal-footer .music-dl-btn,
   .modal-footer .font-btn,
   .modal-footer .variant-btn,
-  .modal-footer a {
-    flex: 1 1 auto;
-    min-width: calc(50% - 6px);
-    justify-content: center;
-    text-align: center;
+  .modal-footer a,
+  .modal-footer button {
+    flex: 1 1 calc(50% - 4px) !important;
+    min-width: calc(50% - 4px) !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    box-sizing: border-box !important;
+  }
+
+  .modal-footer-row-btns > * {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: none !important;
   }
 }
 
@@ -4456,32 +4619,61 @@ button.card-dl-btn {
   .mobile-filter-btn {
     display: inline-flex !important;
     align-items: center;
-    gap: 6px;
-    min-height: 34px;
-    padding: 0 10px !important;
+    justify-content: center;
+    gap: 0;
+    min-height: 40px;
+    width: 40px;
+    padding: 0 !important;
+  }
+  .mobile-filter-btn .mf-label { display: none !important; }
+  .mobile-filter-btn .mf-badge:not([hidden]) {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    font-size: 9px;
   }
 
   .header-gallery-tools {
     max-width: none;
-    flex: 1 1 auto;
+    width: 100%;
+    gap: 8px;
   }
 
-  .header-gallery-tools .mf-label,
+  .header-gallery-tools .search-wrap {
+    height: 40px;
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
   .header-sort-menu .sg-menu-kicker {
     display: none;
+  }
+  .header-sort-menu .sg-menu-trigger {
+    height: 40px;
+    min-height: 40px;
+    padding: 0 10px;
   }
 
   .brand-sub { display: none; }
 
   .toolbar {
     gap: 8px;
+    padding: 8px 0 !important;
+  }
+  .toolbar-info {
+    font-size: 12px;
+    margin-right: 0;
   }
 
   .pager {
-    margin-left: 0;
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    margin-left: auto;
+    width: auto;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 6px;
   }
 
   .pager-btn span { display: none; }
@@ -4511,7 +4703,22 @@ button.card-dl-btn {
   }
 
   .card-grid-wrapper {
-    padding: 12px var(--page-x) calc(28px + env(safe-area-inset-bottom)) !important;
+    padding: 10px var(--page-x) calc(24px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .card-grid {
+    gap: 10px !important;
+  }
+
+  .item-card {
+    border-radius: 0 !important;
+  }
+  .card-meta {
+    padding: 8px 10px 10px !important;
+  }
+  .card-name {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
   }
 
   /* 投稿：顶栏类型切换 + 可滚动表单 */
@@ -4682,32 +4889,111 @@ button.card-dl-btn {
   .admin-inner,
   .mine-inner,
   .profile-inner {
-    padding: 16px var(--page-x) calc(40px + env(safe-area-inset-bottom));
+    padding: 14px var(--page-x) calc(32px + env(safe-area-inset-bottom));
+  }
+
+  .desk-hero {
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  .desk-title,
+  .admin-title {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    margin-bottom: 4px !important;
+  }
+  .desk-sub,
+  .admin-sub {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+  }
+  .desk-staff-chip {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+  .desk-tabs {
+    gap: 4px !important;
+    margin-bottom: 12px !important;
+  }
+  .desk-tab,
+  .admin-tab {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+  .desk-card {
+    padding: 0 !important;
+  }
+  .desk-card-body {
+    padding: 12px 12px 12px 0 !important;
+    gap: 8px !important;
+  }
+  .desk-card-heading h3 {
+    font-size: 14px !important;
+  }
+  .desk-batch,
+  .admin-batch-bar {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+  .desk-actions,
+  .admin-actions {
+    gap: 6px !important;
+  }
+  .admin-btn {
+    min-height: 36px;
+    padding: 0 12px !important;
   }
 }
 
 @media (max-width: 480px) {
+  :root { --page-x: 12px; }
+
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 8px !important;
+    gap: 10px !important;
   }
   .search-wrap {
     flex: 1 1 auto;
     max-width: none;
-    min-width: 96px;
+    min-width: 0;
   }
-  .auth-role-badge[hidden] { display: none !important; }
+  .search-input::placeholder {
+    font-size: 12px;
+  }
+  .auth-role-badge { display: none !important; }
   .header-tools .auth-display-name {
-    max-width: 56px;
+    max-width: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .card-stage { min-height: 80px; max-height: 96px; padding: 10px; }
+  .card-stage { min-height: 88px; max-height: 110px; padding: 10px; }
   .card-type-music .card-stage {
-    min-height: 92px;
+    min-height: 96px;
     max-height: none;
     padding: 10px !important;
   }
-  .card-name { font-size: 12px !important; }
-  .header-tools .auth-login-btn { padding: 0 8px; font-size: 11px; }
-  .toolbar-info { width: 100%; order: 3; }
+  .card-name { font-size: 12.5px !important; }
+  .header-tools .auth-login-btn { padding: 0 10px; font-size: 12px; min-height: 36px; }
+  .toolbar {
+    flex-wrap: wrap;
+  }
+  .toolbar-info {
+    flex: 1 1 auto;
+    margin-right: auto;
+  }
+  .pager {
+    margin-left: 0;
+  }
+  .sv-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    padding: 6px !important;
+  }
+  .sv-nav-item {
+    padding: 6px 2px !important;
+  }
+  .filter-drawer-panel {
+    max-height: min(86dvh, 680px);
+  }
 }
 

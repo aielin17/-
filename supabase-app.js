@@ -1982,9 +1982,12 @@
     if (!container) return;
     let host = container.querySelector('#sg-comments');
     if (host) host.remove();
-    host = document.createElement('section');
+    host = document.createElement('details');
     host.id = 'sg-comments';
     host.className = 'sg-comments';
+    if (window.matchMedia('(min-width: 721px)').matches) {
+      host.open = true;
+    }
     container.appendChild(host);
 
     if (!item || !item.remoteId) {
@@ -1997,12 +2000,16 @@
     }
 
     host.innerHTML =
-      '<div class="sg-comments-head"><h3 class="sg-comments-title">评论</h3><span class="sg-comments-count" id="sg-comments-count"></span></div>' +
+      '<summary class="sg-comments-summary">' +
+      '<span class="sg-comments-title">评论</span>' +
+      '<span class="sg-comments-count" id="sg-comments-count"></span>' +
+      '</summary>' +
+      '<div class="sg-comments-panel">' +
       '<div class="sg-comments-list" id="sg-comments-list"><div class="sg-comments-empty">加载中…</div></div>' +
       '<div class="sg-comments-compose">' +
       '<textarea class="sg-comment-input" id="sg-comment-input" rows="2" maxlength="500" placeholder="说点什么（登录后可发）"></textarea>' +
       '<button type="button" class="sg-comment-send" id="sg-comment-send">发送</button>' +
-      '</div>';
+      '</div></div>';
 
     const listEl = host.querySelector('#sg-comments-list');
     const countEl = host.querySelector('#sg-comments-count');

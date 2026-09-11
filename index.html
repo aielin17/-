@@ -26,35 +26,35 @@
       <div class="nav-btn" data-tab="mine" id="nav-mine" hidden>我的</div>
       <div class="nav-btn" data-tab="admin" id="nav-admin" hidden>管理</div>
     </nav>
-    <div class="header-tools">
-      <div class="header-gallery-tools" id="header-gallery-tools">
-        <div class="search-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <circle cx="11" cy="11" r="8" />
-            <path d="M21 21l-4.35-4.35" />
-          </svg>
-          <input type="text" class="search-input" placeholder="搜索名称或作者" id="search-input" autocomplete="off" spellcheck="false">
-        </div>
-        <button type="button" class="header-tool-btn mobile-filter-btn" id="mobile-filter-btn" aria-haspopup="dialog" aria-expanded="false" title="筛选" aria-label="筛选">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <path d="M4 6h16M7 12h10M10 18h4" />
-          </svg>
-          <span class="mf-label">筛选</span>
-          <span class="mf-badge" id="mobile-filter-badge" hidden>0</span>
+    <div class="header-gallery-tools" id="header-gallery-tools">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input type="text" class="search-input" placeholder="搜索名称或作者" id="search-input" autocomplete="off" spellcheck="false">
+      </div>
+      <button type="button" class="header-tool-btn mobile-filter-btn" id="mobile-filter-btn" aria-haspopup="dialog" aria-expanded="false" title="筛选" aria-label="筛选">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M4 6h16M7 12h10M10 18h4" />
+        </svg>
+        <span class="mf-label">筛选</span>
+        <span class="mf-badge" id="mobile-filter-badge" hidden>0</span>
+      </button>
+      <div class="sg-menu header-sort-menu" data-menu="sort">
+        <button type="button" class="sg-menu-trigger header-tool-btn" id="gallery-sort-btn" aria-haspopup="listbox" aria-expanded="false" title="排序">
+          <span class="sg-menu-kicker">排序</span>
+          <span class="sg-menu-value" id="gallery-sort-value">默认</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="sg-menu header-sort-menu" data-menu="sort">
-          <button type="button" class="sg-menu-trigger header-tool-btn" id="gallery-sort-btn" aria-haspopup="listbox" aria-expanded="false" title="排序">
-            <span class="sg-menu-kicker">排序</span>
-            <span class="sg-menu-value" id="gallery-sort-value">默认</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="sg-menu-panel" id="gallery-sort-menu" role="listbox" hidden>
-            <button type="button" class="sg-menu-option active" role="option" data-value="default" aria-selected="true">默认</button>
-            <button type="button" class="sg-menu-option" role="option" data-value="newest" aria-selected="false">最新</button>
-            <button type="button" class="sg-menu-option" role="option" data-value="hot" aria-selected="false">最热</button>
-          </div>
+        <div class="sg-menu-panel" id="gallery-sort-menu" role="listbox" hidden>
+          <button type="button" class="sg-menu-option active" role="option" data-value="default" aria-selected="true">默认</button>
+          <button type="button" class="sg-menu-option" role="option" data-value="newest" aria-selected="false">最新</button>
+          <button type="button" class="sg-menu-option" role="option" data-value="hot" aria-selected="false">最热</button>
         </div>
       </div>
+    </div>
+    <div class="header-tools">
       <button class="theme-toggle" id="theme-toggle" title="切换日夜模式" aria-label="切换日夜模式">
         <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
           <circle cx="12" cy="12" r="5" />
