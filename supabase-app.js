@@ -57,13 +57,12 @@
     ];
   }
 
-  /* 列表不拉 css（气泡/主题按页懒加载），显著减少 egress */
+  /* 列表极瘦：不拉 css / previews / track_list / description（按页详情补） */
   const GALLERY_LIST_SELECT = [
     'id',
     'type',
     'name',
     'author_name',
-    'description',
     'warnings',
     'submitter_id',
     'legacy_id',
@@ -71,7 +70,6 @@
     'created_at',
     'status',
     'deleted_at',
-    'previews',
     'group_id',
     'series',
     'font_url',
@@ -84,21 +82,44 @@
     'colors',
     'artist',
     'is_album',
-    'album_title',
-    'track_list'
+    'album_title'
   ].join(',');
 
-  const GALLERY_DETAIL_SELECT = 'id,css,reviewer_id,reviewed_at';
+  /* 当前页才拉的大字段 */
+  const GALLERY_DETAIL_SELECT = [
+    'id',
+    'type',
+    'css',
+    'previews',
+    'track_list',
+    'description',
+    'colors',
+    'tags',
+    'is_album',
+    'album_title',
+    'group_id',
+    'file_url',
+    'file_name',
+    'file_type',
+    'artist',
+    'name',
+    'author_name',
+    'reviewer_id',
+    'reviewed_at'
+  ].join(',');
 
   const PENDING_SELECT = [
     GALLERY_LIST_SELECT,
+    'description',
+    'previews',
+    'track_list',
     'css',
     'reject_reason',
     'reviewer_id',
     'reviewed_at'
   ].join(',');
 
-  const MINE_SELECT = [
+  const MINE_LIST_SELECT = [
     'id',
     'type',
     'name',
@@ -118,6 +139,21 @@
     'album_title'
   ].join(',');
 
+  const MINE_DETAIL_SELECT = [
+    MINE_LIST_SELECT,
+    'file_name',
+    'file_type',
+    'track_list',
+    'css',
+    'previews',
+    'series',
+    'group_id',
+    'font_url',
+    'font_family',
+    'tags',
+    'colors'
+  ].join(',');
+
   const RECYCLE_SELECT = [
     'id',
     'type',
@@ -132,13 +168,49 @@
 
   let galleryCacheAt = 0;
   let galleryLoadPromise = null;
-  const GALLERY_CACHE_MS = 5 * 60 * 1000;
+  const GALLERY_CACHE_MS = 2 * 60 * 60 * 1000; // 内存 2 小时
+  const GALLERY_LS_KEY = 'sg_gallery_cache_v3';
+  const GALLERY_LS_MS = 24 * 60 * 60 * 1000; // 本地 24 小时
   const itemDetailCache = new Map();
+
+  function saveGalleryToLocal(rows) {
+    try {
+      const slim = (rows || []).map((r) => {
+        if (!r || typeof r !== 'object') return r;
+        const copy = Object.assign({}, r);
+        delete copy.css;
+        delete copy.previews;
+        delete copy.track_list;
+        return copy;
+      });
+      localStorage.setItem(
+        GALLERY_LS_KEY,
+        JSON.stringify({ at: Date.now(), rows: slim })
+      );
+    } catch (e) {
+      /* quota / private mode */
+    }
+  }
+
+  function readGalleryFromLocal() {
+    try {
+      const raw = localStorage.getItem(GALLERY_LS_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || !parsed.at || !Array.isArray(parsed.rows)) return null;
+      if (Date.now() - parsed.at > GALLERY_LS_MS) return null;
+      return parsed;
+    } catch (e) {
+      return null;
+    }
+  }
 
   function mapDbItemToGallery(row) {
     if (!row) return null;
     const id = 'remote-' + row.id;
-    const hasCss = Object.prototype.hasOwnProperty.call(row, 'css');
+    const hasCss = Object.prototype.hasOwnProperty.call(row, 'css') && row.css != null && row.css !== '';
+    const hasPreviews = Object.prototype.hasOwnProperty.call(row, 'previews');
+    const hasTracks = Object.prototype.hasOwnProperty.call(row, 'track_list');
     const base = {
       id,
       remoteId: row.id,
@@ -154,7 +226,9 @@
       likeCount: row.like_count || 0,
       createdAt: row.created_at ? Date.parse(row.created_at) || 0 : 0,
       fromRemote: true,
-      _cssLoaded: hasCss
+      _cssLoaded: hasCss,
+      _previewsLoaded: hasPreviews,
+      _tracksLoaded: hasTracks || row.type !== 'music' || !row.is_album
     };
     if (row.type === 'bubble') {
       return Object.assign(base, {
@@ -198,9 +272,24 @@
             fileType: ((t.url || '').split('.').pop() || 'mp3').toLowerCase(),
             group: row.group_id || undefined,
             groupLabel: row.album_title || row.name,
-            duration: t.duration || ''
+            duration: t.duration || '',
+            _tracksLoaded: true,
+            _cssLoaded: true
           })
         );
+      }
+      if (row.is_album) {
+        // 列表阶段无 track_list：先占位一张合辑卡，详情页再展开
+        return Object.assign(base, {
+          artist: row.artist || '',
+          file: '',
+          fileName: '',
+          fileType: 'mp3',
+          group: row.group_id || 'album-' + row.id,
+          groupLabel: row.album_title || row.name,
+          isAlbumStub: true,
+          _tracksLoaded: false
+        });
       }
       return Object.assign(base, {
         artist: row.artist || '',
@@ -208,7 +297,8 @@
         fileName: row.file_name || '',
         fileType: row.file_type || 'mp3',
         group: row.group_id || undefined,
-        groupLabel: row.album_title || undefined
+        groupLabel: row.album_title || undefined,
+        _tracksLoaded: true
       });
     }
     return base;
@@ -234,28 +324,57 @@
   }
 
   function mergeDetailsIntoLocalItems(rows) {
+    let needRerender = false;
     (rows || []).forEach((row) => {
       if (!row || !row.id) return;
       itemDetailCache.set(String(row.id), {
         css: row.css || '',
+        previews: row.previews || [],
+        track_list: row.track_list || null,
+        description: row.description || '',
+        colors: row.colors || [],
+        tags: row.tags || [],
         reviewer_id: row.reviewer_id || null,
         reviewed_at: row.reviewed_at || null
       });
       const rid = String(row.id);
+
+      // 合辑：用 track_list 替换占位 stub
+      if (row.type === 'music' && row.is_album && Array.isArray(row.track_list) && row.track_list.length) {
+        const expanded = mapDbItemToGallery(row);
+        const list = Array.isArray(expanded) ? expanded : expanded ? [expanded] : [];
+        const rest = (window.SG_LAST_REMOTE_ITEMS || []).filter((it) => String(it.remoteId) !== rid);
+        if (typeof window.SG_applyGalleryItems === 'function') {
+          window.SG_applyGalleryItems(list.concat(rest));
+        }
+        needRerender = true;
+        return;
+      }
+
       const patch = (it) => {
         if (!it || String(it.remoteId) !== rid) return;
         if (row.css != null) it.css = row.css || '';
+        if (row.previews != null) {
+          it.previews = row.previews || [];
+          it._previewsLoaded = true;
+        }
+        if (row.description != null) it.desc = row.description || '';
+        if (row.colors != null) it.colors = row.colors || [];
+        if (row.tags != null) it.tags = row.tags || [];
         if (row.reviewer_id !== undefined) it.reviewerId = row.reviewer_id || null;
         if (row.reviewed_at !== undefined) it.reviewedAt = row.reviewed_at || null;
-        it._cssLoaded = true;
+        if (row.css != null) it._cssLoaded = true;
+        if (row.file_url && !it.file) it.file = row.file_url;
       };
       (window.ALL || []).forEach(patch);
       (window.SG_LAST_REMOTE_ITEMS || []).forEach(patch);
     });
+    return needRerender;
   }
 
-  async function ensureGalleryDetails(items) {
-    if (!client) return;
+  async function ensureGalleryDetails(items, opts) {
+    if (!client) return false;
+    const eager = !!(opts && opts.eager);
     const list = Array.isArray(items) ? items : [items];
     const need = [];
     list.forEach((it) => {
@@ -264,22 +383,43 @@
       if (itemDetailCache.has(rid)) {
         const cached = itemDetailCache.get(rid);
         it.css = cached.css || it.css || '';
+        it.previews = cached.previews || it.previews || [];
+        if (cached.description != null) it.desc = cached.description;
+        if (cached.colors) it.colors = cached.colors;
+        if (cached.tags) it.tags = cached.tags;
         it.reviewerId = cached.reviewer_id;
         it.reviewedAt = cached.reviewed_at;
         it._cssLoaded = true;
+        it._previewsLoaded = true;
+        // 合辑若缓存里有 track_list 但本地还是 stub，走合并
+        if (cached.track_list && it.isAlbumStub) {
+          mergeDetailsIntoLocalItems([
+            {
+              id: it.remoteId,
+              type: 'music',
+              is_album: true,
+              track_list: cached.track_list,
+              album_title: it.groupLabel,
+              group_id: it.group,
+              name: it.name,
+              author_name: it.author,
+              css: cached.css,
+              description: cached.description
+            }
+          ]);
+        }
         return;
       }
-      const wantsCss = it.type === 'bubble' || it.type === 'theme';
-      if (wantsCss) {
-        if (it._cssLoaded && it.css) return;
-        need.push(rid);
-        return;
-      }
-      if (isStaff() && !it._cssLoaded) need.push(rid);
+      const needsHeavy =
+        eager ||
+        (it.type === 'bubble' && (!it._cssLoaded || !it.css)) ||
+        (it.type === 'music' && it.isAlbumStub && !it._tracksLoaded);
+      if (needsHeavy) need.push(rid);
     });
     const uniq = [...new Set(need)];
     if (!uniq.length) return;
 
+    let anyExpand = false;
     const chunkSize = 40;
     for (let i = 0; i < uniq.length; i += chunkSize) {
       const chunk = uniq.slice(i, i + chunkSize);
@@ -288,8 +428,9 @@
         console.warn('[SG] 详情懒加载失败', error.message);
         continue;
       }
-      mergeDetailsIntoLocalItems(data || []);
+      if (mergeDetailsIntoLocalItems(data || [])) anyExpand = true;
     }
+    return anyExpand;
   }
 
   function removeRemoteFromGallery(remoteId) {
@@ -300,7 +441,7 @@
       window.SG_applyGalleryItems(extras);
     }
     itemDetailCache.delete(rid);
-    galleryCacheAt = Date.now();
+    persistGalleryCacheFromMemory();
   }
 
   function mergeMappedIntoGallery(mapped) {
@@ -311,7 +452,7 @@
     if (typeof window.SG_applyGalleryItems === 'function') {
       window.SG_applyGalleryItems(list.concat(rest));
     }
-    galleryCacheAt = Date.now();
+    persistGalleryCacheFromMemory();
   }
 
   async function upsertApprovedItemById(id) {
@@ -321,7 +462,7 @@
     }
     const { data, error } = await client
       .from('items')
-      .select(GALLERY_LIST_SELECT + ',css,reviewer_id,reviewed_at')
+      .select(GALLERY_LIST_SELECT + ',description,previews,track_list,css,reviewer_id,reviewed_at')
       .eq('id', id)
       .maybeSingle();
     if (error || !data) {
@@ -337,48 +478,110 @@
     else if (mapped) mapped._cssLoaded = true;
     mergeDetailsIntoLocalItems([data]);
     mergeMappedIntoGallery(mapped);
+    persistGalleryCacheFromMemory();
+  }
+
+  function persistGalleryCacheFromMemory() {
+    // 从当前内存映射回可缓存的瘦行（仅元数据，无 css/previews/tracks）
+    const items = window.SG_LAST_REMOTE_ITEMS || [];
+    const byRemote = new Map();
+    items.forEach((it) => {
+      if (!it || !it.remoteId) return;
+      const rid = String(it.remoteId);
+      if (byRemote.has(rid)) return;
+      byRemote.set(rid, {
+        id: it.remoteId,
+        type: it.type,
+        name: it.isAlbumStub || it.groupLabel ? it.groupLabel || it.name : it.name,
+        author_name: it.author,
+        warnings: it.warnings || [],
+        submitter_id: it.submitterId,
+        legacy_id: it.legacyId,
+        like_count: it.likeCount || 0,
+        created_at: it.createdAt ? new Date(it.createdAt).toISOString() : null,
+        status: 'approved',
+        deleted_at: null,
+        group_id: it.group && String(it.group).indexOf('album-') === 0 ? it.group.replace(/^album-/, '') : it.group,
+        series: it.type === 'bubble' ? it.groupLabel : null,
+        font_url: it.url || null,
+        font_family: it.family || null,
+        font_category: it.category || null,
+        file_url: it.file || null,
+        file_name: it.fileName || null,
+        file_type: it.fileType || null,
+        tags: it.tags || [],
+        colors: it.colors || [],
+        artist: it.artist || null,
+        is_album: !!(it.isAlbumStub || (it.type === 'music' && it.group)),
+        album_title: it.type === 'music' ? it.groupLabel || null : null
+      });
+    });
+    saveGalleryToLocal([...byRemote.values()]);
+    galleryCacheAt = Date.now();
   }
 
   async function loadApprovedIntoGallery(opts) {
     if (!client) return;
     const force = !!(opts && opts.force);
-    const hasCache =
+    const hasMemCache =
       Array.isArray(window.SG_LAST_REMOTE_ITEMS) &&
       window.SG_LAST_REMOTE_ITEMS.length > 0 &&
       Date.now() - galleryCacheAt < GALLERY_CACHE_MS;
-    if (!force && hasCache) return;
-    if (galleryLoadPromise) return galleryLoadPromise;
 
-    galleryLoadPromise = (async () => {
-      const { data, error } = await client
-        .from('items')
-        .select(GALLERY_LIST_SELECT)
-        .eq('status', 'approved')
-        .is('deleted_at', null)
-        .order('created_at', { ascending: false });
-      if (error) {
-        const fallback = await client
-          .from('items')
-          .select(GALLERY_LIST_SELECT)
-          .eq('status', 'approved')
-          .order('created_at', { ascending: false });
-        if (fallback.error) {
-          console.warn('[SG] 拉取已通过作品失败', fallback.error);
-          return;
-        }
-        applyMapped((fallback.data || []).filter((row) => !row.deleted_at));
+    if (!force && hasMemCache) return;
+
+    // 本地缓存：先秒开；超过 2 小时才后台静默刷新
+    if (!force) {
+      const local = readGalleryFromLocal();
+      if (local && local.rows && local.rows.length) {
+        applyMapped(local.rows);
         galleryCacheAt = Date.now();
+        const age = Date.now() - local.at;
+        if (age >= GALLERY_CACHE_MS) {
+          refreshGalleryFromNetwork().catch((e) =>
+            console.warn('[SG] 后台刷新画廊失败', e)
+          );
+        }
         return;
       }
-      applyMapped(data || []);
-      galleryCacheAt = Date.now();
-    })();
+    }
 
+    if (galleryLoadPromise) return galleryLoadPromise;
+    galleryLoadPromise = refreshGalleryFromNetwork();
     try {
       await galleryLoadPromise;
     } finally {
       galleryLoadPromise = null;
     }
+  }
+
+  async function refreshGalleryFromNetwork() {
+    const { data, error } = await client
+      .from('items')
+      .select(GALLERY_LIST_SELECT)
+      .eq('status', 'approved')
+      .is('deleted_at', null)
+      .order('created_at', { ascending: false });
+    if (error) {
+      const fallback = await client
+        .from('items')
+        .select(GALLERY_LIST_SELECT)
+        .eq('status', 'approved')
+        .order('created_at', { ascending: false });
+      if (fallback.error) {
+        console.warn('[SG] 拉取已通过作品失败', fallback.error);
+        return;
+      }
+      const rows = (fallback.data || []).filter((row) => !row.deleted_at);
+      applyMapped(rows);
+      saveGalleryToLocal(rows);
+      galleryCacheAt = Date.now();
+      return;
+    }
+    const rows = data || [];
+    applyMapped(rows);
+    saveGalleryToLocal(rows);
+    galleryCacheAt = Date.now();
   }
 
   function getDisplayName(p, u) {
@@ -445,6 +648,233 @@
     return profile;
   }
 
+  let notifCache = [];
+  let notifUnread = 0;
+  let notifTableReady = null;
+  let notifPollTimer = null;
+
+  async function ensureNotifTable() {
+    if (!client) return false;
+    if (notifTableReady === true) return true;
+    if (notifTableReady === false) return false;
+    const { error } = await client.from('notifications').select('id').limit(1);
+    if (error) {
+      notifTableReady = false;
+      console.warn('[SG] 通知表未就绪，请执行 schema-patch-notifications.sql', error.message);
+      return false;
+    }
+    notifTableReady = true;
+    return true;
+  }
+
+  async function createNotification(payload) {
+    if (!client || !payload || !payload.user_id) return;
+    // 自己给自己的操作不发通知
+    if (
+      user &&
+      String(payload.user_id) === String(user.id) &&
+      payload.actor_id &&
+      String(payload.actor_id) === String(user.id)
+    ) {
+      return;
+    }
+    if (!(await ensureNotifTable())) return;
+    const row = {
+      user_id: payload.user_id,
+      type: payload.type || 'system',
+      actor_id: payload.actor_id || null,
+      item_id: payload.item_id || null,
+      message_id: payload.message_id || null,
+      body: payload.body || null
+    };
+    const { error } = await client.from('notifications').insert(row);
+    if (error) console.warn('[SG] 写通知失败', error.message);
+  }
+
+  function notifTitle(row) {
+    const map = {
+      approved: '投稿已通过审核',
+      rejected: '投稿未通过审核',
+      removed: '作品已下架',
+      comment: '有人评论了你的作品',
+      like: '有人喜欢了你的作品',
+      follow: '有人关注了你',
+      dm: '收到一条私信'
+    };
+    return map[row.type] || row.body || '新通知';
+  }
+
+  function renderNotifBadge() {
+    const badge = document.getElementById('notif-badge');
+    if (!badge) return;
+    if (notifUnread > 0) {
+      badge.hidden = false;
+      badge.textContent = notifUnread > 99 ? '99+' : String(notifUnread);
+    } else {
+      badge.hidden = true;
+    }
+  }
+
+  function renderNotifList() {
+    const list = document.getElementById('notif-list');
+    if (!list) return;
+    if (!notifCache.length) {
+      list.innerHTML =
+        '<div class="notif-empty">' +
+        (notifTableReady === false
+          ? '通知未启用（需在数据库执行 schema-patch-notifications.sql）'
+          : '暂无通知') +
+        '</div>';
+      return;
+    }
+    list.innerHTML = notifCache
+      .map((row) => {
+        const when = row.created_at ? new Date(row.created_at).toLocaleString() : '';
+        const unread = !row.read_at;
+        return (
+          '<button type="button" class="notif-item' +
+          (unread ? ' unread' : '') +
+          '" data-notif-id="' +
+          escapeHtml(row.id) +
+          '" data-notif-type="' +
+          escapeHtml(row.type || '') +
+          '" data-item-id="' +
+          escapeHtml(row.item_id || '') +
+          '">' +
+          '<div class="notif-item-title">' +
+          escapeHtml(row.body || notifTitle(row)) +
+          '</div>' +
+          '<div class="notif-item-meta">' +
+          escapeHtml(when) +
+          '</div></button>'
+        );
+      })
+      .join('');
+  }
+
+  function closeNotifPanel() {
+    const panel = document.getElementById('notif-panel');
+    const btn = document.getElementById('notif-btn');
+    if (panel) panel.hidden = true;
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggleNotifPanel() {
+    const panel = document.getElementById('notif-panel');
+    const btn = document.getElementById('notif-btn');
+    if (!panel || !btn) return;
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) refreshNotifications();
+  }
+
+  async function refreshNotifications(opts) {
+    const quiet = !!(opts && opts.quiet);
+    if (!client || !user) {
+      notifCache = [];
+      notifUnread = 0;
+      renderNotifBadge();
+      if (!quiet) renderNotifList();
+      return;
+    }
+    if (!(await ensureNotifTable())) {
+      notifCache = [];
+      notifUnread = 0;
+      renderNotifBadge();
+      if (!quiet) renderNotifList();
+      return;
+    }
+    const { data, error } = await client
+      .from('notifications')
+      .select('id, type, actor_id, item_id, message_id, body, read_at, created_at')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(40);
+    if (error) {
+      console.warn('[SG] 读通知失败', error.message);
+      return;
+    }
+    notifCache = data || [];
+    notifUnread = notifCache.filter((n) => !n.read_at).length;
+    renderNotifBadge();
+    const panel = document.getElementById('notif-panel');
+    if (!quiet || (panel && !panel.hidden)) renderNotifList();
+  }
+
+  async function markNotificationsRead(ids) {
+    if (!client || !user || !(await ensureNotifTable())) return;
+    let q = client
+      .from('notifications')
+      .update({ read_at: new Date().toISOString() })
+      .eq('user_id', user.id)
+      .is('read_at', null);
+    if (ids && ids.length) q = q.in('id', ids);
+    const { error } = await q;
+    if (error) console.warn('[SG] 标记已读失败', error.message);
+    await refreshNotifications();
+  }
+
+  async function handleNotifClick(rowId) {
+    const row = notifCache.find((n) => String(n.id) === String(rowId));
+    if (!row) return;
+    if (!row.read_at) await markNotificationsRead([row.id]);
+    closeNotifPanel();
+    if (row.type === 'dm') {
+      openOwnerDm();
+      return;
+    }
+    if (row.type === 'follow' && row.actor_id) {
+      openProfile({ userId: row.actor_id });
+      return;
+    }
+    if (row.type === 'rejected' || row.type === 'approved' || row.type === 'removed') {
+      mineTab = row.type === 'rejected' ? 'rejected' : row.type === 'removed' ? 'rejected' : 'approved';
+      switchMainTab('mine');
+      renderMineList();
+      return;
+    }
+    if (row.item_id) {
+      const item = (Array.isArray(window.ALL) ? window.ALL : []).find(
+        (x) => x && String(x.remoteId) === String(row.item_id)
+      );
+      if (item && typeof window.openModal === 'function') {
+        switchMainTab('gallery');
+        window.openModal(item);
+        return;
+      }
+      await upsertApprovedItemById(row.item_id);
+      const again = (Array.isArray(window.ALL) ? window.ALL : []).find(
+        (x) => x && String(x.remoteId) === String(row.item_id)
+      );
+      if (again && typeof window.openModal === 'function') {
+        switchMainTab('gallery');
+        window.openModal(again);
+      } else {
+        toast('相关作品暂不可用');
+      }
+    }
+  }
+
+  function startNotifPolling() {
+    if (notifPollTimer) clearInterval(notifPollTimer);
+    // 不再高频轮询；仅登录时拉一次，打开铃铛再拉
+    notifPollTimer = null;
+  }
+
+  async function notifyItemOwner(itemId, type, body) {
+    if (!client || !itemId || !user) return;
+    const { data } = await client.from('items').select('submitter_id, name').eq('id', itemId).maybeSingle();
+    if (!data || !data.submitter_id || data.submitter_id === user.id) return;
+    await createNotification({
+      user_id: data.submitter_id,
+      type,
+      actor_id: user.id,
+      item_id: itemId,
+      body: body || (data.name ? notifTitle({ type }) + ' · ' + data.name : notifTitle({ type }))
+    });
+  }
+
   function updateAuthUI() {
     const loginBtn = document.getElementById('auth-login-btn');
     const menu = document.getElementById('auth-user-menu');
@@ -453,6 +883,7 @@
     const adminTab = document.getElementById('nav-admin');
     const mineTab = document.getElementById('nav-mine');
     const setupBanner = document.getElementById('sg-setup-banner');
+    const notifWrap = document.getElementById('notif-wrap');
 
     if (setupBanner) {
       setupBanner.hidden = isConfigured();
@@ -463,6 +894,7 @@
     if (user) {
       loginBtn.hidden = true;
       menu.hidden = false;
+      if (notifWrap) notifWrap.hidden = false;
       if (toggle) toggle.textContent = getDisplayName() || '用户';
       if (roleEl) {
         const name = (getDisplayName() || '').trim();
@@ -506,9 +938,15 @@
       } else if (isStaff()) {
         updateAdminHead();
       }
+      refreshNotifications({ quiet: true });
     } else {
       loginBtn.hidden = false;
       menu.hidden = true;
+      if (notifWrap) notifWrap.hidden = true;
+      closeNotifPanel();
+      notifCache = [];
+      notifUnread = 0;
+      renderNotifBadge();
       if (mineTab) mineTab.hidden = true;
       if (adminTab) adminTab.hidden = true;
       const accountMenu = document.getElementById('auth-account-menu');
@@ -1162,7 +1600,7 @@
     const st = status || mineTab || 'pending';
     let query = client
       .from('items')
-      .select(MINE_SELECT)
+      .select(MINE_LIST_SELECT)
       .eq('submitter_id', user.id)
       .eq('status', st)
       .order('created_at', { ascending: false });
@@ -1174,7 +1612,7 @@
       if (st === 'approved') {
         const fallback = await client
           .from('items')
-          .select(MINE_SELECT)
+          .select(MINE_LIST_SELECT)
           .eq('submitter_id', user.id)
           .eq('status', 'approved')
           .order('created_at', { ascending: false });
@@ -1184,6 +1622,20 @@
       return { error: error.message, data: [] };
     }
     return { data: data || [] };
+  }
+
+  async function loadMyItemById(id) {
+    if (!isConfigured()) return { error: '未配置后端', data: null };
+    if (!user || !id) return { error: '无效投稿', data: null };
+    const { data, error } = await client
+      .from('items')
+      .select(MINE_DETAIL_SELECT)
+      .eq('id', id)
+      .eq('submitter_id', user.id)
+      .maybeSingle();
+    if (error) return { error: error.message, data: null };
+    if (!data) return { error: '未找到投稿', data: null };
+    return { data };
   }
 
   function statusLabelMine(st) {
@@ -1283,7 +1735,11 @@
             ? '<div class="admin-actions desk-actions"><button type="button" class="admin-btn ok" data-mine-act="open" data-remote-id="' +
               escapeHtml(item.id) +
               '">在画廊查看</button></div>'
-            : '';
+            : mineTab === 'rejected'
+              ? '<div class="admin-actions desk-actions"><button type="button" class="admin-btn ok" data-mine-act="resubmit" data-remote-id="' +
+                escapeHtml(item.id) +
+                '">修改并重新投稿</button></div>'
+              : '';
         const desc = item.description
           ? '<p class="admin-desc desk-desc">' + escapeHtml(String(item.description).slice(0, 160)) + '</p>'
           : '';
@@ -1343,6 +1799,32 @@
       await upsertApprovedItemById(id);
     } else if (!skipGallery && status === 'removed') {
       removeRemoteFromGallery(id);
+    }
+    if (status === 'approved' || status === 'rejected' || status === 'removed') {
+      try {
+        const { data: row } = await client
+          .from('items')
+          .select('submitter_id, name')
+          .eq('id', id)
+          .maybeSingle();
+        if (row && row.submitter_id && row.submitter_id !== user.id) {
+          const label =
+            status === 'approved'
+              ? '投稿已通过'
+              : status === 'rejected'
+                ? '投稿未通过'
+                : '作品已下架';
+          await createNotification({
+            user_id: row.submitter_id,
+            type: status,
+            actor_id: user.id,
+            item_id: id,
+            body: label + (row.name ? ' · ' + row.name : '') + (status === 'rejected' && rejectReason ? '：' + rejectReason : '')
+          });
+        }
+      } catch (e) {
+        console.warn('[SG] 审核通知失败', e);
+      }
     }
     return {};
   }
@@ -1576,6 +2058,12 @@
       body: text
     });
     if (error) return { error: error.message };
+    createNotification({
+      user_id: recipientId,
+      type: 'dm',
+      actor_id: user.id,
+      body: '新私信：' + (text.length > 40 ? text.slice(0, 40) + '…' : text)
+    }).catch(() => {});
     return {};
   }
 
@@ -1719,6 +2207,9 @@
     if (!client || !user) return { error: '请先登录' };
     const { error } = await client.from('likes').insert({ user_id: user.id, item_id: remoteId });
     if (error && error.code !== '23505') return { error: error.message };
+    if (!error) {
+      notifyItemOwner(remoteId, 'like').catch(() => {});
+    }
     return {};
   }
 
@@ -1786,6 +2277,14 @@
     });
     if (error && error.code !== '23505') return { error: error.message };
     followingIds.add(targetUserId);
+    if (!error) {
+      createNotification({
+        user_id: targetUserId,
+        type: 'follow',
+        actor_id: user.id,
+        body: (getDisplayName() || '有人') + ' 关注了你'
+      }).catch(() => {});
+    }
     return {};
   }
 
@@ -1846,6 +2345,9 @@
       .select('id, item_id, user_id, body, created_at')
       .maybeSingle();
     if (error) return { error: error.message };
+    notifyItemOwner(itemId, 'comment', '新评论：' + (text.length > 40 ? text.slice(0, 40) + '…' : text)).catch(
+      () => {}
+    );
     return { data };
   }
 
@@ -2420,12 +2922,43 @@
                     '</div>'
                 );
               }
-            } else if (item.type === 'theme' && item.css) {
               previewBits.push(
-                '<pre class="admin-code desk-code">' +
+                '<div class="admin-bubble-preview bubble-card-shadow-host" data-admin-bubble="' +
+                  escapeHtml(item.id) +
+                  '"></div>'
+              );
+              if (item.css) {
+                previewBits.push(
+                  '<details class="admin-code-fold"><summary>查看 CSS 代码</summary><pre class="admin-code desk-code">' +
+                    escapeHtml(String(item.css).slice(0, 2000)) +
+                    (String(item.css).length > 2000 ? '…' : '') +
+                    '</pre></details>'
+                );
+              }
+            } else if (item.type === 'theme' && item.css) {
+              const colors = Array.isArray(item.colors) ? item.colors : [];
+              if (colors.length) {
+                previewBits.push(
+                  '<div class="theme-swatches-stage admin-theme-swatches" style="min-height:48px;margin:8px 0">' +
+                    colors
+                      .slice(0, 6)
+                      .map(
+                        (c) =>
+                          '<span class="theme-swatch" style="background:' +
+                          escapeHtml(c) +
+                          '" title="' +
+                          escapeHtml(c) +
+                          '"></span>'
+                      )
+                      .join('') +
+                    '</div>'
+                );
+              }
+              previewBits.push(
+                '<details class="admin-code-fold"><summary>查看主题 CSS</summary><pre class="admin-code desk-code">' +
                   escapeHtml(item.css.slice(0, 800)) +
                   (item.css.length > 800 ? '…' : '') +
-                  '</pre>'
+                  '</pre></details>'
               );
             } else if (item.css && item.type !== 'bubble') {
               previewBits.push(
@@ -2559,6 +3092,15 @@
             );
           })
           .join('');
+      // 气泡实机预览：innerHTML 之后挂 shadow
+      box.querySelectorAll('[data-admin-bubble]').forEach((host) => {
+        const id = host.getAttribute('data-admin-bubble');
+        const item = filtered.find((x) => String(x.id) === String(id));
+        if (!item) return;
+        if (typeof window.mountBubbleShadowPreview === 'function') {
+          window.mountBubbleShadowPreview(host, item.css || '', item.previews || []);
+        }
+      });
       bindPendingSelectionUI(box);
       return;
     }
@@ -2916,6 +3458,35 @@
     const dmBtn = document.getElementById('auth-dm-btn');
     if (dmBtn) dmBtn.addEventListener('click', () => openOwnerDm());
 
+    const notifBtn = document.getElementById('notif-btn');
+    if (notifBtn) {
+      notifBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleNotifPanel();
+      });
+    }
+    const notifMarkAll = document.getElementById('notif-mark-all');
+    if (notifMarkAll) {
+      notifMarkAll.addEventListener('click', (e) => {
+        e.stopPropagation();
+        markNotificationsRead();
+      });
+    }
+    const notifList = document.getElementById('notif-list');
+    if (notifList) {
+      notifList.addEventListener('click', (e) => {
+        const item = e.target.closest('[data-notif-id]');
+        if (!item) return;
+        handleNotifClick(item.dataset.notifId);
+      });
+    }
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('notif-wrap');
+      const panel = document.getElementById('notif-panel');
+      if (!wrap || !panel || panel.hidden) return;
+      if (!wrap.contains(e.target)) closeNotifPanel();
+    });
+
     const dmClose = document.getElementById('dm-modal-close');
     if (dmClose) dmClose.addEventListener('click', closeDmModal);
     const dmBackdrop = document.getElementById('dm-modal-backdrop');
@@ -3048,6 +3619,20 @@
             window.openModal(item);
           } else {
             toast('画廊里暂未找到该作品，可能尚未同步，请刷新后再试');
+          }
+        }
+        if (btn.dataset.mineAct === 'resubmit') {
+          const rid = btn.dataset.remoteId;
+          btn.disabled = true;
+          const { data, error } = await loadMyItemById(rid);
+          btn.disabled = false;
+          if (error || !data) {
+            toast('加载失败：' + (error || '未找到投稿'));
+            return;
+          }
+          switchMainTab('submit');
+          if (typeof window.prefillSubmitFromItem === 'function') {
+            window.prefillSubmitFromItem(data);
           }
         }
       });
@@ -3395,6 +3980,8 @@
     await loadBlocks();
     await loadFollows();
     await syncLikesFromCloud();
+    await refreshNotifications({ quiet: true });
+    startNotifPolling();
   }
 
   async function boot() {
@@ -3419,9 +4006,9 @@
         if (isStaff()) renderAdminList();
         else switchMainTab('gallery');
       }
-      // TOKEN_REFRESHED / INITIAL_SESSION 不整表重拉，避免 egress 暴涨
+      // 登录/登出不再强制整表重拉（公共画廊与登录态无关）
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
-        await loadApprovedIntoGallery({ force: true });
+        await loadApprovedIntoGallery({ force: false });
       }
     });
 
@@ -3429,7 +4016,7 @@
     user = data.session && data.session.user ? data.session.user : null;
     await refreshProfile();
     updateAuthUI();
-    await loadApprovedIntoGallery({ force: true });
+    await loadApprovedIntoGallery({ force: false });
     await onSessionReady();
   }
 
@@ -3472,6 +4059,7 @@
     isFollowing,
     adminDeleteUser,
     openOwnerDm,
+    refreshNotifications,
     getDisplayName: () => getDisplayName(),
     getProfile: () => profile
   };

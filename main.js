@@ -220,7 +220,18 @@ function getFiltered() {
 
   const typeRank = { bubble: 0, font: 1, card: 2, theme: 3, music: 4 };
   const byId = (a, b) => String(b.id).localeCompare(String(a.id));
-  if (state.sort === 'hot') {
+  const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
+
+  if (state.sort === 'weekly') {
+    list = list
+      .filter((item) => (item.createdAt || 0) >= weekAgo)
+      .slice()
+      .sort((a, b) => {
+        const likeDiff = (b.likeCount || 0) - (a.likeCount || 0);
+        if (likeDiff) return likeDiff;
+        return (b.createdAt || 0) - (a.createdAt || 0) || byId(a, b);
+      });
+  } else if (state.sort === 'hot') {
     list = list.slice().sort((a, b) => {
       const likeDiff = (b.likeCount || 0) - (a.likeCount || 0);
       if (likeDiff) return likeDiff;
@@ -390,7 +401,11 @@ async function renderCards() {
   });
   if (window.SG && typeof SG.ensureGalleryDetails === 'function') {
     try {
-      await SG.ensureGalleryDetails(detailItems);
+      const expanded = await SG.ensureGalleryDetails(detailItems);
+      if (expanded) {
+        await renderCards();
+        return;
+      }
     } catch (e) {
       console.warn('[SG] ensureGalleryDetails', e);
     }
@@ -411,6 +426,41 @@ async function renderCards() {
     grid.appendChild(card);
   });
 }
+
+function mountBubbleShadowPreview(host, css, previews) {
+  if (!host) return;
+  if (host.shadowRoot) {
+    while (host.shadowRoot.firstChild) host.shadowRoot.removeChild(host.shadowRoot.firstChild);
+  }
+  const shadow = host.shadowRoot || host.attachShadow({ mode: 'open' });
+  const previewMsgs =
+    previews && previews.length
+      ? previews.slice(0, 2)
+      : [
+          { t: 'sent', v: '发送消息示例' },
+          { t: 'received', v: '接收消息示例' }
+        ];
+  const msgsHtml = previewMsgs
+    .map(
+      (p) =>
+        `<div class="msg-row ${p.t}"><div class="message message-${p.t}">${esc(p.v)}</div></div>`
+    )
+    .join('');
+  shadow.innerHTML = `
+      <style>
+        :host{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:12px 14px;min-height:100%;box-sizing:border-box;}
+        .msg-row{display:flex;width:100%}
+        .msg-row.sent{justify-content:flex-end}
+        .msg-row.received{justify-content:flex-start}
+        .message{max-width:84%;font-size:12px;padding:6px 12px;border-radius:14px;line-height:1.4;word-break:break-word;position:relative;overflow:visible;}
+        .message-sent{background:#111;color:#fff;border-radius:14px 14px 3px 14px;}
+        .message-received{background:#fff;color:#111;border-radius:14px 14px 14px 3px;border:1px solid #ddd;}
+        ${css || ''}
+      </style>
+      ${msgsHtml}
+    `;
+}
+window.mountBubbleShadowPreview = mountBubbleShadowPreview;
 
 function makeItemCard(item, idx) {
   const card = document.createElement('div');
@@ -441,34 +491,7 @@ function makeItemCard(item, idx) {
 
   if (item.type === 'bubble') {
     const host = card.querySelector('.bubble-card-shadow-host');
-    const shadow = host.attachShadow({
-      mode: 'open'
-    });
-    const previewMsgs = (item.previews && item.previews.length) ?
-      item.previews.slice(0, 2) :
-      [{
-        t: 'sent',
-        v: '发送消息示例'
-      }, {
-        t: 'received',
-        v: '接收消息示例'
-      }];
-    const msgsHtml = previewMsgs.map(p =>
-      `<div class="msg-row ${p.t}"><div class="message message-${p.t}">${esc(p.v)}</div></div>`
-    ).join('');
-    shadow.innerHTML = `
-      <style>
-        :host{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:16px 18px;min-height:100%;box-sizing:border-box;}
-        .msg-row{display:flex;width:100%}
-        .msg-row.sent{justify-content:flex-end}
-        .msg-row.received{justify-content:flex-start}
-        .message{max-width:84%;font-size:12px;padding:6px 12px;border-radius:14px;line-height:1.4;word-break:break-word;position:relative;overflow:visible;}
-        .message-sent{background:#111;color:#fff;border-radius:14px 14px 3px 14px;}
-        .message-received{background:#fff;color:#111;border-radius:14px 14px 14px 3px;border:1px solid #ddd;}
-        ${item.css||''}
-      </style>
-      ${msgsHtml}
-    `;
+    mountBubbleShadowPreview(host, item.css, item.previews);
   }
 
   card.addEventListener('click', (e) => {
@@ -847,8 +870,13 @@ function finishModalExtras(item) {
 async function openModal(item) {
   if (window.SG && typeof SG.ensureGalleryDetails === 'function' && item) {
     try {
-      await SG.ensureGalleryDetails([item]);
-      const fresh = (window.ALL || []).find((it) => it && it.id === item.id);
+      await SG.ensureGalleryDetails([item], { eager: true });
+      let fresh = (window.ALL || []).find((it) => it && it.id === item.id);
+      if (!fresh && item.remoteId) {
+        fresh = (window.ALL || []).find(
+          (it) => it && String(it.remoteId) === String(item.remoteId)
+        );
+      }
       if (fresh) item = fresh;
     } catch (e) {
       console.warn('[SG] modal details', e);
@@ -1396,7 +1424,8 @@ if (filterResetBtn) {
       state.page = 1;
       renderCards();
     },
-    formatValue: (v) => ({ default: '默认', newest: '最新', hot: '最热' }[v] || v)
+    formatValue: (v) =>
+      ({ default: '默认', newest: '最新', hot: '最热', weekly: '本周' }[v] || v)
   });
 
   bindMenu(document.querySelector('.sg-menu[data-menu="pagesize"]'), {
@@ -1838,6 +1867,25 @@ window.doSubmit = async function(type) {
     SG.openAuth('login');
     return;
   }
+
+  const urls = collectSubmitUrls(rows);
+  if (urls.length) {
+    toast('正在检测直链…', 1200);
+    const results = await Promise.all(urls.map((u) => checkDirectUrl(u)));
+    const bad = results.filter((r) => !r.ok);
+    if (bad.length) {
+      const sample = bad[0].url.length > 60 ? bad[0].url.slice(0, 60) + '…' : bad[0].url;
+      const go = window.confirm(
+        '有 ' +
+          bad.length +
+          ' 条直链可能无法访问（例如：' +
+          sample +
+          '）。\n仍要提交吗？点「取消」可回去修改。'
+      );
+      if (!go) return;
+    }
+  }
+
   toast('正在提交…', 1500);
   const { error } = await SG.submitItems(rows);
   if (error) {
@@ -1845,6 +1893,169 @@ window.doSubmit = async function(type) {
     return;
   }
   toast('✅ 投稿成功，等待审核');
+};
+
+function collectSubmitUrls(rows) {
+  const out = [];
+  (rows || []).forEach((r) => {
+    if (!r) return;
+    if (r.font_url) out.push(r.font_url);
+    if (r.file_url) out.push(r.file_url);
+    if (Array.isArray(r.track_list)) {
+      r.track_list.forEach((t) => {
+        if (t && t.url) out.push(t.url);
+      });
+    }
+  });
+  return [...new Set(out.filter(Boolean))];
+}
+
+async function checkDirectUrl(url) {
+  const raw = String(url || '').trim();
+  if (!raw) return { ok: false, url: raw, reason: 'empty' };
+  if (!/^https?:\/\//i.test(raw)) {
+    return { ok: false, url: raw, reason: 'not-http' };
+  }
+  try {
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 8000) : null;
+    let res;
+    try {
+      res = await fetch(raw, {
+        method: 'HEAD',
+        mode: 'cors',
+        signal: ctrl ? ctrl.signal : undefined
+      });
+    } catch (e1) {
+      res = await fetch(raw, {
+        method: 'GET',
+        mode: 'cors',
+        signal: ctrl ? ctrl.signal : undefined,
+        headers: { Range: 'bytes=0-0' }
+      });
+    }
+    if (timer) clearTimeout(timer);
+    if (res && (res.ok || res.status === 206 || res.status === 304)) {
+      return { ok: true, url: raw, status: res.status };
+    }
+    // 跨域 opaque / 403 不一定代表失效，再试 no-cors GET
+    if (res && (res.type === 'opaque' || res.status === 0)) {
+      return { ok: true, url: raw, status: 0, soft: 'opaque' };
+    }
+    if (res && res.status >= 400 && res.status < 500 && res.status !== 403 && res.status !== 405) {
+      return { ok: false, url: raw, status: res.status };
+    }
+    return { ok: true, url: raw, status: res ? res.status : 0, soft: 'soft' };
+  } catch (err) {
+    try {
+      await fetch(raw, { method: 'GET', mode: 'no-cors' });
+      return { ok: true, url: raw, note: 'no-cors' };
+    } catch (e2) {
+      return { ok: false, url: raw, reason: (err && err.message) || 'fetch-failed' };
+    }
+  }
+}
+window.checkDirectUrl = checkDirectUrl;
+
+function setWarnChecks(type, warnings) {
+  const box = document.getElementById('warn-box-' + type);
+  if (!box) return;
+  const set = new Set(Array.isArray(warnings) ? warnings : []);
+  box.querySelectorAll('input[data-warn-id]').forEach((input) => {
+    input.checked = set.has(input.dataset.warnId);
+  });
+}
+
+window.prefillSubmitFromItem = function (item) {
+  if (!item || !item.type) {
+    toast('无法载入投稿数据');
+    return;
+  }
+  const type = item.type;
+  if (typeof window.switchForm === 'function') window.switchForm(type);
+
+  const setVal = (id, v) => {
+    const el = document.getElementById(id);
+    if (el) el.value = v == null ? '' : String(v);
+  };
+
+  if (type === 'bubble') {
+    setVal('bubble-name', item.name);
+    setVal('bubble-author', item.author_name || item.author || '');
+    setVal('bubble-series', item.series || '');
+    setVal('bubble-group-id', item.group_id || item.group || '');
+    setVal('bubble-css', item.css || '');
+    const demos = Array.isArray(item.previews) ? item.previews : [];
+    for (let i = 0; i < 4; i++) {
+      setVal('p' + (i + 1), demos[i] && demos[i].v ? demos[i].v : '');
+    }
+  } else if (type === 'font') {
+    setVal('font-name', item.name);
+    setVal('font-author', item.author_name || item.author || '');
+    setVal('font-url', item.font_url || item.url || '');
+  } else if (type === 'card') {
+    setVal('card-name', item.name);
+    setVal('card-author', item.author_name || item.author || '');
+    setVal('card-desc', item.description || item.desc || '');
+    setVal('card-file-url', item.file_url || item.file || '');
+  } else if (type === 'theme') {
+    setVal('theme-name', item.name);
+    setVal('theme-author', item.author_name || item.author || '');
+    setVal('theme-desc', item.description || item.desc || '');
+    setVal('theme-css', item.css || '');
+    setVal('theme-colors', Array.isArray(item.colors) ? item.colors.join(', ') : '');
+    setVal('theme-tags', Array.isArray(item.tags) ? item.tags.join(', ') : '');
+  } else if (type === 'music') {
+    const tracks = Array.isArray(item.track_list) ? item.track_list : null;
+    const isAlbum = !!(item.is_album || (tracks && tracks.length) || item.album_title);
+    if (typeof window.setMusicMode === 'function') window.setMusicMode(isAlbum ? 'album' : 'single');
+    if (isAlbum) {
+      setVal('music-album-title', item.album_title || item.name || '');
+      setVal('music-album-author', item.author_name || item.author || '');
+      setVal('music-album-group-id', item.group_id || item.group || '');
+      setVal('music-album-desc', item.description || item.desc || '');
+      const box = document.getElementById('music-tracks');
+      if (box) {
+        box.innerHTML = '';
+        const list = tracks && tracks.length ? tracks : [{ name: item.name, url: item.file_url || item.file || '', artist: item.artist || '', desc: '' }];
+        list.forEach(() => {
+          if (typeof window.addMusicTrackRow === 'function') window.addMusicTrackRow();
+        });
+        const cards = [...box.querySelectorAll('.music-track-card')];
+        list.forEach((t, i) => {
+          const card = cards[i];
+          if (!card || !t) return;
+          const nameEl = card.querySelector('.music-inp-name');
+          const urlEl = card.querySelector('.music-inp-url');
+          const artistEl = card.querySelector('.music-inp-artist');
+          const durEl = card.querySelector('.music-inp-dur');
+          const descEl = card.querySelector('.music-inp-desc');
+          if (nameEl) nameEl.value = t.name || '';
+          if (urlEl) urlEl.value = t.url || t.file || '';
+          if (artistEl) artistEl.value = t.artist || '';
+          if (durEl) durEl.value = t.duration || '';
+          if (descEl) descEl.value = t.desc || '';
+        });
+      }
+    } else {
+      setVal('music-name', item.name);
+      setVal('music-author', item.author_name || item.author || '');
+      setVal('music-artist', item.artist || '');
+      setVal('music-desc', item.description || item.desc || '');
+      setVal('music-file-url', item.file_url || item.file || '');
+    }
+  }
+
+  setWarnChecks(type, item.warnings);
+  toast('已填入被拒稿内容，修改后可重新提交');
+  const form = document.getElementById('form-' + type);
+  if (form && typeof form.scrollIntoView === 'function') {
+    try {
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (e) {
+      form.scrollIntoView(true);
+    }
+  }
 };
 
 (function() {
@@ -1953,3 +2164,54 @@ window.SG_applyGalleryItems = function(extraItems) {
 window.SG_remergeGallery = function () {
   window.SG_applyGalleryItems(window.SG_LAST_REMOTE_ITEMS || []);
 };
+
+(function bindSubmitLinkChecks() {
+  function ensureHint(input) {
+    if (!input) return null;
+    let hint = input.parentElement && input.parentElement.querySelector('.sv-link-check');
+    if (!hint) {
+      hint = document.createElement('div');
+      hint.className = 'sv-link-check';
+      hint.hidden = true;
+      if (input.parentElement) input.parentElement.appendChild(hint);
+    }
+    return hint;
+  }
+
+  async function runCheck(input) {
+    const hint = ensureHint(input);
+    if (!hint) return;
+    const url = (input.value || '').trim();
+    if (!url) {
+      hint.hidden = true;
+      return;
+    }
+    hint.hidden = false;
+    hint.className = 'sv-link-check pending';
+    hint.textContent = '正在检测直链…';
+    const res = await checkDirectUrl(url);
+    if (res.ok) {
+      hint.className = 'sv-link-check ok';
+      hint.textContent = '直链看起来可以访问';
+    } else {
+      hint.className = 'sv-link-check bad';
+      hint.textContent = '直链可能无法访问，请确认是可直连的 https 链接';
+    }
+  }
+
+  const ids = ['font-url', 'card-file-url', 'music-file-url'];
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('blur', () => runCheck(el));
+  });
+
+  document.addEventListener(
+    'blur',
+    (e) => {
+      const t = e.target;
+      if (t && t.classList && t.classList.contains('music-inp-url')) runCheck(t);
+    },
+    true
+  );
+})();

@@ -51,10 +51,29 @@
           <button type="button" class="sg-menu-option active" role="option" data-value="default" aria-selected="true">默认</button>
           <button type="button" class="sg-menu-option" role="option" data-value="newest" aria-selected="false">最新</button>
           <button type="button" class="sg-menu-option" role="option" data-value="hot" aria-selected="false">最热</button>
+          <button type="button" class="sg-menu-option" role="option" data-value="weekly" aria-selected="false">本周</button>
         </div>
       </div>
     </div>
     <div class="header-tools">
+      <div class="notif-wrap" id="notif-wrap" hidden>
+        <button type="button" class="notif-btn" id="notif-btn" title="站内通知" aria-label="站内通知" aria-expanded="false" aria-haspopup="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+          <span class="notif-badge" id="notif-badge" hidden>0</span>
+        </button>
+        <div class="notif-panel" id="notif-panel" hidden role="menu" aria-label="通知列表">
+          <div class="notif-panel-head">
+            <span class="notif-panel-title">通知</span>
+            <button type="button" class="notif-mark-all" id="notif-mark-all">全部已读</button>
+          </div>
+          <div class="notif-list" id="notif-list">
+            <div class="notif-empty">暂无通知</div>
+          </div>
+        </div>
+      </div>
       <button class="theme-toggle" id="theme-toggle" title="切换日夜模式" aria-label="切换日夜模式">
         <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
           <circle cx="12" cy="12" r="5" />

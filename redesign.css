@@ -29,9 +29,13 @@
   --radius: 4px;
   --radius-sm: 3px;
   --radius-xs: 2px;
-  --hh: 56px;
+  --hh: 48px;
   --sidebar: 100%;
   --page-x: clamp(16px, 3vw, 40px);
+  --fs-base: 13px;
+  --fs-sm: 11px;
+  --fs-xs: 10px;
+  --fs-card-title: 12px;
   --font-ui: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-display: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -77,6 +81,7 @@
 
 html, body {
   font-family: var(--font-ui);
+  font-size: var(--fs-base);
   color: var(--text);
   background: var(--bg);
   letter-spacing: -.01em;
@@ -180,7 +185,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 .brand-name,
 .brand span.brand-name {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: -.02em;
   text-transform: none;
@@ -213,8 +218,8 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 
 .nav-btn {
   border-radius: 0 !important;
-  padding: 8px 14px !important;
-  font-size: 13px !important;
+  padding: 6px 12px !important;
+  font-size: var(--fs-sm) !important;
   font-weight: 600 !important;
   color: var(--text-muted) !important;
   background: transparent !important;
@@ -452,8 +457,8 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
   border-radius: 0 !important;
   border: 1px solid var(--border) !important;
   background: transparent !important;
-  padding: 5px 10px !important;
-  font-size: 12px !important;
+  padding: 4px 9px !important;
+  font-size: var(--fs-sm) !important;
   font-weight: 600 !important;
   color: var(--text-sub) !important;
   gap: 6px !important;
@@ -508,7 +513,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  padding: 10px 0 !important;
+  padding: 8px 0 !important;
   margin: 0 !important;
   border: none !important;
   border-bottom: 1px solid var(--border) !important;
@@ -520,7 +525,7 @@ body[data-app-tab]:not([data-app-tab="gallery"]) .header-gallery-tools {
 .toolbar:hover { transform: none !important; box-shadow: none !important; }
 
 .toolbar-info {
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-sub);
   background: none !important;
@@ -690,16 +695,16 @@ select.pager-size,
   color: var(--paper);
 }
 
-/* ========== 卡片网格：小而密 ========== */
+/* ========== 卡片网格：略疏、字更小 ========== */
 .card-grid-wrapper {
-  padding: 14px var(--page-x) 56px !important;
+  padding: 16px var(--page-x) 56px !important;
   flex: 1;
 }
 
 .card-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-  gap: 10px !important;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important;
+  gap: 14px !important;
 }
 
 .item-card {
@@ -748,19 +753,19 @@ select.pager-size,
 /* —— 类型可辨：结构差异 —— */
 .card-stage {
   position: relative;
-  min-height: 96px;
-  max-height: 120px;
+  min-height: 84px;
+  max-height: 108px;
   background: var(--stage);
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 12px;
+  padding: 10px;
   flex: 1;
   overflow: hidden;
 }
 
-.item-card:nth-child(5n) .card-stage { min-height: 96px; }
+.item-card:nth-child(5n) .card-stage { min-height: 84px; }
 
 /* 气泡：聊天区感 */
 .card-type-bubble .card-stage {
@@ -1243,7 +1248,7 @@ select.pager-size,
 .card-top { align-items: flex-start; gap: 6px; }
 
 .card-name {
-  font-size: 13px !important;
+  font-size: var(--fs-card-title) !important;
   font-weight: 700 !important;
   letter-spacing: -.015em;
   line-height: 1.25 !important;
@@ -4611,7 +4616,7 @@ button.card-dl-btn {
 
 /* ========== 移动端整体 ========== */
 @media (max-width: 768px) {
-  :root { --page-x: 12px; --hh: 52px; }
+  :root { --page-x: 12px; --hh: 46px; }
 
   .filter-rail.sidebar,
   .sidebar.filter-rail { display: none !important; }
@@ -4996,4 +5001,154 @@ button.card-dl-btn {
     max-height: min(86dvh, 680px);
   }
 }
+
+/* —— 审核气泡实机预览 —— */
+.admin-bubble-preview,
+.admin-bubble-preview.bubble-card-shadow-host {
+  margin: 8px 0 10px;
+  min-height: 88px;
+  max-height: 140px;
+  border: 1px solid var(--border);
+  background: var(--stage);
+  overflow: hidden;
+}
+.admin-code-fold {
+  margin: 6px 0 0;
+}
+.admin-code-fold > summary {
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: .04em;
+  list-style: none;
+  user-select: none;
+}
+.admin-code-fold > summary::-webkit-details-marker { display: none; }
+.admin-code-fold[open] > summary { color: var(--ink); margin-bottom: 6px; }
+
+/* —— 站内通知 —— */
+.notif-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.notif-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+  padding: 0;
+}
+.notif-btn svg { width: 16px; height: 16px; }
+.notif-btn:hover { border-color: var(--ink); background: var(--surface-2); }
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+.notif-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 120;
+  width: min(340px, calc(100vw - 24px));
+  max-height: min(420px, 70vh);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.notif-panel[hidden] { display: none !important; }
+.notif-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.notif-panel-title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.notif-mark-all {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+.notif-mark-all:hover { color: var(--ink); }
+.notif-list {
+  overflow: auto;
+  flex: 1;
+  padding: 4px;
+}
+.notif-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+.notif-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 10px 10px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.notif-item:last-child { border-bottom: none; }
+.notif-item:hover { background: var(--surface-2); }
+.notif-item.unread { background: var(--accent-bg); }
+.notif-item-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.notif-item-meta {
+  margin-top: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.sv-link-check {
+  margin-top: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.sv-link-check.ok { color: #2a7a3a; }
+.sv-link-check.bad { color: #a33; }
+.sv-link-check.pending { color: var(--text-muted); }
+.dark .sv-link-check.ok { color: #7dba88; }
+.dark .sv-link-check.bad { color: #e08a8a; }
 
