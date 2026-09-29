@@ -25,7 +25,26 @@
     return c.maintenance === true;
   }
 
+  function isMigrateNotice() {
+    const c = window.SG_CONFIG || {};
+    return c.migrateNotice === true;
+  }
+
+  function migrateCopy() {
+    const c = window.SG_CONFIG || {};
+    return {
+      title: c.migrateTitle || '画廊已搬家',
+      message:
+        c.migrateMessage ||
+        '本站已迁移到新地址。请前往新站登录、注册与投稿；此页仅保留浏览。',
+      url: c.migrateUrl || 'https://gallery-cf.milk-gallery.workers.dev',
+      cta: c.migrateCta || '前往新站',
+      stay: c.migrateStay || '先逛旧站'
+    };
+  }
+
   function maintenanceCopy() {
+    if (isMigrateNotice()) return migrateCopy();
     const c = window.SG_CONFIG || {};
     return {
       title: c.maintenanceTitle || '网站维护升级中',
@@ -40,8 +59,15 @@
     const modal = document.getElementById('maint-modal');
     const title = document.getElementById('maint-modal-title');
     const body = document.getElementById('maint-modal-body');
+    const go = document.getElementById('maint-modal-go');
+    const stay = document.getElementById('maint-modal-ok');
     if (title) title.textContent = copy.title;
     if (body) body.textContent = copy.message;
+    if (go) {
+      go.href = copy.url || 'https://gallery-cf.milk-gallery.workers.dev';
+      go.textContent = copy.cta || '前往新站';
+    }
+    if (stay) stay.textContent = copy.stay || '先逛旧站';
     if (modal) {
       modal.hidden = false;
       modal.classList.add('open');
@@ -59,15 +85,42 @@
   }
 
   function applyMaintenanceUI() {
-    const on = isMaintenance();
-    document.body.classList.toggle('is-maintenance', on);
+    const migrate = isMigrateNotice();
+    const on = isMaintenance() || migrate;
+    document.body.classList.toggle('is-maintenance', isMaintenance());
+    document.body.classList.toggle('is-migrate', migrate);
     const banner = document.getElementById('sg-maint-banner');
-    if (banner) banner.hidden = !on;
+    if (banner) {
+      banner.hidden = !on;
+      const strong = banner.querySelector('strong');
+      const text = document.getElementById('sg-maint-banner-text');
+      const btn = document.getElementById('sg-maint-banner-btn');
+      if (migrate) {
+        if (strong) strong.textContent = '已搬家';
+        if (text) text.textContent = '画廊已迁移到新站，登录与投稿请前往新地址。';
+        if (btn) btn.textContent = '查看新站';
+      }
+    }
+    const submitNav = document.getElementById('nav-submit');
+    if (submitNav) submitNav.hidden = migrate;
     const loginBtn = document.getElementById('auth-login-btn');
-    if (loginBtn && on) {
+    if (migrate) {
+      if (loginBtn) loginBtn.hidden = true;
+      const menu = document.getElementById('auth-user-menu');
+      if (menu) menu.hidden = true;
+      const notifWrap = document.getElementById('notif-wrap');
+      if (notifWrap) notifWrap.hidden = true;
+      const mineTab = document.getElementById('nav-mine');
+      if (mineTab) mineTab.hidden = true;
+      const adminTab = document.getElementById('nav-admin');
+      if (adminTab) adminTab.hidden = true;
+      return;
+    }
+    if (loginBtn && isMaintenance()) {
       loginBtn.textContent = '维护中';
       loginBtn.classList.add('is-maint');
       loginBtn.title = '维护期间暂停登录';
+      loginBtn.hidden = false;
     } else if (loginBtn && !user) {
       loginBtn.textContent = '登录';
       loginBtn.classList.remove('is-maint');
@@ -945,6 +998,12 @@
       setupBanner.hidden = isConfigured();
     }
 
+    // 引流模式：旧站不展示登录/账号/投稿相关入口
+    if (isMigrateNotice()) {
+      applyMaintenanceUI();
+      return;
+    }
+
     if (!loginBtn || !menu) return;
 
     if (user) {
@@ -1495,7 +1554,7 @@
   }
 
   function openAuth(mode) {
-    if (isMaintenance()) {
+    if (isMigrateNotice() || isMaintenance()) {
       openMaintenance();
       return;
     }
@@ -1567,7 +1626,7 @@
   }
 
   async function handleAuthSubmit() {
-    if (isMaintenance()) {
+    if (isMigrateNotice() || isMaintenance()) {
       openMaintenance();
       return;
     }
@@ -1629,7 +1688,7 @@
   }
 
   async function submitItems(rows) {
-    if (isMaintenance()) return { error: '网站维护中，暂时无法投稿' };
+    if (isMigrateNotice() || isMaintenance()) return { error: '请前往新站投稿' };
     if (!isConfigured()) return { error: '未配置 Supabase' };
     if (!user) return { error: '请先登录' };
     if (profile && profile.is_banned) return { error: '账号已被封禁，无法投稿' };
@@ -4061,8 +4120,8 @@
   async function boot() {
     bindUI();
     applyMaintenanceUI();
-    if (isMaintenance()) {
-      // 进入站点先说明原因；可关掉后继续逛画廊
+    if (isMigrateNotice() || isMaintenance()) {
+      // 进入站点先说明搬家 / 维护
       setTimeout(() => openMaintenance(), 400);
     }
     if (!ready) {
@@ -4102,6 +4161,7 @@
   window.SG = {
     isConfigured,
     isMaintenance,
+    isMigrateNotice,
     openMaintenance,
     getUser,
     isStaff,

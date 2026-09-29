@@ -4291,6 +4291,11 @@ button.card-dl-btn {
   color: var(--text-sub);
   white-space: pre-wrap;
 }
+.maint-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .maint-modal-ok {
   width: 100%;
   min-height: 44px;
@@ -4298,11 +4303,37 @@ button.card-dl-btn {
   background: var(--ink);
   color: var(--paper);
   font: inherit;
-  font-size: 13px;
   font-weight: 700;
+  letter-spacing: .02em;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 .maint-modal-ok:hover { opacity: .92; }
+.maint-modal-stay {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-sub);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.maint-modal-stay:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+body.is-migrate .auth-header,
+body.is-migrate #notif-wrap,
+body.is-migrate #nav-submit,
+body.is-migrate #nav-mine,
+body.is-migrate #nav-admin {
+  display: none !important;
+}
 
 .auth-login-btn.is-maint {
   opacity: .85;

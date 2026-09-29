@@ -22,7 +22,7 @@
     </div>
     <nav class="header-nav" aria-label="主导航">
       <div class="nav-btn active" data-tab="gallery">画廊</div>
-      <div class="nav-btn" data-tab="submit">投稿</div>
+      <div class="nav-btn" data-tab="submit" id="nav-submit" hidden>投稿</div>
       <div class="nav-btn" data-tab="mine" id="nav-mine" hidden>我的</div>
       <div class="nav-btn" data-tab="admin" id="nav-admin" hidden>管理</div>
     </nav>
@@ -113,9 +113,9 @@
   </div>
 
   <div class="sg-maint-banner" id="sg-maint-banner" hidden role="status">
-    <strong>维护中</strong>
-    <span id="sg-maint-banner-text">网站正在升级迁移，登录与投稿暂不可用；画廊仍可浏览。</span>
-    <button type="button" class="sg-maint-banner-btn" id="sg-maint-banner-btn">查看说明</button>
+    <strong>已搬家</strong>
+    <span id="sg-maint-banner-text">画廊已迁移到新站，登录与投稿请前往新地址。</span>
+    <button type="button" class="sg-maint-banner-btn" id="sg-maint-banner-btn">查看新站</button>
   </div>
 
   <div class="workspace" id="gallery-view">
@@ -883,10 +883,13 @@
       <div class="maint-modal" id="maint-modal" aria-hidden="true" hidden>
         <div class="maint-modal-backdrop" id="maint-modal-backdrop"></div>
         <div class="maint-modal-card" role="dialog" aria-labelledby="maint-modal-title" aria-modal="true">
-          <p class="maint-kicker">MAINTENANCE</p>
-          <h2 id="maint-modal-title">网站维护升级中</h2>
+          <p class="maint-kicker">MOVED</p>
+          <h2 id="maint-modal-title">画廊已搬家</h2>
           <p class="maint-modal-body" id="maint-modal-body"></p>
-          <button type="button" class="maint-modal-ok" id="maint-modal-ok">知道了，先去逛画廊</button>
+          <div class="maint-modal-actions">
+            <a class="maint-modal-ok" id="maint-modal-go" href="https://gallery-cf.milk-gallery.workers.dev" target="_blank" rel="noopener noreferrer">前往新站</a>
+            <button type="button" class="maint-modal-stay" id="maint-modal-ok">先逛旧站</button>
+          </div>
         </div>
       </div>
 

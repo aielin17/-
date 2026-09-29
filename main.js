@@ -1274,11 +1274,11 @@ function switchAppTab(tab) {
   if (
     tab === 'submit' &&
     window.SG &&
-    typeof SG.isMaintenance === 'function' &&
-    SG.isMaintenance()
+    ((typeof SG.isMigrateNotice === 'function' && SG.isMigrateNotice()) ||
+      (typeof SG.isMaintenance === 'function' && SG.isMaintenance()))
   ) {
     if (typeof SG.openMaintenance === 'function') SG.openMaintenance();
-    else if (typeof toast === 'function') toast('网站维护中，暂时无法投稿');
+    else if (typeof toast === 'function') toast('请前往新站投稿');
     return;
   }
 
@@ -1869,9 +1869,13 @@ window.doSubmit = async function(type) {
   if (!collected) return;
 
   const { rows } = collected;
-  if (window.SG && typeof SG.isMaintenance === 'function' && SG.isMaintenance()) {
+  if (
+    window.SG &&
+    ((typeof SG.isMigrateNotice === 'function' && SG.isMigrateNotice()) ||
+      (typeof SG.isMaintenance === 'function' && SG.isMaintenance()))
+  ) {
     if (typeof SG.openMaintenance === 'function') SG.openMaintenance();
-    else toast('网站维护中，暂时无法投稿');
+    else toast('请前往新站投稿');
     return;
   }
   if (!window.SG || !SG.isConfigured || !SG.isConfigured()) {
