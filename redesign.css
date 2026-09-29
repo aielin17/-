@@ -4197,9 +4197,115 @@ button.card-dl-btn {
 }
 
 .announce-modal-backdrop,
-.auth-modal-backdrop {
+.auth-modal-backdrop,
+.maint-modal-backdrop {
   background: rgba(0, 0, 0, .5);
   backdrop-filter: none;
+}
+
+/* —— 维护横幅 / 弹窗 —— */
+.sg-maint-banner {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+  border-bottom: 1px solid var(--border-strong);
+}
+.sg-maint-banner[hidden] { display: none !important; }
+.sg-maint-banner strong {
+  letter-spacing: .06em;
+  font-size: 12px;
+}
+.sg-maint-banner-btn {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.45);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.sg-maint-banner-btn:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.maint-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 4200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.maint-modal.open {
+  display: flex !important;
+}
+.maint-modal[hidden] { display: none !important; }
+.maint-modal.open[hidden] { display: flex !important; }
+.maint-modal-backdrop {
+  position: absolute;
+  inset: 0;
+}
+.maint-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  padding: 24px 22px 18px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-pop, 0 16px 40px rgba(0,0,0,.18));
+}
+.maint-kicker {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+.maint-modal-card h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+.maint-modal-body {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-sub);
+  white-space: pre-wrap;
+}
+.maint-modal-ok {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.maint-modal-ok:hover { opacity: .92; }
+
+.auth-login-btn.is-maint {
+  opacity: .85;
 }
 
 .announce-modal {

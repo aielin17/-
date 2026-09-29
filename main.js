@@ -1271,6 +1271,17 @@ document.getElementById('search-input').addEventListener('input', function() {
 });
 
 function switchAppTab(tab) {
+  if (
+    tab === 'submit' &&
+    window.SG &&
+    typeof SG.isMaintenance === 'function' &&
+    SG.isMaintenance()
+  ) {
+    if (typeof SG.openMaintenance === 'function') SG.openMaintenance();
+    else if (typeof toast === 'function') toast('网站维护中，暂时无法投稿');
+    return;
+  }
+
   document.querySelectorAll('.nav-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.tab === tab);
   });
@@ -1858,6 +1869,11 @@ window.doSubmit = async function(type) {
   if (!collected) return;
 
   const { rows } = collected;
+  if (window.SG && typeof SG.isMaintenance === 'function' && SG.isMaintenance()) {
+    if (typeof SG.openMaintenance === 'function') SG.openMaintenance();
+    else toast('网站维护中，暂时无法投稿');
+    return;
+  }
   if (!window.SG || !SG.isConfigured || !SG.isConfigured()) {
     toast('站点未配置后端，暂时无法投稿');
     return;

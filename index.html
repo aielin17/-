@@ -112,6 +112,12 @@
     还差一步：打开 <code>config.js</code>，填入你的 Supabase Project URL 和 anon key，保存后刷新页面。
   </div>
 
+  <div class="sg-maint-banner" id="sg-maint-banner" hidden role="status">
+    <strong>维护中</strong>
+    <span id="sg-maint-banner-text">网站正在升级迁移，登录与投稿暂不可用；画廊仍可浏览。</span>
+    <button type="button" class="sg-maint-banner-btn" id="sg-maint-banner-btn">查看说明</button>
+  </div>
+
   <div class="workspace" id="gallery-view">
 
     <div class="main">
@@ -871,6 +877,16 @@
           </div>
           <button type="button" class="auth-submit" id="auth-submit-btn" data-mode="login">登录</button>
           <button type="button" class="auth-switch" id="auth-switch-btn" data-mode="signup">没有账号？去注册</button>
+        </div>
+      </div>
+
+      <div class="maint-modal" id="maint-modal" aria-hidden="true" hidden>
+        <div class="maint-modal-backdrop" id="maint-modal-backdrop"></div>
+        <div class="maint-modal-card" role="dialog" aria-labelledby="maint-modal-title" aria-modal="true">
+          <p class="maint-kicker">MAINTENANCE</p>
+          <h2 id="maint-modal-title">网站维护升级中</h2>
+          <p class="maint-modal-body" id="maint-modal-body"></p>
+          <button type="button" class="maint-modal-ok" id="maint-modal-ok">知道了，先去逛画廊</button>
         </div>
       </div>
 

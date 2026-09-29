@@ -20,6 +20,61 @@
     return !!(ready && client);
   }
 
+  function isMaintenance() {
+    const c = window.SG_CONFIG || {};
+    return c.maintenance === true;
+  }
+
+  function maintenanceCopy() {
+    const c = window.SG_CONFIG || {};
+    return {
+      title: c.maintenanceTitle || '网站维护升级中',
+      message:
+        c.maintenanceMessage ||
+        '网站正在维护升级，暂时无法登录、注册或投稿。你可以继续浏览画廊，请稍后再来。'
+    };
+  }
+
+  function openMaintenance() {
+    const copy = maintenanceCopy();
+    const modal = document.getElementById('maint-modal');
+    const title = document.getElementById('maint-modal-title');
+    const body = document.getElementById('maint-modal-body');
+    if (title) title.textContent = copy.title;
+    if (body) body.textContent = copy.message;
+    if (modal) {
+      modal.hidden = false;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function closeMaintenance() {
+    const modal = document.getElementById('maint-modal');
+    if (modal) {
+      modal.classList.remove('open');
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function applyMaintenanceUI() {
+    const on = isMaintenance();
+    document.body.classList.toggle('is-maintenance', on);
+    const banner = document.getElementById('sg-maint-banner');
+    if (banner) banner.hidden = !on;
+    const loginBtn = document.getElementById('auth-login-btn');
+    if (loginBtn && on) {
+      loginBtn.textContent = '维护中';
+      loginBtn.classList.add('is-maint');
+      loginBtn.title = '维护期间暂停登录';
+    } else if (loginBtn && !user) {
+      loginBtn.textContent = '登录';
+      loginBtn.classList.remove('is-maint');
+      loginBtn.title = '';
+    }
+  }
+
   function getUser() {
     return user;
   }
@@ -876,6 +931,7 @@
   }
 
   function updateAuthUI() {
+    applyMaintenanceUI();
     const loginBtn = document.getElementById('auth-login-btn');
     const menu = document.getElementById('auth-user-menu');
     const toggle = document.getElementById('auth-account-toggle');
@@ -1439,6 +1495,10 @@
   }
 
   function openAuth(mode) {
+    if (isMaintenance()) {
+      openMaintenance();
+      return;
+    }
     const modal = document.getElementById('auth-modal');
     if (!modal) return;
     modal.classList.add('open');
@@ -1507,6 +1567,10 @@
   }
 
   async function handleAuthSubmit() {
+    if (isMaintenance()) {
+      openMaintenance();
+      return;
+    }
     if (!isConfigured()) {
       showAuthError('请先在 config.js 里填写 Supabase 地址和密钥');
       return;
@@ -1565,6 +1629,7 @@
   }
 
   async function submitItems(rows) {
+    if (isMaintenance()) return { error: '网站维护中，暂时无法投稿' };
     if (!isConfigured()) return { error: '未配置 Supabase' };
     if (!user) return { error: '请先登录' };
     if (profile && profile.is_banned) return { error: '账号已被封禁，无法投稿' };
@@ -3413,6 +3478,15 @@
   }
 
   function bindUI() {
+    applyMaintenanceUI();
+
+    const maintOk = document.getElementById('maint-modal-ok');
+    if (maintOk) maintOk.addEventListener('click', closeMaintenance);
+    const maintBackdrop = document.getElementById('maint-modal-backdrop');
+    if (maintBackdrop) maintBackdrop.addEventListener('click', closeMaintenance);
+    const maintBannerBtn = document.getElementById('sg-maint-banner-btn');
+    if (maintBannerBtn) maintBannerBtn.addEventListener('click', openMaintenance);
+
     const loginBtn = document.getElementById('auth-login-btn');
     if (loginBtn) loginBtn.addEventListener('click', () => openAuth('login'));
 
@@ -3986,6 +4060,11 @@
 
   async function boot() {
     bindUI();
+    applyMaintenanceUI();
+    if (isMaintenance()) {
+      // 进入站点先说明原因；可关掉后继续逛画廊
+      setTimeout(() => openMaintenance(), 400);
+    }
     if (!ready) {
       updateAuthUI();
       console.warn('[SG] 未配置 config.js');
@@ -4022,6 +4101,8 @@
 
   window.SG = {
     isConfigured,
+    isMaintenance,
+    openMaintenance,
     getUser,
     isStaff,
     isOwner,
